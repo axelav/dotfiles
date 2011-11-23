@@ -22,7 +22,7 @@ set number
 syntax on
 " Highlight current line
 set cursorline
-" Make tabs as wide as two spaces
+" Make tabs as wide as four spaces
 set tabstop=4
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -50,10 +50,10 @@ set showmode
 " Show the filename in the window titlebar
 set title
 " Use relative line numbers
-set relativenumber
-au BufReadPost * set relativenumber
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
+" # set relativenumber "
+" # au BufReadPost * set relativenumber"
+" Start scrolling five lines before the horizontal window border
+set scrolloff=5
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
