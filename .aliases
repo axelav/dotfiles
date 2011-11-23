@@ -5,7 +5,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # List all files colorized in long format, including dot files
-alias la="ls -Gla"
+alias ls='ls -Glap'
 
 # List only directories
 alias lsd='ls -l | grep "^d"'
@@ -50,11 +50,39 @@ alias c="tr -d '\n' | pbcopy"
 alias cleanup="find . -name '*.DS_Store' -type f -ls -delete"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
-alias p="cd ~/Projects"
+alias d="cd ~/Dropbox"
+alias p="cd ~/Dropbox/projects"
 alias g="git"
 alias v="vim"
 alias m="mate ."
+
+# Git shortcuts
+alias ga='git add'
+alias gp='git push'
+alias gl='git log'
+alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gb='git branch'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+
+# gco      => git checkout master
+# gco bugs => git checkout bugs
+function gco {
+  if [ -z "$1" ]; then
+    git checkout master
+  else
+    git checkout $1
+  fi
+}
+
+# View all processes
+alias ps='ps -ax'
 
 # File size
 alias fs="stat -f \"%z bytes\""
