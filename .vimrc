@@ -20,10 +20,15 @@ set noeol
 set number
 " Enable syntax highlighting
 syntax on
+" Treat <li> and <p> tags like the block tags they are
+let g:html_indent_tags = 'li\|p'
 " Highlight current line
 set cursorline
 " Make tabs as wide as four spaces
 set tabstop=4
+" Open new line to the same indent as the current line"
+set autoindent
+set smartindent
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
