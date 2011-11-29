@@ -113,7 +113,7 @@ alias plistbuddy="/usr/libexec/PlistBuddy"
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do alias "$method"="lwp-request -m '$method'"; done
 
 # Recursively find all .m3u files & delete them verbosely
-alias m3u="find . -name '*.png' -print0 | xargs -0 rm -v"
+alias m3u="find . -name '*.m3u' -print0 | xargs -0 rm -v"
 
 # Stuff I never really use but cannot delete either because of http://xkcd.com/530/
 alias stfu="osascript -e 'set volume output muted true'"
