@@ -55,6 +55,7 @@ alias p="cd ~/Dropbox/projects"
 alias g="git"
 alias v="vim"
 alias m="mate ."
+alias s="subl ."
 
 # Git shortcuts
 alias ga='git add'
