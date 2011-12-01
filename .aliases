@@ -57,6 +57,10 @@ alias v="vim"
 alias m="mate ."
 alias s="subl ."
 
+# Archive & extract archives
+alias z="tar -cvzf" #new_file *.txt
+alias uz="tar -zxvf"
+
 # Git shortcuts
 alias ga='git add'
 alias gp='git push'
