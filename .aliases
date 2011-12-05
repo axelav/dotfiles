@@ -57,6 +57,8 @@ alias v="vim"
 alias m="mate ."
 alias s="subl ."
 
+alias dev="cd /Volumes/dev.buddymedia.com/"
+
 # Archive & extract archives
 alias z="tar -cvzf" #new_file *.txt
 alias uz="tar -zxvf"
