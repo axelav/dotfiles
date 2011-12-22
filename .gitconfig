@@ -1,3 +1,9 @@
+[user]
+	name = Axel Anderson
+	email = EMAIL
+[github]
+	user = axelav
+	token = TOKEN
 [apply]
 	whitespace = fix
 [core]
