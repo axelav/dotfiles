@@ -15,6 +15,10 @@ let mapleader=","
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+set undodir=~/.vim/undo
 
 " Enable line numbers
 set number
@@ -62,10 +66,10 @@ set scrolloff=5
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
-  let save_cursor = getpos(".")
-  let old_query = getreg('/')
-  :%s/\s\+$//e
-  call setpos('.', save_cursor)
-  call setreg('/', old_query)
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace ()<CR>
