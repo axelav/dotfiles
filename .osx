@@ -157,3 +157,6 @@ unset file
 
 # Kill affected applications
 for app in Safari Finder Dock Mail; do killall "$app"; done
+
+# Create symlink to WebKit JavaScript interactive console
+sudo ln -F /System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc /usr/bin
