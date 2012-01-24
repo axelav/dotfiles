@@ -3,6 +3,11 @@ function md() {
 	mkdir -p "$@" && cd "$@"
 }
 
+# Move files to trash
+function trash() {
+	mv "$@" ~/.Trash;
+}
+
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
 	local port="${1:-8000}"
