@@ -8,6 +8,11 @@ function trash() {
 	mv "$@" ~/.Trash;
 }
 
+# Copy style guide & create new css file
+function sg() {
+	cp /Volumes/dev.buddymedia.com/Style-Guide/styleguide.css "$@";
+}
+
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
 	local port="${1:-8000}"
