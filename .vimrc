@@ -18,7 +18,9 @@ set noeol
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
-set undodir=~/.vim/undo
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
 
 " Enable line numbers
 set number
@@ -63,7 +65,6 @@ set title
 " # au BufReadPost * set relativenumber"
 " Start scrolling five lines before the horizontal window border
 set scrolloff=5
-
 " Strip trailing whitespace (,ss)
 function! StripWhitespace ()
 	let save_cursor = getpos(".")
