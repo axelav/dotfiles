@@ -15,8 +15,8 @@ alias v="vim"
 alias m="mate ."
 alias s="subl ."
 
-alias dev="cd /Volumes/dev.buddymedia.com/"
-alias cs="cd /Volumes/data/Creative\ Services/creative/"
+# Mistypes
+alias vm="mv"
 
 # List all files colorized in long format, including dot files
 alias la='ls -Glap'
