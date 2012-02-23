@@ -10,7 +10,7 @@ alias -- -="cd -"
 # Shortcuts
 alias d="cd ~/Dropbox"
 alias p="cd ~/Dropbox/projects"
-alias g="git"
+alias g="grep"
 alias v="vim"
 alias m="mate ."
 alias s="subl ."
