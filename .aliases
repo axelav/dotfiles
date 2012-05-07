@@ -11,9 +11,11 @@ alias -- -="cd -"
 alias d="cd ~/Dropbox"
 alias p="cd ~/Dropbox/projects"
 alias g="grep"
+alias t="touch"
 alias v="vim"
 alias m="mvim ."
 alias s="subl ."
+alias sl="subl"
 
 # Mistypes
 alias vm="mv"
