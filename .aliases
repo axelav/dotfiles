@@ -82,9 +82,11 @@ alias grr='git remote rm'
 alias gpush='git push'
 alias gpull='git pull'
 alias gcl='git clone'
+# Delete multiple removed files from a repo at once // http://www.dzone.com/snippets/remove-deleted-files-git
+alias grm='git rm "$(git ls-files -d)"'
 # lol & lola stolen from http://blog.repl.ca/2011/12/my-gitconfig-2011-edition.html
-alias lol='log --graph --decorate --pretty=oneline --abbrev-commit'
-alias lola='log --graph --decorate --pretty=oneline --abbrev-commit --all'
+alias lol='git log --graph --decorate --pretty=oneline --abbrev-commit'
+alias lola='git log --graph --decorate --pretty=oneline --abbrev-commit --all'
 
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"
