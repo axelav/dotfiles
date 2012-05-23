@@ -26,15 +26,10 @@ endif
 set number
 " Enable syntax highlighting
 syntax on
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
 " Highlight current line
 set cursorline
-" Make tabs as wide as four spaces
+" Make tabs as wide as two spaces
 set tabstop=4
-" Open new line to the same indent as the current line"
-set autoindent
-set smartindent
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
@@ -60,17 +55,32 @@ set shortmess=atI
 set showmode
 " Show the filename in the window titlebar
 set title
+" Show the (partial) command as it’s being typed
+set showcmd
 " Use relative line numbers
-" # set relativenumber "
-" # au BufReadPost * set relativenumber"
-" Start scrolling five lines before the horizontal window border
-set scrolloff=5
+if exists("&relativenumber")
+	set relativenumber
+	au BufReadPost * set relativenumber
+endif
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+
 " Strip trailing whitespace (,ss)
-function! StripWhitespace ()
+function! StripWhitespace()
 	let save_cursor = getpos(".")
 	let old_query = getreg('/')
 	:%s/\s\+$//e
 	call setpos('.', save_cursor)
 	call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace ()<CR>
+noremap <leader>ss :call StripWhitespace()<CR>
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+endif
