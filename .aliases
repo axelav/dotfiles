@@ -15,12 +15,16 @@ alias t="touch"
 alias v="vim"
 alias m="mvim ."
 alias s="subl ."
-alias sl="subl"
+alias slt="subl"
 alias o="open"
 alias oo="open ."
 
 # Mistypes
 alias vm="mv"
+
+# A couple nifty ones stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/
+alias l="clear && pwd && ls -FGl"
+alias u="cd .. && l"
 
 # List all files colorized in long format
 alias ll='ls -Glh'
