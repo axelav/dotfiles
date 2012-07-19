@@ -23,7 +23,7 @@ alias oo="open ."
 alias vm="mv"
 
 # A couple nifty ones stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/
-alias l="clear && pwd && ls -FGl"
+alias l="clear && pwd && ls -FGlh"
 alias u="cd .. && l"
 
 # List all files colorized in long format
