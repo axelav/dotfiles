@@ -8,8 +8,8 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
-alias p="cd ~/Dropbox/projects"
+alias d="cd ~/Dropbox && clear"
+alias p="cd ~/Dropbox/projects && clear && pwd && ls -FGlh"
 alias g="grep"
 alias t="touch"
 alias h="history"
