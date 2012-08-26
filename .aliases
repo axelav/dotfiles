@@ -106,7 +106,7 @@ alias gpush='git push'
 alias gpull='git pull'
 alias gcl='git clone'
 # Delete multiple removed files from a repo at once // http://www.dzone.com/snippets/remove-deleted-files-git
-alias grm='git rm "$(git ls-files -d)"'
+alias grm='for i in `git status | grep deleted | awk "{print $3}"`; do git rm $i; done'
 # lol & lola stolen from http://blog.repl.ca/2011/12/my-gitconfig-2011-edition.html
 alias lol='git log --graph --decorate --pretty=oneline --abbrev-commit'
 alias lola='git log --graph --decorate --pretty=oneline --abbrev-commit --all'
