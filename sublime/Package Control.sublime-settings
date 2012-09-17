@@ -1,0 +1,14 @@
+{
+    "auto_upgrade_last_run": 1347893466,
+    "installed_packages":
+    [
+        "CoffeeScript",
+        "DetectSyntax",
+        "FileDiffs",
+        "Package Control",
+        "Prefixr",
+        "SCSS",
+        "SublimeLinter",
+        "Theme - Soda"
+    ]
+}

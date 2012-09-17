@@ -1,0 +1,7 @@
+{
+  "extensions": [
+    "Gemfile",
+    "Gemfile.lock"
+  ],
+  "wrap_width": 80
+}
