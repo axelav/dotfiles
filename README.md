@@ -4,18 +4,25 @@ A fork of [mathias's dotfiles](https://github.com/mathiasbynens/dotfiles/) which
 
 ## Installation
 
-### Using Git and the bootstrap script
-
 ### Install dependencies
 
-<!-- GOT TO INSTALL .brew BEFORE install-deps.sh BECAUSE yeoman RELIES ON A LOT OF THESE -->
-
 My basic setup is captured in `install-deps.sh` which adds homebrew, yeoman, z, etc.
+
+### Install Homebrew formulae
+
+`install-deps.sh` runs this, but if you want to just run it on it's own...you can install some common Homebrew formulae (after installing Homebrew, of course):
+
+```bash
+./.brew
+```
+
+
+### Using Git and the bootstrap script
 
 You can clone the repository wherever you want. (I like to keep it in `~/Dropbox/projects/dotfiles`. The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && ./bootstrap.sh
+git clone https://github.com/axelav/dotfiles.git && cd dotfiles && ./bootstrap.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
@@ -39,7 +46,11 @@ My `~/.extra` looks something like this:
 ```bash
 # PATH additions
       PATH=/usr/local/bin
-# ....
+PATH=$PATH:/usr/local/sbin
+PATH=$PATH:/bin
+PATH=$PATH:~/.rvm/bin
+PATH=$PATH:~/code/git-friendly
+# ...
 
 export PATH
 
@@ -53,7 +64,7 @@ GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
 
-## Syntax highlighting
+### Syntax highlighting
 
 ...is really important. Even for these files.
 
@@ -75,7 +86,7 @@ Add the below to this file: `~/Library/Application Support/Sublime Text 2/Packag
 <string>.osx</string>
 <string>.vim</string>
 <string>.vimrc</string>
-``
+```
 
 ### Sensible OS X defaults
 
@@ -83,12 +94,4 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ```bash
 ./.osx
-```
-
-### Install Homebrew formulae
-
-When setting up a new Mac, you may want to install some common Homebrew formulae (after installing Homebrew, of course):
-
-```bash
-./.brew
 ```
