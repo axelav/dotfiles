@@ -1,10 +1,18 @@
-# Mathias’s dotfiles
+# Axel's dotfiles
+
+A fork of [mathias's dotfiles](https://github.com/mathiasbynens/dotfiles/) which has a good overview of what all this does.
 
 ## Installation
 
 ### Using Git and the bootstrap script
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+### Install dependencies
+
+<!-- GOT TO INSTALL .brew BEFORE install-deps.sh BECAUSE yeoman RELIES ON A LOT OF THESE -->
+
+My basic setup is captured in `install-deps.sh` which adds homebrew, yeoman, z, etc.
+
+You can clone the repository wherever you want. (I like to keep it in `~/Dropbox/projects/dotfiles`. The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
 git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && ./bootstrap.sh
@@ -22,16 +30,6 @@ Alternatively, to update while avoiding the confirmation prompt:
 ./bootstrap.sh -f
 ```
 
-### Git-free install
-
-To install these dotfiles without Git:
-
-```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh}
-```
-
-To update later on, just run that command again.
-
 ### Add custom commands without creating a new fork
 
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
@@ -40,17 +38,44 @@ My `~/.extra` looks something like this:
 
 ```bash
 # PATH additions
-export PATH="~/bin:$PATH"
+      PATH=/usr/local/bin
+# ....
+
+export PATH
 
 # Git credentials
 # Not in the repository, to prevent people from accidentally committing under my name
-GIT_AUTHOR_NAME="Mathias Bynens"
+GIT_AUTHOR_NAME="Axel Anderson"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="mathias@mailinator.com"
+GIT_AUTHOR_EMAIL="axelav@mailinator.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 ```
+
+## Syntax highlighting
+
+...is really important. Even for these files.
+
+Add the below to this file: `~/Library/Application Support/Sublime Text 2/Packages/ShellScript/Shell-Unix-Generic.tmLanguage`
+
+```xml
+<string>.aliases</string>
+<string>.bash_profile</string>
+<string>.bash_prompt</string>
+<string>.bashrc</string>
+<string>.brew</string>
+<string>.exports</string>
+<string>.functions</string>
+<string>.git</string>
+<string>.gitattributes</string>
+<string>.gitconfig</string>
+<string>.gitignore</string>
+<string>.inputrc</string>
+<string>.osx</string>
+<string>.vim</string>
+<string>.vimrc</string>
+``
 
 ### Sensible OS X defaults
 
@@ -67,19 +92,3 @@ When setting up a new Mac, you may want to install some common Homebrew formulae
 ```bash
 ./.brew
 ```
-
-## Feedback
-
-Suggestions/improvements
-[welcome](https://github.com/mathiasbynens/dotfiles/issues)!
-
-## Thanks to…
-
-* [Gianni Chiappetta](http://gf3.ca/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
-* [Matijs Brinkhuis](http://hotfusion.nl/) and his [homedir repository](https://github.com/matijs/homedir)
-* [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny tilde repository](https://github.com/janmoesen/tilde)
-* [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
-* [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
-* [Tom Ryder](http://blog.sanctum.geek.nz/) and his [dotfiles repository](https://github.com/tejr/dotfiles)
-* [Tim Esselens](http://devel.datif.be/)
-* anyone who [contributed a patch](https://github.com/mathiasbynens/dotfiles/contributors) or [made a helpful suggestion](https://github.com/mathiasbynens/dotfiles/issues)
