@@ -22,12 +22,14 @@ brew install wget --enable-iri
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 brew tap josegonzalez/homebrew-php
+brew install php54
 
 # Install everything else
 brew install ack
 brew install git
 brew install lynx
 brew install rename
+brew install rhino
 brew install tree
 brew install webkit2png
 

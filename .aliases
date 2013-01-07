@@ -9,17 +9,23 @@ alias -- -="cd -"
 
 # Shortcuts
 alias d="cd ~/Dropbox && clear"
-alias p="cd ~/Dropbox/projects && clear && pwd && ls -FGlh"
 alias g="grep"
-alias t="touch"
 alias h="history"
 alias j="jobs"
-alias v="vim"
 alias m="mvim ."
-alias s="subl ."
-alias slt="subl"
 alias o="open"
 alias oo="open ."
+alias p="cd ~/Dropbox/projects && clear && pwd && ls -FGlh"
+alias s="subl ."
+alias slt="subl"
+alias show='pygmentize -O style=monokai -f console256 -g'
+alias t="touch"
+alias v="vim"
+alias psd="open *psd" # open all PSD files in a directory
+# list files & directories & by descending size
+# How can I list out the size of each file and directory (recursively) and sort by size decendingly?
+# http://stackoverflow.com/questions/7463554/bash-how-can-i-list-out-the-size-of-each-file-and-directory-recursively-and-s
+alias du="du -smc * | sort -n"
 
 # Mistypes
 alias vm="mv"
