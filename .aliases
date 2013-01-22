@@ -100,7 +100,7 @@ alias uz="tar -zxvf"
 # Git shortcuts
 alias ga='git add'
 alias gl='git log'
-alias gs='git status'
+alias gs='clear && git status'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gm='git commit -m'
