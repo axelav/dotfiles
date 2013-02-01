@@ -11,6 +11,9 @@ unset file
 # Load RVM function
 source ~/.rvm/scripts/rvm
 
+# Load virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
+
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 
