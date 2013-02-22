@@ -114,3 +114,15 @@ function unquarantine() {
 		xattr -r -d "$attribute" "$@"
 	done
 }
+
+### Jekyll functions
+
+# Deploy your site, don't forget to specify which site
+function deploy() {
+    jekyll --no-auto --no-server && rsync -avz --delete _site/ linode:/srv/www/"$@".com/public_html
+}
+
+# Create a new post
+function newpost() {
+    touch "$(date '+%Y-%m-%d')-$@.md"
+}
