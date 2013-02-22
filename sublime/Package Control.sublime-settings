@@ -4,12 +4,13 @@
 	[
 		"BracketHighlighter",
 		"CoffeeScript",
+		"GitGutter",
 		"JSHint",
 		"Package Control",
 		"Prefixr",
 		"Quick File Creator",
 		"SCSS",
-		// "Solarized Color Scheme",
+		"Solarized Color Scheme",
 		"SublimeLinter",
 		"Theme - Soda"
 	]

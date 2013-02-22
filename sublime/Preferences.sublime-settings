@@ -1,5 +1,6 @@
 {
 	"auto_complete": true,
+	"caret_style": "phase",
 	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
 	"detect_indentation": true,
 	"draw_minimap_border": true,
@@ -24,5 +25,6 @@
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"use_tab_stops": true,
+	"wide_caret": true,
 	"word_wrap": true
 }
