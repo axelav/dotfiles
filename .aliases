@@ -98,7 +98,7 @@ alias uztar="tar -zxvf"
 # Git shortcuts
 alias ga='git add'
 alias gl='git log'
-alias gs='clear && git status'
+alias gs='clear && git status -sb'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gm='git commit -m'
