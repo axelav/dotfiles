@@ -18,7 +18,7 @@ sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh
 
 # https://rvm.io
 # rvm for the rubiess
-curl -L https://get.rvm.io | bash -s stable --ruby
+# curl -L https://get.rvm.io | bash -s stable --ruby
 
 # homebrew!
 # you need the code CLI tools YOU FOOL. (TODO: i wanna try kennethreitz's gcc osx installer isntead..)
@@ -27,13 +27,19 @@ ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
 # install homebrew packages
 ./.brew
 
+# install npm globals
+npm install grunt
+npm install nodemon
+npm install bower
+# npm install browserify
+
 # compass
 # http://compass-style.org/install/
 gem install compass
 
 # http://yeoman.io/
 # yoeman
-npm install -g yeoman
+# npm install -g yeoman
 
 # https://github.com/rupa/z
 # z, oh how i love you

@@ -26,8 +26,6 @@ function scpp() {
     echo "Copied to clipboard: http://axelav.com/i/$1"
 }
 
-
-
 # Move files to trash
 function trash() {
 	mv "$@" ~/.Trash;
