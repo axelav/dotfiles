@@ -21,8 +21,8 @@ brew install wget --enable-iri
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
-brew tap josegonzalez/homebrew-php
-brew install php54
+# brew tap josegonzalez/homebrew-php
+# brew install php54
 
 # Install everything else
 brew install ack
@@ -32,8 +32,6 @@ brew install rename
 brew install rhino
 brew install tree
 brew install webkit2png
-
-# yeoman dependencies
 brew install node
 brew install phantomjs
 brew install jpeg-turbo && brew link jpeg-turbo
