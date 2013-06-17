@@ -1,3 +1,8 @@
+# UPDATE LIKE THIS
+# alias a = "blahblah"
+# alias b = "loremipsum"
+# alias c = "coppola"
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
@@ -12,27 +17,27 @@ alias d="cd ~/Dropbox && clear"
 alias g="grep"
 alias h="history"
 alias j="jobs"
-alias m="mvim ."
+alias nd="nodemon"
 alias o="open"
 alias oo="open ."
 alias p="cd ~/Dropbox/projects && clear && pwd && ls -FGlh"
+alias pyg='pygmentize -O style=monokai -f console256 -g'
 alias s="subl ."
 alias slt="subl"
-alias pyg='pygmentize -O style=monokai -f console256 -g'
 alias t="touch"
 alias v="vim"
-alias psd="open *psd" # open all PSD files in a directory
+
 # list files & directories & by descending size
 # How can I list out the size of each file and directory (recursively) and sort by size decendingly?
 # http://stackoverflow.com/questions/7463554/bash-how-can-i-list-out-the-size-of-each-file-and-directory-recursively-and-s
 alias du="du -smc * | sort -n"
+alias psd="open *psd" # open all PSD files in a directory
 alias clients="cd /Volumes/data/Creative\ Services/creative/_CLIENTS && clear && pwd"
 
 # Mistypes
 alias vm="mv"
 
 # A couple nifty ones stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/
-# alias l="clear && pwd && ls -FGlh"
 alias u="cd .. && l"
 
 # Detect which `ls` flavor is in use
@@ -97,7 +102,7 @@ alias uztar="tar -zxvf"
 
 # Git shortcuts
 alias ga='git add'
-alias gl='git log'
+alias gl='clear && git log --pretty=oneline -n 20 --graph --abbrev-commit --decorate'
 alias gs='clear && git status -sb'
 alias gd='git diff'
 alias gdc='git diff --cached'
