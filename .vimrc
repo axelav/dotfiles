@@ -1,5 +1,6 @@
 " Make Vim more useful
 set nocompatible
+filetype off
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
@@ -26,6 +27,23 @@ if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
 
+" Vundle config
+" https://github.com/gmarik/vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Let Vundle manage Vundle
+Bundle "gmarik/vundle"
+
+" My Bundles
+Bundle "pangloss/vim-javascript"
+Bundle "vim-scripts/pathogen.vim"
+Bundle "altercation/vim-colors-solarized"
+Bundle "walm/jshint.vim"
+Bundle "Townk/vim-autoclose"
+
+filetype plugin indent on
+
 " Respect modeline in files
 set modeline
 set modelines=4
@@ -35,11 +53,15 @@ set secure
 " Enable line numbers
 set number
 " Enable syntax highlighting
-syntax on
+syntax enable
+set background=dark
+colorscheme solarized
 " Highlight current line
 set cursorline
 " Make tabs as wide as four spaces
 set tabstop=4
+set shiftwidth=4
+set expandtab
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 set list
