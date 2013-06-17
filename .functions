@@ -19,11 +19,26 @@ cdf() {  # short for cdfinder
     cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
 
+# Image width
+width () {
+  echo $(sips -g pixelWidth $1 | grep -oE "[[:digit:]]{1,}$")
+}
+
+# Image height
+height () {
+  echo $(sips -g pixelHeight $1 | grep -oE "[[:digit:]]{1,}$")
+}
+
 # lets toss an image onto my server and pbcopy that bitch.
 function scpp() {
     scp "$1" linode:/srv/www/axelav.com/public_html/i/;
     echo "http://axelav.com/i/$1" | pbcopy;
     echo "Copied to clipboard: http://axelav.com/i/$1"
+}
+
+# Copy w/ progress
+cp_p () {
+    rsync -WavP --human-readable --progress $1 $2
 }
 
 # Move files to trash
