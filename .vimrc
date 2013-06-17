@@ -38,7 +38,7 @@ set number
 syntax on
 " Highlight current line
 set cursorline
-" Make tabs as wide as two spaces
+" Make tabs as wide as four spaces
 set tabstop=4
 " Show “invisible” characters
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
@@ -72,8 +72,8 @@ if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
+" Start scrolling ten lines before the horizontal window border
+set scrolloff=10
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
