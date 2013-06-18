@@ -21,9 +21,9 @@ alias ls="command ls ${colorflag}"
 
 # Utilities
 alias a="ack -i"
-alias d="cd ~/Dropbox && clear"
 alias c="pygmentize -g"
-alias d="du -h -d 1"
+alias d="cd ~/Dropbox && clear"
+alias du="du -h -d 1"
 alias g="git"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
