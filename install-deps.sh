@@ -1,5 +1,11 @@
-# Sublime Text 2 setup
+# homebrew!
+# you need the code CLI tools YOU FOOL. (TODO: i wanna try kennethreitz's gcc osx installer isntead..)
+ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
 
+# install homebrew packages
+./.brew
+
+# Sublime Text 2 setup
 # install Soda theme
 cd ~/Library/Application\ Support/Sublime\ Text\ 2/Packages && git clone https://github.com/buymeasoda/soda-theme/ "Theme - Soda"
 
@@ -20,17 +26,10 @@ sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh
 # rvm for the rubiess
 # curl -L https://get.rvm.io | bash -s stable --ruby
 
-# homebrew!
-# you need the code CLI tools YOU FOOL. (TODO: i wanna try kennethreitz's gcc osx installer isntead..)
-ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
-
-# install homebrew packages
-./.brew
-
 # install npm globals
-npm install grunt
-npm install nodemon
-npm install bower
+npm install grunt -g
+npm install nodemon -g
+npm install bower -g
 # npm install browserify
 
 # compass
