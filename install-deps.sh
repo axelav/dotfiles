@@ -37,10 +37,6 @@ npm install bower
 # http://compass-style.org/install/
 gem install compass
 
-# http://yeoman.io/
-# yoeman
-# npm install -g yeoman
-
 # https://github.com/rupa/z
 # z, oh how i love you
 mkdir -p ~/code/z
