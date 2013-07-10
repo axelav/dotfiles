@@ -13,5 +13,6 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# Keep .extra file out of repo
+# Keep .extra & .ssh/ file out of repo
 .extra
+.ssh/
