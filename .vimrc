@@ -99,14 +99,10 @@ Bundle "gmarik/vundle"
 " My Bundles
 Bundle "pangloss/vim-javascript"
 Bundle "vim-scripts/pathogen.vim"
-Bundle "altercation/vim-colors-solarized"
 Bundle "walm/jshint.vim"
 Bundle "Townk/vim-autoclose"
 
 filetype plugin indent on
-
-" Set theme
-colorscheme solarized
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
