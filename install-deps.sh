@@ -27,7 +27,7 @@ sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh
 # curl -L https://get.rvm.io | bash -s stable --ruby
 
 # install npm globals
-npm install grunt -g
+npm install grunt-cli -g
 npm install nodemon -g
 npm install bower -g
 # npm install browserify
