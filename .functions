@@ -165,17 +165,14 @@ function unquarantine() {
 	done
 }
 
-### Jekyll functions
+function n() {
+    $EDITOR ~/Dropbox/notes/"$*".md
+}
 
-# Deploy your site, don't forget to specify which site
-# function deploy() {
-#     jekyll --no-auto --no-server && rsync -avz --delete _site/ linode:/srv/www/"$@".com/public_html
-# }
-
-# Create a new post
-# function newpost() {
-#     touch "$(date '+%Y-%m-%d')-$@.md"
-# }
+function nls() {
+    # this currently breaks if you don't add a search term, probably shouldn't
+    ls -c ~/Dropbox/notes/ | a "$*"
+}
 
 ### Server functions
 
