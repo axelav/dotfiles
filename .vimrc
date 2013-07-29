@@ -67,6 +67,7 @@ set showcmd " Show the (partial) command as it’s being typed
 set showmode " Show the current mode
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
 set tabstop=4 " Make tabs as wide as four spaces
+set softtabstop=4 " Make the spaces feel like real tabs
 set title " Show the filename in the window titlebar
 set ttyfast " Optimize for fast terminal connections
 set undofile " Persistent undo
@@ -75,6 +76,18 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/* "
 set wildmenu " Enhance command-line completion
 
+" CSS
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css set sw=4
+autocmd FileType css set ts=4
+autocmd FileType css set sts=4
+
+" JS
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript set sw=4
+autocmd FileType javascript set ts=4
+autocmd FileType javascript set sts=4
+autocmd FileType javascript set tw=79
 
 " Use relative line numbers
 if exists("&relativenumber")
