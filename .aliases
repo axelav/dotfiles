@@ -35,7 +35,7 @@ alias lsd='ls -lh ${colorflag} | grep "^d"' # List only directories
 alias nd="nodemon"
 alias o="open"
 alias oo="open ."
-alias p="cd ~/Dropbox/projects && clear && pwd && ls -FGlh"
+alias p="cd ~/Dropbox/projects && clear && pwd && ls -FlhX ${colorflag}"
 alias ps='ps -ax' # View all processes
 alias psd="open *psd" # open all PSD files in a directory
 alias s="subl ."
@@ -151,5 +151,5 @@ alias m3u="find . -name '*.m3u' -print0 | xargs -0 rm -v"
 alias stfu="osascript -e 'set volume output muted true'"
 alias pumpitup="osascript -e 'set volume 10'"
 
-# SFDC specific
-alias clients="cd /Volumes/data/Creative\ Services/creative/_CLIENTS && clear && pwd"
+# Backup
+alias backup="rsync -avz --delete --progress axelav/ /Volumes/BigBoi/axelav/"
