@@ -1,6 +1,10 @@
 " Make Vim more useful
 set nocompatible
 
+" Set colorscheme
+set t_Co=256
+colorscheme Tomorrow-Night-Bright
+
 " Set syntax highlighting
 set background=dark
 syntax enable
@@ -30,7 +34,7 @@ set expandtab " Expand tabs to spaces
 set exrc " Enable per-directory .vimrc files and disable unsafe commands in them
 set foldcolumn=4 " Column to show folds
 set foldenable
-set foldlevel=2
+set foldlevel=4
 set foldmethod=syntax " Markers are used to specify folds.
 set foldminlines=0 " Allow folding single lines
 set foldnestmax=3 " Set max fold nesting level    "
@@ -58,8 +62,13 @@ set mouse=a " Enable mouse in all modes
 set noerrorbells " Disable error bells
 set nostartofline " Don’t reset cursor to start of line when moving around.
 set number " Enable line numbers
+" Use relative line numbers
+if exists("&relativenumber")
+    set relativenumber
+    au BufReadPost,BufNewFile * set relativenumber
+endif
 set ruler " Show the cursor position
-set scrolloff=10 " Start scrolling ten lines before the horizontal window border
+set scrolloff=5 " Start scrolling ten lines before the horizontal window border
 set secure
 set shiftwidth=4 " The number of spaces to indent
 set shortmess=atI " Don’t show the intro message when starting Vim
@@ -76,30 +85,7 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/* "
 set wildmenu " Enhance command-line completion
 
-" CSS
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType css set sw=4
-autocmd FileType css set ts=4
-autocmd FileType css set sts=4
 
-" JS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType javascript set sw=4
-autocmd FileType javascript set ts=4
-autocmd FileType javascript set sts=4
-autocmd FileType javascript set tw=79
-
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost,BufNewFile * set relativenumber
-endif
-
-" JSON
-au BufRead,BufNewFile *.json set ft=json syntax=javascript
-
-" Jade
-au BufRead,BufNewFile *.jade set ft=jade syntax=jade
 
 " Vundle config
 " https://github.com/gmarik/vundle
@@ -130,9 +116,15 @@ noremap <leader>ss :call StripWhitespace()<CR>
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Automatic commands
-if has("autocmd")
+if has("au")
 	" Enable file type detection
 	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+    " Treat .json files as .js
+	au BufRead,BufNewFile *.json set ft=json syntax=javascript
+    " Jade
+    au BufRead,BufNewFile *.jade set ft=jade syntax=jade
+    " EJS
+    au BufRead,BufNewFile *.ejs set ft=html syntax=html
+    " Jinja
+    au BufReadPost *.tpl set ft=html syntax=html    
 endif
