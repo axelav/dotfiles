@@ -37,6 +37,7 @@ brew install phantomjs
 brew install jpeg-turbo && brew link jpeg-turbo
 brew install optipng
 brew install vim
+brew install tmux
 
 # Remove outdated versions from the cellar
 brew cleanup
