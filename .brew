@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Make sure we’re using the latest Homebrew
 brew update
@@ -21,8 +21,6 @@ brew install wget --enable-iri
 # Install more recent versions of some OS X tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
-# brew tap josegonzalez/homebrew-php
-# brew install php54
 
 # Install everything else
 brew install ack
@@ -34,8 +32,6 @@ brew install tree
 brew install webkit2png
 brew install node
 brew install phantomjs
-brew install jpeg-turbo && brew link jpeg-turbo
-brew install optipng
 brew install vim
 brew install tmux
 
