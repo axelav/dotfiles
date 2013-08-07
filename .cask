@@ -12,11 +12,13 @@ brew cask install arduino
 brew cask install calibre
 brew cask install charles
 brew cask install chromium
-brew cask install cloudapp# brew cask install codekit
+brew cask install cloudapp
+# brew cask install codekit
 brew cask install colloquy
 # brew cask install colors
-# brew cask install diffmergebrew cask install dropbox
-brew cask install fantastical
+# brew cask install diffmergebrew 
+cask install dropbox
+# brew cask install fantastical
 brew cask install firefox
 brew cask install fluid
 brew cask install flux
