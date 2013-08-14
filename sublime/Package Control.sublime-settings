@@ -3,7 +3,6 @@
 	"installed_packages":
 	[
 		"BracketHighlighter",
-		"CoffeeScript",
 		"GitGutter",
 		"JSHint",
 		"Package Control",
