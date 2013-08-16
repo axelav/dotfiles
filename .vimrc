@@ -85,8 +85,6 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/* "
 set wildmenu " Enhance command-line completion
 
-
-
 " Vundle config
 " https://github.com/gmarik/vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -115,6 +113,18 @@ noremap <leader>ss :call StripWhitespace()<CR>
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
+" Toggle between relative & absolute line numbers
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set number
+    else
+        set relativenumber
+    endif
+endfunction
+
+" Use ctrl-n to toggle
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " Automatic commands
 if has("au")
 	" Enable file type detection
@@ -126,5 +136,5 @@ if has("au")
     " EJS
     au BufRead,BufNewFile *.ejs set ft=html syntax=html
     " Jinja
-    au BufReadPost *.tpl set ft=html syntax=html    
+    au BufReadPost *.tpl set ft=html syntax=html
 endif
