@@ -165,16 +165,16 @@ function unquarantine() {
 	done
 }
 
+# Notes
 function n() {
-    $EDITOR ~/Dropbox/notes/"$*".md
+    $EDITOR ~/Dropbox/notes/"$@".md
 }
 
 function nls() {
-    # this currently breaks if you don't add a search term, probably shouldn't
-    ls -c ~/Dropbox/notes/ | a "$*"
+    ls -c ~/Dropbox/notes/
 }
 
-### Server functions
+### Linode functions
 
 # Update & upgrade all Ubuntu packages
 function ubuntu-update {
