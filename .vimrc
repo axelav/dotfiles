@@ -40,7 +40,7 @@ set foldminlines=0 " Allow folding single lines
 set foldnestmax=3 " Set max fold nesting level    "
 set formatoptions=
 set formatoptions+=c " Format comments
-set formatoptions+=r " Continue comments by default
+" set formatoptions+=r " Continue comments by default
 set formatoptions+=o " Make comment when using o or O from comment line
 set formatoptions+=q " Format comments with gq
 set formatoptions+=n " Recognize numbered lists
@@ -98,6 +98,7 @@ Bundle "pangloss/vim-javascript"
 Bundle "vim-scripts/pathogen.vim"
 Bundle "walm/jshint.vim"
 Bundle "Townk/vim-autoclose"
+Bundle "terryma/vim-multiple-cursors"
 
 filetype plugin indent on
 
@@ -123,7 +124,7 @@ function! NumberToggle()
 endfunction
 
 " Use ctrl-n to toggle
-nnoremap <C-n> :call NumberToggle()<cr>
+nnoremap <C-t> :call NumberToggle()<cr>
 
 " Automatic commands
 if has("au")
