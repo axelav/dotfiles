@@ -130,6 +130,8 @@ nnoremap <C-t> :call NumberToggle()<cr>
 if has("au")
 	" Enable file type detection
 	filetype on
+    " Enable close tag script with <C-_>
+    au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
     " Treat .json files as .js
 	au BufRead,BufNewFile *.json set ft=json syntax=javascript
     " Jade
