@@ -16,6 +16,7 @@ filetype off
 let mapleader=","
 
 " Centralize backups, swapfiles and undo history
+set backup
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 if exists("&undodir")
@@ -68,11 +69,12 @@ if exists("&relativenumber")
     au BufReadPost,BufNewFile * set relativenumber
 endif
 set ruler " Show the cursor position
-set scrolloff=5 " Start scrolling ten lines before the horizontal window border
+set scrolloff=5 " Start scrolling five lines before the horizontal window border
 set secure
 set shiftwidth=4 " The number of spaces to indent
 set shortmess=atI " Don’t show the intro message when starting Vim
 set showcmd " Show the (partial) command as it’s being typed
+set showmatch " Show matching parenthesis
 set showmode " Show the current mode
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
 set tabstop=4 " Make tabs as wide as four spaces
@@ -125,6 +127,12 @@ endfunction
 
 " Use ctrl-n to toggle
 nnoremap <C-t> :call NumberToggle()<cr>
+
+" Switch p & P
+noremap p P
+noremap P p
+noremap o O
+noremap O o
 
 " Automatic commands
 if has("au")
