@@ -23,11 +23,13 @@ cp -r ~/Dropbox/projects/dotfiles/sublime/* ~/Library/Application\ Support/Subli
 sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 
 # install npm globals
-npm install grunt-cli -g
-npm install nodemon -g
 npm install bower -g
 npm install browserify -g
+npm install express -g
+npm install grunt-cli -g
 npm install jshint -g
+npm install nodemon -g
+npm install spotify-cli -g
 
 # compass
 # http://compass-style.org/install/
