@@ -27,7 +27,9 @@ endif
 set autoindent " Copy indent from last line when starting new line.
 set backspace=indent,eol,start " Allow backspace in insert mode
 set binary
-set clipboard=unnamed " Use the OS clipboard by default (on versions compiled with `+clipboard`)
+if $TMUX == ''
+    set clipboard+=unnamed " Use the OS X clipboard if not using tmux
+endif
 set cursorline " Highlight current line
 set encoding=utf-8 nobomb " Use UTF-8 without BOM
 set esckeys " Allow cursor keys in insert mode
