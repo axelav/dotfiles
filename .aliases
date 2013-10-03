@@ -22,6 +22,7 @@ alias ls="command ls ${colorflag}"
 # Utilities
 alias a="ack -i"
 alias c="pygmentize -g"
+alias chrome="open -a 'Google Chrome'"
 alias d="cd ~/Dropbox && clear"
 alias du="du -h -d 1"
 alias g="git"
@@ -41,7 +42,7 @@ alias psd="open *psd" # open all PSD files in a directory
 alias s="subl ."
 alias slt="subl"
 alias t="touch"
-alias tmux="tmux -2"
+alias tmux="tmux -2" # force tmux to use 256 colors
 alias u="cd .. && l" # A nifty one stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # Get OS X Software Updates, and update Homebrew, npm, and their installed packages
 alias v="vim"
