@@ -35,21 +35,10 @@ set encoding=utf-8 nobomb " Use UTF-8 without BOM
 set esckeys " Allow cursor keys in insert mode
 set expandtab " Expand tabs to spaces
 set exrc " Enable per-directory .vimrc files and disable unsafe commands in them
-set foldcolumn=4 " Column to show folds
-set foldenable
-set foldlevel=4
-set foldmethod=syntax " Markers are used to specify folds.
-set foldminlines=0 " Allow folding single lines
-set foldnestmax=3 " Set max fold nesting level    "
-set formatoptions=
 set formatoptions+=c " Format comments
-" set formatoptions+=r " Continue comments by default
-set formatoptions+=o " Make comment when using o or O from comment line
-set formatoptions+=q " Format comments with gq
 set formatoptions+=n " Recognize numbered lists
-set formatoptions+=2 " Use indent from 2nd line of a paragraph
 set formatoptions+=l " Don't break lines that are already long
-set formatoptions+=1 " Break before 1-letter words        "
+set formatoptions+=1 " Break before 1-letter words
 set gdefault " Add the g flag to search/replace by default
 set hidden " When a buffer is brought to foreground, remember undo history & marks
 set history=1000 " Increase history from 20 to 1000
@@ -59,8 +48,6 @@ set incsearch " Highlight dynamically as pattern is typed
 set laststatus=2 " Always show status line
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_ " Show “invisible” characters
 set list
-set modeline " Respect modeline in files
-set modelines=4
 set mouse=a " Enable mouse in all modes
 set noerrorbells " Disable error bells
 set nostartofline " Don’t reset cursor to start of line when moving around.
@@ -104,6 +91,7 @@ Bundle "walm/jshint.vim"
 Bundle "Townk/vim-autoclose"
 Bundle "terryma/vim-multiple-cursors"
 
+" Enable file type detection, plugins, indent
 filetype plugin indent on
 
 " Strip trailing whitespace (,ss)
@@ -115,6 +103,7 @@ function! StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
+
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
@@ -126,8 +115,6 @@ function! NumberToggle()
         set relativenumber
     endif
 endfunction
-
-" Use ctrl-n to toggle
 nnoremap <C-t> :call NumberToggle()<cr>
 
 " Switch p & P
@@ -137,17 +124,13 @@ noremap o O
 noremap O o
 
 " Automatic commands
-if has("au")
-	" Enable file type detection
-	filetype on
-    " Enable close tag script with <C-_>
-    au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
-    " Treat .json files as .js
-	au BufRead,BufNewFile *.json set ft=json syntax=javascript
-    " Jade
-    au BufRead,BufNewFile *.jade set ft=jade syntax=jade
-    " EJS
-    au BufRead,BufNewFile *.ejs set ft=html syntax=html
-    " Jinja
-    au BufReadPost *.tpl set ft=html syntax=html
-endif
+" Enable close tag script with <C-_>
+au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+" Treat .json files as .js
+au BufRead,BufNewFile *.json set ft=json syntax=javascript
+" Jade
+au BufRead,BufNewFile *.jade set ft=jade syntax=jade
+" EJS
+au BufRead,BufNewFile *.ejs set ft=html syntax=html
+" Jinja
+au BufReadPost *.tpl set ft=html syntax=html
