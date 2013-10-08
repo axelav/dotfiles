@@ -117,6 +117,9 @@ function! NumberToggle()
 endfunction
 nnoremap <C-t> :call NumberToggle()<cr>
 
+" C-h to turn off search highlighting
+noremap <C-h> :nohlsearch<cr>
+
 " Switch p & P
 noremap p P
 noremap P p
@@ -134,3 +137,7 @@ au BufRead,BufNewFile *.jade set ft=jade syntax=jade
 au BufRead,BufNewFile *.ejs set ft=html syntax=html
 " Jinja
 au BufReadPost *.tpl set ft=html syntax=html
+
+" edit & reload .vimrc within vim
+map <leader>vimrc :tabe ~/.vim/.vimrc<cr>
+autocmd bufwritepost .vimrc source $MYVIMRC
