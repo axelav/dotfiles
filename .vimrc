@@ -140,5 +140,5 @@ au BufRead,BufNewFile *.ejs set ft=html syntax=html
 au BufReadPost *.tpl set ft=html syntax=html
 
 " edit & reload .vimrc within vim
-map <leader>vimrc :tabe ~/.vim/.vimrc<cr>
+map <leader>vimrc :tabe ~/.vimrc<cr>
 autocmd bufwritepost .vimrc source $MYVIMRC
