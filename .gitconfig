@@ -23,6 +23,8 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+[grep]
+    lineNumber = true
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
