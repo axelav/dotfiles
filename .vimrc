@@ -139,6 +139,8 @@ au BufRead,BufNewFile *.jade set ft=jade syntax=jade
 au BufRead,BufNewFile *.ejs set ft=html syntax=html
 " Jinja
 au BufReadPost *.tpl set ft=html syntax=html
+" Markdown
+au BufRead,BufNewFile *.md set ft=markdown
 
 " edit & reload .vimrc within vim
 map <leader>vimrc :tabe ~/.vimrc<cr>
