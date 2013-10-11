@@ -26,10 +26,10 @@ endif
 set autoindent " Copy indent from last line when starting new line.
 set backspace=indent,eol,start " Allow backspace in insert mode
 set binary
-" if $TMUX == ''
-"     set clipboard+=unnamed " Use the OS X clipboard if not using tmux
-" endif
-set clipboard+=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed " Use the OS X clipboard if not using tmux
+endif
+" set clipboard+=unnamed
 set cursorline " Highlight current line
 set encoding=utf-8 nobomb " Use UTF-8 without BOM
 set esckeys " Allow cursor keys in insert mode
