@@ -6,8 +6,7 @@ set t_Co=256
 colorscheme Tomorrow-Night-Bright
 
 " Set syntax highlighting
-set background=dark
-syntax enable
+" set background=dark
 
 " Enabled later, after Vundle
 filetype off
@@ -92,9 +91,13 @@ Bundle "vim-scripts/pathogen.vim"
 Bundle "walm/jshint.vim"
 Bundle "Townk/vim-autoclose"
 Bundle "terryma/vim-multiple-cursors"
+Bundle 'kchmck/vim-coffee-script'
 
 " Enable file type detection, plugins, indent
 filetype plugin indent on
+
+" Enable syntax highlighting
+syntax enable
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
