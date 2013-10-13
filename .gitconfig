@@ -25,6 +25,8 @@
 	untracked = cyan
 [grep]
     lineNumber = true
+[init]
+    templatedir = ~/Dropbox/projects/git-init-template
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
