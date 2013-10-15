@@ -65,6 +65,7 @@ set shortmess=atI " Don’t show the intro message when starting Vim
 set showcmd " Show the (partial) command as it’s being typed
 set showmatch " Show matching parenthesis
 set showmode " Show the current mode
+set smartcase " when searching try to be smart about cases
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
 set tabstop=4 " Make tabs as wide as four spaces
 set softtabstop=4 " Make the spaces feel like real tabs
@@ -76,6 +77,10 @@ set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/smarty/*,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/ckeditor/*,*/doc/*
 set wildmenu " Enhance command-line completion
 set wildmode=longest,list,full
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
 
 " Vundle config
 " https://github.com/gmarik/vundle
@@ -109,8 +114,14 @@ function! StripWhitespace()
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
+" Save current file
+nmap <leader>w :w!<cr>
+
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
+" Toggle paste mode on & off
+map <leader>pp :setlocal paste!<cr>
 
 " Toggle between relative & absolute line numbers
 function! NumberToggle()
