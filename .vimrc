@@ -35,6 +35,7 @@ set encoding=utf-8 nobomb " Use UTF-8 without BOM
 set esckeys " Allow cursor keys in insert mode
 set expandtab " Expand tabs to spaces
 set exrc " Enable per-directory .vimrc files and disable unsafe commands in them
+set nofoldenable " no folds!
 set formatoptions+=c " Format comments
 set formatoptions+=n " Recognize numbered lists
 set formatoptions+=l " Don't break lines that are already long
