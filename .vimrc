@@ -98,6 +98,7 @@ Bundle "walm/jshint.vim"
 Bundle "Townk/vim-autoclose"
 Bundle "terryma/vim-multiple-cursors"
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'mattn/emmet-vim'
 
 " Enable file type detection, plugins, indent
 filetype plugin indent on
