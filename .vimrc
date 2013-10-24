@@ -138,6 +138,9 @@ nnoremap <C-t> :call NumberToggle()<cr>
 " C-h to turn off search highlighting
 noremap <C-h> :nohlsearch<cr>
 
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
 " Switch p & P
 noremap p P
 noremap P p
@@ -157,6 +160,8 @@ au BufRead,BufNewFile *.ejs set ft=html syntax=html
 au BufReadPost *.tpl set ft=html syntax=html
 " Markdown
 au BufRead,BufNewFile *.md set ft=markdown
+" LESS
+au BufRead,BufNewFile *.less set ft=less
 
 " edit & reload .vimrc within vim
 map <leader>vimrc :tabe ~/.vimrc<cr>
