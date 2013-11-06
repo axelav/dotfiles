@@ -1,10 +1,10 @@
 {
-    // Scope? (Defined in theme files.)
-    // Examples: (keyword|string|number|entity.name.class)
-    "tag_scope"   : "brackethighlighter.tag",
-    "curly_scope" : "brackethighlighter.curly",
-    "round_scope" : "brackethighlighter.round",
-    "square_scope": "brackethighlighter.square",
-    "angle_scope" : "brackethighlighter.angle",
-    "quote_scope" : "brackethighlighter.quote"
+  // Scope? (Defined in theme files.)
+  // Examples: (keyword|string|number|entity.name.class)
+  "tag_scope"   : "brackethighlighter.tag",
+  "curly_scope" : "brackethighlighter.curly",
+  "round_scope" : "brackethighlighter.round",
+  "square_scope": "brackethighlighter.square",
+  "angle_scope" : "brackethighlighter.angle",
+  "quote_scope" : "brackethighlighter.quote"
 }
