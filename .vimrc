@@ -99,6 +99,7 @@ Bundle "Townk/vim-autoclose"
 Bundle "terryma/vim-multiple-cursors"
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/emmet-vim'
+Bundle 'mintplant/vim-literate-coffeescript'
 
 " Enable file type detection, plugins, indent
 filetype plugin indent on
@@ -162,6 +163,8 @@ au BufReadPost *.tpl set ft=html syntax=html
 au BufRead,BufNewFile *.md set ft=markdown
 " LESS
 au BufRead,BufNewFile *.less set ft=less
+" Coffeescript
+au BufRead,BufNewFile *.coffee set ft=coffee
 
 " edit & reload .vimrc within vim
 map <leader>vimrc :tabe ~/.vimrc<cr>
