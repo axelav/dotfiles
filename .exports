@@ -19,3 +19,6 @@ export LC_ALL="en_US.UTF-8"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
+# Link virtualenvwrapper directory
+export WORKON_HOME=~/Envs
