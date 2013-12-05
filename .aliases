@@ -85,25 +85,19 @@ alias ztar="tar -cvzf" #new_file *.txt
 alias uztar="tar -zxvf"
 
 # Git shortcuts
-alias ga='git add'
-alias gl='clear && git log --graph --decorate --pretty=oneline -n 20 --abbrev-commit'
-alias gs='clear && git status -sb'
-alias gd='git diff'
-alias gds='git diff --stat'
-alias gdc='git diff --cached'
-alias gm='git commit -m'
-alias gma='git commit -am'
-alias gb='git branch'
-alias gra='git remote add'
-alias grr='git remote rm'
-alias gpush='git push'
-alias gpull='git pull'
-alias gcl='git clone'
-# Delete multiple removed files from a repo at once // http://www.dzone.com/snippets/remove-deleted-files-git
-alias grm='for i in `git status | grep deleted | awk "{print $3}"`; do git rm $i; done'
+# alias ga='git add'
+# alias gl='clear && git log --graph --decorate --pretty=oneline -n 20 --abbrev-commit'
+# alias gs='clear && git status -sb'
+# alias gd='git diff'
+# alias gds='git diff --stat'
+# alias gdc='git diff --cached'
+# alias gm='git commit -m'
+# alias gma='git commit -am'
+# alias gcl='git clone'
+# Delete multiple removed files from a repo at once // http://
 # lol & lola stolen from http://blog.repl.ca/2011/12/my-gitconfig-2011-edition.html
-alias lol='git log --graph --decorate --pretty=oneline --abbrev-commit'
-alias lola='git log --graph --decorate --pretty=oneline --abbrev-commit --all'
+# alias lol='git log --graph --decorate --pretty=oneline --abbrev-commit'
+# alias lola='git log --graph --decorate --pretty=oneline --abbrev-commit --all'
 
 # Undo a `git push`
 alias undopush="git push -f origin HEAD^:master"

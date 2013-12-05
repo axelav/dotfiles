@@ -1,3 +1,23 @@
+[alias]
+	a = add -A
+	c = clone
+	d = diff
+	dc = diff --cached
+	ds = diff --stat
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	m = commit -m
+	s = !clear && git status -sb
+	sync = !git pull && git push
+
+	# http://brendanforster.com/notes/git-alias.html
+	# wtf is git update?
+	# sync = !git update && git co master && git pull && git co @{-1}
+	# resync = !sh -c 'BRANCH_NAME=master && git com && git fe && git hr && git rebase master '
+
+
+
+
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
@@ -30,3 +50,5 @@
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+[push]
+	default = current
