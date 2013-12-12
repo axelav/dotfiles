@@ -3,14 +3,24 @@
 	[
 		"AngularJS",
 		"Better CoffeeScript",
-		"BracketHighlighter",
+		"EasyDiff",
 		"Emmet",
+		"Git",
 		"GitGutter",
 		"JSHint",
 		"LESS",
+		"Markdown Extended",
 		"Package Control",
 		"Quick File Creator",
+		"SCSS",
+		"Solarized Color Scheme",
+		"SublimeTODO",
 		"Theme - Soda",
-		"Tomorrow Color Schemes"
+		"Tomorrow Color Schemes",
+		"Vintage Numbers"
+	],
+	"repositories":
+	[
+		"https://github.com/dnatag/SublimeTODO"
 	]
 }

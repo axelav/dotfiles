@@ -1,6 +1,7 @@
 {
 	"auto_complete": true,
 	"auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin",
+	"bold_folder_labels": false,
 	"caret_style": "phase",
 	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Eighties.tmTheme",
 	"create_window_at_startup": false,
@@ -15,20 +16,38 @@
 	"ignored_packages":
 	[
 	],
+	"indent_guide_options":
+	[
+		"draw_active"
+	],
 	"indent_to_bracket": true,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"open_files_in_new_window": false,
-	"rulers": [80],
-	"save_on_focus_lost": true,
+	"rulers":
+	[
+		80
+	],
+	"save_on_focus_lost": false,
 	"scroll_past_end": true,
 	"show_full_path": true,
 	"soda_classic_tabs": true,
 	"tab_size": 2,
 	"theme": "Soda Dark.sublime-theme",
+	"todo":
+	{
+		"folder_exclude_patterns":
+		[
+			"bin",
+			"build",
+			"node_modules",
+			"vendor"
+		]
+	},
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
 	"use_tab_stops": true,
+	"vintage_start_in_command_mode": true,
 	"wide_caret": true,
 	"word_wrap": true
 }
