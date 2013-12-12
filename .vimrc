@@ -166,6 +166,9 @@ au BufRead,BufNewFile *.less set ft=less
 " Coffeescript
 au BufRead,BufNewFile *.coffee set ft=coffee
 
+" Git commit settings
+au Filetype gitcommit setlocal spell textwidth=72
+
 " edit & reload .vimrc within vim
 map <leader>vimrc :tabe ~/.vimrc<cr>
 autocmd bufwritepost .vimrc source $MYVIMRC

@@ -23,6 +23,7 @@ alias ls="command ls ${colorflag}"
 
 # Utilities
 alias a="ack -i"
+alias bashrc="source ~/.bashrc"
 alias c="pygmentize -g"
 alias chrome="open -a 'Google Chrome'"
 alias d="cd ~/Dropbox && clear"
@@ -36,6 +37,7 @@ alias l="clear && pwd && ls -FlhX ${colorflag}" # List all files colorized in hu
 alias la="clear && pwd && ls -FlhXa ${colorflag}" # List all files colorized in human-readable, long format sorted by extension, including dot files
 alias lr="clear && pwd && ls -lR ${colorflag}" # Recursively list all files colorized, long format
 alias lsd='ls -lh ${colorflag} | grep "^d"' # List only directories
+alias n="node"
 alias nd="nodemon"
 alias o="open"
 alias oo="open ."
@@ -43,7 +45,7 @@ alias p="cd ~/Dropbox/projects && clear && pwd && ls -F ${colorflag}"
 alias ps='ps -ax' # View all processes
 alias psd="open *psd" # open all PSD files in a directory
 alias s="sublime"
-alias slt="subl"
+alias ss="sublime ."
 alias t="touch"
 alias tmux="tmux -2" # force tmux to use 256 colors
 alias u="cd .. && l" # A nifty one stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/

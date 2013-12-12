@@ -39,3 +39,9 @@ complete -o "nospace" -W "Finder Dock Mail Safari iTunes iCal Address\ Book Syst
 
 # Source virutalenvwrapper executable
 source /usr/local/bin/virtualenvwrapper.sh
+
+# TODO: move this to its proper spot
+source ~/.git_completion
+
+# NPM tab completions
+source ~/.npm_completion
