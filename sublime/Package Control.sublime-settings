@@ -3,21 +3,17 @@
 	[
 		"AngularJS",
 		"Better CoffeeScript",
-		"EasyDiff",
 		"Emmet",
 		"Git",
 		"GitGutter",
+		"Jade",
 		"JSHint",
 		"LESS",
 		"Markdown Extended",
 		"Package Control",
 		"Quick File Creator",
-		"SCSS",
-		"Solarized Color Scheme",
 		"SublimeTODO",
-		"Theme - Soda",
-		"Tomorrow Color Schemes",
-		"Vintage Numbers"
+		"Theme - Spacegray"
 	],
 	"repositories":
 	[

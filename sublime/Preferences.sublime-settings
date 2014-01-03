@@ -2,23 +2,23 @@
 	"auto_complete": true,
 	"auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin",
 	"bold_folder_labels": false,
+	"caret_extra_bottom": 1,
+	"caret_extra_top": 1,
+	"caret_extra_width": 1,
 	"caret_style": "phase",
-	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Eighties.tmTheme",
+	"close_windows_when_empty": true,
+	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
 	"create_window_at_startup": false,
 	"detect_indentation": true,
 	"draw_minimap_border": true,
 	"ensure_newline_at_eof_on_save": true,
 	"find_selected_text": true,
 	"font_face": "Consolas",
-	"font_size": 14.0,
+	"font_size": 16.0,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
-	],
-	"indent_guide_options":
-	[
-		"draw_active"
 	],
 	"indent_to_bracket": true,
 	"line_padding_bottom": 1,
@@ -30,10 +30,11 @@
 	],
 	"save_on_focus_lost": false,
 	"scroll_past_end": true,
+	"shift_tab_unindent": true,
 	"show_full_path": true,
 	"soda_classic_tabs": true,
 	"tab_size": 2,
-	"theme": "Soda Dark.sublime-theme",
+	"theme": "Spacegray Eighties.sublime-theme",
 	"todo":
 	{
 		"folder_exclude_patterns":
