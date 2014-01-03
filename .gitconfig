@@ -6,49 +6,51 @@
 	ds = diff --stat
 	l = log --graph --decorate --pretty=oneline --abbrev-commit
 	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	lp = log -p
 	m = commit -m
 	s = !clear && git status -sb
 	sync = !git pull && git push
 
-	# http://brendanforster.com/notes/git-alias.html
-	# wtf is git update?
-	# sync = !git update && git co master && git pull && git co @{-1}
-	# resync = !sh -c 'BRANCH_NAME=master && git com && git fe && git hr && git rebase master '
-
-
-
-
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
+
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
-	# Treat spaces before tabs, lines that are indented with 8 or more spaces, and all kinds of trailing whitespace as an error
-    whitespace = space-before-tab,indent-with-non-tab,trailing-space
-    autocrlf = input
+	# Treat spaces before tabs and all kinds of trailing whitespace as an error
+  whitespace = space-before-tab,trailing-space
+  autocrlf = input
+
 [color]
 	# Use colors in Git commands that are capable of colored output when outputting to the terminal
 	ui = auto
+
 [color "branch"]
 	current = blue reverse
 	local = yellow
 	remote = green
+
 [color "diff"]
 	meta = yellow
 	frag = magenta
 	old = red
 	new = cyan
+
 [color "status"]
 	added = yellow
 	changed = green
 	untracked = cyan
+
 [grep]
     lineNumber = true
+
 [init]
-    templatedir = ~/Dropbox/projects/git-init-template
+    # templatedir = ~/Dropbox/projects/git-init-template
+
 [merge]
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+
 [push]
 	default = current
