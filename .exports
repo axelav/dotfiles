@@ -22,3 +22,6 @@ export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 # Link virtualenvwrapper directory
 export WORKON_HOME=~/code/virtualenvs
+
+# GO path
+export GOPATH=$HOME/code/go
