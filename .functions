@@ -173,3 +173,9 @@ function todo() {
   ${EDITOR:-vi} $t;
   cd -;
 }
+
+# Create a text file of the current working tree
+function txtree() {
+  tree --charset=ASCII -FnNoQ "$@".txt;
+  echo -e "\nGenerated on $(date)" >> "$@".txt;
+}
