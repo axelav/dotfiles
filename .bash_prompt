@@ -63,4 +63,4 @@ function parse_git_branch() {
 # \[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]
 
 export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$RED\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$CYAN\]\$(parse_git_branch)\[$WHITE\]\n☮ \[$RESET\]"
-export PS2="\[$RED\]→ \[$RESET\]"
+export PS2="\[$RED\]∴ → \[$RESET\]"
