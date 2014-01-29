@@ -23,11 +23,12 @@ sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh
 # install npm globals
 npm install bower -g
 npm install browserify -g
-npm install coffee-script -g
+# npm install coffee-script -g
+npm install coffee-script-redux -g
 npm install express -g
 npm install grunt-cli -g
 npm install jshint -g
-npm install nodemon -g
+npm install lute -g
 npm install spotify-cli -g
 
 
