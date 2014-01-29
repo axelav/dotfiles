@@ -4,12 +4,13 @@
 	d = diff
 	dc = diff --cached
 	ds = diff --stat
-	l = log --graph --decorate --pretty=oneline --abbrev-commit
+	l = !clear && git log --graph --decorate --pretty=oneline -n 30 --abbrev-commit
 	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	lp = log -p
 	m = commit -m
 	s = !clear && git status -sb
 	sync = !git pull && git push
+	loc = !git ls-files | xargs wc -l
 
 [apply]
 	# Detect whitespace errors when applying a patch
