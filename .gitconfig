@@ -1,6 +1,7 @@
 [alias]
 	a = add -A
 	c = clone
+  co = checkout
 	d = diff
 	dc = diff --cached
 	ds = diff --stat
