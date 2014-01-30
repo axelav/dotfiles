@@ -1,48 +1,48 @@
 [alias]
-	a = add -A
-	c = clone
+  a = add -A
+  c = clone
   co = checkout
-	d = diff
-	dc = diff --cached
-	ds = diff --stat
-	l = !clear && git log --graph --decorate --pretty=oneline -n 30 --abbrev-commit
-	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	lp = log -p
-	m = commit -m
-	s = !clear && git status -sb
-	sync = !git pull && git push
-	loc = !git ls-files | xargs wc -l
+  d = diff
+  dc = diff --cached
+  ds = diff --stat
+  l = !clear && git log --graph --decorate --pretty=oneline -n 30 --abbrev-commit
+  la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  lp = log -p
+  m = commit -m
+  s = !clear && git status -sb
+  sync = !git pull && git push
+  loc = !git ls-files | xargs wc -l
 
 [apply]
-	# Detect whitespace errors when applying a patch
-	whitespace = fix
+  # Detect whitespace errors when applying a patch
+  whitespace = fix
 
 [core]
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
-	# Treat spaces before tabs and all kinds of trailing whitespace as an error
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = ~/.gitignore
+  # Treat spaces before tabs and all kinds of trailing whitespace as an error
   whitespace = space-before-tab,trailing-space
   autocrlf = input
 
 [color]
-	# Use colors in Git commands that are capable of colored output when outputting to the terminal
-	ui = auto
+  # Use colors in Git commands that are capable of colored output when outputting to the terminal
+  ui = auto
 
 [color "branch"]
-	current = blue reverse
-	local = yellow
-	remote = green
+  current = blue reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-	meta = yellow
-	frag = magenta
-	old = red
-	new = cyan
+  meta = yellow
+  frag = magenta
+  old = red
+  new = cyan
 
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 
 [grep]
     lineNumber = true
@@ -51,8 +51,8 @@
     # templatedir = ~/Dropbox/projects/git-init-template
 
 [merge]
-	# Include summaries of merged commits in newly created merge commit messages
-	log = true
+  # Include summaries of merged commits in newly created merge commit messages
+  log = true
 
 [push]
-	default = current
+  default = current
