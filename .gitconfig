@@ -1,5 +1,6 @@
 [alias]
   a = add -A
+  ap = add -p
   c = clone
   co = checkout
   d = diff
