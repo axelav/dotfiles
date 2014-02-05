@@ -8,11 +8,11 @@ ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
 ./.brew
 
 # Sublime Text setup
-# install Soda theme
-cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages && git clone https://github.com/buymeasoda/soda-theme/ "Theme - Soda"
-
 # install Package Control
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages && curl -O "https://sublime.wbond.net/Package%20Control.sublime-package"
+
+# install Vintageous
+cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages && curl -O "https://bitbucket.org/guillermooo/vintageous/downloads/Vintageous.sublime-package"
 
 # set up preferences & install common packages
 cp -r ~/Dropbox/projects/dotfiles/sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
