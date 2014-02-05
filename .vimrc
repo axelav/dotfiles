@@ -142,12 +142,6 @@ noremap <C-h> :nohlsearch<cr>
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Switch p & P
-noremap p P
-noremap P p
-noremap o O
-noremap O o
-
 " Automatic commands
 " Enable close tag script with <C-_>
 au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
