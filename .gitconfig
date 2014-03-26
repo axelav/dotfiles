@@ -12,6 +12,7 @@
   lp = log -p
   m = commit -m
   s = !clear && git status -sb
+  st = stash
   sync = !git pull && git push
   loc = !git ls-files | xargs wc -l
 
