@@ -15,10 +15,7 @@ cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages && curl -
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages && curl -O "https://bitbucket.org/guillermooo/vintageous/downloads/Vintageous.sublime-package"
 
 # set up preferences & install common packages
-cp -r ~/Dropbox/projects/dotfiles/sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-
-# https://github.com/jamiew/git-friendly
-sudo bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+cp -r sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
 # install npm globals
 npm install bower -g
@@ -36,6 +33,3 @@ npm install spotify-cli -g
 mkdir -p ~/code/z
 curl https://raw.github.com/rupa/z/master/z.sh > ~/code/z/z.sh
 chmod +x ~/code/z/z.sh
-
-# remember to add this to the bash_profile file if it aint there.
-#   . ~/code/z/z.sh
