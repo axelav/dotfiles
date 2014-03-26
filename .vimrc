@@ -68,8 +68,8 @@ set showmatch " Show matching parenthesis
 set showmode " Show the current mode
 set smartcase " when searching try to be smart about cases
 set smarttab " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces.
-set tabstop=4 " Make tabs as wide as four spaces
-set softtabstop=4 " Make the spaces feel like real tabs
+set tabstop=2 " Make tabs as wide as four spaces
+set softtabstop=2 " Make the spaces feel like real tabs
 set title " Show the filename in the window titlebar
 set ttyfast " Optimize for fast terminal connections
 set undofile " Persistent undo
