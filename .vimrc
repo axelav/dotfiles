@@ -61,7 +61,7 @@ endif
 set ruler " Show the cursor position
 set scrolloff=5 " Start scrolling five lines before the horizontal window border
 set secure
-set shiftwidth=4 " The number of spaces to indent
+set shiftwidth=2 " The number of spaces to indent
 set shortmess=atI " Don’t show the intro message when starting Vim
 set showcmd " Show the (partial) command as it’s being typed
 set showmatch " Show matching parenthesis
