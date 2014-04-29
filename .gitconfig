@@ -10,11 +10,11 @@
   l = !clear && git log --graph --decorate --pretty=oneline -n 30 --abbrev-commit
   la = log --graph --decorate --pretty=oneline --abbrev-commit --all
   lp = log -p
+  loc = !git ls-files | xargs wc -l
   m = commit -m
   s = !clear && git status -sb
-  st = stash
+  st = !clear && git status
   sync = !git pull && git push
-  loc = !git ls-files | xargs wc -l
 
 [apply]
   # Detect whitespace errors when applying a patch
@@ -48,14 +48,28 @@
   untracked = cyan
 
 [grep]
-    lineNumber = true
+  lineNumber = true
 
 [init]
-    # templatedir = ~/Dropbox/projects/git-init-template
+  # templatedir = ~/Dropbox/projects/git-init-template
 
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
   log = true
+
+# URL shorthands
+[url "git@github.com:"]
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+[url "git://github.com/"]
+  insteadOf = "github:"
+[url "git@gist.github.com:"]
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+[url "git://gist.github.com/"]
+  insteadOf = "gist:"
 
 [push]
   default = current
