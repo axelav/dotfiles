@@ -42,6 +42,7 @@ alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
 alias ps='ps -ax' # View all processes
 alias psd="open *psd" # open all PSD files in a directory
+alias rm="srm"
 alias s="sublime"
 alias ss="sublime ."
 alias t="touch"
