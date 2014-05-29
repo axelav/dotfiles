@@ -67,7 +67,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 alias localip="ipconfig getifaddr en0"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias whois="whois -h whois-servers.net"
+# alias whois="whois -h whois-servers.net"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -84,34 +84,6 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # Archive & extract archives
 alias ztar="tar -cvzf" #new_file *.txt
 alias uztar="tar -zxvf"
-
-# Git shortcuts
-# alias ga='git add'
-# alias gl='clear && git log --graph --decorate --pretty=oneline -n 20 --abbrev-commit'
-# alias gs='clear && git status -sb'
-# alias gd='git diff'
-# alias gds='git diff --stat'
-# alias gdc='git diff --cached'
-# alias gm='git commit -m'
-# alias gma='git commit -am'
-# alias gcl='git clone'
-# Delete multiple removed files from a repo at once // http://
-# lol & lola stolen from http://blog.repl.ca/2011/12/my-gitconfig-2011-edition.html
-# alias lol='git log --graph --decorate --pretty=oneline --abbrev-commit'
-# alias lola='git log --graph --decorate --pretty=oneline --abbrev-commit --all'
-
-# Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
-
-# gco      => git checkout master
-# gco bugs => git checkout bugs
-function gco {
-  if [ -z "$1" ]; then
-    git checkout master
-  else
-    git checkout $1
-  fi
-}
 
 # ROT13-encode text. Works for decoding, too! ;)
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'

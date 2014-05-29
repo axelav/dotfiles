@@ -15,6 +15,7 @@
   s = !clear && git status -sb
   st = !clear && git status
   sync = !git pull && git push
+  undopush = push -f origin HEAD^:master
 
 [apply]
   # Detect whitespace errors when applying a patch
