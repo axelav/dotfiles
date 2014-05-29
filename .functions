@@ -43,11 +43,6 @@ cp_p () {
     rsync -WavP --human-readable --progress $1 $2
 }
 
-# Move files to trash
-function trash() {
-	mv "$@" ~/.Trash;
-}
-
 # Use Git’s colored diff when available
 hash git &>/dev/null
 if [ $? -eq 0 ]; then

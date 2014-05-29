@@ -27,6 +27,7 @@ npm install grunt-cli -g
 npm install jshint -g
 npm install lute -g
 npm install spotify-cli -g
+npm install trash -g
 
 
 # https://github.com/rupa/z
