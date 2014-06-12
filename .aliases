@@ -7,7 +7,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
+alias -- -="popd"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -25,6 +25,7 @@ alias ls="command ls ${colorflag}"
 alias a="ack -i"
 alias bashrc="source ~/.bashrc"
 alias c="pygmentize -g"
+alias cd="pushd"
 alias chrome="open -a 'Google Chrome'"
 alias d="cd ~/Dropbox && clear"
 alias du="du -h -d 1"
@@ -33,16 +34,17 @@ alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
 alias j="jobs -l"
 alias fs="stat -c \"%s bytes\"" # File size
-alias l="clear && pwd && ls -FlhX ${colorflag}" # List all files colorized in human-readable, long format sorted by extension
-alias la="clear && pwd && ls -FlhXa ${colorflag}" # List all files colorized in human-readable, long format sorted by extension, including dot files
-alias lr="clear && pwd && ls -lR ${colorflag}" # Recursively list all files colorized, long format
-alias lsd='ls -lh ${colorflag} | grep "^d"' # List only directories
+alias l="clear && pwd && ls -FlhX ${colorflag}"   # List all files colorized in human-readable, long format sorted by extension
+alias la="clear && pwd && ls -FlhXa ${colorflag}" # Do above, also including dot files
+alias ld="ls -lh | grep '^d'"                     # List only directories
+alias lr="clear && pwd && ls -lR ${colorflag}"    # Recursively list all files in colorized, long format
+alias lsd="ls -lh | grep '^d' | rainbowify"       # PRETTY COLORS
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
 alias ps='ps -ax' # View all processes
 alias psd="open *psd" # open all PSD files in a directory
-alias rm="srm"
+alias rm="srm -v"
 alias s="sublime"
 alias ss="sublime ."
 alias t="touch"

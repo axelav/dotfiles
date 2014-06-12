@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # install command line tools
 xcode-select --install
 
@@ -18,18 +20,17 @@ cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages && curl -
 cp -r sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
 # install npm globals
-# npm install bower -g
-npm i browserify -g
-npm i coffee-script-redux -g
-npm i express -g
-npm i grunt-cli -g
-npm i gulp
-npm i jshint -g
-npm i lute -g
-npm i rainbowify -g
-npm i spotify-cli -g
-npm i trash -g
-
+npm i -g browserify
+npm i -g coffee-script-redux
+npm i -g express
+npm i -g grunt-cli
+npm i -g gulp
+npm i -g jshint
+npm i -g lute
+npm i -g rainbowify
+npm i -g spotify-cli
+npm i -g trash
+npm i -g forecast
 
 # https://github.com/rupa/z
 mkdir -p ~/code/z
