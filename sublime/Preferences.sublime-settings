@@ -7,7 +7,7 @@
 	"caret_extra_width": 1,
 	"caret_style": "phase",
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.dark.tmTheme",
+	"color_scheme": "Packages/Theme - Spacegray/base16-eighties.light.tmTheme",
 	"create_window_at_startup": false,
 	"detect_indentation": true,
 	"draw_minimap_border": true,
@@ -34,7 +34,7 @@
 	"show_full_path": true,
 	"soda_classic_tabs": true,
 	"tab_size": 2,
-	"theme": "Spacegray Eighties.sublime-theme",
+	"theme": "Spacegray Light.sublime-theme",
 	"todo":
 	{
 		"folder_exclude_patterns":

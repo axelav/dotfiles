@@ -27,7 +27,7 @@ WHITE=$(tput setaf 7)
 style_user="\[${RESET}${MAGENTA}\]"
 style_host="\[${RESET}${CYAN}\]"
 style_path="\[${RESET}${BLUE}\]"
-style_chars="\[${RESET}${WHITE}\]"
+style_chars="\[${RESET}${BLACK}\]"
 style_branch="${YELLOW}"
 
 if [[ "$SSH_TTY" ]]; then
@@ -106,7 +106,7 @@ prompt_git() {
     style_branch="${RED}"
   fi
 
-  printf "${WHITE}on ${style_branch}${git_info}"
+  printf "${BLACK}on ${style_branch}${git_info}"
 }
 
 # Build the prompt

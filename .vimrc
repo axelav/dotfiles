@@ -3,7 +3,7 @@ set nocompatible
 
 " Set colorscheme
 set t_Co=256
-colorscheme Tomorrow-Night-Eighties
+colorscheme Tomorrow
 
 " Set syntax highlighting
 " set background=dark
