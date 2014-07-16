@@ -3,20 +3,20 @@
   { "keys": ["super+shift+v"], "command": "paste" },
   { "keys": ["ctrl+shift+t"], "command": "run_macro_file", "args": {"file": "Packages/User/convertFourSpacesToTwo.sublime-macro"} },
   // {"keys": ["ctrl+t"], "command": "toggle_setting", "args": {"setting": "vintage_lines.force_mode"}},
+  // { "keys": ["0"], "command": "move_to",
+  //   "args": {
+  //     "to": "bol"
+  //   },
+  //   "context":
+  //   [
+  //     { "key": "setting.command_mode", "operand": true },
+  //     { "key": "setting.is_widget", "operand": false }
+  //   ]
+  // },
   { "keys": ["j", "j"], "command": "exit_insert_mode",
     "context":
     [
       { "key": "setting.command_mode", "operand": false },
-      { "key": "setting.is_widget", "operand": false }
-    ]
-  },
-  { "keys": ["0"], "command": "move_to",
-    "args": {
-      "to": "bol"
-    },
-    "context":
-    [
-      { "key": "setting.command_mode", "operand": true },
       { "key": "setting.is_widget", "operand": false }
     ]
   }
