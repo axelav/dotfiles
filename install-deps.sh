@@ -9,16 +9,6 @@ ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
 # install homebrew packages
 ./.brew
 
-# Sublime Text setup
-# install Package Control
-cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages && curl -O "https://sublime.wbond.net/Package%20Control.sublime-package"
-
-# install Vintageous
-cd ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages && curl -O "https://bitbucket.org/guillermooo/vintageous/downloads/Vintageous.sublime-package"
-
-# set up preferences & install common packages
-cp -r sublime/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-
 # install npm globals
 npm i -g browserify
 npm i -g coffee-script-redux
