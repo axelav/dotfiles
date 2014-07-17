@@ -157,6 +157,10 @@ function! NumberToggle()
 endfunction
 nnoremap <C-t> :call NumberToggle()<cr>
 
+" Use ctrl-[movement keys] to switch between splits
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
 " edit & reload .vimrc within vim
 map <leader>vimrc :tabe ~/.vimrc<cr>
 autocmd bufwritepost .vimrc source $MYVIMRC
