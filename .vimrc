@@ -124,7 +124,7 @@ noremap <leader>ss :call StripWhitespace()<CR>
 
 " Cycle through buffers
 nmap <leader><Tab> :bn<CR>
-nmap <leader>` :bp<CR>j`
+nmap <leader>` :bp<CR>
 
 " Exit insert mode
 imap jj <Esc>
