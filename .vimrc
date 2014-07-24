@@ -106,6 +106,9 @@ Plugin 'ervandew/supertab'
 
 call vundle#end()
 
+" Always show dotfiles with command-t
+let g:CommandTAlwaysShowDotFiles=1
+
 " Enable file type detection, plugins, indent
 filetype plugin indent on
 
@@ -129,20 +132,23 @@ nmap <leader>` :bp<CR>
 " Exit insert mode
 imap jj <Esc>
 
-" Close current buffer
+" Close current buffer (,q)
 map <leader>q :bd<CR>
 
 " Save current file (,w)
 nmap <leader>w :w!<cr>
 
 " Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
+noremap <leader>W :w !sudo tee % > /dev/null<cr>
 
 " Toggle paste mode on & off
 map <leader>pp :setlocal paste!<cr>
 
-" C-h to turn off search highlighting
-noremap <C-h> :nohlsearch<cr>
+" Turn off search highlighting (,hl)
+noremap <leader>hl :nohlsearch<cr>
+
+" Vertical split (,vs)
+map <leader>vs :vsp<cr>
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
@@ -158,8 +164,8 @@ endfunction
 nnoremap <C-t> :call NumberToggle()<cr>
 
 " Use ctrl-[movement keys] to switch between splits
-map <C-H> <C-W>h
-map <C-L> <C-W>l
+nmap <C-h> <C-W>h
+nmap <C-l> <C-W>l
 
 " edit & reload .vimrc within vim
 map <leader>vimrc :tabe ~/.vimrc<cr>
