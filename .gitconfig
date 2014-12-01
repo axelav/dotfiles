@@ -1,21 +1,24 @@
 [alias]
   a = add -A
-  ap = add -p
-  b = !clear && echo 'Current branches: \n' && git branch -avv
-  cl = clone
-  co = checkout
-  d = diff
-  dc = diff --cached
-  ds = diff --stat
-  l = !clear && git log --graph --decorate --pretty=oneline -n 30 --abbrev-commit
-  la = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  lp = log -p
-  loc = !git ls-files | xargs wc -l
-  m = commit -m
-  s = !clear && git status -sb
-  st = !clear && git status
-  sync = !git pull && git push
+  ap       = add -p
+  b        = !clear && echo 'Current branches: \n' && git branch -avv
+  cl       = clone
+  co       = checkout
+  d        = diff
+  dc       = diff --cached
+  ds       = diff --stat
+  l        = !clear && git log --graph --decorate --pretty=oneline -n 30 --abbrev-commit
+  la       = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  lp       = log -p
+  loc      = !git ls-files | xargs wc -l
+  m        = commit -m
+  s        = !clear && git status -sb
+  st       = !clear && git status
+  sync     = !git pull && git push
   undopush = push -f origin HEAD^:master
+  update   = !git pull --rebase --prune $@
+  wipe     = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+  # `git reflog` to find SHA of unreachable commit this creates; commit msg 'WIPE SAVEPOINT'
 
 [apply]
   # Detect whitespace errors when applying a patch
@@ -50,9 +53,6 @@
 
 [grep]
   lineNumber = true
-
-[init]
-  # templatedir = ~/Dropbox/projects/git-init-template
 
 [merge]
   # Include summaries of merged commits in newly created merge commit messages
