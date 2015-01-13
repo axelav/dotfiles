@@ -1,3 +1,5 @@
+" http://vimdoc.sourceforge.net/htmldoc/help.html
+
 " Make Vim more useful
 set nocompatible
 
@@ -48,7 +50,7 @@ set noerrorbells                      " Disable error bells
 set nostartofline                     " Don't reset cursor to start of line when moving around.
 set number                            " Enable line numbers
 set ruler                             " Show the cursor position
-set scrolloff=5                       " Start scrolling five lines before the horizontal window border
+set scrolloff=10                      " Start scrolling five lines before the horizontal window border
 set secure
 set shiftwidth=2                      " The number of spaces to indent
 set shortmess=atI                     " Don't show the intro message when starting Vim
@@ -63,17 +65,27 @@ set softtabstop=2                     " Make the spaces feel like real tabs
 set title                             " Show the filename in the window titlebar
 set ttyfast                           " Optimize for fast terminal connections
 set undofile                          " Persistent undo
-set wildchar=<TAB>                    " Character for CLI expansion (TAB-completion).
+set wildchar=<tab>                    " Character for CLI expansion (TAB-completion).
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js
-set wildignore+=*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/doc/*
+set wildignore+=*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*
+set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/doc/*,*/.DS_Store
 set wildmenu                          " Enhance command-line completion
 set wildmode=longest,list,full
 set wrap                              " Wrap lines
+
+" Set a column at 100 characters for text alignment
+" http://vimdoc.sourceforge.net/htmldoc/options.html#%27colorcolumn%27
+if exists('+colorcolumn')
+  set colorcolumn=100
+else
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+endif
 
 " Use the OS X clipboard if not using tmux
 if $TMUX == ''
   set clipboard+=unnamed
 endif
+
 " Use relative line numbers
 if exists("&relativenumber")
   set relativenumber
@@ -90,8 +102,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " My Bundles
 Plugin 'pangloss/vim-javascript'
-Plugin 'walm/jshint.vim'
-Plugin 'Townk/vim-autoclose'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
@@ -100,14 +110,34 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'wincent/command-t'
 Plugin 'tpope/vim-fugitive'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'fholgado/minibufexpl.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
+Plugin 'rking/ag.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'valloric/MatchTagAlways'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'gcmt/wildfire.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-obsession'
+Plugin 'Shougo/neocomplete.vim'
 
 call vundle#end()
 
+" Use airline tab line
+let g:airline#extensions#tabline#enabled = 1
+
 " Always show dotfiles with command-t
-let g:CommandTAlwaysShowDotFiles=1
+let g:CommandTAlwaysShowDotFiles = 1
+
+" Override vim's global ignore list
+let g:CommandTWildIgnore='*.jpg,*.jpeg,*.gif,*.png,*.gif,*.psd,*.o,*.obj,*.min.js,*/vendor/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/.sass-cache/*,*/log/*,*/build/*,*/bin/*,*/doc/*'
+
+" Disable auto pairs auto space insertion
+let g:AutoPairsMapSpace = 0
+
+" Javascript libraries to use with SyntaxComplete
+let g:used_javascript_libs = 'underscore,backbone,jquery,lodash,angularjs,jasmine'
 
 " Enable file type detection, plugins, indent
 filetype plugin indent on
@@ -123,17 +153,26 @@ function! <SID>StripWhitespace()
   call setpos('.', save_cursor)
   call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
+noremap <leader>ss :call StripWhitespace()<cr>
 
 " Cycle through buffers
-nmap <leader><Tab> :bn<CR>
-nmap <leader>` :bp<CR>
+nmap <leader><tab> :bn<cr>
+nmap <leader>` :bp<cr>
 
 " Exit insert mode
-imap jj <Esc>
+imap jj <esc>
 
 " Close current buffer (,q)
-map <leader>q :bd<CR>
+nmap <leader>q :bd<cr>
+
+" Close current buffer, ignoring changes (,q!)
+nmap <leader>q! :bd!<cr>
+
+" Close current buffer w/o closing split (,d)
+nmap <leader>d :b#<bar>bd#<cr>
+
+" Display buffer list & choose a buffer (,b)
+" nnoremap <leader>b :ls<cr>:buffer<space>
 
 " Save current file (,w)
 nmap <leader>w :w!<cr>
@@ -142,50 +181,56 @@ nmap <leader>w :w!<cr>
 noremap <leader>W :w !sudo tee % > /dev/null<cr>
 
 " Toggle paste mode on & off
-map <leader>pp :setlocal paste!<cr>
+nmap <leader>pp :setlocal paste!<cr>
 
 " Turn off search highlighting (,hl)
 noremap <leader>hl :nohlsearch<cr>
 
 " Vertical split (,vs)
-map <leader>vs :vsp<cr>
+nmap <leader>vs :vsplit<cr>
+
+" Horizontal split (,hs)
+nmap <leader>hs :split<cr>
+
+" Text search current directory (,f)
+nmap <leader>f :Ag!<space>
+
+" NERDTree
+nmap <leader>n :NERDTree<cr>
 
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
-" Toggle between relative & absolute line numbers
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunction
-nnoremap <C-t> :call NumberToggle()<cr>
-
-" Use ctrl-[movement keys] to switch between splits
-nmap <C-h> <C-W>h
-nmap <C-l> <C-W>l
-
-" edit & reload .vimrc within vim
-map <leader>vimrc :tabe ~/.vimrc<cr>
-autocmd bufwritepost .vimrc source $MYVIMRC
+" Remap ctrl-j to split a line
+nnoremap <nl> i <cr><esc>
 
 " Automatic commands
-" Enable close tag script with <C-_>
-au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
+" edit & reload .vimrc within vim
+" map <leader>vimrc :tabe ~/.vimrc<cr>
+" autocmd bufwritepost .vimrc source $MYVIMRC
+
 " Treat .json files as .js
 au BufRead,BufNewFile *.json set ft=json syntax=javascript
+
+" Treat .geojson files as .js
+au BufRead,BufNewFile *.geojson set ft=json syntax=javascript
+
 " Jade
 au BufRead,BufNewFile *.jade set ft=jade syntax=jade
+
 " EJS
 au BufRead,BufNewFile *.ejs set ft=html syntax=html
+
 " Jinja
 au BufReadPost *.tpl set ft=html syntax=html
+
 " Markdown
 au BufRead,BufNewFile *.md set ft=markdown
+
 " LESS
 au BufRead,BufNewFile *.less set ft=less
+
 " Coffeescript
 au BufRead,BufNewFile *.coffee set ft=coffee
 
@@ -193,4 +238,17 @@ au BufRead,BufNewFile *.coffee set ft=coffee
 au Filetype gitcommit setlocal spell textwidth=72
 
 " Strip trailing white space on save
-autocmd FileType javascript,coffee,ruby,python,html,css,less autocmd BufWritePre <buffer> :call <SID>StripWhitespace()
+autocmd FileType javascript,coffee,ruby,python,html,css,less,markdown autocmd BufWritePre <buffer> :call <SID>StripWhitespace()
+
+" EasyMotion mapping
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump anywhere (s{char}{char}{label})
+nmap s <Plug>(easymotion-s2)
+
+" Make EasyMotion case sensitive
+let g:EasyMotion_smartcase = 1
+
+" Line motions (j/k)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
