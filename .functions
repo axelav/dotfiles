@@ -31,13 +31,6 @@ height () {
   echo $(sips -g pixelHeight $1 | grep -oE "[[:digit:]]{1,}$")
 }
 
-# lets toss an image onto my server and pbcopy that bitch.
-function scpp() {
-    scp "$1" linode:/srv/www/axelav.com/public_html/i/;
-    echo "http://axelav.com/i/$1" | pbcopy;
-    echo "Copied to clipboard: http://axelav.com/i/$1"
-}
-
 # Copy w/ progress
 cpp () {
     rsync -WavP --human-readable --progress $1 $2
@@ -159,4 +152,17 @@ function todo() {
 function txtree() {
   tree --charset=ASCII -FnNoQ "$@".txt;
   echo -e "\nGenerated on $(date)" >> "$@".txt;
+}
+
+# Convert a list of WAV files to V0 MP3
+# TODO: accept args for V0, V2, etc;
+function V0() {
+  for filename; do
+    lame -V0 "$filename" "${filename%.*}.mp3"
+  done
+}
+
+# NOTE: this seems to simple but it actually works, I think
+function gitignore {
+  curl https://gist.githubusercontent.com/axelav/e0c1ba180cb00bc62df2/raw/395dedef31dbc0f693ee1a922a522827dffccbed/.gitignore > .gitignore
 }

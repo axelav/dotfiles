@@ -35,16 +35,28 @@ complete -W "NSGlobalDomain" defaults
 complete -o "nospace" -W "Finder Dock Mail Safari iTunes iCal Address\ Book SystemUIServer" killall
 
 # If possible, add tab completion for many more commands
-[ -f /etc/bash_completion ] && source /etc/bash_completion
+# NOTE: more generic?
+# [ -f /etc/bash_completion ] && source /etc/bash_completion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi
+
+# Export & source nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 # Source virutalenvwrapper executable
 source /usr/local/bin/virtualenvwrapper.sh
 
-# TODO: move this to its proper spot
+# NOTE: need to build vim with system ruby for command-T to work correctly; uncomment if needed
+# Load RVM into a shell session *as a function*
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# git completition
 source ~/.git_completion
 
 # NPM tab completions
 source ~/.npm_completion
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# Load autoenv
+source /usr/local/opt/autoenv/activate.sh
