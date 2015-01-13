@@ -16,7 +16,7 @@ else # OS X `ls`
     colorflag="-G"
 fi
 
- export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
+export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:'
 
 # Always use color output for `ls`
 alias ls="command ls ${colorflag}"
@@ -24,34 +24,37 @@ alias ls="command ls ${colorflag}"
 # Utilities
 alias a="ack -i"
 alias bashrc="source ~/.bashrc"
-alias c="pygmentize -g"
-alias cd="pushd"
+alias c="hicat"                                   # `npm i -g hicat`
 alias chrome="open -a 'Google Chrome'"
 alias d="cd ~/Dropbox && clear"
 alias du="du -h -d 1"
 alias g="git"
+alias git="hub"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
+alias init='echo "{}" > package.json && git init'
 alias h="history"
 alias j="jobs -l"
-alias fs="stat -c \"%s bytes\"" # File size
-alias l="clear && pwd && ls -FlhX ${colorflag}"   # List all files colorized in human-readable, long format sorted by extension
-alias la="clear && pwd && ls -FlhXa ${colorflag}" # Do above, also including dot files
-alias ld="ls -lh | grep '^d'"                     # List only directories
-alias lr="clear && pwd && ls -lR ${colorflag}"    # Recursively list all files in colorized, long format
-alias lsd="ls -lh | grep '^d' | rainbowify"       # PRETTY COLORS
+alias fs="stat -c \"%s bytes\""                   # file size
+alias l="clear && pwd && ls -FlhX ${colorflag}"   # list all files colorized in human-readable, long format, sorted by extension
+alias la="clear && pwd && ls -FlhXa ${colorflag}" # l but include hidden files
+alias ld="ls -lh | grep '^d'"                     # list only directories
+alias lsd="ls -lh | grep '^d' | rainbowify"       # `npm i -g rainbowify`
+alias lr="clear && pwd && ls -lR ${colorflag}"    # recursively list all files in colorized, long format
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
-alias ps='ps -ax' # View all processes
-alias psd="open *psd" # open all PSD files in a directory
-alias rm="srm -v"
+alias ps='ps -ax'                                 # View all processes
+alias psd="open *psd"                             # open all psd files in current directory
+alias rm="rm -Iv"                                 # always be verbose when rm'ing
 alias s="sublime"
 alias ss="sublime ."
 alias t="touch"
-alias tmux="tmux -2" # force tmux to use 256 colors
-alias u="cd .. && l" # A nifty one stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/
+alias tmux="tmux -2"                              # force tmux to use 256 colors
+alias u="cd .. && l"                              # a nifty one stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # Get OS X Software Updates, and update Homebrew, npm, and their installed packages
 alias v="vim"
+alias vc="vim \`git st | grep 'both modified' | cut -d' ' -f8\`"
+alias vmod="vim \`git status --porcelain | sed -ne 's/^ M //p'\`" # open all modified files in a git respository with vim
 
 # Mistypes
 alias vm="mv"
@@ -63,13 +66,15 @@ alias sudo='sudo '
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Networking
-alias flush="dscacheutil -flushcache" # Flush Directory Service cache
+# per support.apple.com, this is the new command: http://support.apple.com/kb/ht5343
+alias flush="killall -HUP mDNSResponder" # flush Directory Service cache
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 alias localip="ipconfig getifaddr en0"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias networkmap="nmap -v -sn 192.168.1.0/24"
+alias whazzup="nmap -v -sn 192.168.1.0/24 | grep -B 1 'Host is up'" # View all devices connected to local network
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -98,7 +103,7 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias show="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 
-# Hide/show all desktop icons (useful when presenting)
+# Hide/show all desktop icons
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
@@ -121,27 +126,11 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="http '$method'"
 done
 
-# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
-alias stfu="osascript -e 'set volume output muted true'"
-alias pumpitup="osascript -e 'set volume 10'"
-
 # Make Grunt print stack traces by default
 command -v grunt > /dev/null && alias grunt="grunt --stack"
 
 # Backup
 alias backup="rsync -avz --delete --progress --exclude-from '/Users/axelav/.rsync_excludes' /Users/axelav/ /Volumes/BigBoi/axelav/"
 
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
-# Spotify CLI
-# $ npm install -g spotify-cli
-alias play="spotify play"
-alias pause="spotify pause"
-alias prev="spotify prev"
-alias next="spotify next"
-
 # Clean up whiteboard photos ***REQUIRES IMAGEMAGICK***
 alias whiteboard="convert $1 -morphology Convolve DoG:15,100,0 -negate -normalize -blur 0x1 -channel RBG -level 60%,91%,0.1 $2"
-
