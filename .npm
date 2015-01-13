@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+npm i -g \
+  bower \
+  browserify \
+  coffee-script-redux \
+  eslint \
+  faucet \
+  forecast-cli \
+  fuck-you \
+  gist-cli \
+  ghwd \
+  grunt-cli \
+  gulp \
+  hicat \
+  install-nginx-on-ubuntu \
+  install-node-on-ubuntu \
+  istanbul \
+  karma \
+  keybase \
+  less \
+  lute \
+  node-gyp \
+  nodemon \
+  packify \
+  protractor \
+  rainbowify \
+  torrent \
+  trash \
+  uglify-js \
+  vtop \
+  watchify
