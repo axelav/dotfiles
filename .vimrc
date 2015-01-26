@@ -101,7 +101,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " My Bundles
-Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
