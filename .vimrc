@@ -199,7 +199,7 @@ nmap <leader>f :Ag!<space>
 nmap <leader>n :NERDTree<cr>
 
 " Remap VIM 0 to first non-blank character
-map 0 ^
+"map 0 ^
 
 " Remap ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
