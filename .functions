@@ -1,168 +1,166 @@
 #!/usr/bin/env bash
 
-# Change directory & list contents
+# change directory & list contents
 function cdl {
-	cd "$@" && ls
+  cd "$@" && ls
 }
 
-# Create a new directory and enter it
-function mkd() {
-	mkdir -p "$@" && cd "$@"
+# create a new directory and enter it
+function mkd {
+  mkdir -p "$@" && cd "$@"
 }
 
 # find shorthand
 # https://github.com/paulirish/dotfiles/blob/master/.functions
-function f() {
+function f {
     find . -name "$1"
 }
 
-# cd into whatever is the forefront Finder window.
-cdf() {  # short for cdfinder
+# cd into whatever is the forefront finder window.
+function cdf {
     cd "`osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)'`"
 }
 
-# Image width
-width () {
+# image width
+function width {
   echo $(sips -g pixelWidth $1 | grep -oE "[[:digit:]]{1,}$")
 }
 
-# Image height
-height () {
+# image height
+function height {
   echo $(sips -g pixelHeight $1 | grep -oE "[[:digit:]]{1,}$")
 }
 
-# Copy w/ progress
-cpp () {
-    rsync -WavP --human-readable --progress $1 $2
-}
+# copy w/ progress
+#function cpp {
+    #rsync -WavP --human-readable --progress $1 $2
+#}
 
-# Use Git’s colored diff when available
+# use git's colored diff when available
 hash git &>/dev/null
 if [ $? -eq 0 ]; then
-	function diff() {
-		git diff --no-index --color-words "$@"
-	}
+  function diff {
+    git diff --no-index --color-words "$@"
+  }
 fi
 
-# Create a data URL from an image (works for other file types too, if you tweak the Content-Type afterwards)
-dataurl() {
-	echo "data:image/${1##*.};base64,$(openssl base64 -in "$1")" | tr -d '\n'
+# create a data url from an image (works for other file types too, if you tweak
+# the content-type afterwards)
+function dataurl {
+  echo "data:image/${1##*.};base64,$(openssl base64 -in "$1")" | tr -d '\n'
 }
 
-# Start an HTTP server from a directory, optionally specifying the port
-function server() {
-	local port="${1:-8000}"
-	sleep 1 && open "http://localhost:${port}/" &
-	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
-	# And serve everything as UTF-8 (although not technically correct, this doesn’t break anything for binary files)
-	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
+# start an http server from a directory, optionally specifying the port
+function server {
+  local port="${1:-8000}"
+  sleep 1 && open "http://localhost:${port}/" &
+  # set the default content-type to `text/plain` instead of
+  # `application/octet-stream`  and serve everything as utf-8 (although not
+  # technically correct, this doesn't break anything for binary files)
+  python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
-# Get gzipped file size
-function gz() {
-	echo "orig size (bytes): "
-	cat "$1" | wc -c
-	echo "gzipped size (bytes): "
-	gzip -c "$1" | wc -c
+# get gzipped file size
+function gz {
+  echo "orig size (bytes): "
+  cat "$1" | wc -c
+  echo "gzipped size (bytes): "
+  gzip -c "$1" | wc -c
 }
 
-# Extract archives - use: extract <file>
-# Credits to http://dotfiles.org/~pseup/.bashrc
-function extract() {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2) tar xjf $1 ;;
-            *.tar.gz) tar xzf $1 ;;
-            *.bz2) bunzip2 $1 ;;
-            *.rar) rar x $1 ;;
-            *.gz) gunzip $1 ;;
-            *.tar) tar xf $1 ;;
-            *.tbz2) tar xjf $1 ;;
-            *.tgz) tar xzf $1 ;;
-            *.zip) unzip $1 ;;
-            *.Z) uncompress $1 ;;
-            *.7z) 7z x $1 ;;
-            *) echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+# extract archives - use: extract <file>
+# credits to http://dotfiles.org/~pseup/.bashrc
+function extract {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2) tar xjf $1 ;;
+      *.tar.gz) tar xzf $1 ;;
+      *.bz2) bunzip2 $1 ;;
+      *.rar) rar x $1 ;;
+      *.gz) gunzip $1 ;;
+      *.tar) tar xf $1 ;;
+      *.tbz2) tar xjf $1 ;;
+      *.tgz) tar xzf $1 ;;
+      *.zip) unzip $1 ;;
+      *.Z) uncompress $1 ;;
+      *.7z) 7z x $1 ;;
+      *) echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
-# Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
-# Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
-function httpcompression() {
-	encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
+# test if http compression (rfc 2616 + sdch) is enabled for a given url.
+# send a fake ua string for sites that sniff it instead of using the
+# accept-encoding header. (looking at you, ajax.googleapis.com!)
+function httpcompression {
+  encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
 }
 
-# Gzip-enabled `curl`
-function gurl() {
-	curl -sH "Accept-Encoding: gzip" "$@" | gunzip
+# gzip-enabled `curl`
+function gurl {
+  curl -sH "Accept-Encoding: gzip" "$@" | gunzip
 }
 
-# Syntax-highlight JSON strings or files
-function json() {
-	if [ -p /dev/stdin ]; then
-		# piping, e.g. `echo '{"foo":42}' | json`
-		python -mjson.tool | pygmentize -l javascript
-	else
-		# e.g. `json '{"foo":42}'`
-		python -mjson.tool <<< "$*" | pygmentize -l javascript
-	fi
+# all the dig info
+function digga {
+  dig +nocmd "$1" any +multiline +noall +answer
 }
 
-# All the dig info
-function digga() {
-	dig +nocmd "$1" any +multiline +noall +answer
+# escape utf-8 characters into their 3-byte format
+function escape {
+  printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
+  echo # newline
 }
 
-# Escape UTF-8 characters into their 3-byte format
-function escape() {
-	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-	echo # newline
+# decode \x{abcd}-style unicode escape sequences
+function unidecode {
+  perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
+  echo # newline
 }
 
-# Decode \x{ABCD}-style Unicode escape sequences
-function unidecode() {
-	perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-	echo # newline
+# get a character's unicode code point
+function codepoint {
+  perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
+  echo # newline
 }
 
-# Get a character’s Unicode code point
-function codepoint() {
-	perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
-	echo # newline
-}
-
-# Manually remove a downloaded app or file from the quarantine
-function unquarantine() {
-	for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine; do
-		xattr -r -d "$attribute" "$@"
-	done
-}
-
-function todo() {
+function todo {
   cd ~/.todo || return 1&& l=$(ls -1t|head -n1)&&t=$(date +%Y%m%d);
   [[ "$1" == "last" ]]&&cp $l $t;
   ${EDITOR:-vi} $t;
   cd -;
 }
 
-# Create a text file of the current working tree
-function txtree() {
-  tree --charset=ASCII -FnNoQ "$@".txt;
-  echo -e "\nGenerated on $(date)" >> "$@".txt;
-}
-
-# Convert a list of WAV files to V0 MP3
-# TODO: accept args for V0, V2, etc;
-function V0() {
+# convert a list of wav files to v0 mp3
+function V0 {
   for filename; do
     lame -V0 "$filename" "${filename%.*}.mp3"
   done
 }
 
-# NOTE: this seems to simple but it actually works, I think
+# create a default .gitignore file for a project
 function gitignore {
   curl https://gist.githubusercontent.com/axelav/e0c1ba180cb00bc62df2/raw/395dedef31dbc0f693ee1a922a522827dffccbed/.gitignore > .gitignore
+}
+
+# opens the file passed as the first arg in your $EDITOR. if no arg passed,
+# lists all files in notes directory, sorted by most recently modified.
+function notes {
+  dir="/Users/axelav/projects/personal/notes"
+  if [ $1 ] ; then
+    $EDITOR "$dir/$1.md"
+  else
+    ls -c $dir
+  fi
+}
+
+function tabs {
+  notes tabs
+}
+
+# gitignore as a service: https://github.com/joeblau/gitignore.io
+function gi {
+  curl -L -s https://www.gitignore.io/api/$@;
 }

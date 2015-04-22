@@ -1,19 +1,19 @@
-# Compiled Python files
+# compiled python files
 *.pyc
 
-# Folder view configuration files
+# folder view configuration files
 .DS_Store
 Desktop.ini
 
-# Thumbnail cache files
+# thumbnail cache files
 ._*
 Thumbs.db
 
-# Files that might appear on external disks
+# files that might appear on external disks
 .Spotlight-V100
 .Trashes
 
-# Keep .extra & .ssh/ file out of repo
+# keep .extra & .ssh/ file out of repo
 .extra
 .ssh/
 .env

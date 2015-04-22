@@ -4,15 +4,17 @@
 xcode-select --install
 
 # homebrew!
-ruby <(curl -fsSkL raw.github.com/mxcl/homebrew/go)
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # install homebrew packages
 ./.brew
 
+# install virtualenvwrapper
+pip install virtualenvwrapper
+
+# install current stable version of node
+nvm install stable
+
 # install global node modules
 ./.node-modules
 
-# https://github.com/rupa/z
-mkdir -p ~/code/z
-curl https://raw.github.com/rupa/z/master/z.sh > ~/code/z/z.sh
-chmod +x ~/code/z/z.sh

@@ -1,3 +1,12 @@
-.Trash/
 Library/Caches/
 Library/Application Support
+Library/Saved\ Application\ State
+.Trash/
+.dropbox
+.cache
+.vim
+.npm
+.nvm
+.virtualenvs
+.ssh
+.node-gyp

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# Easier navigation: .., ..., ...., ....., ......, ~ and -
+# easier navigation
+alias ~="cd ~" # `cd` is probably faster to type though
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="popd"
+alias -- -="cd -"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -25,10 +25,9 @@ alias ls="command ls ${colorflag}"
 alias a="ack -i"
 alias bashrc="source ~/.bashrc"
 alias c="hicat"                                   # `npm i -g hicat`
+alias cask="brew cask"
 alias chrome="open -a 'Google Chrome'"
-alias d="cd ~/Dropbox && clear"
 alias du="du -h -d 1"
-alias g="git"
 alias git="hub"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias init='echo "{}" > package.json && git init'
@@ -39,18 +38,19 @@ alias l="clear && pwd && ls -FlhX ${colorflag}"   # list all files colorized in 
 alias la="clear && pwd && ls -FlhXa ${colorflag}" # l but include hidden files
 alias ld="ls -lh | grep '^d'"                     # list only directories
 alias lsd="ls -lh | grep '^d' | rainbowify"       # `npm i -g rainbowify`
-alias lr="clear && pwd && ls -lR ${colorflag}"    # recursively list all files in colorized, long format
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
+alias play="cd ~/projects/playground && ls"
+alias please="sudo "
 alias ps='ps -ax'                                 # View all processes
-alias psd="open *psd"                             # open all psd files in current directory
-alias rm="rm -Iv"                                 # always be verbose when rm'ing
-alias s="sublime"
-alias ss="sublime ."
+alias rm="rm -v"                                  # always be verbose when rm'ing
+alias s="screen"
+alias sls="screen -list"
+alias ss="screen -S"
+alias sx="screen -x"
 alias t="touch"
-alias tmux="tmux -2"                              # force tmux to use 256 colors
-alias u="cd .. && l"                              # a nifty one stolen from Chad Whitacre: http://chad.whitacre.usesthis.com/
+alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # Get OS X Software Updates, and update Homebrew, npm, and their installed packages
 alias v="vim"
 alias vc="vim \`git st | grep 'both modified' | cut -d' ' -f8\`"
@@ -59,7 +59,7 @@ alias vmod="vim \`git status --porcelain | sed -ne 's/^ M //p'\`" # open all mod
 # Mistypes
 alias vm="mv"
 
-# Enable aliases to be sudo’ed
+# Enable aliases to be sudo'ed
 alias sudo='sudo '
 
 # Stopwatch
@@ -96,7 +96,7 @@ alias uztar="tar -zxvf"
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 # Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
+# Also, clear Apple's System Logs to improve shell startup speed
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
 # Show/hide hidden files in Finder
@@ -115,13 +115,13 @@ alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
 
-# PlistBuddy alias, because sometimes `defaults` just doesn’t cut it
+# PlistBuddy alias, because sometimes `defaults` just doesn't cut it
 alias plistbuddy="/usr/libexec/PlistBuddy"
 
 # Launch iOS Simulator
 alias ios="open -a /Applications/Xcode.app/Contents/Applications/iPhone\ Simulator.app"
 
-# One of @janmoesen’s ProTip™s
+# One of @janmoesen's ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="http '$method'"
 done

@@ -1,24 +1,19 @@
 # install homebrew cask...
-brew tap phinze/homebrew-cask
-brew install brew-cask
+brew install caskroom/cask/brew-cask
+brew tap caskroom/versions
 
 # and a bunch of apps
 brew cask install alfred
-brew cask install arduino
-brew cask install calibre
-brew cask install chromium
-cask install dropbox
-# brew cask install fantastical - purchased thru app store
+brew cask install caffeine
+brew cask install flux
 brew cask install firefox
 brew cask install google-chrome
 brew cask install google-chrome-canary
-brew cask install imageoptim
 brew cask install iterm2
-brew cask install light-table
 brew cask install livereload
-brew cask install one-password
-brew cask install sublime-text
+brew cask install moom
 brew cask install the-unarchiver
 brew cask install transmission
-brew cask install transmit
 brew cask install vlc
+
+# brew cask install fantastical - purchased thru app store

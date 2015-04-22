@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
-cd "$(dirname "$0")"
-git pull origin master
+cd "$(dirname "${BASH_SOURCE}")";
+git pull origin master;
+
 function doIt() {
-	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "README.md" --exclude "install-deps.sh" --exclude ".npm-install" --exclude ".brew" -av . ~
+  rsync --exclude ".git/" --exclude "iterm/" --exclude ".DS_Store" \
+    --exclude "gnupg/" --exclude "scripts/" --exclude "tmux/" \
+    --exclude "bootstrap.sh" --exclude "README.md" --exclude "install-deps.sh" \
+    --exclude ".npm-install" --exclude ".brew" --exclude ".cask" \
+    --exclude "TODO.md" --exclude ".tmux.conf" --exclude ".osx" -av . ~;
+  source ~/.bash_profile;
 }
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt
-else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
-	echo
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt
-	fi
-fi
-unset doIt
-source ~/.bashrc
+
+doIt;
+unset doIt;
+exit 0;

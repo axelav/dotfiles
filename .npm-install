@@ -1,32 +1,25 @@
 #!/usr/bin/env bash
 
 npm i -g \
-  bower \
+  babel \
   browserify \
   coffee-script-redux \
-  eslint \
   faucet \
   forecast-cli \
   fuck-you \
-  gist-cli \
   ghwd \
   grunt-cli \
   gulp \
   hicat \
-  install-nginx-on-ubuntu \
-  install-node-on-ubuntu \
-  istanbul \
-  karma \
-  keybase \
-  less \
-  lute \
-  node-gyp \
-  nodemon \
   packify \
   protractor \
   rainbowify \
+  rimraf \
+  standard \
   torrent \
   trash \
   uglify-js \
-  vtop \
   watchify
+  #install-nginx-on-ubuntu \
+  #install-node-on-ubuntu \
+  #keybase \
