@@ -34,10 +34,10 @@ brew install \
   gnu-sed \
   htop \
   hub \
-  imagemagick \
   irssi \
   lame \
   lynx \
+  mplayer \
   nmap \
   nvm \
   pass \

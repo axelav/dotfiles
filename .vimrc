@@ -6,6 +6,7 @@ set filetype=off
 
 let mapleader=","
 
+set backspace=indent,eol,start
 set clipboard+=unnamed
 " set cursorline
 set encoding=utf-8 nobomb
@@ -73,6 +74,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
+Plugin 'qpkorr/vim-bufkill'
 
 call vundle#end()
 
@@ -116,7 +118,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 
 " js libs to use with syntaxcomplete
-let g:used_javascript_libs = 'underscore,backbone,jquery,lodash,angularjs,jasmine'
+let g:used_javascript_libs = 'underscore,lodash,react,backbone,jquery,angularjs,jasmine'
 
 " format options
 set filetype=on
@@ -137,8 +139,8 @@ syntax enable
 nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
 
-" close current buffer (,q)
-nmap <leader>q :bd<cr>
+" close current buffer using bufkill (,q)
+nmap <leader>q :BD<cr>
 
 " close current buffer, ignoring changes (,q!)
 nmap <leader>q! :bd!<cr>
@@ -151,6 +153,10 @@ nmap <leader>f :Ag!<space>
 
 " NERDTree
 nmap <leader>n :NERDTree<cr>
+
+" open nerdtree automatically if vim opens with no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " remap ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
@@ -169,10 +175,11 @@ autocmd BufRead,BufNewFile *.coffee set ft=coffee
 
 " strip trailing white space on save
 autocmd FileType javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType json autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType css autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType html autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
-autocmd FileType coffee autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType coffee autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType less autocmd BufWritePre <buffer> :%s/\s\+$//e

@@ -148,7 +148,7 @@ function gitignore {
 # opens the file passed as the first arg in your $EDITOR. if no arg passed,
 # lists all files in notes directory, sorted by most recently modified.
 function notes {
-  dir="/Users/axelav/projects/personal/notes"
+  dir="$HOME/projects/personal/notes"
   if [ $1 ] ; then
     $EDITOR "$dir/$1.md"
   else
