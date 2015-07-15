@@ -16,7 +16,7 @@
   pup       = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
   s         = !clear && git status -sb
   st        = !clear && git status
-  sync      = !git pull && git push && git push --tags
+  sync      = !git pull && git push
   # REF: http://stackoverflow.com/questions/927358/undo-the-last-git-commit
   undo      = reset --soft HEAD~1
   undomerge = reset --merge HEAD~1
@@ -79,3 +79,4 @@
 
 [push]
   default = current
+  followTags = true
