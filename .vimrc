@@ -75,6 +75,7 @@ Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'qpkorr/vim-bufkill'
+Plugin 'tpope/vim-haml'
 
 call vundle#end()
 
@@ -151,12 +152,11 @@ nmap <leader>w :w!<cr>
 " text search current directory (,f)
 nmap <leader>f :Ag!<space>
 
-" NERDTree
+" nerdtree
 nmap <leader>n :NERDTree<cr>
 
-" open nerdtree automatically if vim opens with no files specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" make nerdtree window wider
+let g:NERDTreeWinSize = 50
 
 " remap ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
