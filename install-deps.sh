@@ -9,9 +9,6 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # install homebrew packages
 ./.brew
 
-# install virtualenvwrapper
-pip install virtualenvwrapper
-
 # install current stable version of node
 nvm install stable
 

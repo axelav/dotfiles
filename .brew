@@ -45,7 +45,6 @@ brew install \
   python \
   screen \
   the_silver_searcher \
-  virtualenv \
   vim --with-cscope --with-lua --with-luajit --override-system-vim \
   z
 

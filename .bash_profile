@@ -56,9 +56,6 @@ source ~/.npm_completion
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
-# source virutalenvwrapper executable
-source /usr/local/bin/virtualenvwrapper.sh
-
 # load autoenv
 source /usr/local/opt/autoenv/activate.sh
 
