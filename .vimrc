@@ -1,5 +1,5 @@
 set t_Co=256
-colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night-Bright
 
 " enabled later, after vundle
 set filetype=off
@@ -152,11 +152,22 @@ nmap <leader>w :w!<cr>
 " text search current directory (,f)
 nmap <leader>f :Ag!<space>
 
+" always move by virtual lines
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
 " nerdtree
 nmap <leader>n :NERDTree<cr>
 
 " make nerdtree window wider
 let g:NERDTreeWinSize = 50
+
+" fugitive
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gw :Gbrowse<cr>
 
 " remap ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
