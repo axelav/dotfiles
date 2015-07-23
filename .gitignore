@@ -17,3 +17,6 @@ Thumbs.db
 .extra
 .ssh/
 .env
+
+# local vimrc overrides
+.local_vimrc

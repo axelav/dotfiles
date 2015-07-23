@@ -76,6 +76,8 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'tpope/vim-haml'
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
 
 call vundle#end()
 
@@ -120,6 +122,9 @@ endif
 
 " js libs to use with syntaxcomplete
 let g:used_javascript_libs = 'underscore,lodash,react,backbone,jquery,angularjs,jasmine'
+
+" local vimrc filename
+let g:local_vimrc = '.local_vimrc'
 
 " format options
 set filetype=on
