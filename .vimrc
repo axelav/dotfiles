@@ -28,7 +28,7 @@ set nowritebackup
 set number
 set relativenumber
 set ruler
-set scrolloff=10
+set scrolloff=5
 set secure
 set shortmess=AITstW
 set smartcase
