@@ -11,6 +11,7 @@ npm i -g \
   grunt-cli \
   gulp \
   hicat \
+  mdn \
   packify \
   protractor \
   rainbowify \
@@ -19,7 +20,8 @@ npm i -g \
   torrent \
   trash \
   uglify-js \
-  watchify
+  watchify \
+  wzrd
   #install-nginx-on-ubuntu \
   #install-node-on-ubuntu \
   #keybase \
