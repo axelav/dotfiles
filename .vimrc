@@ -39,8 +39,8 @@ set undofile
 set undodir=~/.vim/undo
 set wildchar=<tab>
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.psd,*.o,*.obj,*.min.js
-set wildignore+=*/vendor/*,*/bower_components/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*
-set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/doc/*,*/.DS_Store
+set wildignore+=*/vendor/*,*/bower_components/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/coverage/*
+set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*,*/.DS_Store
 set wildmenu
 set wildmode=longest,list,full
 "set wrap
