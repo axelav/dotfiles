@@ -136,6 +136,9 @@ set textwidth=80
 " enable syntax highlighting
 syntax enable
 
+" remap , to "
+nmap " ,
+
 " cycle through buffers
 nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
