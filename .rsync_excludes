@@ -10,3 +10,4 @@ Library/Saved\ Application\ State
 .virtualenvs
 .ssh
 .node-gyp
+node_modules*

@@ -164,3 +164,8 @@ function tabs {
 function gi {
   curl -L -s https://www.gitignore.io/api/$@;
 }
+
+function backup {
+  rsync -avz --delete --progress --exclude-from "$HOME/.rsync_excludes" $HOME /Volumes/BigBoi;
+  date >> /Volumes/BigBoi/BACKUP;
+}

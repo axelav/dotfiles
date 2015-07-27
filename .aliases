@@ -41,7 +41,7 @@ alias lsd="ls -lh | grep '^d' | rainbowify"       # `npm i -g rainbowify`
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
-alias play="cd ~/projects/playground && ls"
+alias play="mplayer *mp3"
 alias please="sudo "
 alias ps='ps -ax'                                 # View all processes
 alias rm="rm -v"                                  # always be verbose when rm'ing
@@ -128,9 +128,3 @@ done
 
 # Make Grunt print stack traces by default
 command -v grunt > /dev/null && alias grunt="grunt --stack"
-
-# Backup
-alias backup="rsync -avz --delete --progress --exclude-from '/Users/axelav/.rsync_excludes' /Users/axelav/ /Volumes/BigBoi/axelav/"
-
-# Clean up whiteboard photos ***REQUIRES IMAGEMAGICK***
-alias whiteboard="convert $1 -morphology Convolve DoG:15,100,0 -negate -normalize -blur 0x1 -channel RBG -level 60%,91%,0.1 $2"
