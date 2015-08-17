@@ -4,10 +4,10 @@ git pull origin master;
 
 function doIt() {
   rsync --exclude ".git/" --exclude "iterm/" --exclude ".DS_Store" \
-    --exclude "gnupg/" --exclude "scripts/" --exclude "tmux/" \
-    --exclude "bootstrap.sh" --exclude "README.md" --exclude "install-deps.sh" \
-    --exclude ".npm-install" --exclude ".brew" --exclude ".cask" \
-    --exclude "TODO.md" --exclude ".tmux.conf" --exclude ".osx" -av . ~;
+    --exclude "gnupg/" --exclude "scripts/" \
+    --exclude "bootstrap.sh" --exclude "README.md" --exclude "install.sh" \
+    --exclude ".npm" --exclude ".brew" --exclude ".cask" --exclude ".osx" \
+    --exclude "tomorrow-night-bright.itermcolors" -av . ~;
   source ~/.bash_profile;
 }
 
