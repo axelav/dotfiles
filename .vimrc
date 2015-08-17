@@ -16,7 +16,7 @@ set history=1000
 set ignorecase
 set incsearch
 set indentexpr=off
-set laststatus=0
+set laststatus=2
 set nobackup
 set noerrorbells
 set nojoinspaces
@@ -70,7 +70,6 @@ Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'qpkorr/vim-bufkill'
-Plugin 'tpope/vim-haml'
 Plugin 'LucHermitte/lh-vim-lib'
 Plugin 'LucHermitte/local_vimrc'
 
@@ -78,6 +77,29 @@ call vundle#end()
 
 " use airline tab line
 let g:airline#extensions#tabline#enabled = 1
+
+" airline symbols
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" enable/disable fugitive integration
+let g:airline#extensions#branch#enabled = 1
 
 " always show dotfiles with command-t
 let g:CommandTAlwaysShowDotFiles = 1
@@ -163,6 +185,7 @@ let g:NERDTreeWinSize = 50
 
 " fugitive
 nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gw :Gbrowse<cr>
 
