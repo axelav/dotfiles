@@ -18,5 +18,13 @@ Thumbs.db
 .ssh/
 .env
 
+# vendor files
+node_modules/
+vendor/
+bower_components/
+
 # local vimrc overrides
 .local_vimrc
+
+# miscellaneous
+todo.md
