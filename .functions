@@ -31,11 +31,6 @@ function height {
   echo $(sips -g pixelHeight $1 | grep -oE "[[:digit:]]{1,}$")
 }
 
-# copy w/ progress
-#function cpp {
-    #rsync -WavP --human-readable --progress $1 $2
-#}
-
 # use git's colored diff when available
 hash git &>/dev/null
 if [ $? -eq 0 ]; then
@@ -143,21 +138,6 @@ function V0 {
 # create a default .gitignore file for a project
 function gitignore {
   curl https://gist.githubusercontent.com/axelav/e0c1ba180cb00bc62df2/raw/395dedef31dbc0f693ee1a922a522827dffccbed/.gitignore > .gitignore
-}
-
-# opens the file passed as the first arg in your $EDITOR. if no arg passed,
-# lists all files in notes directory, sorted by most recently modified.
-function notes {
-  dir="$HOME/projects/personal/notes"
-  if [ $1 ] ; then
-    $EDITOR "$dir/$1.md"
-  else
-    ls -c $dir
-  fi
-}
-
-function tabs {
-  notes tabs
 }
 
 # gitignore as a service: https://github.com/joeblau/gitignore.io

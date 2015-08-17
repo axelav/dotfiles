@@ -26,12 +26,12 @@ brew install homebrew/dupes/grep
 
 # Install everything else
 brew install \
-  ack \
   autoenv \
   bash-git-prompt \
   dos2unix \
   git \
   gnu-sed \
+  gpg-agent \
   htop \
   hub \
   irssi \

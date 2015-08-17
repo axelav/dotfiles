@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# NOTE: has to be a better way
 # manually set term for screen
 export TERM="xterm-256color"
 

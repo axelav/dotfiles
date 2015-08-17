@@ -48,10 +48,6 @@ set wildmode=longest,list,full
 setlocal spell spelllang=en_us
 set nospell
 
-" NOTE: I don't understand why this is called above & then here...
-"set showcmd
-"set shortmess=at
-
 " vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -67,7 +63,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'othree/yajs.vim'
 Plugin 'axelav/JavaScript-Indent'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -189,9 +184,6 @@ autocmd BufRead,BufNewFile *.json set syntax=javascript
 " less
 autocmd BufRead,BufNewFile *.less set ft=less
 
-" coffeescript
-autocmd BufRead,BufNewFile *.coffee set ft=coffee
-
 " strip trailing white space on save
 autocmd FileType javascript autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType json autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -200,5 +192,4 @@ autocmd FileType html autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
-autocmd FileType coffee autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType less autocmd BufWritePre <buffer> :%s/\s\+$//e

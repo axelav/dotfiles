@@ -6,7 +6,6 @@ done
 unset file
 
 if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-  #GIT_PROMPT_START="∴ ☮ ∴"
   GIT_PROMPT_THEME=Default
   source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
 fi
@@ -63,12 +62,8 @@ source /usr/local/opt/autoenv/activate.sh
 # load rvm into a shell session *as a function*
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# FIXME: not working (since git-bash-prompt was installed?)
-# https://twitter.com/schtobia/status/567581749233065986
-if [ -x `which screen` ]; then screen -q -ls; [ $? -ge 10 ] && screen -ls; fi
-
-# http://unix.stackexchange.com/questions/46960/how-to-configure-gpg-to-enter-passphrase-only-once-per-session
 # Invoke GnuPG-Agent the first time we login.
+# http://unix.stackexchange.com/questions/46960/how-to-configure-gpg-to-enter-passphrase-only-once-per-session
 # Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting signals?
 if test -f $HOME/.gpg-agent-info && \
     kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then

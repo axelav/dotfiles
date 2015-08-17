@@ -3,7 +3,6 @@
 npm i -g \
   babel \
   browserify \
-  coffee-script-redux \
   faucet \
   forecast-cli \
   fuck-you \
@@ -15,13 +14,9 @@ npm i -g \
   packify \
   protractor \
   rainbowify \
-  rimraf \
   standard \
   torrent \
   trash \
   uglify-js \
   watchify \
   wzrd
-  #install-nginx-on-ubuntu \
-  #install-node-on-ubuntu \
-  #keybase \
