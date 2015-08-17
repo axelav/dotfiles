@@ -1,7 +1,7 @@
 [alias]
   a         = add -A
   ap        = add -p
-  b         = !clear && echo 'Current branches: \n' && git branch -avv
+  b         = !clear && echo 'Current branches: \n' && git branch -vv
   cl        = clone
   co        = checkout
   d         = diff
