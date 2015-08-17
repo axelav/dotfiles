@@ -155,12 +155,6 @@ nmap <leader>w :w!<cr>
 " text search current directory (,f)
 nmap <leader>f :Ag!<space>
 
-" always move by virtual lines
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-
 " nerdtree
 nmap <leader>n :NERDTree<cr>
 
