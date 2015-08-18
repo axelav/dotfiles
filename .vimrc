@@ -70,8 +70,7 @@ Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'qpkorr/vim-bufkill'
-Plugin 'LucHermitte/lh-vim-lib'
-Plugin 'LucHermitte/local_vimrc'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 
@@ -100,6 +99,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 " enable/disable fugitive integration
 let g:airline#extensions#branch#enabled = 1
+
+" exclude fugitive panes from editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " always show dotfiles with command-t
 let g:CommandTAlwaysShowDotFiles = 1
@@ -139,9 +141,6 @@ endif
 
 " js libs to use with syntaxcomplete
 let g:used_javascript_libs = 'underscore,lodash,react,backbone,jquery,angularjs,jasmine'
-
-" local vimrc filename
-let g:local_vimrc = '.local_vimrc'
 
 " format options
 set filetype=on
