@@ -71,6 +71,7 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'vim-scripts/ZoomWin'
 
 call vundle#end()
 
