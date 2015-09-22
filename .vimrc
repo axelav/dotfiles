@@ -1,5 +1,6 @@
 set t_Co=256
-colorscheme Tomorrow-Night-Bright
+set background=dark
+colorscheme solarized
 
 " enabled later, after vundle
 set filetype=off
