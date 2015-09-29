@@ -12,6 +12,7 @@
   lp        = log -p
   loc       = !git ls-files | xargs wc -l
   m         = commit -m
+  pop       = stash pop
   # REF: http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
   pup       = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
   s         = !clear && git status -sb
