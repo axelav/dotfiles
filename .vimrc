@@ -210,3 +210,6 @@ autocmd FileType markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType python autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType ruby autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType less autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" open help in vertical split
+autocmd FileType help wincmd L
