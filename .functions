@@ -148,3 +148,10 @@ function backup {
   rsync -avz --delete --progress --exclude-from "$HOME/.rsync_excludes" $HOME /Volumes/BigBoi;
   date >> /Volumes/BigBoi/BACKUP;
 }
+
+# open up a package's readme in an electron viewer
+# usage: readme [package]
+# note: must `npm i -g vmd` first
+function readme {
+  npm view $@ readme | vmd;
+}
