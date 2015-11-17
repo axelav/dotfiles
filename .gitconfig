@@ -4,6 +4,7 @@
   b         = !clear && echo 'Current branches: \n' && git branch -vv
   cl        = clone
   co        = checkout
+  cop       = checkout -p
   d         = diff
   dc        = diff --cached
   ds        = diff --stat
