@@ -57,11 +57,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'wincent/command-t'
 Plugin 'rking/ag.vim'
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/tComment'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
-" Plugin 'othree/yajs.vim'
 Plugin 'axelav/JavaScript-Indent'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/html5.vim'
@@ -70,8 +69,11 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
-Plugin 'qpkorr/vim-bufkill'
+" NOTE: commenting out cuz it quits vim if netrw is only buffer open
+" Plugin 'qpkorr/vim-bufkill'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'lambdatoast/elm.vim'
+Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
 
@@ -158,15 +160,13 @@ set textwidth=80
 " enable syntax highlighting
 syntax enable
 
-" remap , to "
-nmap " ,
-
 " cycle through buffers
 nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
 
 " close current buffer using bufkill (,q)
-nmap <leader>q :BD<cr>
+" nmap <leader>q :BD<cr>
+nmap <leader>q :bd<cr>
 
 " close current buffer, ignoring changes (,q!)
 nmap <leader>q! :bd!<cr>
@@ -176,12 +176,6 @@ nmap <leader>w :w!<cr>
 
 " text search current directory (,f)
 nmap <leader>f :Ag!<space>
-
-" nerdtree
-nmap <leader>n :NERDTree<cr>
-
-" make nerdtree window wider
-let g:NERDTreeWinSize = 50
 
 " fugitive
 nnoremap <leader>gs :Gstatus<cr>
