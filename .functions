@@ -155,3 +155,9 @@ function backup {
 function readme {
   npm view $@ readme | vmd;
 }
+
+# https://twitter.com/climagic/status/672862397015658496
+shrug () {
+  echo -n "¯\_(ツ)_/¯" | pbcopy;
+  echo "¯\_(ツ)_/¯ copied to your clipboard";
+}
