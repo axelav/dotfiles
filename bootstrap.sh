@@ -7,8 +7,7 @@ function doIt() {
     --exclude "gnupg/" --exclude "scripts/" \
     --exclude "bootstrap.sh" --exclude "README.md" --exclude "install.sh" \
     --exclude ".npm" --exclude ".brew" --exclude ".cask" --exclude ".osx" \
-    --exclude "solarized-dark.itermcolors" \
-    --exclude "tomorrow-night-bright.itermcolors" -av . ~;
+    --exclude "assets" -av . ~;
   source ~/.bash_profile;
 }
 
