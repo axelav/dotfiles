@@ -15,9 +15,11 @@ npm i -g \
   protractor \
   rainbowify \
   standard \
+  tldr \
   torrent \
   trash \
   uglify-js \
   vmd \
   watchify \
-  wzrd
+  wzrd \
+  youtube-dl
