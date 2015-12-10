@@ -1,6 +1,4 @@
 set t_Co=256
-set background=dark
-colorscheme solarized
 
 " enabled later, after vundle
 set filetype=off
@@ -74,8 +72,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'tpope/vim-vinegar'
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
+
+set background=dark
+colorscheme base16-default
+let base16colorspace=256
 
 " use airline tab line
 let g:airline#extensions#tabline#enabled = 1
