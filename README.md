@@ -1,96 +1,68 @@
-# Axel's dotfiles
+# dotfiles
 
-A fork of [mathias's dotfiles](https://github.com/mathiasbynens/dotfiles/) which has a good overview of what all this does.
+## install
 
-## Installation
-
-### Install dependencies
-
-My basic setup is captured in `install-deps.sh` which adds homebrew, yeoman, z, etc.
-
-### Install Homebrew formulae
-
-`install-deps.sh` runs this, but if you want to just run it on it's own...you can install some common Homebrew formulae (after installing Homebrew, of course):
-
-```bash
-./.brew
+```sh
+$ install.sh
 ```
 
+installs os x command line tools, homebrew, homebrew packages, cask
+applications, dotfiles, vundle (to manage vim plugins), nvm (to manage node
+versions) & global packages from npm.
 
-### Using Git and the bootstrap script
+## dotfiles
 
-You can clone the repository wherever you want. (I like to keep it in `~/Dropbox/projects/dotfiles`. The bootstrapper script will pull in the latest version and copy the files to your home folder.
-
-```bash
-git clone https://github.com/axelav/dotfiles.git && cd dotfiles && ./bootstrap.sh
-```
-
-To update, `cd` into your local `dotfiles` repository and then:
+you can also just update your shell's dotfiles:
 
 ```bash
 ./bootstrap.sh
 ```
 
-Alternatively, to update while avoiding the confirmation prompt:
+## env variables, credentials, etc
+
+if `~/.extra` exists, it will be sourced along with the other files. this is
+best adding commands you don't want to commit to a public repository.
+
+mine looks something like this:
 
 ```bash
-./bootstrap.sh -f
-```
-
-### Add custom commands without creating a new fork
-
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
-
-My `~/.extra` looks something like this:
-
-```bash
-# PATH additions
-      PATH=/usr/local/bin
-PATH=$PATH:/usr/local/sbin
-PATH=$PATH:/bin
-PATH=$PATH:~/.rvm/bin
-PATH=$PATH:~/code/git-friendly
+# path additions
+      path=/usr/local/bin
+path=$path:/usr/local/sbin
+path=$path:/bin
+path=$path:~/.rvm/bin
+path=$path:~/code/git-friendly
 # ...
+export path
 
-export PATH
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
+# git credentials
 GIT_AUTHOR_NAME="Axel Anderson"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="axelav@mailinator.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
+GIT_GITHUB_USER="axelav"
+git config --global github.user "$GIT_GITHUB_USER"
+GIT_GITHUB_TOKEN="yourlongassgithubtoken66642069"
+git config --global github.token "$GIT_GITHUB_TOKEN"
+
+# aws
+export AWS_ACCESS_KEY_ID="yoursecretawskey"
+export AWS_SECRET_ACCESS_KEY="yoursecressaccesskey"
+export AWS_DEFAULT_REGION="your-mom"
+
+# personal exports
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+export WORKON_HOME=~/.virtualenvs
+export GOPATH="$HOME/projects/go-packages"
 ```
 
-### Syntax highlighting
+### os x defaults
 
-...is really important. Even for these files.
-
-Add the below to this file: `~/Library/Application Support/Sublime Text 2/Packages/ShellScript/Shell-Unix-Generic.tmLanguage`
-
-```xml
-<string>.aliases</string>
-<string>.bash_profile</string>
-<string>.bash_prompt</string>
-<string>.bashrc</string>
-<string>.brew</string>
-<string>.exports</string>
-<string>.functions</string>
-<string>.git</string>
-<string>.gitattributes</string>
-<string>.gitconfig</string>
-<string>.gitignore</string>
-<string>.inputrc</string>
-<string>.osx</string>
-<string>.vim</string>
-<string>.vimrc</string>
-```
-
-### Sensible OS X defaults
-
-When setting up a new Mac, you may want to set some sensible OS X defaults:
+decent defaults when settings up a new mac:
 
 ```bash
 ./.osx
