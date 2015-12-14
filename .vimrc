@@ -42,7 +42,7 @@ set wildignore+=*/vendor/*,*/bower_components/*,*/node_modules/*,*/.git/*,*/.hg/
 set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*,*/.DS_Store
 set wildmenu
 set wildmode=longest,list,full
-"set wrap
+set nowrap
 
 setlocal spell spelllang=en_us
 set nospell
@@ -55,7 +55,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'wincent/command-t'
 Plugin 'rking/ag.vim'
-" Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/tComment'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
