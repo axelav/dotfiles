@@ -7,7 +7,7 @@ let mapleader=","
 
 set backspace=indent,eol,start
 set clipboard+=unnamed
-" set cursorline
+set cursorline
 set encoding=utf-8 nobomb
 set gdefault
 set hidden
@@ -33,6 +33,7 @@ set shortmess=AITstW
 set smartcase
 set smarttab
 set title
+set timeoutlen=200
 set ttyfast
 set undofile
 set undodir=~/.vim/undo
