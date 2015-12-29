@@ -27,6 +27,7 @@ alias bashrc="source ~/.bashrc"
 alias c="hicat"                                   # `npm i -g hicat`
 alias cask="brew cask"
 alias chrome="open -a 'Google Chrome'"
+alias dot="cd ~/projects/personal/dotfiles"
 alias du="du -h -d 1"
 alias git="hub"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
@@ -41,6 +42,7 @@ alias lsd="ls -lh | grep '^d' | rainbowify"       # `npm i -g rainbowify`
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
+alias pp="cd ~/projects/personal && clear && pwd && ls -FlhX ${colorflag}"
 alias play="mplayer *mp3"
 alias please="sudo "
 alias ps='ps -ax'                                 # View all processes
