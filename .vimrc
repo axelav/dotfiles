@@ -71,7 +71,9 @@ Plugin 'tpope/vim-surround'
 " Plugin 'qpkorr/vim-bufkill'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'lambdatoast/elm.vim'
-Plugin 'tpope/vim-vinegar'
+" NOTE: luv u tpope but always leaving netrw buffers hanging around aint cool
+" Plugin 'tpope/vim-vinegar'
+Plugin 'jeetsukumaran/vim-filebeagle'
 Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
