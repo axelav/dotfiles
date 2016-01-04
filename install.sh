@@ -18,16 +18,14 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 # set up vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # NOTE: build command-t
-cd ~/.vim/bundle/command-t/ruby/command-t/
-ruby extconf.rb
-make
+# cd ~/.vim/bundle/command-t/ruby/command-t/
+# ruby extconf.rb
+# make
+# cd "$(dirname "${BASH_SOURCE}")";
 
-cd "$(dirname "${BASH_SOURCE}")";
-
-# install current stable version of node & iojs
+# install current stable version of node
 nvm install stable
-nvm install iojs
-nvm alias default iojs
+nvm alias default stable
 nvm use default
 
 # install global node modules
