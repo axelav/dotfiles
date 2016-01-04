@@ -27,7 +27,6 @@ set nowritebackup
 set number
 set relativenumber
 set ruler
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 set scrolloff=5
 set secure
 set shortmess=AITstW
