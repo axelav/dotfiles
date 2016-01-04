@@ -27,13 +27,14 @@ set nowritebackup
 set number
 set relativenumber
 set ruler
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 set scrolloff=5
 set secure
 set shortmess=AITstW
 set smartcase
 set smarttab
 set title
-set timeoutlen=200
+set timeoutlen=500
 set ttyfast
 set undofile
 set undodir=~/.vim/undo
@@ -54,7 +55,7 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
-Plugin 'wincent/command-t'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
 Plugin 'vim-scripts/tComment'
 Plugin 'airblade/vim-gitgutter'
@@ -67,14 +68,13 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'vim-scripts/Auto-Pairs'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'tpope/vim-surround'
-" NOTE: commenting out cuz it quits vim if netrw is only buffer open
-" Plugin 'qpkorr/vim-bufkill'
+Plugin 'qpkorr/vim-bufkill'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'lambdatoast/elm.vim'
-" NOTE: luv u tpope but always leaving netrw buffers hanging around aint cool
-" Plugin 'tpope/vim-vinegar'
-Plugin 'jeetsukumaran/vim-filebeagle'
 Plugin 'chriskempson/base16-vim'
+Plugin 'jeetsukumaran/vim-filebeagle'
+Plugin 'jeetsukumaran/vim-buffergator'
+
 
 call vundle#end()
 
@@ -170,8 +170,7 @@ nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
 
 " close current buffer using bufkill (,q)
-" nmap <leader>q :BD<cr>
-nmap <leader>q :bd<cr>
+nmap <leader>q :BD<cr>
 
 " close current buffer, ignoring changes (,q!)
 nmap <leader>q! :bd!<cr>
