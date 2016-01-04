@@ -177,8 +177,8 @@ nmap <leader>q! :bd!<cr>
 " save current file (,w)
 nmap <leader>w :w!<cr>
 
-" text search current directory (,f)
-nmap <leader>f :Ag!<space>
+" text search current directory (,a)
+nmap <leader>a :Ag!<space>
 
 " fugitive
 nnoremap <leader>gs :Gstatus<cr>
