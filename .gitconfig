@@ -1,5 +1,6 @@
 [alias]
   a         = add -A
+  alias     = config --get-regexp ^alias\\.
   ap        = add -p
   b         = !clear && echo 'Current branches: \n' && git branch -avv
   cl        = clone
