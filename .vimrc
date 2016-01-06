@@ -72,8 +72,6 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'jeetsukumaran/vim-filebeagle'
-Plugin 'jeetsukumaran/vim-buffergator'
-
 
 call vundle#end()
 
@@ -110,8 +108,8 @@ let g:airline#extensions#branch#enabled = 1
 " exclude fugitive panes from editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
-" always show dotfiles with command-t
-let g:CommandTAlwaysShowDotFiles = 1
+" always show hidden files with filebeagle
+let g:filebeagle_show_hidden = 1
 
 " disable auto pairs auto space insertion
 let g:AutoPairsMapSpace = 0
@@ -164,20 +162,23 @@ set textwidth=80
 " enable syntax highlighting
 syntax enable
 
+" search for currently open buffers with ctrlp
+nmap <c-b> :CtrlPBuffer<cr>
+
 " cycle through buffers
 nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
 
-" close current buffer using bufkill (,q)
+" close current buffer using bufkill
 nmap <leader>q :BD<cr>
 
-" close current buffer, ignoring changes (,q!)
+" close current buffer, ignoring changes
 nmap <leader>q! :bd!<cr>
 
-" save current file (,w)
+" save current file
 nmap <leader>w :w!<cr>
 
-" text search current directory (,a)
+" text search current directory
 nmap <leader>a :Ag!<space>
 
 " fugitive
