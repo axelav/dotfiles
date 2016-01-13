@@ -165,6 +165,9 @@ syntax enable
 " search for currently open buffers with ctrlp
 nmap <c-b> :CtrlPBuffer<cr>
 
+" always show hidden files with ctrlp
+let g:ctrlp_show_hidden = 1
+
 " cycle through buffers
 nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
