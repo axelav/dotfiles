@@ -168,6 +168,11 @@ nmap <c-b> :CtrlPBuffer<cr>
 " always show hidden files with ctrlp
 let g:ctrlp_show_hidden = 1
 
+" TODO: doesnt seem to correctly find all files; tested using `.vimrc` in ~ dir
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+endif
+
 " cycle through buffers
 nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
