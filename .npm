@@ -10,6 +10,7 @@ npm i -g \
   grunt-cli \
   gulp \
   hicat \
+  js-beautify \
   mdn \
   packify \
   protractor \
