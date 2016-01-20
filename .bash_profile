@@ -58,10 +58,6 @@ source $(brew --prefix nvm)/nvm.sh
 # load autoenv
 source /usr/local/opt/autoenv/activate.sh
 
-# NOTE: need to build vim with system ruby for command-t to work correctly; uncomment if needed
-# load rvm into a shell session *as a function*
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # Invoke GnuPG-Agent the first time we login.
 # http://unix.stackexchange.com/questions/46960/how-to-configure-gpg-to-enter-passphrase-only-once-per-session
 # Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting signals?
