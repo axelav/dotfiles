@@ -11,7 +11,7 @@ brew install coreutils
 echo "Don't forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
 
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
+brew install findutils --with-default-names
 
 # Install bash
 brew install bash
