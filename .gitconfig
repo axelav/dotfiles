@@ -83,3 +83,5 @@
 [push]
   default = current
   followTags = true
+[help]
+  autocorrect = -1
