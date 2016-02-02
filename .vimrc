@@ -1,3 +1,5 @@
+" options
+" -------------------------------------
 set t_Co=256
 
 set nocompatible
@@ -42,7 +44,8 @@ set wildmode=longest,list,full
 setlocal spell spelllang=en_us
 set nospell
 
-" vundle
+" plugins
+" -------------------------------------
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -70,13 +73,6 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'vim-scripts/Auto-Pairs'
 
 call vundle#end()
-
-set background=dark
-colorscheme base16-default
-let base16colorspace=256
-
-" filetype plugin indent on
-syntax enable
 
 " airline
 let g:airline#extensions#tabline#enabled=1
@@ -110,7 +106,7 @@ let g:filebeagle_show_hidden=1
 let g:AutoPairsMapSpace=0
 
 " js libs syntax
-let g:used_javascript_libs='underscore,lodash,react,backbone,jquery,angularjs,jasmine'
+let g:used_javascript_libs='jquery,underscore,lodash,react,backbone,angularjs,angularui,angularuirouter,jasmine'
 
 " ctrlp
 let g:ctrlp_show_hidden=1
@@ -119,7 +115,20 @@ if executable('ag')
   let g:ctrlp_user_command='ag %s -l --nocolor --hidden -g ""'
 endif
 
+" bufkill
+let g:BufKillCreateMappings=0
+
+" theme
+" -------------------------------------
+set background=dark
+colorscheme base16-default
+let base16colorspace=256
+
+" filetype plugin indent on
+syntax enable
+
 " maps
+" -------------------------------------
 let mapleader=','
 
 " search for currently open buffers with ctrlp
@@ -130,7 +139,7 @@ nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
 
 " close current buffer using bufkill
-nmap <leader>q :BD<cr>
+nmap <C-c> :BD<cr>
 
 " close current buffer, ignoring changes
 nmap <leader>q! :bd!<cr>
@@ -138,8 +147,11 @@ nmap <leader>q! :bd!<cr>
 " save current file
 nmap <leader>w :w!<cr>
 
-" text search current directory
+" text search current working directory
 nmap <leader>a :Ag!<space>
+
+" use black hole register
+nmap <leader>b "_
 
 " fugitive
 nnoremap <leader>gs :Gstatus<cr>
@@ -147,10 +159,11 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gw :Gbrowse<cr>
 
-" remap ctrl-j to split a line
+" map ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
 
 " autocmds
+" -------------------------------------
 autocmd FileType html setlocal textwidth=0
 autocmd BufRead,BufNewFile *.json set syntax=javascript
 autocmd BufRead,BufNewFile *.less set ft=less
