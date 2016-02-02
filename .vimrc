@@ -3,19 +3,13 @@ set t_Co=256
 set nocompatible
 set filetype=off
 
-set autoindent
-set backspace=indent,eol,start
 set clipboard+=unnamed
 set cursorline
-set encoding=utf-8 nobomb
 set expandtab
 set gdefault
 set hidden
-set history=1000
 set ignorecase
-set incsearch
 set indentexpr=off
-set laststatus=2
 set nobackup
 set noerrorbells
 set nohlsearch
@@ -27,17 +21,14 @@ set nowrap
 set nowritebackup
 set number
 set relativenumber
-set ruler
 set scrolloff=5
 set secure
 set shiftwidth=2
 set shortmess=AITstW
 set smartcase
-set smarttab
 set softtabstop=2
 set tabstop=2
 set textwidth=80
-set timeoutlen=500
 set title
 set ttyfast
 set undodir=~/.vim/undo
@@ -46,7 +37,6 @@ set wildchar=<tab>
 set wildignore+=*.jpg,*.jpeg,*.gif,*.png,*.psd,*.o,*.obj,*.min.js
 set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*,*/.DS_Store
 set wildignore+=*/vendor/*,*/bower_components/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/coverage/*
-set wildmenu
 set wildmode=longest,list,full
 
 setlocal spell spelllang=en_us
@@ -70,12 +60,14 @@ Plugin 'othree/html5.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'vim-scripts/Auto-Pairs'
-Plugin 'vim-scripts/tComment'
 
 call vundle#end()
 
@@ -83,8 +75,7 @@ set background=dark
 colorscheme base16-default
 let base16colorspace=256
 
-set filetype=on
-filetype plugin indent on
+" filetype plugin indent on
 syntax enable
 
 " airline
