@@ -17,6 +17,7 @@
   pop       = stash pop
   # REF: http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
   pup       = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+  rev       = remote -v
   s         = !clear && git status -sb
   st        = !clear && git status
   sync      = !git pull && git push
