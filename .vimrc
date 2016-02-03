@@ -146,7 +146,5 @@ nnoremap <nl> i <cr><esc>
 " autocmds
 " -------------------------------------
 autocmd FileType html setlocal textwidth=0
-autocmd BufRead,BufNewFile *.json set syntax=javascript
-autocmd BufRead,BufNewFile *.less set ft=less
-autocmd FileType help wincmd L " open help in vertical split
-autocmd BufWritePre <buffer> :%s/\s\+$//e " strip trailing white space on save
+autocmd FileType help wincmd L              " open help in vertical split
+autocmd BufWritePre <buffer> :%s/\s\+$//e   " strip trailing white space on save
