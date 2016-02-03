@@ -33,7 +33,6 @@ done
 [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh mosh sshfs
 
 # add tab completion for `defaults read|write NSGlobalDomain`
-# you could just use `-g` instead, but i like being explicit
 complete -W "NSGlobalDomain" defaults
 
 # add `killall` tab completion for common apps
@@ -58,14 +57,12 @@ source $(brew --prefix nvm)/nvm.sh
 # load autoenv
 source /usr/local/opt/autoenv/activate.sh
 
-# Invoke GnuPG-Agent the first time we login.
+# invoke gnupg-agent the first time we login.
 # http://unix.stackexchange.com/questions/46960/how-to-configure-gpg-to-enter-passphrase-only-once-per-session
-# Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting signals?
 if test -f $HOME/.gpg-agent-info && \
     kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
     GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info | cut -c 16-`
 else
-    # No, gpg-agent not available; start gpg-agent
     eval `gpg-agent --daemon --no-grab --write-env-file $HOME/.gpg-agent-info`
 fi
 export GPG_TTY=`tty`

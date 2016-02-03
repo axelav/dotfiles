@@ -3,17 +3,12 @@
 npm i -g \
   babel \
   browserify \
-  faucet \
-  forecast-cli \
-  fuck-you \
   ghwd \
-  grunt-cli \
   gulp \
   hicat \
   js-beautify \
   mdn \
   packify \
-  protractor \
   rainbowify \
   standard \
   tldr \
@@ -22,5 +17,6 @@ npm i -g \
   uglify-js \
   vmd \
   watchify \
+  webpack \
   wzrd \
   youtube-dl

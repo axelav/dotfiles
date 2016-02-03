@@ -102,24 +102,6 @@ function digga {
   dig +nocmd "$1" any +multiline +noall +answer
 }
 
-# escape utf-8 characters into their 3-byte format
-function escape {
-  printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u)
-  echo # newline
-}
-
-# decode \x{abcd}-style unicode escape sequences
-function unidecode {
-  perl -e "binmode(STDOUT, ':utf8'); print \"$@\""
-  echo # newline
-}
-
-# get a character's unicode code point
-function codepoint {
-  perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))"
-  echo # newline
-}
-
 function todo {
   cd ~/.todo || return 1&& l=$(ls -1t|head -n1)&&t=$(date +%Y%m%d);
   [[ "$1" == "last" ]]&&cp $l $t;
@@ -132,11 +114,6 @@ function V0 {
   for filename; do
     lame -V0 "$filename" "${filename%.*}.mp3"
   done
-}
-
-# create a default .gitignore file for a project
-function gitignore {
-  curl https://gist.githubusercontent.com/axelav/e0c1ba180cb00bc62df2/raw/395dedef31dbc0f693ee1a922a522827dffccbed/.gitignore > .gitignore
 }
 
 # gitignore as a service: https://github.com/joeblau/gitignore.io

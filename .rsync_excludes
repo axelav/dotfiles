@@ -1,13 +1,13 @@
-Library/Caches/
-Library/Application Support
-Library/Saved\ Application\ State
 .Trash/
-.dropbox
 .cache
-.vim
+.dropbox
+.node-gyp
 .npm
 .nvm
-.virtualenvs
 .ssh
-.node-gyp
+.vim
+.virtualenvs
+Library/Application Support
+Library/Caches/
+Library/Saved\ Application\ State
 node_modules*

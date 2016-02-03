@@ -1,19 +1,21 @@
-# install homebrew cask...
+#!/usr/bin/env bash
+
+# cask
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
-# and a bunch of apps
-brew cask install caffeine
-brew cask install firefox
-brew cask install flux
-brew cask install google-chrome
-brew cask install google-chrome-canary
-brew cask install iterm2
-brew cask install slack
-brew cask install the-unarchiver
-brew cask install torbrowser
-brew cask install transmission
-brew cask install vlc
+# apps
+brew cask install caffeine \
+  firefox \
+  flux \
+  google-chrome \
+  google-chrome-canary \
+  iterm2 \
+  slack \
+  the-unarchiver \
+  torbrowser \
+  transmission \
+  vlc
 
 # brew cask install moom # purchased thru app store
 # brew cask install fantastical # purchased thru app store

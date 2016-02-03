@@ -1,34 +1,30 @@
 #!/usr/bin/env bash
 
-# Make sure we're using the latest Homebrew
-brew update
+# homebrew
+which -s brew
+if [[ $? != 0 ]] ; then
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+  brew update
+  brew upgrade
+fi
 
-# Upgrade any already-installed formulae
-brew upgrade
-
-# Install GNU core utilities
+# gnu core utils & `find`, `locate`, `updatedb`, `xargs`
 brew install coreutils
-echo "Don't forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
-
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install findutils --with-default-names
 
-# Install bash
+# bash
 brew install bash
 brew install bash-completion
 
-# Install wget with IRI support
-brew install wget --with-iri
-
-# Install more recent versions of some OS X tools
+# os x tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 
-# Install everything else
+# everything else
 brew install \
   autoenv \
   bash-git-prompt \
-  dos2unix \
   git \
   gnu-sed \
   gpg-agent \
@@ -49,5 +45,5 @@ brew install \
   vim --with-cscope --with-lua --with-luajit --override-system-vim \
   z
 
-# Remove outdated versions from the cellar
+# remove outdated versions
 brew cleanup
