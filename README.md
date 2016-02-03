@@ -26,14 +26,15 @@ best adding commands you don't want to commit to a public repository.
 mine looks something like this:
 
 ```bash
-# path additions
-      path=/usr/local/bin
-path=$path:/usr/local/sbin
-path=$path:/bin
-path=$path:~/.rvm/bin
-path=$path:~/code/git-friendly
-# ...
-export path
+# PATH additions
+PATH="/usr/local/bin"
+PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
+PATH="$PATH:/usr/bin"
+PATH="$PATH:/bin"
+PATH="$PATH:/usr/sbin"
+PATH="$PATH:/sbin"
+PATH="$PATH:/usr/local/sbin"
+export PATH
 
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
