@@ -120,7 +120,7 @@ nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
 
 " close current buffer using bufkill
-nmap <C-c> :BD<cr>
+nmap <C-q> :BD<cr>
 
 " close current buffer, ignoring changes
 nmap <leader>q! :bd!<cr>
