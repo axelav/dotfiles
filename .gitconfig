@@ -39,22 +39,27 @@
   # treat spaces before tabs and all kinds of trailing whitespace as an error
   whitespace = space-before-tab,trailing-space
   autocrlf = input
+  # npm install -g diff-so-fancy
+  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 
 [color]
-  # use colors in git commands that are capable of colored output when outputting to the terminal
-  ui = auto
-
+  ui = always
 [color "branch"]
   current = blue reverse
   local = yellow
   remote = magenta
-
 [color "diff"]
-  meta = yellow
-  frag = magenta
-  old = red
-  new = green
-
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold reverse
+  newNormal = green bold
+  newHighlight = green bold reverse
 [color "status"]
   added = yellow
   changed = green
@@ -67,23 +72,13 @@
   # include summaries of merged commits in newly created merge commit messages
   log = true
 
-# url shorthands
-[url "git@github.com:"]
-  insteadOf = "gh:"
-  pushInsteadOf = "github:"
-  pushInsteadOf = "git://github.com/"
-[url "git://github.com/"]
-  insteadOf = "github:"
-[url "git@gist.github.com:"]
-  insteadOf = "gst:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
-[url "git://gist.github.com/"]
-  insteadOf = "gist:"
+[diff]
+  algorithm = patience
 
 [push]
   default = current
   followTags = true
+
 [help]
   autocorrect = -1
 

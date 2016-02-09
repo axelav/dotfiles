@@ -3,6 +3,7 @@
 npm i -g \
   babel \
   browserify \
+  diff-so-fancy \
   ghwd \
   gulp \
   hicat \
