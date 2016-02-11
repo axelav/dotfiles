@@ -5,13 +5,13 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 # apps
-brew cask install caffeine \
+brew cask install \
+  caffeine \
   firefox \
   flux \
   google-chrome \
   google-chrome-canary \
   iterm2 \
-  slack \
   the-unarchiver \
   torbrowser \
   transmission \
