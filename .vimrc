@@ -44,6 +44,14 @@ set wildmode=longest,list,full
 setlocal spell spelllang=en_us
 set nospell
 
+set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
+
+" highlight the status bar when in insert mode
+if version >= 700
+  au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
+  au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+endif
+
 " plugins
 " -------------------------------------
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -51,15 +59,13 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'axelav/JavaScript-Indent'
-Plugin 'bling/vim-airline'
 Plugin 'chriskempson/base16-vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'gregsexton/gitv'
 Plugin 'jeetsukumaran/vim-filebeagle'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'othree/html5.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'rking/ag.vim'
@@ -73,10 +79,6 @@ Plugin 'valloric/MatchTagAlways'
 Plugin 'vim-scripts/Auto-Pairs'
 
 call vundle#end()
-
-" airline
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#branch#enabled=1
 
 " editorconfig
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
@@ -92,6 +94,9 @@ let g:used_javascript_libs='jquery,underscore,lodash,react,backbone,angularjs,an
 
 " ctrlp
 let g:ctrlp_show_hidden=1
+let g:ctrlp_max_height=20
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window_reversed=0
 
 if executable('ag')
   let g:ctrlp_user_command='ag %s -l --nocolor --hidden -g ""'
@@ -102,9 +107,9 @@ let g:BufKillCreateMappings=0
 
 " theme
 " -------------------------------------
+let base16colorspace=256
 set background=dark
 colorscheme base16-default
-let base16colorspace=256
 
 syntax enable
 
@@ -142,6 +147,9 @@ nnoremap <leader>gw :Gbrowse<cr>
 
 " map ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
+
+" map . in visual mode
+vnoremap . :norm.<cr>
 
 " autocmds
 " -------------------------------------
