@@ -138,3 +138,8 @@ shrug () {
   echo -n "¯\_(ツ)_/¯" | pbcopy;
   echo "¯\_(ツ)_/¯ copied to your clipboard";
 }
+
+# notes
+note () {
+  vim ~/projects/personal/notes/$(date -I).md
+}
