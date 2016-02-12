@@ -139,7 +139,13 @@ shrug () {
   echo "¯\_(ツ)_/¯ copied to your clipboard";
 }
 
-# notes
+# make a note
 note () {
-  vim ~/projects/personal/notes/$(date -I).md
+  PROJECTS_DIR=~/projects/personal/notes
+  NOTE_DIR=$PROJECTS_DIR/$(date +%Y)
+  CURRENT_DATE=$(date -I)
+  if [ ! -d "$NOTE_DIR" ]; then
+    mkdir $NOTE_DIR
+  fi
+  vim $NOTE_DIR/$CURRENT_DATE.md
 }
