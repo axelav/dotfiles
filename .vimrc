@@ -145,6 +145,10 @@ nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gw :Gbrowse<cr>
 
+" git stuff
+map <leader>l :!clear && git log -p %<cr>
+map <leader>d :!clear && git diff %<cr>
+
 " map ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
 
