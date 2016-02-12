@@ -39,6 +39,7 @@ brew install \
   nvm \
   pass \
   phantomjs \
+  pianobar \
   python \
   screen \
   the_silver_searcher \
