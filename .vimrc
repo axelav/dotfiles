@@ -67,6 +67,8 @@ Plugin 'gregsexton/gitv'
 Plugin 'jeetsukumaran/vim-filebeagle'
 Plugin 'lambdatoast/elm.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'qpkorr/vim-bufkill'
 Plugin 'rking/ag.vim'
@@ -105,6 +107,9 @@ endif
 
 " bufkill
 let g:BufKillCreateMappings=0
+
+" jsx
+let g:jsx_ext_required = 0
 
 " theme
 " -------------------------------------
