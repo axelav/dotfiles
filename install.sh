@@ -9,6 +9,10 @@ xcode-select --install
 ./.brew
 ./.cask
 
+# set brew'd bash as default shell
+sudo echo $(brew --prefix)/bin/bash >> /etc/shells && \
+chsh -s $(brew --prefix)/bin/bash
+
 # dotfiles
 ./bootstrap.sh
 

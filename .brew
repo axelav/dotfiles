@@ -34,6 +34,7 @@ brew install \
   irssi \
   lame \
   lynx \
+  jq \
   mplayer \
   nmap \
   nvm \
