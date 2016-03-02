@@ -7,7 +7,6 @@ set realname="Axel Anderson"
 ###########################################
 # mail/SMTP/IMAP settings
 
-
 set my_server=mail.messagingengine.com
 set my_user=axel@ftml.net
 set my_pass=`gpg --batch -q --decrypt ~/.password-store/personal/fastmail.gpg`
@@ -42,15 +41,16 @@ set timeout=600
 unset imap_passive
 unset mark_old
 
-# set timeout=15
-# set mail_check = 5
 # set imap_keepalive = 900
 # unset markers
 # set delete=yes
-# set pager_stop
 
 # theme
-source "~/.mutt/themes/base-16-dark-256.muttrc"
+source "~/.mutt/themes/base16.dark.256.muttrc"
+
+# keyboard
+bind compose p postpone-message
+bind index p recall-message
 
 
 ###########################################
@@ -75,13 +75,11 @@ set postponed="=Drafts"
 ###########################################
 # mailboxes to monitor
 
-mailboxes !
-mailboxes =another
-# ???
-# mailboxes = "="
+mailboxes = "="
 
 ###########################################
 # autocomplete addresses
+
 set query_command = "~/.mutt/fastmail-ldap.pl '%s'"
 bind editor <Tab> complete-query
 bind editor ^T    complete
@@ -89,8 +87,8 @@ bind editor ^T    complete
 
 ###########################################
 # macros
-macro index,pager ,a <save-message>=Archive\n
 
+macro index,pager ,a <save-message>=Archive\n
 
 # opening links etc
 macro index \cb |urlview 'call urlview to extract URLs out of a message'
