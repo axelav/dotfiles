@@ -36,6 +36,7 @@ brew install \
   lynx \
   jq \
   mplayer \
+  mutt \
   nmap \
   nvm \
   pass \
@@ -44,6 +45,7 @@ brew install \
   python \
   screen \
   the_silver_searcher \
+  urlview \
   vim --with-cscope --with-lua --with-luajit --override-system-vim \
   z
 
