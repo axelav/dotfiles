@@ -41,6 +41,8 @@ set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*,*/.DS
 set wildignore+=*/vendor/*,*/bower_components/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/coverage/*
 set wildmode=longest,list,full
 
+" clean linebreaks when composing email for mutt
+setlocal fo+=aw
 setlocal spell spelllang=en_us
 set nospell
 

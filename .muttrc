@@ -18,9 +18,9 @@ set imap_user=$my_user
 set imap_pass=$my_pass
 
 # cache
-set header_cache = "~/.mutt/cache/headers"
-set message_cachedir = "~/.mutt/cache/bodies"
-set certificate_file = "~/.mutt/certificates"
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
+set certificate_file="~/.mutt/certificates"
 
 
 ###########################################
@@ -36,13 +36,14 @@ set pager_stop
 set sort=threads
 set sort_aux=reverse-last-date-received
 set sort_browser=date
-set strict_threads = yes
+set strict_threads=yes
+set text_flowed=yes
 set timeout=600
 unset imap_passive
 unset mark_old
+unset markers
 
 # set imap_keepalive = 900
-# unset markers
 # set delete=yes
 
 # theme
@@ -89,6 +90,12 @@ bind editor ^T    complete
 # macros
 
 macro index,pager ,a <save-message>=Archive\n
+macro index,pager ,d <save-message>=Trash\n
+
+macro index,pager ,gi <change-folder>=INBOX\n
+macro index,pager ,ga <change-folder>=Archive\n
+macro index,pager ,gm <change-folder>=mailers\n
+macro index,pager ,gc <change-folder>=confirmations\n
 
 # opening links etc
 macro index \cb |urlview 'call urlview to extract URLs out of a message'
@@ -99,4 +106,3 @@ macro pager \cb |urlview 'call urlview to extract URLs out of a message'
 # html emails
 set mailcap_path="~/.mailcap"
 auto_view text/html
-alternative_order text/plain text/html
