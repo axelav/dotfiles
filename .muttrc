@@ -26,7 +26,8 @@ set certificate_file="~/.mutt/certificates"
 ###########################################
 # options
 
-# set index_format = "%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set delete=yes
 set edit_headers
 set imap_idle=yes
 set mail_check=300
@@ -42,9 +43,6 @@ set timeout=600
 unset imap_passive
 unset mark_old
 unset markers
-
-# set imap_keepalive = 900
-# set delete=yes
 
 # theme
 source "~/.mutt/themes/base16.dark.256.muttrc"
