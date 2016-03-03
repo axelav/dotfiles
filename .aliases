@@ -42,6 +42,7 @@ alias m="mutt"
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
+alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
 alias play="mplayer *mp3"
 alias pp="cd ~/projects/personal && clear && pwd && ls -FlhX ${colorflag}"
 alias ps='ps -ax'   # view all processes
