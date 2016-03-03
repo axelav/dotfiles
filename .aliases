@@ -38,6 +38,7 @@ alias l="clear && pwd && ls -FlhX ${colorflag}"   # list all files colorized in 
 alias la="clear && pwd && ls -FlhXa ${colorflag}" # l but include hidden files
 alias ld="ls -lh | grep '^d'"                     # list only directories
 alias lsd="ls -lh | grep '^d' | rainbowify"       # `npm i -g rainbowify`
+alias m="mutt"
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
