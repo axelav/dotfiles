@@ -31,7 +31,7 @@ set delete=yes
 set edit_headers
 set imap_idle=yes
 set mail_check=300
-set pager_context=5
+set pager_context=10
 set pager_index_lines=10
 set pager_stop
 set sort=threads
@@ -88,7 +88,7 @@ bind editor ^T    complete
 # macros
 
 macro index,pager ,a <save-message>=Archive\n
-macro index,pager ,d <save-message>=Trash\n
+macro index,pager d <save-message>=Trash\n
 
 macro index,pager ,gi <change-folder>=INBOX\n
 macro index,pager ,ga <change-folder>=Archive\n

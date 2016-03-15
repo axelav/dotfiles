@@ -12,6 +12,7 @@ npm i -g \
   packify \
   rainbowify \
   standard \
+  term-img-cli \
   tldr \
   torrent \
   trash-cli \
