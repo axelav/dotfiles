@@ -81,6 +81,8 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/MatchTagAlways'
 Plugin 'vim-scripts/Auto-Pairs'
+Plugin 'junegunn/limelight.vim'
+Plugin 'junegunn/goyo.vim'
 
 call vundle#end()
 
@@ -167,3 +169,6 @@ vnoremap . :norm.<cr>
 autocmd FileType html setlocal textwidth=0
 autocmd FileType help wincmd L              " open help in vertical split
 autocmd BufWritePre <buffer> :%s/\s\+$//e   " strip trailing white space on save
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
