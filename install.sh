@@ -16,8 +16,9 @@ chsh -s $(brew --prefix)/bin/bash
 # dotfiles
 ./bootstrap.sh
 
-# clone vim-vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # nvm & node
 nvm install stable

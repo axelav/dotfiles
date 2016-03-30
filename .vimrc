@@ -56,35 +56,33 @@ endif
 
 " plugins
 " -------------------------------------
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'chriskempson/base16-vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'gregsexton/gitv'
-Plugin 'jeetsukumaran/vim-filebeagle'
-Plugin 'lambdatoast/elm.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'qpkorr/vim-bufkill'
-Plugin 'rking/ag.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'valloric/MatchTagAlways'
-Plugin 'vim-scripts/Auto-Pairs'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/goyo.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'gregsexton/gitv'
+Plug 'jeetsukumaran/vim-filebeagle'
+Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'qpkorr/vim-bufkill'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'valloric/MatchTagAlways'
+Plug 'vim-scripts/Auto-Pairs'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 
-call vundle#end()
+call plug#end()
 
 " editorconfig
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
