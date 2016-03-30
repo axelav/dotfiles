@@ -64,13 +64,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'gregsexton/gitv'
 Plug 'jeetsukumaran/vim-filebeagle'
-Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+Plug 'lambdatoast/elm.vim', {'for': 'elm'}
 Plug 'mattn/emmet-vim'
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', {'branch': 'develop'}
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'qpkorr/vim-bufkill'
-Plug 'rking/ag.vim', { 'on': 'Ag' }
+Plug 'rking/ag.vim', {'on': 'Ag'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
