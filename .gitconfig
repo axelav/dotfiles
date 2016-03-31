@@ -43,6 +43,8 @@
   autocrlf = input
   # npm install -g diff-so-fancy
   pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+  # https://git-scm.com/docs/git-update-index#_untracked_cache
+  untrackedCache = true
 
 [color]
   ui = always
