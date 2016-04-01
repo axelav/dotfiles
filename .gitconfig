@@ -86,6 +86,9 @@
 [help]
   autocorrect = -1
 
+[user]
+  useconfigonly = true
+
 # check that anything we're getting is complete and sane on a regular basis
 [transfer]
   fsckobjects = true
