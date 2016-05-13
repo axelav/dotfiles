@@ -63,13 +63,11 @@ Plug 'chriskempson/base16-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'gregsexton/gitv'
-Plug 'jeetsukumaran/vim-filebeagle'
 Plug 'lambdatoast/elm.vim', {'for': 'elm'}
 Plug 'mattn/emmet-vim'
 Plug 'pangloss/vim-javascript', {'branch': 'develop'}
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'qpkorr/vim-bufkill'
 Plug 'rking/ag.vim', {'on': 'Ag'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -81,14 +79,12 @@ Plug 'valloric/MatchTagAlways'
 Plug 'vim-scripts/Auto-Pairs'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()
 
 " editorconfig
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
-
-" filebeagle
-let g:filebeagle_show_hidden=1
 
 " autopairs
 let g:AutoPairsMapSpace=0
@@ -106,9 +102,6 @@ if executable('ag')
   let g:ctrlp_user_command='ag %s -l --nocolor --hidden -g ""'
 endif
 
-" bufkill
-let g:BufKillCreateMappings=0
-
 " jsx
 let g:jsx_ext_required = 0
 
@@ -122,7 +115,7 @@ syntax enable
 
 " maps
 " -------------------------------------
-let mapleader=','
+let mapleader=' '
 
 " search for currently open buffers with ctrlp
 nmap <c-b> :CtrlPBuffer<cr>
@@ -130,9 +123,6 @@ nmap <c-b> :CtrlPBuffer<cr>
 " cycle through buffers
 nmap <leader><tab> :bn<cr>
 nmap <leader>` :bp<cr>
-
-" close current buffer using bufkill
-nmap <C-q> :BD<cr>
 
 " close current buffer, ignoring changes
 nmap <leader>q! :bd!<cr>
@@ -170,3 +160,5 @@ autocmd BufWritePre <buffer> :%s/\s\+$//e   " strip trailing white space on save
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+autocmd FileType dirvish sort r /[^\/]$/
