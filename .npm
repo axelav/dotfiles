@@ -5,7 +5,6 @@ npm i -g \
   browserify \
   diff-so-fancy \
   ghwd \
-  gulp \
   hicat \
   js-beautify \
   mdn \
@@ -17,8 +16,7 @@ npm i -g \
   torrent \
   trash-cli \
   uglify-js \
-  vmd \
   watchify \
   webpack \
   wzrd \
-  youtube-dl
+  ytdl
