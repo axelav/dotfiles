@@ -169,4 +169,4 @@ autocmd BufWritePre <buffer> :%s/\s\+$//e   " strip trailing white space on save
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-autocmd FileType dirvish sort r /[^\/]$/
+autocmd FileType dirvish sort ir /^.*[^\/]$/
