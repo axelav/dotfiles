@@ -58,16 +58,21 @@ endif
 " -------------------------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'FooSoft/vim-argwrap', {'on': 'ArgWrap'}
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
+Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'gregsexton/gitv'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'justinmk/vim-dirvish'
 Plug 'lambdatoast/elm.vim', {'for': 'elm'}
 Plug 'mattn/emmet-vim'
-Plug 'pangloss/vim-javascript', {'branch': 'develop'}
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'pangloss/vim-javascript', {'branch': 'develop'}
 Plug 'rking/ag.vim', {'on': 'Ag'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -77,9 +82,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'valloric/MatchTagAlways'
 Plug 'vim-scripts/Auto-Pairs'
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'justinmk/vim-dirvish'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 call plug#end()
 
@@ -145,6 +148,11 @@ nnoremap <leader>gw :Gbrowse<cr>
 " git stuff
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
+
+" j/k move by virtual lines w/o a count, physical lines w/ count
+" http://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " map ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
