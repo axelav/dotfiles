@@ -148,7 +148,7 @@ note () {
     mkdir $NOTE_DIR
   fi
 
-  if [ ! -f "$NOTE_DIR/$CURRENT_DATE" ]; then
+  if [ ! -f "$NOTE_DIR/$CURRENT_DATE.md" ]; then
     date -Idate > $FILE && vim $FILE
   else
     vim $FILE
