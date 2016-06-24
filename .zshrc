@@ -87,7 +87,7 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 # completion
-source ~/.git_completion
+source ~/.git-completion.zsh
 source ~/.npm_completion
 source /usr/local/opt/autoenv/activate.sh
 
