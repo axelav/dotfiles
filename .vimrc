@@ -19,7 +19,6 @@ set nojoinspaces
 set noshowcmd
 set noshowmatch
 set noswapfile
-set nowrap
 set nowritebackup
 set number
 set relativenumber
@@ -41,8 +40,6 @@ set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*,*/.DS
 set wildignore+=*/vendor/*,*/bower_components/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/coverage/*
 set wildmode=longest,list,full
 
-" clean linebreaks when composing email for mutt
-setlocal fo+=aw
 setlocal spell spelllang=en_us
 set nospell
 
@@ -64,8 +61,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'gregsexton/gitv'
-Plug 'junegunn/goyo.vim'
+Plug 'gregsexton/gitv', {'on': 'Gitv'}
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'lambdatoast/elm.vim', {'for': 'elm'}
@@ -140,25 +137,24 @@ nmap <leader>a :Ag!<space>
 nmap <leader>b "_
 
 " fugitive
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gw :Gbrowse<cr>
 
 " git stuff
+map <leader>s :!clear && git status -s %<cr>
 map <leader>l :!clear && git log -p %<cr>
 map <leader>d :!clear && git diff %<cr>
-
-" j/k move by virtual lines w/o a count, physical lines w/ count
-" http://blog.petrzemek.net/2016/04/06/things-about-vim-i-wish-i-knew-earlier/
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 " map ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
 
 " map . in visual mode
 vnoremap . :norm.<cr>
+
+" elm stuff
+" https://github.com/lambdatoast/elm.vim
+nnoremap <leader>el :ElmEvalLine<CR>
+vnoremap <leader>es :<C-u>ElmEvalSelection<CR>
+nnoremap <leader>em :ElmMakeCurrentFile<CR>
 
 " autocmds
 " -------------------------------------
