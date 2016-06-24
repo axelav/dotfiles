@@ -58,7 +58,7 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update n
 alias v="vim"
 alias vc="vim \`git st | grep 'both modified' | cut -d' ' -f8\`"
 alias vmod="vim \`git status --porcelain | sed -ne 's/^ M //p'\`" # open all modified files in a git respository with vim
-alias weather="curl http://wttr\.in"
+alias weather="curl http://wttr\.in?m"
 
 # enable aliases to be sudo'd
 alias sudo='sudo '
