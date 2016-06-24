@@ -1,5 +1,6 @@
-#!/usr/bin/env bash
-cd "$(dirname "${BASH_SOURCE}")";
+#!/bin/zsh
+
+cd "$(dirname "${(%):-%N}")";
 git pull origin master;
 
 function doIt() {
@@ -9,7 +10,7 @@ function doIt() {
     --exclude ".npm" --exclude ".brew" --exclude ".cask" --exclude ".osx" \
     --exclude "assets" -av . ~;
   cp assets/base16-tomorrow.dark.sh "$HOME/.config/base16-tomorrow.dark.sh";
-  source ~/.bash_profile;
+  source ~/.zshrc;
 }
 
 doIt;

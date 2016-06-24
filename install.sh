@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/zsh
 
-cd "$(dirname "${BASH_SOURCE}")";
+cd "$(dirname "${(%):-%N}")";
 
 # command line tools
 xcode-select --install
@@ -9,9 +9,8 @@ xcode-select --install
 ./.brew
 ./.cask
 
-# set brew'd bash as default shell
-sudo echo $(brew --prefix)/bin/bash >> /etc/shells && \
-chsh -s $(brew --prefix)/bin/bash
+# install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # dotfiles
 ./bootstrap.sh
