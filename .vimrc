@@ -107,9 +107,8 @@ let g:jsx_ext_required = 0
 
 " theme
 " -------------------------------------
-let base16colorspace=256
 set background=dark
-colorscheme base16-default
+colorscheme tomorrow-night
 
 syntax enable
 
