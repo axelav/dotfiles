@@ -12,7 +12,7 @@
   ds        = diff --stat
   fp        = fetch --prune
   garbage   = !git reflog expire --expire=now --all && git gc --prune=now
-  l         = !clear && git log --graph --decorate --pretty=oneline -n 30 --abbrev-commit
+  l         = !clear && git log --graph --decorate --pretty=oneline -n 50 --abbrev-commit
   la        = log --graph --decorate --pretty=oneline --abbrev-commit --all
   loc       = !git ls-files | xargs wc -l
   lp        = log -p
