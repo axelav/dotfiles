@@ -87,7 +87,6 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 # completion
-fpath=(~/.zsh $fpath)
 source ~/.npm_completion
 source /usr/local/opt/autoenv/activate.sh
 
