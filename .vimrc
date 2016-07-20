@@ -57,7 +57,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'FooSoft/vim-argwrap', {'on': 'ArgWrap'}
 Plug 'airblade/vim-gitgutter'
-Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
