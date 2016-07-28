@@ -9,6 +9,7 @@ npm i -g \
   js-beautify \
   mdn \
   packify \
+  pure-prompt \
   rainbowify \
   standard \
   term-img-cli \

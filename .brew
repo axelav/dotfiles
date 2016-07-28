@@ -24,7 +24,6 @@ brew install homebrew/dupes/grep
 # everything else
 brew install \
   autoenv \
-  bash-git-prompt \
   git \
   gnu-sed --with-default-names \
   gpg-agent \
@@ -46,7 +45,7 @@ brew install \
   screen \
   the_silver_searcher \
   urlview \
-  vim --with-cscope --with-lua --with-luajit --override-system-vim \
+  vim --override-system-vim \
   z
 
 # remove outdated versions
