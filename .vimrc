@@ -47,8 +47,8 @@ set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
 " highlight the status bar when in insert mode
 if version >= 700
-  au InsertEnter * hi StatusLine ctermfg=235 ctermbg=2
-  au InsertLeave * hi StatusLine ctermbg=240 ctermfg=12
+  au InsertLeave * hi StatusLine ctermfg=240 ctermbg=2
+  au InsertEnter * hi StatusLine ctermbg=240 ctermfg=10
 endif
 
 " plugins
