@@ -23,10 +23,7 @@ alias ls="command ls ${colorflag}" # always use color output for `ls`
 # utilities
 alias a="ag"
 alias bashrc="source ~/.bashrc"
-alias c="hicat" # `npm i -g hicat`
 alias cask="brew cask"
-alias chrome="open -a 'Google Chrome'"
-alias dot="cd ~/projects/personal/dotfiles"
 alias du="du -h -d 1"
 alias fs="stat -c \"%s bytes\"" # file size
 alias git="hub"

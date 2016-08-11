@@ -154,3 +154,11 @@ note () {
     vim $FILE
   fi
 }
+
+c () {
+  if hash hicat 2>/dev/null; then
+    hicat $@;
+  else
+    cat $@;
+  fi
+}
