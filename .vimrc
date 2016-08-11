@@ -2,6 +2,9 @@
 " -------------------------------------
 set t_Co=256
 
+set background=dark
+colorscheme tomorrow-night
+
 set nocompatible
 set filetype=off
 
@@ -103,11 +106,6 @@ endif
 
 " jsx
 let g:jsx_ext_required = 0
-
-" theme
-" -------------------------------------
-set background=dark
-colorscheme tomorrow-night
 
 syntax enable
 
