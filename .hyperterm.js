@@ -25,7 +25,7 @@ module.exports = {
     termCSS: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '0',
+    padding: '6px',
 
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
