@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
 
 # cask
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
+brew tap caskroom/cask
 
 # apps
 brew cask install \
   caffeine \
+  dash \
   firefox \
   flux \
-  google-chrome \
-  google-chrome-canary \
-  iterm2 \
+  google-chrome-beta \
+  hyper \
+  iterm2-beta \
+  spectacle \
+  spotify \
   the-unarchiver \
   torbrowser \
   transmission \
   vlc
-
-# brew cask install moom # purchased thru app store
-# brew cask install fantastical # purchased thru app store

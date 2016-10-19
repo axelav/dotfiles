@@ -3,7 +3,7 @@
 # homebrew
 which -s brew
 if [[ $? != 0 ]] ; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
   brew update
   brew upgrade
@@ -29,10 +29,11 @@ brew install \
   gpg-agent \
   htop \
   httpie \
+  hub \
   irssi \
+  jq \
   lame \
   lynx \
-  jq \
   mplayer \
   mutt \
   nmap \
@@ -42,6 +43,7 @@ brew install \
   pianobar \
   python \
   ren \
+  rust \
   screen \
   the_silver_searcher \
   urlview \
