@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+# path
+PATH="/usr/local/bin"
+PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
+PATH="$PATH:/usr/bin"
+PATH="$PATH:/bin"
+PATH="$PATH:/usr/sbin"
+PATH="$PATH:/sbin"
+PATH="$PATH:/usr/local/sbin"
+export PATH
+
+# manpath
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH
+
+# homebrew cask
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
 # manually set term for screen
 export TERM="xterm-256color"
 

@@ -59,27 +59,6 @@ for file in ~/.{extra,exports,aliases,functions}; do
 done
 unset file
 
-
-PATH="/usr/local/bin"
-PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
-PATH="$PATH:/usr/bin"
-PATH="$PATH:/bin"
-PATH="$PATH:/usr/sbin"
-PATH="$PATH:/sbin"
-PATH="$PATH:/usr/local/sbin"
-export PATH
-
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export MANPATH
-
-GIT_GITHUB_USER="axelav"
-git config --global github.user "$GIT_GITHUB_USER"
-GIT_GITHUB_TOKEN="ed716de4f7700871e2eb482d7ced3a4af4b9a78b"
-git config --global github.token "$GIT_GITHUB_TOKEN"
-
-# personal exports
-export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
-
 BASE16_SHELL="$HOME/.config/base16-tomorrow.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
@@ -91,46 +70,6 @@ source ~/.npm_completion
 source /usr/local/opt/autoenv/activate.sh
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-export EDITOR='vim'
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias v="vim"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # # add tab completion for ssh hostnames based on ~/.ssh/config, ignoring wildcards
 # [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh mosh sshfs
