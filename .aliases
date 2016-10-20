@@ -37,6 +37,7 @@ alias ld="ls -lh | grep '^d'"                     # list only directories
 alias lsd="ls -lh | grep '^d' | rainbowify"       # `npm i -g rainbowify`
 alias m="mutt"
 alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about deprecated audio library mplayer uses
+alias npmo="npm --cache-min 9999999 "
 alias o="open"
 alias oo="open ."
 alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
