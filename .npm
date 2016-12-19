@@ -4,12 +4,9 @@ npm i -g \
   babel \
   browserify \
   diff-so-fancy \
-  ghwd \
   hicat \
   js-beautify \
   mdn \
-  packify \
-  pure-prompt \
   rainbowify \
   standard \
   term-img-cli \

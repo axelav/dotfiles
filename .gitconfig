@@ -77,6 +77,10 @@
 [merge]
   # include summaries of merged commits in newly created merge commit messages
   log = true
+  tool = vimdiff
+
+[mergetool]
+  keepBackup = false
 
 [diff]
   algorithm = patience

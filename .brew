@@ -47,7 +47,7 @@ brew install \
   screen \
   the_silver_searcher \
   urlview \
-  vim --override-system-vim \
+  vim \
   z \
   zsh
 

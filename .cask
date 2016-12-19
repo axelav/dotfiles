@@ -11,7 +11,7 @@ brew cask install \
   flux \
   google-chrome-beta \
   hyper \
-  iterm2-beta \
+  iterm2 \
   spectacle \
   spotify \
   the-unarchiver \

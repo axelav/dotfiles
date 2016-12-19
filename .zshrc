@@ -59,17 +59,22 @@ for file in ~/.{extra,exports,aliases,functions}; do
 done
 unset file
 
-BASE16_SHELL="$HOME/.config/base16-tomorrow.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+BASE16_SHELL=$HOME/.config/base16-shell/
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
+# if shells are slow to launch, this can speed things up
+# . "$(brew --prefix nvm)/nvm.sh" --no-use
 
 # completion
 source ~/.npm_completion
 source /usr/local/opt/autoenv/activate.sh
 
 source $ZSH/oh-my-zsh.sh
+
+# don't use zsh correction
+unsetopt correct_all
 
 # # add tab completion for ssh hostnames based on ~/.ssh/config, ignoring wildcards
 # [ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2)" scp sftp ssh mosh sshfs

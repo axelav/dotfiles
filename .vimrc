@@ -3,7 +3,6 @@
 set t_Co=256
 
 set background=dark
-colorscheme tomorrow-night
 
 set nocompatible
 set filetype=off
@@ -58,11 +57,10 @@ endif
 " -------------------------------------
 call plug#begin('~/.vim/plugged')
 
-Plug 'FooSoft/vim-argwrap', {'on': 'ArgWrap'}
 Plug 'airblade/vim-gitgutter'
+Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'gregsexton/gitv', {'on': 'Gitv'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim'
@@ -71,8 +69,9 @@ Plug 'lambdatoast/elm.vim', {'for': 'elm'}
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'pangloss/vim-javascript', {'branch': 'develop'}
+Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim', {'on': 'Ag'}
+Plug 'rust-lang/rust.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -85,8 +84,11 @@ Plug 'vim-scripts/ReplaceWithRegister'
 
 call plug#end()
 
-" editorconfig
-let g:EditorConfig_exclude_patterns=['fugitive://.*']
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+colorscheme base16-default-dark
 
 " autopairs
 let g:AutoPairsMapSpace=0
