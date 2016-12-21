@@ -22,6 +22,7 @@ set noshowcmd
 set noshowmatch
 set noswapfile
 set nowritebackup
+set nowrap
 set number
 set relativenumber
 set scrolloff=5
