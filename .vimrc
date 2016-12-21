@@ -2,8 +2,6 @@
 " -------------------------------------
 set t_Co=256
 
-set background=dark
-
 set nocompatible
 set filetype=off
 
@@ -90,7 +88,7 @@ if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
 endif
-colorscheme base16-default-dark
+colorscheme base16-tomorrow-night
 
 " autopairs
 let g:AutoPairsMapSpace=0
