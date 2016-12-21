@@ -70,7 +70,7 @@ Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'rking/ag.vim', {'on': 'Ag'}
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
@@ -80,7 +80,7 @@ Plug 'tpope/vim-surround'
 Plug 'valloric/MatchTagAlways'
 Plug 'vim-scripts/Auto-Pairs'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic', {'for': 'javascript'}
 
 call plug#end()
 
@@ -166,32 +166,36 @@ autocmd! User GoyoLeave Limelight!
 autocmd FileType dirvish sort ir /^.*[^\/]$/
 
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+function! SetSyntasticPrefs()
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_loc_list_height = 5
+  let g:syntastic_auto_loc_list = 0
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 1
+  let g:syntastic_javascript_checkers = ['eslint']
 
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-  let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-  let g:syntastic_javascript_eslint_exec = local_eslint
-endif
-" let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+  let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+  if matchstr(local_eslint, "^\/\\w") == ''
+    let local_eslint = getcwd() . "/" . local_eslint
+  endif
+  if executable(local_eslint)
+    let g:syntastic_javascript_eslint_exec = local_eslint
+  endif
+  " let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
+  let g:syntastic_error_symbol = '❌'
+  let g:syntastic_style_error_symbol = '⁉️'
+  let g:syntastic_warning_symbol = '⚠️'
+  let g:syntastic_style_warning_symbol = '💩'
 
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+  highlight link SyntasticErrorSign SignColumn
+  highlight link SyntasticWarningSign SignColumn
+  highlight link SyntasticStyleErrorSign SignColumn
+  highlight link SyntasticStyleWarningSign SignColumn
+endfunction
+
+autocmd FileType javascript call SetSyntasticPrefs()
