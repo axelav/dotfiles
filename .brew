@@ -21,6 +21,10 @@ brew install findutils --with-default-names
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 
+# neovim
+brew tap neovim/neovim
+brew install neovim
+
 # everything else
 brew install \
   autoenv \

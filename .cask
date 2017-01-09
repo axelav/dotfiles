@@ -5,11 +5,12 @@ brew tap caskroom/cask
 
 # apps
 brew cask install \
+  atom \
+  bartender \
   caffeine \
-  dash \
   firefox \
   flux \
-  google-chrome-beta \
+  google-chrome \
   hyper \
   iterm2 \
   spectacle \
