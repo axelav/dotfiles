@@ -1,20 +1,12 @@
 #!/usr/bin/env bash
 
 npm i -g \
-  babel \
-  browserify \
   diff-so-fancy \
   hicat \
   js-beautify \
-  mdn \
   rainbowify \
-  standard \
   term-img-cli \
   tldr \
   torrent \
   trash-cli \
-  uglify-js \
-  watchify \
-  webpack \
-  wzrd \
   ytdl
