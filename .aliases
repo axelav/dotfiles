@@ -31,8 +31,7 @@ alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
 alias init='echo "{}" > package.json && git init'
 alias j="jobs -l"
-alias l="clear && pwd && ls -FlhX ${colorflag}"   # list all files colorized in human-readable, long format, sorted by extension
-alias la="clear && pwd && ls -FlhXa ${colorflag}" # l but include hidden files
+alias l="ls -FlahX ${colorflag}"                  # list all files colorized in human-readable, long format, sorted by extension
 alias ld="ls -lh | grep '^d'"                     # list only directories
 alias lsd="ls -lh | grep '^d' | rainbowify"       # `npm i -g rainbowify`
 alias m="mutt"
@@ -40,10 +39,8 @@ alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about 
 alias npmo="npm --cache-min 9999999 "
 alias o="open"
 alias oo="open ."
-alias p="cd ~/projects && clear && pwd && ls -FlhX ${colorflag}"
 alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
 alias play="mplayer *mp3"
-alias pp="cd ~/projects/personal && clear && pwd && ls -FlhX ${colorflag}"
 alias ps='ps -ax'   # view all processes
 alias rm="rm -vi"   # always be verbose & interactive when rm'ing
 alias s="screen"
@@ -53,9 +50,6 @@ alias sx="screen -x"
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages
-alias v="vim"
-alias vc="vim \`git st | grep 'both modified' | cut -d' ' -f8\`"
-alias vmod="vim \`git status --porcelain | sed -ne 's/^ M //p'\`" # open all modified files in a git respository with vim
 alias weather="curl http://wttr\.in?m"
 
 # enable aliases to be sudo'd

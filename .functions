@@ -162,3 +162,11 @@ c () {
     cat $@;
   fi
 }
+
+v () {
+  if hash nvim 2>/dev/null; then
+    nvim $@;
+  else
+    vim $@;
+  fi
+}

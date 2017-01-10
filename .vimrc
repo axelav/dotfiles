@@ -69,7 +69,7 @@ Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'rking/ag.vim', {'on': 'Ag'}
+Plug 'mhinz/vim-grepper'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -102,10 +102,6 @@ let g:ctrlp_max_height=20
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_match_window_reversed=0
 
-if executable('ag')
-  let g:ctrlp_user_command='ag %s -l --nocolor --hidden -g ""'
-endif
-
 " jsx
 let g:jsx_ext_required = 0
 
@@ -129,7 +125,7 @@ nmap <leader>q! :bd!<cr>
 nmap <leader>w :w!<cr>
 
 " text search current working directory
-nmap <leader>a :Ag!<space>
+nnoremap <leader>a :Grepper -tool ag<cr>
 
 " use black hole register
 nmap <leader>b "_
