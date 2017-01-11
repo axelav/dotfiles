@@ -126,6 +126,8 @@ nmap <leader>w :w!<cr>
 
 " text search current working directory
 nnoremap <leader>a :Grepper -tool ag<cr>
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
 
 " use black hole register
 nmap <leader>b "_
