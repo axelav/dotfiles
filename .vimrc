@@ -56,6 +56,7 @@ endif
 " -------------------------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
@@ -66,10 +67,10 @@ Plug 'junegunn/limelight.vim'
 Plug 'justinmk/vim-dirvish'
 Plug 'lambdatoast/elm.vim', {'for': 'elm'}
 Plug 'mattn/emmet-vim'
+Plug 'mhinz/vim-grepper'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'mhinz/vim-grepper'
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -77,8 +78,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
-Plug 'valloric/MatchTagAlways'
-Plug 'vim-scripts/Auto-Pairs'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-syntastic/syntastic', {'for': 'javascript'}
 
@@ -89,9 +88,6 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 colorscheme base16-tomorrow-night
-
-" autopairs
-let g:AutoPairsMapSpace=0
 
 " js libs syntax
 let g:used_javascript_libs='jquery,underscore,lodash,react,backbone,angularjs,angularui,angularuirouter,jasmine'
