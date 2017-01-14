@@ -46,6 +46,12 @@ set nospell
 
 set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 
+" modify statusline color when in insert/normal mode
+if version >= 700
+  au InsertLeave * hi StatusLine ctermfg=15
+  au InsertEnter * hi StatusLine ctermfg=10
+endif
+
 " plugins
 " -------------------------------------
 call plug#begin('~/.vim/plugged')
