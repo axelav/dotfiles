@@ -12,6 +12,7 @@ brew cask install \
   flux \
   google-chrome \
   hyper \
+  istat-menus \
   iterm2 \
   spectacle \
   spotify \
