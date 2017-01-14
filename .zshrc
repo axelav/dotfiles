@@ -69,7 +69,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # completion
 source ~/.npm_completion
-source /usr/local/opt/autoenv/activate.sh
 
 source $ZSH/oh-my-zsh.sh
 
