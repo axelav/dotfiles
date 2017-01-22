@@ -170,3 +170,17 @@ v () {
     vim $@;
   fi
 }
+
+# ytdl -> ffmpeg mp4->mp3 -> file
+ytmp3 () {
+  local input="${1}"
+  local output="${2:-output}"
+
+  if hash ytdl 2>/dev/null && hash ffmpeg 2>/dev/null; then
+    # http://askubuntu.com/questions/84584/converting-mp4-to-mp3#84633
+    ytdl $input | ffmpeg -i pipe:0 -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 $output.mp3;
+  else
+    echo "Usage: ytmp3 <youtube-url> <output-filename>\n
+          Ensure the required dependencies are installed: ytdl, ffmpeg, lame\n"
+  fi
+}
