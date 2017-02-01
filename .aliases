@@ -39,6 +39,7 @@ alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about 
 alias npmo="npm --cache-min 9999999 "
 alias o="open"
 alias oo="open ."
+alias pa='ps | a'
 alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
 alias play="mplayer *mp3"
 alias ps='ps -ax'   # view all processes
