@@ -1,32 +1,15 @@
 [alias]
-  alias     = config --get-regexp ^alias\\.
   garbage   = !git reflog expire --expire=now --all && git gc --prune=now
   loc       = !git ls-files | xargs wc -l
-  # REF: http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
-  pup       = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master"
+  pup       = !"git fetch origin -v; git fetch upstream -v; git merge upstream/master" ; http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
   sync      = !git pull && git push
-  # REF: http://stackoverflow.com/questions/927358/undo-the-last-git-commit
-  undo      = reset --soft HEAD~1
+  undo      = reset --soft HEAD~1 ; http://stackoverflow.com/questions/927358/undo-the-last-git-commit
   undomerge = reset --merge HEAD~1
   undopush  = push -f origin HEAD^:master
-  # NOTE: `git reflog` to find sha of unreachable commit this creates; commit msg 'wipe savepoint'
-  wipe      = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+  wipe      = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard ; `git reflog` to find sha of unreachable commit this creates; commit msg 'wipe savepoint'
 
 [apply]
-  # detect whitespace errors when applying a patch
   whitespace = fix
-
-[core]
-  # use custom `.gitignore` and `.gitattributes`
-  excludesfile = ~/.gitignore
-  # treat spaces before tabs and all kinds of trailing whitespace as an error
-  whitespace = space-before-tab,trailing-space
-  autocrlf = input
-  # npm install -g diff-so-fancy
-  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
-  # https://git-scm.com/docs/git-update-index#_untracked_cache
-  untrackedCache = true
-  editor = /usr/local/bin/vim
 
 [color]
   ui = always
@@ -49,28 +32,42 @@
 [color "status"]
   added = yellow
   changed = green
-  untracked = red
+  untracked = cyan
+
+[core]
+  excludesfile = ~/.gitignore
+  whitespace = space-before-tab,trailing-space
+  autocrlf = input
+  pager = diff-highlight | diff-so-fancy | less --tabs=4 -RFX
+  untrackedCache = true ; https://git-scm.com/docs/git-update-index#_untracked_cache
+  editor = /usr/local/bin/vim
+
+[diff]
+  algorithm = patience
+  context = 5
 
 [grep]
   lineNumber = true
 
+[help]
+  autocorrect = -1
+
+; [interactive]
+;   TODO doesn't quite work yet
+;   diffFilter = diff-so-fancy | less --tabs=4 -RFX
+;   TODO how to add `context` here?
+;   context = 5
+
 [merge]
-  # include summaries of merged commits in newly created merge commit messages
   log = true
   tool = vimdiff
 
 [mergetool]
   keepBackup = false
 
-[diff]
-  algorithm = patience
-
 [push]
   default = current
   followTags = true
-
-[help]
-  autocorrect = -1
 
 [user]
   useconfigonly = true
