@@ -44,10 +44,12 @@ brew install \
   phantomjs \
   pianobar \
   python \
+  reattach-to-user-namespace \
   ren \
   rust \
   screen \
   the_silver_searcher \
+  tmux \
   urlview \
   vim \
   z \
