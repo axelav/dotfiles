@@ -9,17 +9,19 @@ Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gregsexton/gitv', {'on': 'Gitv'}
-Plug 'ledger/vim-ledger', {'for': 'ledger'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'justinmk/vim-dirvish'
+Plug 'ledger/vim-ledger', {'for': 'ledger'}
 Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
@@ -111,8 +113,6 @@ nmap <leader>h :set hlsearch!<cr>
 
 " text search current working directory
 nnoremap <leader>a :Grepper -tool ag<cr>
-nmap gs <plug>(GrepperOperator)
-xmap gs <plug>(GrepperOperator)
 
 " use black hole register
 nmap <leader>b "_
@@ -123,6 +123,9 @@ nnoremap <nl> i <cr><esc>
 " map . in visual mode
 vnoremap . :norm.<cr>
 
+" save file as sudo
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
+cmap w!! w !sudo tee > /dev/null %
 
 " autocmds
 " -------------------------------------

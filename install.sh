@@ -12,6 +12,9 @@ xcode-select --install
 # install base16 shell script
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
+# install tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # set zsh as default shell
 chsh -s $(which zsh)
 
