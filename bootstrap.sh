@@ -4,12 +4,18 @@ cd "$(dirname "${(%):-%N}")";
 git pull origin master;
 
 function doIt() {
-  rsync --exclude ".git/" --exclude "iterm/" --exclude ".DS_Store" \
-    --exclude "gnupg/" --exclude "scripts/" \
-    --exclude "bootstrap.sh" --exclude "README.md" --exclude "install.sh" \
-    --exclude ".npm" --exclude ".brew" --exclude ".cask" --exclude ".osx" \
-    --exclude "assets" -av . ~;
-  cp assets/base16-tomorrow.dark.sh "$HOME/.config/base16-tomorrow.dark.sh";
+  rsync \
+    --exclude ".DS_Store" \
+    --exclude ".brew" \
+    --exclude ".cask" \
+    --exclude ".git/" \
+    --exclude ".npm" \
+    --exclude ".osx" \
+    --exclude "README.md" \
+    --exclude "Session.vim" \
+    --exclude "bootstrap.sh" \
+    --exclude "install.sh" \
+    -av . ~;
   source ~/.zshrc;
 }
 
