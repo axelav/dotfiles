@@ -32,8 +32,6 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 # nvm & node
 nvm install stable
-nvm alias default stable
-nvm use default
 
 # global node modules
 ./.npm
