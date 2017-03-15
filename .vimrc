@@ -4,7 +4,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
-Plug 'blueyed/vim-diminactive'
 Plug 'chriskempson/base16-vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -34,9 +33,6 @@ call plug#end()
 " ledger
 let g:ledger_maxwidth = 80
 let g:ledger_fold_blanks = 1
-
-" dont syntax highlight inactive buffers
-let g:diminactive_use_syntax = 1
 
 " js libs syntax
 let g:used_javascript_libs='lodash,react'
@@ -108,6 +104,14 @@ nmap <c-b> :CtrlPBuffer<cr>
 " save current file
 nmap <leader>w :w!<cr>
 
+" save file as sudo
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
+cmap w!! w !sudo tee > /dev/null %
+
+" close current buffer without closing split
+" http://stackoverflow.com/questions/4298910/vim-close-buffer-but-not-split-window
+nmap <leader>d :b#<bar>bd#<cr>
+
 " toggle highlight search
 nmap <leader>h :set hlsearch!<cr>
 
@@ -123,10 +127,6 @@ nnoremap <nl> i <cr><esc>
 " map . in visual mode
 vnoremap . :norm.<cr>
 
-" save file as sudo
-" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
-cmap w!! w !sudo tee > /dev/null %
-
 " autocmds
 " -------------------------------------
 " modify statusline color when in insert/normal mode
@@ -135,6 +135,8 @@ autocmd InsertEnter,InsertLeave * set cursorline!
 autocmd FileType html setlocal textwidth=0
 autocmd FileType help wincmd L              " open help in vertical split
 autocmd BufWritePre <buffer> :%s/\s\+$//e   " strip trailing white space on save
+
+autocmd FileType gitcommit set textwidth=72
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!

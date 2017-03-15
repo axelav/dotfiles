@@ -43,6 +43,7 @@ alias oo="open ."
 alias pa='ps | a'
 alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
 alias play="mplayer *mp3"
+alias pr="git pull-request -o"
 alias ps='ps -ax'   # view all processes
 alias rm="rm -vi"   # always be verbose & interactive when rm'ing
 alias s="screen"
