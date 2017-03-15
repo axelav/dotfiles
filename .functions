@@ -187,3 +187,7 @@ ytmp3 () {
           Ensure the required dependencies are installed: ytdl, ffmpeg, lame\n"
   fi
 }
+
+weather () {
+  curl http://wttr\.in/$@?m | sed -e "s:226m:202m:g" # for light theme
+}

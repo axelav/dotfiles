@@ -36,8 +36,6 @@ ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # nvm & node
 nvm install stable
-nvm alias default stable
-nvm use default
 
 # global node modules
 ./.npm

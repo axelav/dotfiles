@@ -27,6 +27,7 @@ brew install neovim
 
 # everything else
 brew install \
+  ffmpeg \
   git \
   gnu-sed --with-default-names \
   gpg-agent \
@@ -52,6 +53,7 @@ brew install \
   tmux \
   urlview \
   vim \
+  youtube-dl \
   z \
   zsh
 
