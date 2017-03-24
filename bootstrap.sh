@@ -14,6 +14,7 @@ function doIt() {
     --exclude "README.md" \
     --exclude "Session.vim" \
     --exclude "bootstrap.sh" \
+    --exclude "com.googlecode.iterm2.plist" \
     --exclude "install.sh" \
     -av . ~;
   source ~/.zshrc;
