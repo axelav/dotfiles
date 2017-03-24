@@ -38,10 +38,9 @@ let g:ledger_fold_blanks = 1
 let g:used_javascript_libs='lodash,react'
 
 " ctrlp
+let g:ctrlp_match_window='bottom,order:ttb,min:1,max:20,results:20'
 let g:ctrlp_show_hidden=1
-let g:ctrlp_max_height=20
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_reversed=0
+let g:ctrlp_working_path_mode='ra'
 
 " jsx
 let g:jsx_ext_required = 0
@@ -97,9 +96,6 @@ syntax enable
 " maps
 " -------------------------------------
 let mapleader=' '
-
-" search for currently open buffers with ctrlp
-nmap <c-b> :CtrlPBuffer<cr>
 
 " save current file
 nmap <leader>w :w!<cr>
