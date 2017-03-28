@@ -38,7 +38,7 @@ let g:ledger_fold_blanks = 1
 let g:used_javascript_libs='lodash,react'
 
 " ctrlp
-let g:ctrlp_match_window='bottom,order:ttb,min:1,max:20,results:20'
+let g:ctrlp_match_window='bottom,order:btt,min:1,max:20,results:20'
 let g:ctrlp_show_hidden=1
 let g:ctrlp_working_path_mode='ra'
 
@@ -90,7 +90,7 @@ set wildignore+=*/.sass-cache/*,*/log/*,*/tmp/*,*/build/*,*/dist/*,*/doc/*,*/.DS
 set wildignore+=*/vendor/*,*/bower_components/*,*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/coverage/*
 set wildmode=longest,list,full
 
-colorscheme base16-tomorrow
+colorscheme base16-tomorrow-night
 syntax enable
 
 " maps
