@@ -25,7 +25,7 @@ alias a="ag"
 alias bashrc="source ~/.bashrc"
 alias cask="brew cask"
 alias du="du -h -d 1"
-alias fix="$EDITOR `git rev-parse --show-toplevel`/`git diff --name-only | uniq`"
+# alias fix="$EDITOR `git rev-parse --show-toplevel`/`git diff --name-only | uniq`"
 alias fs="stat -c \"%s bytes\"" # file size
 alias git="hub"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'

@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="philips"
+ZSH_THEME="crunch"
 ENABLE_CORRECTION="true"
 
 plugins=(git gpg-agent pass z npm history zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
