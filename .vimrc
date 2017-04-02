@@ -27,6 +27,8 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 " Plug 'tpope/vim-fugitive'
+Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
 
 call plug#end()
 
