@@ -301,8 +301,29 @@
 	<false/>
 	<key>NSFontPanelAttributes</key>
 	<string>1, 0</string>
+	<key>NSFontPanelSizeList</key>
+	<array>
+		<string>9</string>
+		<string>10</string>
+		<string>11</string>
+		<string>12</string>
+		<string>13</string>
+		<string>14</string>
+		<string>18</string>
+		<string>24</string>
+		<string>36</string>
+		<string>48</string>
+		<string>64</string>
+		<string>72</string>
+		<string>96</string>
+		<string>144</string>
+		<string>288</string>
+		<string>16</string>
+	</array>
+	<key>NSFontPanelSizeSliderParams</key>
+	<string>2 0 100</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Desktop</string>
+	<string>~/personal/dotfiles</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -337,7 +358,7 @@
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>-1188 309 464 540 -2560 0 2560 1418 </string>
+	<string>-1188 309 464 406 -2560 0 2560 1440 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
 	<string>260 536 735 382 0 0 1680 1028 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
@@ -345,7 +366,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>146 1189 606 456 -123 1050 1920 1178 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1556 568 796 473 -2560 0 2560 1440 </string>
+	<string>-1556 480 796 473 -2560 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>-1280 7 1279 1426 -2560 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -972,7 +993,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SFMono-Regular 14</string>
+			<string>SFMono-Regular 16</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -1097,7 +1118,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/andersona/Desktop</string>
+	<string>/Users/andersona/personal/dotfiles</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
