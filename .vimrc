@@ -113,6 +113,9 @@ nmap <leader>d :b#<bar>bd#<cr>
 " toggle highlight search
 nmap <leader>h :set hlsearch!<cr>
 
+" open npm docs for word under cursor
+nmap <leader>n :!npm docs <c-r><c-w>
+
 " text search current working directory
 nnoremap <leader>a :Grepper -tool ag<cr>
 
