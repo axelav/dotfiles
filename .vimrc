@@ -119,6 +119,9 @@ nmap <leader>n :!npm docs <c-r><c-w>
 " text search current working directory
 nnoremap <leader>a :Grepper -tool ag<cr>
 
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
 " use black hole register
 nmap <leader>b "_
 
