@@ -5,14 +5,14 @@ call plug#begin('~/.vim/plugged')
 Plug 'Raimondi/delimitMate'
 Plug 'airblade/vim-gitgutter'
 Plug 'chriskempson/base16-vim'
-Plug 'christoomey/vim-sort-motion'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'christoomey/vim-sort-motion'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gregsexton/gitv', {'on': 'Gitv'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'justinmk/vim-dirvish'
 Plug 'ledger/vim-ledger', {'for': 'ledger'}
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': ['javascript', 'javascript.jsx', 'jsx']}
@@ -79,6 +79,7 @@ set shortmess=AITstW
 set smartcase
 set softtabstop=2
 set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]
+" set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
 set tabstop=2
 set termguicolors
 set textwidth=80
@@ -115,6 +116,8 @@ nmap <leader>h :set hlsearch!<cr>
 
 " open npm docs for word under cursor
 nmap <leader>n :!npm docs <c-r><c-w>
+
+nmap <leader>o :e **/*
 
 " text search current working directory
 nnoremap <leader>a :Grepper -tool ag<cr>
