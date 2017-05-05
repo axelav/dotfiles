@@ -29,8 +29,11 @@ Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 " Plug 'tpope/vim-fugitive'
 Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
+
+let g:deoplete#enable_at_startup = 1
 
 " ledger
 let g:ledger_maxwidth = 80
@@ -117,7 +120,7 @@ nmap <leader>h :set hlsearch!<cr>
 " open npm docs for word under cursor
 nmap <leader>n :!npm docs <c-r><c-w>
 
-nmap <leader>o :e **/*
+nmap <leader>o :n **/*
 
 " text search current working directory
 nnoremap <leader>a :Grepper -tool ag<cr>
