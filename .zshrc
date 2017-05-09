@@ -20,4 +20,7 @@ source ~/.npm_completion
 
 source $ZSH/oh-my-zsh.sh
 
+# https://github.com/zsh-users/zsh-autosuggestions#disabling-suggestion-for-large-buffers
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
 unsetopt correct_all
