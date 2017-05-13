@@ -30,6 +30,7 @@ Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'LeonB/vim-nginx', { 'for': 'nginx' }
 
 call plug#end()
 
