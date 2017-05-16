@@ -64,6 +64,7 @@ set gdefault
 set hidden
 set ignorecase
 set indentexpr=off
+set mouse=a
 set nobackup
 set noerrorbells
 set nohlsearch

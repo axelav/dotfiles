@@ -53,6 +53,7 @@ brew install \
   tmux \
   urlview \
   vim \
+  yarn \
   youtube-dl \
   z \
   zsh
