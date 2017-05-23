@@ -2,54 +2,46 @@
 " -------------------------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'LeonB/vim-nginx', { 'for': 'nginx' }
 Plug 'Raimondi/delimitMate'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'chriskempson/base16-vim'
-" Plug 'christoomey/vim-sort-motion'
-" Plug 'ctrlpvim/ctrlp.vim'
-Plug 'gregsexton/gitv', {'on': 'Gitv'}
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
-Plug 'justinmk/vim-dirvish'
+" Plug 'justinmk/vim-dirvish'
 Plug 'ledger/vim-ledger', {'for': 'ledger'}
-" Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx', 'jsx']}
-Plug 'othree/javascript-libraries-syntax.vim', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-syntastic/syntastic', {'for': ['javascript', 'javascript.jsx', 'jsx']}
-" Plug 'tpope/vim-fugitive'
-Plug 'tikhomirov/vim-glsl', {'for': 'glsl'}
-Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'LeonB/vim-nginx', { 'for': 'nginx' }
 
 call plug#end()
 
+" deoplete
 let g:deoplete#enable_at_startup = 1
+
+" dirvish
+" let g:dirvish_mode = ':sort r /[^\/]$/'
+" let g:dirvish_mode = 2
+
+" jsx
+let g:jsx_ext_required = 0
 
 " ledger
 let g:ledger_maxwidth = 80
 let g:ledger_fold_blanks = 1
-
-" js libs syntax
-let g:used_javascript_libs='lodash,react'
-
-" ctrlp
-let g:ctrlp_match_window='bottom,order:btt,min:1,max:20,results:20'
-let g:ctrlp_show_hidden=1
-let g:ctrlp_working_path_mode='ra'
-
-" jsx
-let g:jsx_ext_required = 0
 
 " options
 " -------------------------------------
@@ -83,8 +75,8 @@ set shiftwidth=2
 set shortmess=AITstW
 set smartcase
 set softtabstop=2
-set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]
-" set statusline=%F%m%r%h%w\ %{fugitive#statusline()}\ [%l,%c]\ [%L,%p%%]
+" set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]
+set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]\ %{fugitive#statusline()}
 set tabstop=2
 set termguicolors
 set textwidth=80
@@ -101,6 +93,8 @@ set wildmode=longest,list,full
 
 colorscheme base16-tomorrow-night
 syntax enable
+
+cabbr <expr> %% fnameescape(expand('%:p:h'))
 
 " maps
 " -------------------------------------
@@ -123,7 +117,11 @@ nmap <leader>h :set hlsearch!<cr>
 " open npm docs for word under cursor
 nmap <leader>n :!npm docs <c-r><c-w>
 
+" recursively find file in directory
 nmap <leader>o :n **/*
+
+" find file in current file's directory
+nmap <leader>c :n %%/
 
 " text search current working directory
 nnoremap <leader>a :Grepper -tool ag<cr>
@@ -153,8 +151,6 @@ autocmd FileType gitcommit set textwidth=72
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
-
-autocmd FileType dirvish sort ir /^.*[^\/]$/
 
 " syntastic
 let g:syntastic_always_populate_loc_list = 1
