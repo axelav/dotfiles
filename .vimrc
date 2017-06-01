@@ -75,13 +75,11 @@ set shiftwidth=2
 set shortmess=AITstW
 set smartcase
 set softtabstop=2
-" set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]
 set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]\ %{fugitive#statusline()}
 set tabstop=2
 set termguicolors
 set textwidth=80
 set title
-set ttyfast
 set undodir=~/.vim/undo
 set undofile
 set wildchar=<tab>
@@ -114,8 +112,8 @@ nmap <leader>d :b#<bar>bd#<cr>
 " toggle highlight search
 nmap <leader>h :set hlsearch!<cr>
 
-" open npm docs for word under cursor
-nmap <leader>n :!npm docs <c-r><c-w>
+" open netrw
+nmap <leader>d :e .<cr>
 
 " recursively find file in directory
 nmap <leader>o :n **/*
