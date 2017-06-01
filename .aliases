@@ -25,7 +25,6 @@ alias l="ls -FlAhX"
 alias m="mutt"
 alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about deprecated audio library mplayer uses
 alias mv="mv -iv"
-alias npmi="npm install --cache-min Infinity"
 alias o="open"
 alias oo="open ."
 alias pa='ps | a'
