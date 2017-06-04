@@ -44,7 +44,6 @@ brew install \
   phantomjs \
   pianobar \
   python \
-  reattach-to-user-namespace \
   ren \
   rust \
   screen \
