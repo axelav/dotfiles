@@ -9,6 +9,8 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 alias -- -="cd -"
 
+alias ls="command ls --color"
+
 # utilities
 alias a="ag"
 alias bashrc="source ~/.bashrc"
