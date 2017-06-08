@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 npm i -g \
+  dat \
   diff-so-fancy \
   hicat \
   js-beautify \
