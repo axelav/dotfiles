@@ -22,4 +22,5 @@ unset file
 # https://github.com/zsh-users/zsh-autosuggestions#disabling-suggestion-for-large-buffers
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
+setopt nobanghist
 unsetopt correct_all
