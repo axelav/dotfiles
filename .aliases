@@ -12,11 +12,8 @@ alias -- -="cd -"
 alias ls="command ls --color"
 
 # utilities
-alias a="ag"
-alias bashrc="source ~/.bashrc"
 alias cask="brew cask"
 alias du="du -h -d 1"
-# alias fix="$EDITOR `git rev-parse --show-toplevel`/`git diff --name-only | uniq`"
 alias fs="stat -c \"%s bytes\"" # file size
 alias git="hub"
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
@@ -29,16 +26,10 @@ alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about 
 alias mv="mv -iv"
 alias o="open"
 alias oo="open ."
-alias pa='ps | a'
 alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
-alias play="mplayer *mp3"
 alias pr="git pull-request -o"
 alias ps='ps -ax'   # view all processes
 alias rm="rm -vi"   # always be verbose & interactive when rm'ing
-alias s="screen"
-alias sls="screen -list"
-alias ss="screen -S"
-alias sx="screen -x"
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages

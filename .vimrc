@@ -138,9 +138,6 @@ vnoremap . :norm.<cr>
 
 " autocmds
 " -------------------------------------
-" modify statusline color when in insert/normal mode
-autocmd InsertEnter,InsertLeave * set cursorline!
-
 autocmd FileType html setlocal textwidth=0
 autocmd FileType help wincmd L              " open help in vertical split
 autocmd BufWritePre <buffer> :%s/\s\+$//e   " strip trailing white space on save
