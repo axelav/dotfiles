@@ -10,7 +10,7 @@ Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
-" Plug 'justinmk/vim-dirvish'
+Plug 'justinmk/vim-dirvish'
 Plug 'ledger/vim-ledger', {'for': 'ledger'}
 Plug 'mhinz/vim-grepper'
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx', 'jsx']}
@@ -33,7 +33,7 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 
 " dirvish
-" let g:dirvish_mode = ':sort r /[^\/]$/'
+let g:dirvish_mode = ':sort r /[^\/]$/'
 " let g:dirvish_mode = 2
 
 " jsx
@@ -105,15 +105,11 @@ nmap <leader>w :w!<cr>
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
 cmap w!! w !sudo tee > /dev/null %
 
-" close current buffer without closing split
-" http://stackoverflow.com/questions/4298910/vim-close-buffer-but-not-split-window
-nmap <leader>d :b#<bar>bd#<cr>
-
 " toggle highlight search
 nmap <leader>h :set hlsearch!<cr>
 
 " open netrw
-nmap <leader>d :e .<cr>
+" nmap <leader>d :e .<cr>
 
 " recursively find file in directory
 nmap <leader>o :n **/*
