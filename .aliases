@@ -33,6 +33,7 @@ alias rm="rm -vi"   # always be verbose & interactive when rm'ing
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages
+alias changed='nvim -p `git diff --name-only`'
 
 # enable aliases to be sudo'd
 alias sudo='sudo '
