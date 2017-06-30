@@ -12,6 +12,7 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'justinmk/vim-dirvish'
 Plug 'ledger/vim-ledger', {'for': 'ledger'}
+Plug 'mattn/emmet-vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx', 'jsx']}
@@ -38,6 +39,10 @@ let g:dirvish_mode = ':sort r /[^\/]$/'
 
 " jsx
 let g:jsx_ext_required = 0
+
+let g:user_emmet_install_global = 0
+
+let g:user_emmet_settings = {'javascript.jsx' : {'extends' : 'jsx'}}
 
 " ledger
 let g:ledger_maxwidth = 80
@@ -138,6 +143,7 @@ autocmd FileType html setlocal textwidth=0
 autocmd FileType help wincmd L              " open help in vertical split
 autocmd BufWritePre <buffer> :%s/\s\+$//e   " strip trailing white space on save
 
+autocmd FileType html,css,javascript.jsx EmmetInstall
 autocmd FileType gitcommit set textwidth=72
 
 autocmd! User GoyoEnter Limelight
