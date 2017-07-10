@@ -44,6 +44,8 @@ let g:user_emmet_install_global = 0
 
 let g:user_emmet_settings = {'javascript.jsx' : {'extends' : 'jsx'}}
 
+let g:goyo_width = 81
+
 " ledger
 let g:ledger_maxwidth = 80
 let g:ledger_fold_blanks = 1
