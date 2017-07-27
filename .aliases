@@ -20,7 +20,7 @@ alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
 alias init='echo "{}" > package.json && git init'
 alias j="jobs -l"
-alias l="ls -FlAhX"
+alias l="ls -FlhX"
 alias m="mutt"
 alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about deprecated audio library mplayer uses
 alias mv="mv -iv"
