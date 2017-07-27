@@ -152,7 +152,7 @@ note () {
   fi
 
   if [ ! -f "$YEAR_DIR/$CURRENT_DATE.md" ]; then
-    date -Idate > $FILE && vim $FILE
+    date -Idate > $FILE && nvim $FILE
   else
     nvim $FILE
   fi
