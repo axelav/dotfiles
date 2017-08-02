@@ -34,7 +34,7 @@ alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages
 
 # git
-alias gba="git branch -D"
+alias gbdf="git branch -D"
 alias ggarbage="git reflog expire --expire=now --all && git gc --prune=now"
 alias git="hub"
 alias gloc="git ls-files | xargs wc -l"
