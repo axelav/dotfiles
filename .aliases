@@ -26,6 +26,7 @@ alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about 
 alias mv="mv -iv"
 alias o="open"
 alias oo="open ."
+alias pgsync="pass git pull && git push"
 alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
 alias ps='ps -ax'   # view all processes
 alias rm="rm -vi"   # always be verbose & interactive when rm'ing
@@ -34,8 +35,7 @@ alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages
 
 # git
-alias pgsync="pass git pull && git push"
-alias gba="git branch -D"
+alias gbdf="git branch -D"
 alias ggarbage="git reflog expire --expire=now --all && git gc --prune=now"
 alias git="hub"
 alias gloc="git ls-files | xargs wc -l"
