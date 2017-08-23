@@ -157,7 +157,7 @@ let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint', 'standard']
 
 let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
 if matchstr(local_eslint, "^\/\\w") == ''
@@ -165,4 +165,18 @@ if matchstr(local_eslint, "^\/\\w") == ''
 endif
 if executable(local_eslint)
   let g:syntastic_javascript_eslint_exec = local_eslint
+else
+  let g:syntastic_javascript_eslint_exec = '$(npm bin)/eslint'
 endif
+
+let local_standard = finddir('node_modules', '.;') . '/.bin/standard'
+if matchstr(local_standard, "^\/\\w") == ''
+  let local_standard = getcwd() . "/" . local_standard
+endif
+if executable(local_standard)
+  let g:syntastic_javascript_standard_exec = local_standard
+else
+  let g:syntastic_javascript_standard_exec = '$(npm bin)/standard'
+endif
+" http://stackoverflow.com/questions/28573553
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') != '' ? ['eslint'] : ['standard']
