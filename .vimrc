@@ -106,7 +106,7 @@ cabbr <expr> %% fnameescape(expand('%:p:h'))
 let mapleader=' '
 
 " save current file
-nmap <leader>w :w!<cr>
+nmap <leader>s :w!<cr>
 
 " save file as sudo
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
