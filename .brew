@@ -28,6 +28,7 @@ brew install neovim
 # everything else
 brew install \
   ffmpeg \
+  fzf \
   git \
   gnu-sed --with-default-names \
   gpg-agent \

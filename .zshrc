@@ -24,3 +24,5 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 setopt nobanghist
 unsetopt correct_all
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -6,5 +6,6 @@ npm i -g \
   hicat \
   js-beautify \
   rainbowify \
+  serve \
   torrent \
   trash-cli
