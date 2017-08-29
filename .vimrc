@@ -8,6 +8,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 Plug 'chriskempson/base16-vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'}
 Plug 'justinmk/vim-dirvish'
@@ -115,11 +117,11 @@ cmap w!! w !sudo tee > /dev/null %
 " toggle highlight search
 nmap <leader>h :set hlsearch!<cr>
 
-" open netrw
-" nmap <leader>d :e .<cr>
-
 " recursively find file in directory
 nmap <leader>o :n **/*
+
+" fzf
+noremap <leader>f :FZF<cr>
 
 " find file in current file's directory
 nmap <leader>c :n %%/

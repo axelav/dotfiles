@@ -40,3 +40,6 @@ export HISTIGNORE="ls:ls *:cd:cd -:pwd:exit:date:* --help:h:history"
 # prefer us english and use utf-8
 export LANG="en_US"
 export LC_ALL="en_US.UTF-8"
+
+# filter ignored files from FZF
+export FZF_DEFAULT_COMMAND='ag -g ""'
