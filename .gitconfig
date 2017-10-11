@@ -1,8 +1,6 @@
 [apply]
   whitespace = fix
 
-[color]
-  ui = always
 [color "branch"]
   current = blue reverse
   local = yellow
@@ -28,7 +26,7 @@
   excludesfile = ~/.gitignore
   whitespace = space-before-tab,trailing-space
   autocrlf = input
-  pager = diff-highlight | diff-so-fancy | less --tabs=4 -RFX
+  pager = diff-so-fancy | less --tabs=4 -RFX
   untrackedCache = true ; https://git-scm.com/docs/git-update-index#_untracked_cache
   editor = /usr/local/bin/nvim
 
