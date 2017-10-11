@@ -121,7 +121,7 @@ nmap <leader>h :set hlsearch!<cr>
 nmap <leader>o :n **/*
 
 " fzf
-noremap <leader>f :FZF<cr>
+noremap <leader>t :FZF<cr>
 
 " find file in current file's directory
 nmap <leader>c :n %%/
