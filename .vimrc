@@ -65,13 +65,13 @@ set gdefault
 set hidden
 set ignorecase
 set indentexpr=off
+set matchtime=3
 set mouse=a
 set nobackup
 set noerrorbells
 set nohlsearch
 set nojoinspaces
 set noshowcmd
-set noshowmatch
 set nospell
 set noswapfile
 set nowrap
@@ -82,6 +82,7 @@ set scrolloff=5
 set secure
 set shiftwidth=2
 set shortmess=AITstW
+set showmatch
 set smartcase
 set softtabstop=2
 set statusline=%F%m%r%h%w\ [%l,%c]\ [%L,%p%%]\ %{fugitive#statusline()}
@@ -98,7 +99,7 @@ set wildignore+=*/node_modules/*,*/.git/*,*/.hg/*,*/.svn/*,*/coverage/*,*/yarn.l
 set wildignorecase
 set wildmode=longest,list,full
 
-colorscheme base16-gruvbox-dark-hard
+colorscheme base16-gruvbox-light-hard
 syntax enable
 
 cabbr <expr> %% fnameescape(expand('%:p:h'))
@@ -108,7 +109,7 @@ cabbr <expr> %% fnameescape(expand('%:p:h'))
 let mapleader=' '
 
 " save current file
-nmap <leader>s :w!<cr>
+nmap <leader>w :w!<cr>
 
 " save file as sudo
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
@@ -122,6 +123,8 @@ nmap <leader>o :n **/*
 
 " fzf
 noremap <leader>t :FZF<cr>
+
+noremap <leader>b :b<cr>
 
 " find file in current file's directory
 nmap <leader>c :n %%/
