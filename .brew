@@ -47,6 +47,7 @@ brew install \
   python \
   reattach-to-user-namespace \
   ren \
+  ripgrep \
   rust \
   screen \
   the_silver_searcher \

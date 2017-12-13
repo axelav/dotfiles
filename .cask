@@ -9,7 +9,6 @@ brew cask install \
   bartender \
   caffeine \
   firefox \
-  flux \
   google-chrome \
   istat-menus \
   iterm2 \
