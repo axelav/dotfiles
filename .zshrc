@@ -14,7 +14,7 @@ source ~/.npm_completion
 
 source $ZSH/oh-my-zsh.sh
 
-for file in ~/.{extra,exports,aliases,functions}; do
+for file in ~/.{exports,aliases,functions,extra}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
