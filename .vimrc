@@ -101,6 +101,7 @@ set wildmode=longest,list,full
 
 " colorscheme base16-gruvbox-light-hard
 colorscheme base16-gruvbox-dark-soft
+
 syntax enable
 
 cabbr <expr> %% fnameescape(expand('%:p:h'))
