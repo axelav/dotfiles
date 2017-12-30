@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 npm i -g \
+  airpaste \
   dat \
   diff-so-fancy \
   hicat \
@@ -8,4 +9,5 @@ npm i -g \
   rainbowify \
   serve \
   torrent \
-  trash-cli
+  trash-cli \
+  vmd
