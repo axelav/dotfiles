@@ -15,6 +15,7 @@ function doIt() {
     --exclude "Session.vim" \
     --exclude "bootstrap.sh" \
     --exclude "com.googlecode.iterm2.plist" \
+    --exclude "oryoki-preferences.json" \
     --exclude "install.sh" \
     -av . ~;
   source ~/.zshrc;

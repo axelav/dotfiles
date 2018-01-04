@@ -7,13 +7,19 @@ brew tap caskroom/cask
 brew cask install \
   atom \
   bartender \
+  beaker-browser \
   caffeine \
   firefox \
   google-chrome \
+  imageoptim \
   istat-menus \
   iterm2 \
+  keybase \
+  macvim \
+  oryoki \
   spectacle \
   the-unarchiver \
   torbrowser \
   transmission \
+  tyke \
   vlc
