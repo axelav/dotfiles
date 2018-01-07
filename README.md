@@ -66,5 +66,5 @@ export GOPATH="$HOME/projects/go-packages"
 decent defaults when settings up a new mac:
 
 ```bash
-./.osx
+./.macos
 ```

@@ -40,3 +40,6 @@ nvm install stable
 
 # global node modules
 ./.npm
+
+# create screenshots folder
+mkdir $HOME/Screenshots

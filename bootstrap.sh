@@ -10,7 +10,7 @@ function doIt() {
     --exclude ".cask" \
     --exclude ".git/" \
     --exclude ".npm" \
-    --exclude ".osx" \
+    --exclude ".macos" \
     --exclude "README.md" \
     --exclude "Session.vim" \
     --exclude "bootstrap.sh" \

@@ -6,6 +6,7 @@ npm i -g \
   diff-so-fancy \
   hicat \
   js-beautify \
+  prettier \
   rainbowify \
   serve \
   torrent \
