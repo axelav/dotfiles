@@ -41,5 +41,12 @@ nvm install stable
 # global node modules
 ./.npm
 
+# create code directory
+mkdir $HOME/s
+
 # create screenshots folder
 mkdir $HOME/Screenshots
+
+# download Fira Code v1.204 font to Downloads
+# https://github.com/tonsky/FiraCode
+wget https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip -P $HOME/Downloads

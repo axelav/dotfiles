@@ -54,6 +54,7 @@ brew install \
   tmux \
   urlview \
   vim \
+  wget \
   youtube-dl \
   z \
   zsh
