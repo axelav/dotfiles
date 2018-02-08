@@ -5,7 +5,6 @@ brew tap caskroom/cask
 
 # apps
 brew cask install \
-  atom \
   bartender \
   beaker-browser \
   caffeine \

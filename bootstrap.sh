@@ -17,6 +17,7 @@ function doIt() {
     --exclude "bootstrap.sh" \
     --exclude "com.googlecode.iterm2.plist" \
     --exclude "oryoki-preferences.json" \
+    --exclude "gpg-agent.conf" \
     --exclude "install.sh" \
     -av . ~;
   source ~/.zshrc;

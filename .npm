@@ -2,6 +2,7 @@
 
 npm i -g \
   airpaste \
+  babel-cli \
   dat \
   diff-so-fancy \
   hicat \

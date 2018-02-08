@@ -13,17 +13,12 @@ fi
 brew install coreutils
 brew install findutils --with-default-names
 
-# bash
-# brew install bash
-# brew install bash-completion
-
 # os x tools
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 
-# neovim
-brew tap neovim/neovim
-brew install neovim
+# chest
+brew install lukechilds/tap/chest
 
 # everything else
 brew install \
@@ -32,7 +27,8 @@ brew install \
   git \
   gnu-sed --with-default-names \
   gpg-agent \
-  htop \
+  # htop \ # broken on macos high sierra
+  httpie \
   hub \
   irssi \
   jq \
@@ -40,6 +36,7 @@ brew install \
   lynx \
   mplayer \
   mutt \
+  neovim \
   nmap \
   pass \
   phantomjs \
@@ -48,7 +45,6 @@ brew install \
   reattach-to-user-namespace \
   ren \
   ripgrep \
-  rust \
   screen \
   the_silver_searcher \
   tmux \
