@@ -25,4 +25,7 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 setopt nobanghist
 unsetopt correct_all
 
+# source rust
+source $HOME/.cargo/env
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
