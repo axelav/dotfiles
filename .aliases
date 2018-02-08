@@ -29,6 +29,7 @@ alias pgsync="pass git pull && git push"
 alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
 alias ps='ps -ax'   # view all processes
 # alias rm="rm -vi"   # always be verbose & interactive when rm'ing
+alias s="cd ~/s"
 alias rm="trash"
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
@@ -36,10 +37,11 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update n
 alias dagds='cat *.m3u | while read i; do wget $i; done' ## download a grateful dead show from archive.org
 
 # git
+alias git="hub"
+alias gai="git add --intent-to-add"
 alias gpfl="git push --force-with-lease"
 alias gbdf="git branch -D"
 alias ggarbage="git reflog expire --expire=now --all && git gc --prune=now"
-alias git="hub"
 alias gloc="git ls-files | xargs wc -l"
 alias gpr="git pull-request -o"
 alias gpup="git fetch origin -v; git fetch upstream -v; git merge upstream/master" # http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
