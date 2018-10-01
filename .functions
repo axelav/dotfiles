@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# change directory & list contents
-function cdl {
-  cd "$@" && ls
-}
-
 # create a new directory and enter it
 function mkd {
   mkdir -p "$@" && cd "$@"
@@ -52,23 +47,6 @@ function extract {
   fi
 }
 
-# test if http compression (rfc 2616 + sdch) is enabled for a given url.
-# send a fake ua string for sites that sniff it instead of using the
-# accept-encoding header. (looking at you, ajax.googleapis.com!)
-function httpcompression {
-  encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
-}
-
-# gzip-enabled `curl`
-function gurl {
-  curl -sH "Accept-Encoding: gzip" "$@" | gunzip
-}
-
-# all the dig info
-function digga {
-  dig +nocmd "$1" any +multiline +noall +answer
-}
-
 function todo {
   cd ~/.todo || return 1&& l=$(ls -1t|head -n1)&&t=$(date +%Y%m%d);
   [[ "$1" == "last" ]]&&cp $l $t;
@@ -83,6 +61,10 @@ function V0 {
   done
 }
 
+function flac2mp3 {
+  find . -name "*.flac" -exec ffmpeg -i {} -codec:a libmp3lame -q:a 0 -map_metadata 0 -id3v2_version 3 {}.mp3
+}
+
 # gitignore as a service: https://github.com/joeblau/gitignore.io
 function gi {
   curl -L -s https://www.gitignore.io/api/$@;
@@ -90,7 +72,7 @@ function gi {
 
 function backup {
   rsync -avz --delete --progress --exclude-from "$HOME/.rsync_excludes" $HOME /Volumes/BigBoi;
-  date >> /Volumes/BigBoi/BACKUP;
+  date >> /Volumes/BigBoi/BACKUP.log;
 }
 
 # open up a package's readme in an electron viewer
@@ -108,18 +90,32 @@ shrug () {
 
 note () {
   if [ -d $NOTES_DIR ]; then
+    nvim $NOTES_DIR/README.md
+  else
+    nvim $HOME/README.md
+  fi
+}
+
+today () {
+  if [ -d $NOTES_DIR ]; then
     YEAR_DIR=$NOTES_DIR/$(date +%Y)
   else
     YEAR_DIR=$HOME/$(date +%Y)
   fi
   CURRENT_DATE=$(date -I)
+  YESTERDAY=$(date -d "yesterday 13:00" '+%Y-%m-%d')
   FILE=$YEAR_DIR/$CURRENT_DATE.md
+  PREVIOUS_NOTE=$YEAR_DIR/$YESTERDAY.md
   if [ ! -d "$YEAR_DIR" ]; then
     mkdir $YEAR_DIR
   fi
 
   if [ ! -f "$YEAR_DIR/$CURRENT_DATE.md" ]; then
-    date -Idate > $FILE && nvim $FILE
+    date -Idate > $FILE
+    if [ -f $PREVIOUS_NOTE ]; then
+      cat $PREVIOUS_NOTE >> $FILE
+    fi
+    nvim $FILE
   else
     nvim $FILE
   fi
@@ -135,34 +131,21 @@ c () {
 
 v () {
   if hash nvim 2>/dev/null; then
+    # lazynvm
     nvim $@;
   else
     vim $@;
   fi
 }
 
-# ytdl -> ffmpeg mp4->mp3 -> file
-ytmp3 () {
-  local input="${1}"
-  local output="${2:-output}"
-
-  if hash ytdl 2>/dev/null && hash ffmpeg 2>/dev/null; then
-    # http://askubuntu.com/questions/84584/converting-mp4-to-mp3#84633
-    ytdl $input | ffmpeg -i pipe:0 -vn -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000 $output.mp3;
-  else
-    echo "Usage: ytmp3 <youtube-url> <output-filename>\n
-          Ensure the required dependencies are installed: ytdl, ffmpeg, lame\n"
-  fi
-}
-
 weather () {
-  curl http://wttr\.in/$@?m | sed -e "s:226m:202m:g" # for light theme
+  curl http://wttr\.in/$@ | sed -e "s:226m:202m:g" # for light theme
 }
 
 # https://gist.github.com/hlissner/db74d23fc00bed81ff62
 # usage: replaceall [search] [replace]
 # caveats: will choke if either arguments contain a forward slash
 # notes: will back up changed files to *.bak files
-function replaceall {
-  ag -0 -l $1 | xargs -0 perl -pi.bak -e "s/$1/$2/g"
+function replace-all {
+  rg -0 -l $1 | xargs -0 perl -pi.bak -e "s/$1/$2/g"
 }

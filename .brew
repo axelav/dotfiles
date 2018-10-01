@@ -23,34 +23,24 @@ brew install lukechilds/tap/chest
 # everything else
 brew install \
   ffmpeg \
+  fd \
   fzf \
   git \
   gnu-sed --with-default-names \
   gpg-agent \
-  # htop \ # broken on macos high sierra
+  htop \
   httpie \
   hub \
-  irssi \
   jq \
   lame \
-  lynx \
-  mplayer \
   mutt \
   neovim \
   nmap \
   pass \
-  phantomjs \
-  pianobar \
-  python \
   reattach-to-user-namespace \
-  ren \
   ripgrep \
-  screen \
-  the_silver_searcher \
   tmux \
-  urlview \
   vim \
-  wget \
   youtube-dl \
   z \
   zsh
