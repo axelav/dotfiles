@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # easier navigation
-alias ~="cd ~" # `cd` is probably faster to type though
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -25,12 +24,9 @@ alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about 
 alias mv="mv -iv"
 alias o="open"
 alias oo="open ."
-alias pgsync="pass git pull && git push"
-alias pianobar="pianobar 2> /dev/null"  # temporary fix to suppress warnings about deprecated audio library pianobar uses
 alias ps='ps -ax'   # view all processes
 # alias rm="rm -vi"   # always be verbose & interactive when rm'ing
 alias s="cd ~/s"
-alias rm="trash"
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages
@@ -39,16 +35,18 @@ alias dagds='cat *.m3u | while read i; do wget $i; done' ## download a grateful 
 # git
 alias git="hub"
 alias gai="git add --intent-to-add"
+alias gci='open $(git ci-status -v | awk "{ print \$2 }")'
 alias gpfl="git push --force-with-lease"
 alias gbdf="git branch -D"
 alias ggarbage="git reflog expire --expire=now --all && git gc --prune=now"
 alias gloc="git ls-files | xargs wc -l"
 alias gpr="git pull-request -o"
 alias gpup="git fetch origin -v; git fetch upstream -v; git merge upstream/master" # http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
-alias gsync="git pull && git push"
+alias gstk="git stash -k"
 alias gu="git reset --soft HEAD~1" # http://stackoverflow.com/questions/927358/undo-the-last-git-commit
 alias gundomerge="git reset --merge HEAD~1"
 alias gundopush="git push -f origin HEAD^:master"
+alias gwip="git commit -am '!! WIP !! [ci skip]'"
 alias gwipe="git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard" # `git reflog` to find sha of unreachable commit this creates; commit msg 'wipe savepoint'
 
 # enable aliases to be sudo'd
