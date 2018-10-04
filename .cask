@@ -14,11 +14,10 @@ brew cask install \
   istat-menus \
   iterm2 \
   keybase \
+  kitty \
   macvim \
-  oryoki \
   spectacle \
   the-unarchiver \
   torbrowser \
   transmission \
-  tyke \
   vlc

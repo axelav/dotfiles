@@ -2,14 +2,11 @@
 
 npm i -g \
   airpaste \
-  babel-cli \
   dat \
-  diff-so-fancy \
+  exp \
   hicat \
   js-beautify \
+  kubebox \
   prettier \
-  rainbowify \
   serve \
-  torrent \
-  trash-cli \
   vmd
