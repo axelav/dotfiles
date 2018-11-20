@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 npm i -g \
   airpaste \
   dat \
-  exp \
   hicat \
   js-beautify \
   kubebox \

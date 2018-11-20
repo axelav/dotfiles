@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # easier navigation
 alias ..="cd .."
@@ -30,17 +30,17 @@ alias s="cd ~/s"
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages
+alias vu='nvim -u ~/.sensible-vimrc'
 alias dagds='cat *.m3u | while read i; do wget $i; done' ## download a grateful dead show from archive.org
 
 # git
 alias git="hub"
-alias gai="git add --intent-to-add"
 alias gci='open $(git ci-status -v | awk "{ print \$2 }")'
 alias gpfl="git push --force-with-lease"
 alias gbdf="git branch -D"
 alias ggarbage="git reflog expire --expire=now --all && git gc --prune=now"
 alias gloc="git ls-files | xargs wc -l"
-alias gpr="git pull-request -o"
+alias gpr="git pull-request --copy"
 alias gpup="git fetch origin -v; git fetch upstream -v; git merge upstream/master" # http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
 alias gstk="git stash -k"
 alias gu="git reset --soft HEAD~1" # http://stackoverflow.com/questions/927358/undo-the-last-git-commit

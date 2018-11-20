@@ -2,31 +2,31 @@
   whitespace = fix
 
 [color "branch"]
-  current = blue reverse
+  current = yellow bold reverse
   local = yellow
   remote = magenta
 [color "diff"]
   meta = yellow bold
-  commit = green bold
+  commit = cyan bold
   frag = magenta bold
   old = red bold
-  new = green bold
+  new = cyan bold
   whitespace = red reverse
 [color "diff-highlight"]
   oldNormal = red bold
   oldHighlight = red bold reverse
-  newNormal = green bold
-  newHighlight = green bold reverse
+  newNormal = cyan bold
+  newHighlight = cyan bold reverse
 [color "status"]
   added = yellow
-  changed = green
-  untracked = cyan
+  changed = cyan
+  untracked = yellow
 
 [core]
   excludesfile = ~/.gitignore
   whitespace = space-before-tab,trailing-space
-  autocrlf = input
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  autocrlf = false
+  pager = less --tabs=4 -RFX
   untrackedCache = true ; https://git-scm.com/docs/git-update-index#_untracked_cache
   editor = /usr/local/bin/nvim
 
@@ -59,3 +59,10 @@
 
 [user]
   useconfigonly = true
+  signingkey = FB90FCBDBACCC13E737D93D343BB7E5D51D3326C
+
+[gpg]
+  program = gpg
+
+[commit]
+  gpgsign = true

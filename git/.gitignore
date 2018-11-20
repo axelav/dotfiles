@@ -27,7 +27,8 @@ bower_components/
 .local_vimrc
 
 # miscellaneous
-todo.md
+TODO.md
+NOTES.md
 
 # vim sessions
 Session.vim

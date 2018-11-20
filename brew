@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # homebrew
 which -s brew
@@ -31,6 +31,7 @@ brew install \
   htop \
   httpie \
   hub \
+  imagemagick --with-libheif \
   jq \
   lame \
   mutt \
@@ -39,6 +40,7 @@ brew install \
   pass \
   reattach-to-user-namespace \
   ripgrep \
+  stow \
   tmux \
   vim \
   youtube-dl \

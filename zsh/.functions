@@ -1,14 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # create a new directory and enter it
 function mkd {
   mkdir -p "$@" && cd "$@"
-}
-
-# find shorthand
-# https://github.com/paulirish/dotfiles/blob/master/.functions
-function f {
-    find . -name "$1"
 }
 
 # cd into whatever is the forefront finder window.
@@ -59,10 +53,6 @@ function V0 {
   for filename; do
     lame -V0 "$filename" "${filename%.*}.mp3"
   done
-}
-
-function flac2mp3 {
-  find . -name "*.flac" -exec ffmpeg -i {} -codec:a libmp3lame -q:a 0 -map_metadata 0 -id3v2_version 3 {}.mp3
 }
 
 # gitignore as a service: https://github.com/joeblau/gitignore.io
