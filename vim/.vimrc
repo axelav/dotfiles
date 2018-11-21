@@ -2,6 +2,7 @@
 " -------------------------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'Alok/notational-fzf-vim'
 Plug 'LeonB/vim-nginx', { 'for': 'nginx' }
 Plug 'Raimondi/delimitMate'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -36,6 +37,11 @@ Plug 'w0rp/ale'
 " Plug 'lifepillar/vim-mucomplete'
 
 call plug#end()
+
+" notational-fzf
+let g:nv_search_paths = ['~/Documents/notes']
+let g:nv_ignore_pattern = ['.git']
+let g:nv_use_short_pathnames = 1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -165,20 +171,37 @@ set synmaxcol=300  " stop syntax highlighting this many columns out
 " -------------------------------------
 let mapleader=' '
 
-nmap <leader>w :w<cr>
+nnoremap <leader>w :w<cr>
+
+" toggle highlight search
+nnoremap <leader>h :set hlsearch!<cr>
+
+" fzf
+nnoremap <leader>t :FZF<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>f :NV<cr>
+
+" folds
+nnoremap <leader><space> za
+nnoremap <leader>r zR
+nnoremap <leader>m zM
+
+" handle splits
+nnoremap <silent> <leader>s :split<cr>
+nnoremap <silent> <leader>v :vsplit<cr>
+nnoremap <silent> <leader>q :close<cr>
+nnoremap <leader>= <C-w>=
+
+nnoremap <leader>n :bn<cr>
+nnoremap <leader>p :bp<cr>
+
+nnoremap <silent> <leader>g :Goyo<cr>
+nnoremap <silent> <leader>l :Limelight!!<cr>
+
+nnoremap <leader>d :!vmd % &<cr>
 
 " save file as sudo http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
 cmap w!! w !sudo tee > /dev/null %
-
-" toggle highlight search
-nmap <leader>h :set hlsearch!<cr>
-
-" fzf
-noremap <leader>t :FZF<cr>
-noremap <leader>b :Buffers<cr>
-
-" find file in current file's directory
-" nmap <leader>c :n %%/
 
 " text search current working directory
 nnoremap <leader>a :Grepper
@@ -189,11 +212,6 @@ nnoremap <leader>a :Grepper
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
 
-nmap <leader>l :Limelight!!<cr>
-
-" use black hole register
-" nmap <leader>b "_
-
 " map ctrl-j to split a line
 nnoremap <nl> i <cr><esc>
 
@@ -202,28 +220,6 @@ vnoremap . :norm.<cr>
 
 " yank to end of line
 noremap Y y$
-
-" create fold
-nnoremap <leader><space> za
-
-nnoremap <leader>r zR
-nnoremap <leader>m zM
-
-" handle splits
-nnoremap <silent> <leader>s :split<cr>
-nnoremap <silent> <leader>v :vsplit<cr>
-nnoremap <silent> <leader>q :close<cr>
-noremap <leader>= <C-w>=
-
-nnoremap <leader>n :bn<cr>
-nnoremap <leader>p :bp<cr>
-
-map gs :above wincmd f<cr>
-map gv :vertical wincmd f<cr>
-
-nnoremap <silent> <leader>g :Goyo<cr>
-
-noremap <leader>d :!vmd % &<cr>
 
 " commands
 " -------------------------------------
