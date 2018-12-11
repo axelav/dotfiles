@@ -13,25 +13,23 @@ alias ls="command ls --color"
 # utilities
 alias cask="brew cask"
 alias du="du -h -d 1"
-alias fs="stat -c \"%s bytes\"" # file size
+alias fs="stat -c \"%s bytes\""
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
-alias init='echo "{\"devDependencies\": { \"standard\": \"^10.0.3\" }}" > package.json && git init'
 alias j="jobs -l"
-alias l="ls -FlhX"
+alias k="kubectl -n"
+alias l="ls -FAX"
+alias ll="ls -lhX"
+alias la="ls -lhA"
 alias m="mutt"
-alias mplayer="mplayer 2> /dev/null" # temporary fix to suppress warnings about deprecated audio library mplayer uses
 alias mv="mv -iv"
 alias o="open"
 alias oo="open ."
-alias ps='ps -ax'   # view all processes
-# alias rm="rm -vi"   # always be verbose & interactive when rm'ing
+alias ps="ps -ax"
+alias rm="rm -v"
 alias s="cd ~/s"
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; npm update npm -g; npm update -g' # os updates; homebrew, npm & packages
-alias vu='nvim -u ~/.sensible-vimrc'
-alias dagds='cat *.m3u | while read i; do wget $i; done' ## download a grateful dead show from archive.org
 
 # git
 alias git="hub"
@@ -50,10 +48,10 @@ alias gwip="git commit -am '!! WIP !! [ci skip]'"
 alias gwipe="git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard" # `git reflog` to find sha of unreachable commit this creates; commit msg 'wipe savepoint'
 
 # enable aliases to be sudo'd
-alias sudo='sudo '
+alias sudo="sudo "
 
 # stopwatch
-alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+alias timer="echo 'Timer started. Stop with Ctrl-D.' && date && time cat && date"
 
 # networking
 # per support.apple.com, this is the new command: http://support.apple.com/kb/ht5343
@@ -63,15 +61,9 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 alias localip="ipconfig getifaddr en0"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias networkmap="nmap -v -sn 192.168.1.0/24"
-alias whazzup="nmap -v -sn 192.168.1.0/24 | grep -B 1 'host is up'" # view all devices connected to local network
 
 # recursively delete `.ds_store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
-
-# archive & extract archives
-alias ztar="tar -cvzf" #new_file *.txt
-alias uztar="tar -zxvf"
 
 # empty the trash on all mounted volumes and the main hdd
 # also, clear system logs to improve shell startup speed
@@ -81,15 +73,7 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias show="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 
-# hide/show all desktop icons
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# enable/disable spotlight
-alias spotoff="sudo mdutil -a -i off"
-alias spoton="sudo mdutil -a -i on"
-
 # one of @janmoesen's protip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="http '$method'"
+  alias "$method"="http '$method'"
 done
