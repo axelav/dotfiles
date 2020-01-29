@@ -101,7 +101,8 @@ today () {
   fi
 
   if [ ! -f "$YEAR_DIR/$CURRENT_DATE.md" ]; then
-    date -Idate > $FILE
+    # date -Idate > $FILE
+    echo "# $(date -Idate)\n\n## listened\n\n## exercise" > $FILE
     if [ -f $PREVIOUS_NOTE ]; then
       cat $PREVIOUS_NOTE >> $FILE
     fi
@@ -121,11 +122,20 @@ c () {
 
 v () {
   if hash nvim 2>/dev/null; then
-    # lazynvm
-    nvim $@;
+    if [ $1 ]; then
+      nvim $@;
+    elif [ -f Session.vim ]; then
+      nvim -S;
+    else
+      nvim;
+    fi
   else
     vim $@;
   fi
+}
+
+function trash {
+  mv $@ ~/.Trash
 }
 
 weather () {
@@ -138,4 +148,12 @@ weather () {
 # notes: will back up changed files to *.bak files
 function replace-all {
   rg -0 -l $1 | xargs -0 perl -pi.bak -e "s/$1/$2/g"
+}
+
+function light {
+  base16_atelier-savanna-light
+}
+
+function dark {
+  base16_atelier-savanna
 }

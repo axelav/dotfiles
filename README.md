@@ -6,17 +6,17 @@
 $ install.sh
 ```
 
-installs os x command line tools, homebrew, homebrew packages, cask
-applications, dotfiles, vundle (to manage vim plugins), nvm (to manage node
-versions) & global packages from npm.
+Installs macos command line tools, homebrew, homebrew packages, cask
+applications, dotfiles, vim-plug (to manage vim plugins), nvm (to manage node
+versions), and global node modules from npm.
 
 ## dotfiles
 
-you can also just update your shell's dotfiles:
+use `stow` to install symlinks to your dotfiles:
 
-```bash
-./bootstrap.sh
-```
+`stow git gpg mutt nodejs rsync tmux vim zsh alacritty --verbose`
+
+[source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
 
 ## env variables, credentials, etc
 
@@ -25,7 +25,7 @@ best adding commands you don't want to commit to a public repository.
 
 mine looks something like this:
 
-```bash
+```sh
 # PATH additions
 PATH="/usr/local/bin"
 PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
@@ -61,10 +61,33 @@ export WORKON_HOME=~/.virtualenvs
 export GOPATH="$HOME/projects/go-packages"
 ```
 
-### os x defaults
+### macos defaults
 
 decent defaults when settings up a new mac:
 
-```bash
+```sh
 ./.macos
+```
+
+### Atelier Savana hex values
+
+![atelier savanna hex values](https://atelier-savanna-hmbphqbvmt.now.sh/)
+
+```
+#171c19
+#232a25
+#526057
+#5f6d64
+#78877d
+#87928a
+#dfe7e2
+#ecf4ee
+#b16139
+#9f713c
+#a07e3b
+#489963
+#1c9aa0
+#478c90
+#55859b
+#867469
 ```

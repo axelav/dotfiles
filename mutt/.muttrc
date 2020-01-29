@@ -3,13 +3,13 @@
 set from="axel@ftml.net"
 set realname="Axel Anderson"
 
-
 ###########################################
 # mail/SMTP/IMAP settings
 
 set my_server=mail.messagingengine.com
 set my_user=axel@ftml.net
-set my_pass=`gpg --batch -q --decrypt ~/.password-store/personal/fastmail.gpg`
+# set my_pass=`gpg --batch -q --decrypt ~/.password-store/personal/fastmail.gpg`
+set my_pass=$MUTT_FASTMAIL_PASS
 
 # SMTP server to relay to
 set smtp_url="smtp://$my_user:$my_pass@$my_server:587/"
@@ -22,16 +22,16 @@ set header_cache="~/.mutt/cache/headers"
 set message_cachedir="~/.mutt/cache/bodies"
 set certificate_file="~/.mutt/certificates"
 
-
 ###########################################
 # options
 
-set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 set delete=yes
 set edit_headers
 set imap_idle=yes
+set index_format="%4C %Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 set mail_check=300
-set pager_context=10
+set menu_scroll
+set pager_context=3
 set pager_index_lines=10
 set pager_stop
 set sort=threads
@@ -39,18 +39,23 @@ set sort_aux=reverse-last-date-received
 set sort_browser=date
 set strict_threads=yes
 set text_flowed=yes
+set tilde
 set timeout=600
 unset imap_passive
 unset mark_old
 unset markers
+unset confirmappend
 
 # theme
-source "~/.mutt/themes/base16.dark.256.muttrc"
+source "~/.mutt/themes/base16.muttrc"
 
 # keyboard
 bind compose p postpone-message
 bind index p recall-message
-
+bind pager G  bottom
+bind pager gg top
+bind pager j  next-line
+bind pager k  previous-line
 
 ###########################################
 # folder settings
@@ -64,17 +69,25 @@ set postponed="=Drafts"
 # ???
 # set trash = "=Trash"
 
-
 ###########################################
 # mailing lists
 
 # subscribe foo@bar.baz
 
-
 ###########################################
 # mailboxes to monitor
 
-mailboxes = "="
+# mailboxes = "="
+mailboxes +INBOX \
+          +confirmations \
+          +mailers \
+          +notes \
+          +racing \
+          +taxes \
+          +Archive \
+          +Drafts \
+          +"Sent Items" \
+          +Trash \
 
 ###########################################
 # autocomplete addresses
@@ -83,11 +96,11 @@ set query_command = "~/.mutt/fastmail-ldap.pl '%s'"
 bind editor <Tab> complete-query
 bind editor ^T    complete
 
-
 ###########################################
 # macros
 
-macro index,pager ,a <save-message>=Archive\n
+# macro index,pager ,a <save-message>=Archive\n
+macro index,pager y <save-message>=Archive\n
 macro index,pager d <save-message>=Trash\n
 
 macro index,pager ,gi <change-folder>=INBOX\n
@@ -99,8 +112,25 @@ macro index,pager ,gc <change-folder>=confirmations\n
 macro index \cb |urlview 'call urlview to extract URLs out of a message'
 macro pager \cb |urlview 'call urlview to extract URLs out of a message'
 
-
 ###########################################
 # html emails
 set mailcap_path="~/.mailcap"
 auto_view text/html
+
+
+
+
+# Sidebar Patch --------------------------------------
+set sidebar_divider_char = '  │'
+set sidebar_visible = yes
+set sidebar_width   = 24
+color sidebar_new color221 color233
+
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+# Sidebar Navigation ---------------------------------
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open

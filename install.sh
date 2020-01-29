@@ -62,7 +62,7 @@ nvm install stable
 curl https://sh.rustup.rs -sSf | sh
 
 # create code directory
-mkdir $HOME/s
+mkdir $HOME/Documents/s
 
 # create screenshots folder
 mkdir $HOME/Screenshots

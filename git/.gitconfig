@@ -40,12 +40,6 @@
 [help]
   autocorrect = -1
 
-; [interactive]
-;   TODO doesn't quite work yet
-;   diffFilter = diff-so-fancy | less --tabs=4 -RFX
-;   TODO how to add `context` here?
-;   context = 5
-
 [merge]
   log = true
   tool = vimdiff
@@ -66,3 +60,9 @@
 
 [commit]
   gpgsign = true
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process

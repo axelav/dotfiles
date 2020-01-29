@@ -1,17 +1,25 @@
 # html
-text/html; lynx %s; nametemplate=%s.html
-text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput
+# text/html; lynx %s; nametemplate=%s.html
+# text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput
 # alternatively, convert to markdown
 # text/html; pandoc -f html -t markdown; copiousoutput; compose=vim %s
+# text/html; pandoc --columns=80 -f html -t markdown_github+grid_tables; copiousoutput; compose=vim %s
 
-# images
-image/jpeg; ~/.mutt/view_attachment.sh %s
-image/pjpeg; ~/.mutt/view_attachment.sh %s
-image/png; ~/.mutt/view_attachment.sh %s
-image/gif; ~/.mutt/view_attachment.sh %s
+# MS Word documents
+application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
 
-# pdf
+# Images
+image/jpg; ~/.mutt/view_attachment.sh %s jpg
+image/jpeg; ~/.mutt/view_attachment.sh %s jpg
+image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
+image/png; ~/.mutt/view_attachment.sh %s png
+image/gif; ~/.mutt/view_attachment.sh %s gif
+
+# PDFs
 application/pdf; ~/.mutt/view_attachment.sh %s pdf
 
-# unidentified
+# HTML
+text/html; ~/.mutt/view_attachment.sh %s html
+
+# Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"

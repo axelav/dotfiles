@@ -3,9 +3,11 @@
 npm i -g \
   airpaste \
   dat \
+  expo-cli \
   hicat \
   js-beautify \
   kubebox \
   prettier \
   serve \
+  typescript \
   vmd

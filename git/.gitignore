@@ -28,7 +28,10 @@ bower_components/
 
 # miscellaneous
 TODO.md
-NOTES.md
 
 # vim sessions
 Session.vim
+
+Library
+tags
+tags.temp
