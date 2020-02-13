@@ -25,12 +25,12 @@ brew install \
   ffmpeg \
   fd \
   fzf \
+  github/gh/gh \
   git \
   gnu-sed --with-default-names \
   gpg-agent \
   htop \
   httpie \
-  hub \
   imagemagick --with-libheif \
   jq \
   lame \
