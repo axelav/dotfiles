@@ -35,3 +35,6 @@ Session.vim
 Library
 tags
 tags.temp
+
+jsconfig.json
+tsconfig.json
