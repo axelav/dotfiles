@@ -31,21 +31,21 @@ alias rm="rm -v"
 alias s="cd ~/s"
 alias t="touch"
 alias timestamp="date +%Y%m%d%H%M%S"
+alias datestamp="date +%Y%m%d"
 alias draft="touch $(timestamp).md"
 
 alias dagds='cat *.m3u | while read i; do wget $i; done' ## download a grateful dead show from archive.org
 
 # git
-alias gii='git add --intent-to-add'
-alias gpf="git push --force-with-lease"
 alias gbdf="git branch -D"
-alias ggarbage="git reflog expire --expire=now --all && git gc --prune=now"
+alias gii='git add --intent-to-add'
+alias gla='git log --graph --all --pretty=format:"${_git_log_oneline_format}"'
 alias gloc="git ls-files | xargs wc -l"
+alias gpf="git push --force-with-lease"
 alias gpup="git fetch origin -v; git fetch upstream -v; git merge upstream/master" # http://gitready.com/intermediate/2009/02/12/easily-fetching-upstream-changes.html
-alias gstk="git stash -k"
 alias gu="git reset --soft HEAD~1" # http://stackoverflow.com/questions/927358/undo-the-last-git-commit
-alias gundomerge="git reset --merge HEAD~1"
-alias gundopush="git push -f origin HEAD^:master"
+alias gum="git reset --merge HEAD~1"
+alias gup="git push -f origin HEAD^:master"
 alias gwip="git commit --no-verify -am '!! WIP !! [ci skip]'"
 alias gwipe="git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard" # `git reflog` to find sha of unreachable commit this creates; commit msg 'wipe savepoint'
 
