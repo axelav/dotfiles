@@ -2,62 +2,42 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'Alok/notational-fzf-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
 Plug 'justinmk/vim-dirvish'
+Plug 'jxnblk/vim-mdx-js', {'for': ['mdx']}
 Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'mhinz/vim-grepper'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'plasticboy/vim-markdown'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'dense-analysis/ale'
-
-Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
-Plug 'jxnblk/vim-mdx-js', {'for': ['mdx']}
 
 call plug#end()
 
 " plugin settings
 let g:dirvish_mode = 'call DirvishSetup()'
+let g:goyo_height = '100%'
+let g:goyo_width = 81
 let g:nv_ignore_pattern = ['.git']
 let g:nv_search_paths = ['~/Documents/notes']
-let g:prettier#autoformat = 0
-let g:prettier#config#arrow_parens = 'avoid'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#semi = 'false'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#trailing_comma = 'none'
-let g:prettier#quickfix_enabled = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_strikethrough = 1
 
-let g:goyo_height = '100%'
-let g:goyo_width = 101
-
 " colors
 syntax on
-colorscheme desert
-
-highlight Search ctermbg=LightGrey
-highlight Search ctermfg=Black
-highlight Visual cterm=reverse ctermbg=NONE
-highlight DiffAdd cterm=reverse ctermbg=NONE
-highlight DiffChange cterm=reverse ctermbg=NONE
-highlight DiffDelete cterm=reverse ctermbg=NONE
-highlight SpellBad cterm=reverse ctermbg=NONE
-highlight SpellCap cterm=reverse ctermbg=NONE
+colorscheme nord
 
 " general settings
 set autoread
 set clipboard+=unnamed
-set conceallevel=2
 set cursorline
 set expandtab
 set gdefault
@@ -67,6 +47,7 @@ set ignorecase
 set mouse=a
 set nobackup
 set nofoldenable
+set nohlsearch
 set nojoinspaces
 set noswapfile
 set nowritebackup
@@ -74,14 +55,17 @@ set number
 set shiftwidth=2
 set smartcase
 set softtabstop=2
+set spellcapcheck=
 set tabstop=2
 set undodir=~/.vim/undo
 set undofile
 set wildignorecase
 
-set viminfo='10000,n$HOME/.viminfo
-
-" set shadafile=$HOME/.shadafile
+if !has('nvim')
+  set viminfo+=~/.vim/viminfo
+else
+  set viminfo='10000,n~/.config/nvim/shada
+endif
 
 " mappings
 let mapleader = ' '
@@ -91,27 +75,26 @@ nnoremap <leader>a :Grepper -tool rg -grepprg rg -H --no-heading --hidden --foll
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>c :cclose<cr>
 nnoremap <leader>f :NV<cr>
+nnoremap <leader>g :Goyo<cr>
 nnoremap <leader>h :set hls!<cr>
 nnoremap <leader>j :bn<cr>
 nnoremap <leader>k :bp<cr>
-nnoremap <leader>n :set number! relativenumber!<cr>
+nnoremap <leader>n :set number!<cr>
 nnoremap <leader>o :Obsession<cr>
 nnoremap <leader>q :close<cr>
+nnoremap <leader>r :set relativenumber!<cr>
 nnoremap <leader>s :split<cr>
 nnoremap <leader>t :FZF<cr>
 nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>z :set spell! spelllang=en_us<cr>
+
+nnoremap <C-W><C-F> <C-W>vgf
 nnoremap Y y$
 
-" macros
-let @l = 'i[](pa)^a'
-
 " autocommands
-autocmd BufWritePre *.js,*.ts,*.css,*.less,*.scss,*.json,*.graphql,*.md PrettierAsync
-autocmd BufWritePre <buffer> :%s/\s\+$//e " strip trailing white space on save
 autocmd FileType gitcommit set textwidth=72
-autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+" autocmd BufRead,BufNewFile *.md setlocal textwidth=80
 
 " functions
 function! DirvishSetup()
