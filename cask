@@ -1,24 +1,17 @@
 #!/usr/bin/env zsh
 
-# cask
-brew tap caskroom/cask
-
-# apps
 brew cask install \
   alacritty \
-  bartender \
   beaker-browser \
   caffeine \
   firefox \
   google-chrome \
+  google-earth-pro \
   imageoptim \
   istat-menus \
   iterm2 \
-  keybase \
-  kitty \
   macvim \
-  spectacle \
-  the-unarchiver \
-  torbrowser \
+  tor-browser \
   transmission \
+  visual-studio-code \
   vlc

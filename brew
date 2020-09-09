@@ -11,11 +11,11 @@ fi
 
 # gnu core utils & `find`, `locate`, `updatedb`, `xargs`
 brew install coreutils
-brew install findutils --with-default-names
+brew install findutils
 
 # os x tools
-brew tap homebrew/dupes
-brew install homebrew/dupes/grep
+# brew tap homebrew/dupes
+# brew install homebrew/dupes/grep
 
 # chest
 brew install lukechilds/tap/chest
@@ -27,11 +27,11 @@ brew install \
   fzf \
   github/gh/gh \
   git \
-  gnu-sed --with-default-names \
-  gpg-agent \
+  gnu-sed \
+  gnupg \
   htop \
   httpie \
-  imagemagick --with-libheif \
+  imagemagick \
   jq \
   lame \
   mutt \
