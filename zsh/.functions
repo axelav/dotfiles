@@ -150,10 +150,10 @@ function replace-all {
   rg -0 -l $1 | xargs -0 perl -pi.bak -e "s/$1/$2/g"
 }
 
-function light {
-  base16_atelier-savanna-light
-}
-
-function dark {
-  base16_atelier-savanna
+function mog () {
+  if hash mogrify 2>/dev/null; then
+    mogrify -format jpg $@;
+  else
+    echo "Install imagemagick";
+  fi
 }

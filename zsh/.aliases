@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 
+# emacs
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+alias vim='emacsclient -t'
+alias vi='emacsclient -t'
+
 # easier navigation
 alias ..="cd .."
 alias ...="cd ../.."
@@ -13,7 +19,7 @@ alias ls="command ls --color --group-directories-first"
 # utilities
 alias cask="brew cask"
 alias du="du -h -d 1"
-alias e="nvim $1 -c Goyo"
+# alias e="nvim $1 -c Goyo"
 alias fs="stat -c \"%s bytes\""
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"

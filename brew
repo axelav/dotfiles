@@ -22,6 +22,7 @@ brew install lukechilds/tap/chest
 
 # everything else
 brew install \
+  emacs \
   ffmpeg \
   fd \
   fzf \

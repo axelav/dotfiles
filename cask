@@ -4,6 +4,7 @@ brew cask install \
   alacritty \
   beaker-browser \
   caffeine \
+  emacs \
   firefox \
   google-chrome \
   google-earth-pro \
