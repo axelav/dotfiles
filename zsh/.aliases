@@ -43,7 +43,7 @@ alias draft="touch $(timestamp).md"
 alias dagds='cat *.m3u | while read i; do wget $i; done' ## download a grateful dead show from archive.org
 
 # git
-alias gbdf="git branch -D"
+alias gbd="git branch -D"
 alias gii='git add --intent-to-add'
 alias gla='git log --graph --all --pretty=format:"${_git_log_oneline_format}"'
 alias gloc="git ls-files | xargs wc -l"
