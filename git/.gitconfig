@@ -1,27 +1,6 @@
 [apply]
   whitespace = fix
 
-[color "branch"]
-  current = yellow bold reverse
-  local = yellow
-  remote = magenta
-[color "diff"]
-  meta = yellow bold
-  commit = cyan bold
-  frag = magenta bold
-  old = red bold
-  new = cyan bold
-  whitespace = red reverse
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold reverse
-  newNormal = cyan bold
-  newHighlight = cyan bold reverse
-[color "status"]
-  added = yellow
-  changed = cyan
-  untracked = yellow
-
 [core]
   excludesfile = ~/.gitignore
   whitespace = space-before-tab,trailing-space

@@ -63,27 +63,21 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    # family: IBM Plex Mono
-    family: JetBrains Mono
-    # The `style` can be specified to pick a specific face.
-    style: Semi Light
+    family: IBM Plex Mono
+    style: Light
 
   # Italic font face
   bold:
-    # family: IBM Plex Mono
-    family: JetBrains Mono
-    # The `style` can be specified to pick a specific face.
-    style: Bold
+    family: IBM Plex Mono
+    style: Medium
 
   # Italic font face
   italic:
-    # family: IBM Plex Mono
-    family: JetBrains Mono
-    # The `style` can be specified to pick a specific face.
+    family: IBM Plex Mono
     style: Italic
 
   # Point size
-  size: 16.0
+  size: 18.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
