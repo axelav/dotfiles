@@ -46,9 +46,6 @@ unset mark_old
 unset markers
 unset confirmappend
 
-# theme
-source "~/.mutt/themes/base16.muttrc"
-
 # keyboard
 bind compose p postpone-message
 bind index p recall-message
@@ -80,10 +77,7 @@ set postponed="=Drafts"
 # mailboxes = "="
 mailboxes +INBOX \
           +confirmations \
-          +mailers \
-          +notes \
-          +racing \
-          +taxes \
+          +moto \
           +Archive \
           +Drafts \
           +"Sent Items" \
@@ -124,7 +118,6 @@ auto_view text/html
 set sidebar_divider_char = '  │'
 set sidebar_visible = yes
 set sidebar_width   = 24
-color sidebar_new color221 color233
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"

@@ -17,10 +17,16 @@ zmodule utility
 #
 # Prompt
 #
+# Theme
+zmodule steeef
 # Exposes git repository status information to prompts.
 zmodule git-info
-# A customizable version of steeef's prompt theme.
-zmodule steeef
+# Exposes to prompts how long the last command took to execute.
+# zmodule duration-info
+# Formats the current working directory to be used by prompts.
+# zmodule prompt-pwd
+STASHED_IND=●
+STASHED_COLOR=81
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions

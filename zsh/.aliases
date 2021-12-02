@@ -3,8 +3,8 @@
 # emacs
 alias e='emacsclient -t'
 alias ec='emacsclient -c'
-alias vim='emacsclient -t'
-alias vi='emacsclient -t'
+# alias vim='emacsclient -t'
+# alias vi='emacsclient -t'
 
 # easier navigation
 alias ..="cd .."
@@ -45,6 +45,7 @@ alias dagds='cat *.m3u | while read i; do wget $i; done' ## download a grateful 
 # git
 alias gbd="git branch -D"
 alias gii='git add --intent-to-add'
+alias glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}" -n 25'
 alias gla='git log --graph --all --pretty=format:"${_git_log_oneline_format}"'
 alias gloc="git ls-files | xargs wc -l"
 alias gpf="git push --force-with-lease"
@@ -54,6 +55,7 @@ alias gum="git reset --merge HEAD~1"
 alias gup="git push -f origin HEAD^:master"
 alias gwip="git commit --no-verify -am '!! WIP !! [ci skip]'"
 alias gwipe="git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard" # `git reflog` to find sha of unreachable commit this creates; commit msg 'wipe savepoint'
+alias grecap="git for-each-ref --sort='-authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads"
 
 # enable aliases to be sudo'd
 alias sudo="sudo "
@@ -85,6 +87,3 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE && killall F
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="http '$method'"
 done
-
-# TODO is this worthwhile?
-alias nextjs="npm i babel-eslint eslint eslint-config-react-app eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react husky lint-staged next prettier prop-types react react-dom tachyons"

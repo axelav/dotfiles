@@ -26,6 +26,9 @@ export TERM="xterm-256color"
 # use vim as default editor
 export EDITOR="nvim"
 
+# use emacs as default editor
+# export EDITOR="emacsclient -t"
+
 # don't clear the screen after quitting a manual page
 export MANPAGER="less -X"
 

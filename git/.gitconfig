@@ -33,6 +33,8 @@
 [user]
   useconfigonly = true
   signingkey = FB90FCBDBACCC13E737D93D343BB7E5D51D3326C
+  name = axelav
+  email = axel@ftml.net
 
 [gpg]
   program = gpg

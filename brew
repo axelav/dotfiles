@@ -18,7 +18,7 @@ brew install findutils
 # brew install homebrew/dupes/grep
 
 # chest
-brew install lukechilds/tap/chest
+# brew install lukechilds/tap/chest
 
 # everything else
 brew install \

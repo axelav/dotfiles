@@ -52,10 +52,6 @@ nvm install --lts
 # global node modules
 ./install_node_modules
 
-# install rust
-# https://www.rust-lang.org/en-US/install.html
-curl https://sh.rustup.rs -sSf | sh
-
 # create code directories
 mkdir -p $HOME/Documents/s/{axelav,pillar}
 
