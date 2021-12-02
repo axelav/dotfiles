@@ -1,5 +1,3 @@
-alias ls="command ls --color --group-directories-first"
-
 # utilities
 alias cask="brew cask"
 alias du="du -h -d 1"
