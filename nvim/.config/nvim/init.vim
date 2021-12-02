@@ -1,7 +1,6 @@
 " plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'Alok/notational-fzf-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -30,8 +29,6 @@ call plug#end()
 let g:dirvish_mode = 'call DirvishSetup()'
 let g:goyo_height = '100%'
 let g:goyo_width = 81
-let g:nv_ignore_pattern = ['.git']
-let g:nv_search_paths = ['~/Documents/notes']
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_strikethrough = 1
 
