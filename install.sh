@@ -10,7 +10,7 @@ xcode-select --install
 ./cask
 
 # install fzf keybindings
-/usr/local/opt/fzf/install
+/opt/homebrew/opt/fzf/install
 
 mkdir $HOME/.config
 mkdir $HOME/.tmux
@@ -27,14 +27,14 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 # dotfiles
 stow \
   alacritty \
+  fish \
   git \
   gpg \
   mutt \
   nodejs \
+  nvim \
   rsync \
   tmux \
-  vim \
-  zsh \
   --verbose
 
 # install fundle
@@ -42,19 +42,8 @@ stow \
 curl -sfL https://git.io/fundle-install | fish
 
 # install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# symlink vimrc to vim/init
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
-
-# nvm & node
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-nvm install --lts
-# nvm install stable
-
-# global node modules
-./install_node_modules
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # create code directories
 mkdir -p $HOME/Documents/s/{axelav,pillar}
@@ -62,5 +51,6 @@ mkdir -p $HOME/Documents/s/{axelav,pillar}
 # create screenshots folder
 mkdir $HOME/Screenshots
 
-# install Apple fonts
+# install fonts
+# https://github.com/IBM/plex
 # https://developer.apple.com/fonts/

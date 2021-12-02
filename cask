@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-brew cask install \
+brew install \
   alacritty \
   firefox \
   google-chrome \
@@ -8,4 +8,5 @@ brew cask install \
   istat-menus \
   iterm2 \
   macvim \
+  rectangle \
   tor-browser
