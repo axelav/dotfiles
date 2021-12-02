@@ -7,7 +7,7 @@
   autocrlf = false
   pager = less --tabs=4 -RFX
   untrackedCache = true ; https://git-scm.com/docs/git-update-index#_untracked_cache
-  editor = /usr/local/bin/nvim
+  editor = /opt/homebrew/bin/nvim
 
 [diff]
   algorithm = patience
