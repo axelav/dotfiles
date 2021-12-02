@@ -36,11 +36,11 @@
   name = axelav
   email = axel@ftml.net
 
-[gpg]
-  program = gpg
+; [gpg]
+;   program = gpg
 
-[commit]
-  gpgsign = true
+; [commit]
+;   gpgsign = true
 
 [filter "lfs"]
   required = true
