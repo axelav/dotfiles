@@ -47,5 +47,18 @@ brew install \
   vim \
   youtube-dl
 
+# casks
+brew install \
+  adguard \
+  alacritty \
+  firefox \
+  google-chrome \
+  google-earth-pro \
+  istat-menus \
+  iterm2 \
+  macvim \
+  rectangle \
+  tor-browser
+
 # remove outdated versions
 brew cleanup

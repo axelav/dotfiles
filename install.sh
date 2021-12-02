@@ -5,9 +5,8 @@ cd "$(dirname "${(%):-%N}")";
 # command line tools
 xcode-select --install
 
-# homebrew, packages & casks
+# homebrew
 ./brew
-./cask
 
 # install fzf keybindings
 /opt/homebrew/opt/fzf/install
@@ -46,7 +45,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # create code directories
-mkdir -p $HOME/Documents/s/{axelav,pillar}
+mkdir -p $HOME/s/{axelav,pillar}
 
 # create screenshots folder
 mkdir $HOME/Screenshots
