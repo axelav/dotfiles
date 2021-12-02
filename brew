@@ -25,6 +25,7 @@ brew install \
   emacs \
   ffmpeg \
   fd \
+  fish \
   fzf \
   github/gh/gh \
   git \
@@ -44,9 +45,7 @@ brew install \
   stow \
   tmux \
   vim \
-  youtube-dl \
-  z \
-  zsh
+  youtube-dl
 
 # remove outdated versions
 brew cleanup
