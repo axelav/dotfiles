@@ -44,11 +44,18 @@ curl -sfL https://git.io/fundle-install | fish
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
-# create code directories
-mkdir -p $HOME/s/{axelav,pillar}
 
-# create screenshots folder
+# install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+# create code directory
+mkdir -p $HOME/s
+
+# create screenshots directory
 mkdir $HOME/Screenshots
+
+# Save screenshots to the ~/Screenshots directory
+defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 
 # install fonts
 # https://github.com/IBM/plex
