@@ -49,8 +49,10 @@ brew install \
 
 # casks
 brew install \
+  affinity-photo \
   adguard \
   alacritty \
+  calibre \
   firefox \
   google-chrome \
   google-earth-pro \
@@ -58,7 +60,8 @@ brew install \
   iterm2 \
   macvim \
   rectangle \
-  tor-browser
+  tor-browser \
+  soulseek
 
 # remove outdated versions
 brew cleanup
