@@ -13,6 +13,7 @@ set -x NODE_OPTIONS '--openssl-legacy-provider'
 
 fundle plugin 'danhper/fish-ssh-agent'
 fundle plugin 'paradox460/paradox-theme'
+fundle plugin 'jethrokuan/z'
 fundle plugin 'FabioAntunes/fish-nvm'
 fundle plugin 'edc/bass'
 fundle init
