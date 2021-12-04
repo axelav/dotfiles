@@ -1,0 +1,9 @@
+fundle
+fish_variables
+
+shada
+
+private-keys-v1.d/
+pubring*
+tofu.db
+trustdb.gpg
