@@ -1,7 +1,9 @@
 " plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'dag/vim-fish'
+Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}
@@ -13,6 +15,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'pantharshit00/vim-prisma'
 Plug 'plasticboy/vim-markdown'
+Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
@@ -20,8 +23,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/paredit.vim'
-
-Plug 'dag/vim-fish'
 
 call plug#end()
 
@@ -58,15 +59,15 @@ set smartcase
 set softtabstop=2
 set spellcapcheck=
 set tabstop=2
-set undodir=~/.vim/undo
 set undofile
 set wildignorecase
 
-if !has('nvim')
-  set viminfo+=~/.vim/viminfo
-else
-  set viminfo='10000,n~/.config/nvim/shada
-endif
+" TODO I'm only using neovim now - can I remove this?
+" if !has('nvim')
+"   set viminfo+=~/.vim/viminfo
+" else
+"   set viminfo='10000,n~/.config/nvim/shada
+" endif
 
 " mappings
 let mapleader = ' '
