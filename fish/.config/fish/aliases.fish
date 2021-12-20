@@ -1,13 +1,15 @@
+# lsd
+alias ls='lsd --group-dirs first'
+alias l='ls -A'
+alias ll='ls -l'
+alias la='ls -lA'
+alias lt='ls --tree'
+
 # utilities
-alias cask="brew cask"
 alias du="du -h -d 1"
 alias fs="stat -c \"%s bytes\""
-# alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
 alias j="jobs -l"
-# alias l="ls -FAX"
-# alias ll="ls -lhX"
-# alias la="ls -lhXA"
 alias m="mutt"
 alias mv="mv -iv"
 alias o="open"
