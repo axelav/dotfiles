@@ -85,7 +85,7 @@ nnoremap <leader>o :Obsession<cr>
 nnoremap <leader>q :close<cr>
 nnoremap <leader>r :set relativenumber!<cr>
 nnoremap <leader>s :split<cr>
-nnoremap <leader>t :FZF<cr>
+nnoremap <leader>t :GFiles<cr>
 nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>z :set spell! spelllang=en_us<cr>
