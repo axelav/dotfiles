@@ -1,8 +1,8 @@
 function v -d 'Run neo/vim with an optional Session.vim if available'
   if hash nvim 2>/dev/null
-    if [ $argv ]
+    if test "$argv"
       nvim $argv
-    else if [ -f Session.vim ]
+    else if test -f Session.vim
       nvim -S
     else
       nvim
