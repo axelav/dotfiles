@@ -94,7 +94,7 @@ alias show='defaults write com.apple.finder AppleShowAllFiles TRUE && killall Fi
 alias hide='defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder'
 
 # emacs
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
+# alias e='emacsclient -t'
+# alias ec='emacsclient -c'
 # alias vim='emacsclient -t'
 # alias vi='emacsclient -t'
