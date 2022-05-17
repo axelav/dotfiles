@@ -6,6 +6,7 @@ alias la='ls -lA'
 alias lt='ls --tree'
 
 # utilities
+alias c="code ."
 alias du="du -h -d 1"
 alias fs="stat -c \"%s bytes\""
 alias h="history"
@@ -18,8 +19,8 @@ alias ps="ps -ax"
 alias rm="rm -v"
 alias s="cd ~/s"
 alias t="touch"
-alias timestamp="date +%Y%m%d%H%M%S"
 alias datestamp="date +%Y%m%d"
+alias timestamp="date +%Y%m%d%H%M%S"
 
 # git
 alias gRa='git remote add'
