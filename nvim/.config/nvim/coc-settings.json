@@ -1,0 +1,24 @@
+{
+  "eslint.autoFixOnSave": true,
+  "eslint.options": {
+    "extensions": [".js", ".json", ".mdx", ".ts", ".tsx"]
+  },
+  "eslint.validate": [
+    "javascript",
+    "json",
+    "mdx",
+    "typescript",
+    "typescriptreact"
+  ],
+  "javascript.suggestionActions.enabled": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "html",
+    "css",
+    "markdown"
+  ]
+}
