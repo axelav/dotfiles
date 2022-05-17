@@ -134,3 +134,5 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
+
+;; (display-line-numbers-mode)
