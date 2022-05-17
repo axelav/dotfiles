@@ -1,7 +1,7 @@
 " plugins
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 Plug 'dag/vim-fish'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -13,7 +13,7 @@ Plug 'leafgarland/typescript-vim', {'for': ['typescript', 'typescriptreact', 'ts
 Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascript', 'javascript.jsx', 'jsx']}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx', 'jsx']}
-Plug 'pantharshit00/vim-prisma'
+" Plug 'pantharshit00/vim-prisma'
 Plug 'plasticboy/vim-markdown'
 Plug 'tomlion/vim-solidity'
 Plug 'tpope/vim-commentary'
@@ -23,6 +23,9 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'vim-scripts/paredit.vim'
+
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 call plug#end()
 
@@ -34,8 +37,8 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_strikethrough = 1
 
 " colors
-syntax on
-colorscheme nord
+syntax enable
+" colorscheme nord
 
 " general settings
 set autoread
@@ -62,13 +65,6 @@ set tabstop=2
 set undofile
 set wildignorecase
 
-" TODO I'm only using neovim now - can I remove this?
-" if !has('nvim')
-"   set viminfo+=~/.vim/viminfo
-" else
-"   set viminfo='10000,n~/.config/nvim/shada
-" endif
-
 " mappings
 let mapleader = ' '
 
@@ -90,8 +86,11 @@ nnoremap <leader>v :vsplit<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>z :set spell! spelllang=en_us<cr>
 
-nnoremap <C-W><C-F> <C-W>vgf
 nnoremap Y y$
+
+nnoremap <C-W><C-R> :Cargo run<cr>
+nnoremap <C-W><C-F> :RustFmt<cr>
+
 
 " autocommands
 autocmd FileType gitcommit set textwidth=72
@@ -128,3 +127,21 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m
 nnoremap <Leader>a :silent grep<Space>
 nnoremap gs :silent grep <C-r><C-w><CR>:copen<CR>
 xnoremap gs "sy:silent grep <C-r>s<CR>:copen<CR>
+
+" Rust
+" https://github.com/rust-lang/rust.vim
+filetype plugin indent on
+
+let g:racer_cmd = "racer"
+let g:racer_experimental_completer = 1
+" let g:racer_insert_paren = 1
+
+augroup Racer
+  autocmd!
+  autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+  " autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+  autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+  " autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+  autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+  " autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+augroup END
