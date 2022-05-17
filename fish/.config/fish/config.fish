@@ -3,19 +3,19 @@ if status is-interactive
 end
 
 set -U fish_greeting ''
-set -x EDITOR /usr/local/bin/nvim
-set -x PATH /opt/homebrew/bin /opt/homebrew/opt/coreutils/libexec/gnubin /opt/homebrew/opt/findutils/libexec/gnubin $PATH
+set -x EDITOR /opt/homebrew/bin/nvim
+set -x PATH /opt/homebrew/bin /opt/homebrew/sbin /opt/homebrew/opt/coreutils/libexec/gnubin /opt/homebrew/opt/findutils/libexec/gnubin $HOME/.emacs.d/bin $HOME/bin $PATH
 set -x MANPAGER less -X
-# set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
-# set -x FZF_CTRL_T_COMMAND '$FZF_DEFAULT_COMMAND'
+set -x FZF_CTRL_T_COMMAND 'rg --files --hidden --follow --glob "!.git/*"'
 # https://github.com/webpack/webpack/issues/14532#issuecomment-947012063
-set -x NODE_OPTIONS '--openssl-legacy-provider'
+# set -x NODE_OPTIONS '--openssl-legacy-provider'
 
 fundle plugin 'danhper/fish-ssh-agent'
 fundle plugin 'paradox460/paradox-theme'
 fundle plugin 'jethrokuan/z'
 fundle plugin 'FabioAntunes/fish-nvm'
 fundle plugin 'edc/bass'
+fundle plugin 'lilyball/nix-env.fish'
 fundle init
 
 set -x _git_log_oneline_format "%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)"
