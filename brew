@@ -4,10 +4,16 @@
 which -s brew
 if [[ $? != 0 ]] ; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # TODO run these two lines to make `brew` available in path
+  # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/axelav/.profile
+  # eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   brew update
   brew upgrade
 fi
+
+# TODO
+# brew bundle install --file ./Brewfile
 
 # gnu core utils & `find`, `locate`, `updatedb`, `xargs`
 brew install coreutils
@@ -46,12 +52,16 @@ brew install \
   stow \
   tmux \
   vim \
-  youtube-dl
+  # youtube-dl \
+  yt-dlp
 
 # casks
 brew install \
+  actual \
   affinity-photo \
-  adguard \
+  # NOTE free version not available on brew, use:
+  # https://apps.apple.com/us/app/adguard-for-safari/id1440147259?mt=12
+  # adguard \
   alacritty \
   calibre \
   firefox \
@@ -61,6 +71,7 @@ brew install \
   iterm2 \
   macvim \
   rectangle \
+  time-out \
   tor-browser \
   soulseek
 
