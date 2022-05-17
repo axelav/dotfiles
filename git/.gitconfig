@@ -32,15 +32,15 @@
 
 [user]
   useconfigonly = true
-  signingkey = FB90FCBDBACCC13E737D93D343BB7E5D51D3326C
+  signingkey = DC554221637310511B748922A1AE98787D25F143
   name = axelav
   email = axel@ftml.net
 
-; [gpg]
-;   program = gpg
+[gpg]
+  program = gpg
 
-; [commit]
-;   gpgsign = true
+[commit]
+  gpgsign = true
 
 [filter "lfs"]
   required = true
