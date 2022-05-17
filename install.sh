@@ -21,7 +21,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # install zim
 # https://github.com/zimfw/zimfw
 # TODO how do I get the templates installed? actually I think running this curl thing does it automatically
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
+# curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 
 # dotfiles
 stow \
@@ -60,3 +60,9 @@ defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 # install fonts
 # https://github.com/IBM/plex
 # https://developer.apple.com/fonts/
+
+# coc-vim
+# CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint coc-prettier´
+
+# disable apple warning about apps from unapproved developers
+# sudo spctl --master-disable
