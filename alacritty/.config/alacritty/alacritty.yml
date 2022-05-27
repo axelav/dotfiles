@@ -19,8 +19,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 120
-    lines: 40
+    columns: 180
+    lines: 60
 
   # Window padding (changes require restart)
   #
@@ -29,6 +29,8 @@ window:
   padding:
     x: 6
     y: 6
+
+  opacity: 0.97
 
   # Window decorations
   #
@@ -46,7 +48,7 @@ window:
   #     - none: Neither borders nor title bar
   #     - buttonless: Title bar, transparent background and title bar buttons
   #     - transparent: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: buttonless
 
   # Startup Mode (changes require restart)
   #
@@ -57,7 +59,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Maximized
+  startup_mode: Windowed
 
   dynamic_title: true
 
@@ -75,19 +77,22 @@ font:
   # Normal (roman) font face
   normal:
     # family: IBM Plex Mono
-    family: BlexMono Nerd Font
+    # family: BlexMono Nerd Font
+    family: SF Mono
     style: Light
 
   # Italic font face
   bold:
     # family: IBM Plex Mono
-    family: BlexMono Nerd Font
+    # family: BlexMono Nerd Font
+    family: SF Mono
     style: Medium
 
   # Italic font face
   italic:
     # family: IBM Plex Mono
-    family: BlexMono Nerd Font
+    # family: BlexMono Nerd Font
+    family: SF Mono
     style: Italic
 
   # Point size
@@ -195,12 +200,6 @@ draw_bold_text_with_bright_colors: true
 bell:
   animation: EaseOutExpo
   duration: 0
-
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1
 
 # Mouse bindings
 #
