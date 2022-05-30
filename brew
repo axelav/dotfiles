@@ -50,6 +50,7 @@ brew install \
   reattach-to-user-namespace \
   ripgrep \
   stow \
+  tig \
   tmux \
   vim \
   # youtube-dl \
@@ -57,7 +58,7 @@ brew install \
 
 # casks
 brew install \
-  actual \
+  # actual \
   affinity-photo \
   # NOTE free version not available on brew, use:
   # https://apps.apple.com/us/app/adguard-for-safari/id1440147259?mt=12
@@ -71,9 +72,9 @@ brew install \
   iterm2 \
   macvim \
   rectangle \
+  soulseek \
   time-out \
-  tor-browser \
-  soulseek
+  tor-browser
 
 # remove outdated versions
 brew cleanup
