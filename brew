@@ -31,7 +31,6 @@ brew install \
   emacs \
   ffmpeg \
   fd \
-  fish \
   fzf \
   gh \
   git \
@@ -54,7 +53,8 @@ brew install \
   tmux \
   vim \
   # youtube-dl \
-  yt-dlp
+  yt-dlp \
+  z
 
 # casks
 brew install \

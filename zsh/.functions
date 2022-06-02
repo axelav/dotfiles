@@ -41,83 +41,15 @@ function extract {
   fi
 }
 
-function todo {
-  cd ~/.todo || return 1&& l=$(ls -1t|head -n1)&&t=$(date +%Y%m%d);
-  [[ "$1" == "last" ]]&&cp $l $t;
-  ${EDITOR:-vi} $t;
-  cd -;
-}
-
-# convert a list of wav files to v0 mp3
-function V0 {
-  for filename; do
-    lame -V0 "$filename" "${filename%.*}.mp3"
-  done
-}
-
-# gitignore as a service: https://github.com/joeblau/gitignore.io
-function gi {
-  curl -L -s https://www.gitignore.io/api/$@;
-}
-
 function backup {
   rsync -avz --delete --progress --exclude-from "$HOME/.rsync_excludes" $HOME /Volumes/BigBoi;
   date >> /Volumes/BigBoi/BACKUP.log;
-}
-
-# open up a package's readme in an electron viewer
-# usage: readme [package]
-# note: must `npm i -g vmd` first
-function readme {
-  npm view $@ readme | vmd;
 }
 
 # https://twitter.com/climagic/status/672862397015658496
 shrug () {
   echo -n "¯\_(ツ)_/¯" | pbcopy;
   echo "¯\_(ツ)_/¯ copied to your clipboard";
-}
-
-note () {
-  if [ -d $NOTES_DIR ]; then
-    nvim $NOTES_DIR/README.md
-  else
-    nvim $HOME/README.md
-  fi
-}
-
-today () {
-  if [ -d $NOTES_DIR ]; then
-    YEAR_DIR=$NOTES_DIR/$(date +%Y)
-  else
-    YEAR_DIR=$HOME/$(date +%Y)
-  fi
-  CURRENT_DATE=$(date -I)
-  YESTERDAY=$(date -d "yesterday 13:00" '+%Y-%m-%d')
-  FILE=$YEAR_DIR/$CURRENT_DATE.md
-  PREVIOUS_NOTE=$YEAR_DIR/$YESTERDAY.md
-  if [ ! -d "$YEAR_DIR" ]; then
-    mkdir $YEAR_DIR
-  fi
-
-  if [ ! -f "$YEAR_DIR/$CURRENT_DATE.md" ]; then
-    # date -Idate > $FILE
-    echo "# $(date -Idate)\n\n## listened\n\n## exercise" > $FILE
-    if [ -f $PREVIOUS_NOTE ]; then
-      cat $PREVIOUS_NOTE >> $FILE
-    fi
-    nvim $FILE
-  else
-    nvim $FILE
-  fi
-}
-
-c () {
-  if hash hicat 2>/dev/null; then
-    hicat $@;
-  else
-    cat $@;
-  fi
 }
 
 v () {
@@ -142,18 +74,19 @@ weather () {
   curl http://wttr\.in/$@ | sed -e "s:226m:202m:g" # for light theme
 }
 
-# https://gist.github.com/hlissner/db74d23fc00bed81ff62
-# usage: replaceall [search] [replace]
-# caveats: will choke if either arguments contain a forward slash
-# notes: will back up changed files to *.bak files
-function replace-all {
-  rg -0 -l $1 | xargs -0 perl -pi.bak -e "s/$1/$2/g"
-}
-
 function mog () {
   if hash mogrify 2>/dev/null; then
     mogrify -format jpg $@;
   else
     echo "Install imagemagick";
   fi
+}
+
+function flac2m4a {
+  DIRECTORY=$1
+
+  for filename in "$DIRECTORY"/*.flac
+  do
+    ffmpeg -i "$filename" -y -v 0 -c:a alac -c:v copy "${filename%.*}.m4a"
+  done
 }

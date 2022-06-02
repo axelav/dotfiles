@@ -1,33 +1,26 @@
 #!/usr/bin/env zsh
 
 # path
-PATH="/usr/local/bin"
-PATH="$PATH:/usr/local/opt/coreutils/libexec/gnubin"
-PATH="$PATH:/usr/local/opt/findutils/libexec/gnubin"
-PATH="$PATH:/usr/local/opt/gnu-sed/libexec/gnubin"
+PATH="/opt/homebrew/bin"
+PATH="$PATH:/opt/homebrew/sbin"
+PATH="$PATH:/opt/homebrew/opt/coreutils/libexec/gnubin"
+PATH="$PATH:/opt/homebrew/opt/findutils/libexec/gnubin"
 PATH="$PATH:/bin"
 PATH="$PATH:/usr/bin"
 PATH="$PATH:/usr/sbin"
 PATH="$PATH:/sbin"
-PATH="$PATH:/usr/local/sbin"
-PATH="$PATH":~/bin
+PATH="$PATH:$HOME/bin"
 export PATH
 
 # manpath
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH
-
-# homebrew cask
-# export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
 
 # manually set term for screen
 export TERM="xterm-256color"
 
 # use vim as default editor
 export EDITOR="nvim"
-
-# use emacs as default editor
-# export EDITOR="emacsclient -t"
 
 # don't clear the screen after quitting a manual page
 export MANPAGER="less -X"
@@ -54,5 +47,19 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # https://dougblack.io/words/zsh-vi-mode.html
 export KEYTIMEOUT=1
 
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# solana
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+# git log formats
+export _git_log_oneline_format="%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)"
+export _git_log_fuller_format="%C(bold yellow)commit %H%C(auto)%d%n%C(bold)Author: %C(blue)%an <%ae> %C(reset)%C(cyan)%ai (%ar)%n%C(bold)Commit: %C(blue)%cn <%ce> %C(reset)%C(cyan)%ci (%cr)%C(reset)%n%+B"

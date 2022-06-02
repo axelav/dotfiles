@@ -2,7 +2,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 " Plug 'arcticicestudio/nord-vim'
-Plug 'dag/vim-fish'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
