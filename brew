@@ -64,6 +64,7 @@ brew install \
   # https://apps.apple.com/us/app/adguard-for-safari/id1440147259?mt=12
   # adguard \
   alacritty \
+  brave-browser \
   calibre \
   firefox \
   google-chrome \
