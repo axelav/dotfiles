@@ -90,5 +90,6 @@ function flac2m4a {
     echo "Processing $filename"
     ffmpeg -i "$filename" -y -v 0 -c:a alac -c:v copy "${filename%.*}.m4a"
     echo "Success! ${filename%.*}.m4a"
+    rm "$filename"
   done
 }
