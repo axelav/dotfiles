@@ -29,6 +29,7 @@
 [push]
   default = current
   followTags = true
+  autoSetupRemote = true
 
 [user]
   useconfigonly = true
