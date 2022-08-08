@@ -78,7 +78,7 @@ alias gu='git reset --soft HEAD~1' # http://stackoverflow.com/questions/927358/u
 alias gum='git reset --merge HEAD~1'
 alias gwD='git diff --no-ext-diff --word-diff'
 alias gwd='git diff --no-ext-diff'
-alias gwip="git commit --no-verify -am '!! WIP !! [ci skip]'"
+alias gwip="git commit --no-verify -am '!! WIP !!'"
 alias gws='git status --short'
 alias grecap="git for-each-ref --sort='-authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads"
 
