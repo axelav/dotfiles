@@ -41,9 +41,12 @@ return {
     end,
   },
 
-  -- Github copilot
+  -- Axel's plugins
+  ['f-person/git-blame.nvim'] = {},
+  ["Pocco81/TrueZen.nvim"] = {},
   ["github/copilot.vim"] = {},
 
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
+
 }
