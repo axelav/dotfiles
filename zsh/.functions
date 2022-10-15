@@ -52,6 +52,12 @@ shrug () {
   echo "¯\_(ツ)_/¯ copied to your clipboard";
 }
 
+x () {
+  if hash xplr 2>/dev/null; then
+    v $(xplr);
+  fi
+}
+
 v () {
   if hash nvim 2>/dev/null; then
     if [ $1 ]; then
