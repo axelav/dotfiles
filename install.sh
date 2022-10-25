@@ -17,7 +17,7 @@ mkdir $HOME/.tmux
 # create code directory
 mkdir -p $HOME/s
 # create screenshots directory
-mkdir $HOME/Screenshots
+# mkdir $HOME/Screenshots
 
 # install tmux plugin manager
 # TODO need to 'prefix + I' to install plugins
@@ -49,7 +49,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 # Save screenshots to the ~/Screenshots directory
-defaults write com.apple.screencapture location -string "$HOME/Screenshots"
+defaults write com.apple.screencapture location -string "$HOME/Documents/Screenshots"
 
 # install fonts
 # https://github.com/IBM/plex
