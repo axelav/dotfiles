@@ -45,6 +45,8 @@ return {
   ['f-person/git-blame.nvim'] = {},
   ["Pocco81/TrueZen.nvim"] = {},
   ["github/copilot.vim"] = {},
+  ["tpope/vim-surround"] = {},
+
 
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,

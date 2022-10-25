@@ -35,15 +35,11 @@ stow \
   gpg \
   mutt \
   nodejs \
-  nvim \
+  nvchad \
   rsync \
   tmux \
   zsh \
   --verbose
-
-# install vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # install nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
@@ -54,9 +50,6 @@ defaults write com.apple.screencapture location -string "$HOME/Documents/Screens
 # install fonts
 # https://github.com/IBM/plex
 # https://developer.apple.com/fonts/
-
-# coc-vim
-# CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint coc-prettier
 
 # disable apple warning about apps from unapproved developers
 # sudo spctl --master-disable
