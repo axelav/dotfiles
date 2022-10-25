@@ -34,55 +34,6 @@ alias t="touch"
 alias datestamp="date +%Y%m%d"
 alias timestamp="date +%Y%m%d%H%M%S"
 
-# git
-alias gRa='git remote add'
-alias gRl='git remote --verbose'
-alias gb='git branch'
-alias gbc='git checkout -b'
-alias gbd='git branch -D'
-alias gbl='git branch -vv'
-alias gbm='git branch -m'
-alias gc='git commit --verbose'
-alias gcF='git commit --verbose --amend'
-alias gcf='git commit --amend --reuse-message HEAD'
-alias gcm='git commit --message'
-alias gco='git checkout'
-alias gcs='git show --pretty=format:"$_git_log_fuller_format"'
-alias gfc='git clone'
-alias gfu='git fetch --all --prune && git merge --ff-only @\{u\}'
-alias giA='git add -p'
-alias giD='git diff --no-ext-diff --cached --word-diff'
-alias gia='git add'
-alias gid='git diff --no-ext-diff --cached'
-alias gii='git add --intent-to-add'
-alias gir='git reset'
-alias gl='git log --topo-order --pretty=format:"$_git_log_fuller_format"'
-alias gla='git log --graph --all --pretty=format:"$_git_log_oneline_format"'
-alias glo='git log --topo-order --pretty=format:"$_git_log_oneline_format" -n 25'
-alias gloc='git ls-files | xargs wc -l'
-alias gp='git push'
-alias gpf='git push --force-with-lease'
-alias gr='git rebase'
-alias gra='git rebase --abort'
-alias grc='git rebase --continue'
-alias gs='git stash'
-alias gsd='git stash show --patch --stat'
-alias gsl='git stash list'
-alias gsp='git stash pop'
-alias gss='git stash save --include-untracked'
-alias gsw='git stash save --include-untracked --keep-index'
-alias gsx='git stash drop'
-alias gt='git tag'
-alias gtx='git tag --delete'
-alias gu='git reset --soft HEAD~1' # http://stackoverflow.com/questions/927358/undo-the-last-git-commit
-alias gum='git reset --merge HEAD~1'
-alias gwD='git diff --no-ext-diff --word-diff'
-alias gwd='git diff --no-ext-diff'
-alias gwip="git commit --no-verify -am '!! WIP !!'"
-alias gws='git status --short'
-alias grecap="git for-each-ref --sort='-authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads"
-
-
 # enable aliases to be sudo'd
 alias sudo="sudo "
 
