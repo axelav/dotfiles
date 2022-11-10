@@ -34,7 +34,7 @@
 [user]
   useconfigonly = true
   signingkey = DC554221637310511B748922A1AE98787D25F143
-  name = axelav
+  name = Axel Anderson
   email = axel@ftml.net
 
 [gpg]
