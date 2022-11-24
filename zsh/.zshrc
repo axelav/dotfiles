@@ -78,7 +78,6 @@ plugins=(
   gpg-agent
   node
   npm
-  nvm
   pass
   tmux
   z

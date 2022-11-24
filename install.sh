@@ -41,9 +41,6 @@ stow \
   zsh \
   --verbose
 
-# install nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-
 # Save screenshots to the ~/Screenshots directory
 defaults write com.apple.screencapture location -string "$HOME/Documents/Screenshots"
 
