@@ -5,3 +5,14 @@ autocmd("VimResized", {
   pattern = "*",
   command = "tabdo wincmd =",
 })
+
+-- Persist folds
+autocmd("BufWrite", {
+  pattern = "*",
+  command = "mkview"
+})
+
+autocmd("BufRead", {
+  pattern = "*",
+  command = "silent! loadview"
+})

@@ -1,14 +1,15 @@
-local overrides = require "custom.plugins.overrides"
+local overrides = require("custom.plugins.overrides")
 
 return {
-
   -- ["goolord/alpha-nvim"] = { disable = false } -- enables dashboard
+
+  ["github/copilot.vim"] = {},
 
   -- Override plugin definition options
   ["neovim/nvim-lspconfig"] = {
     config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
+      require("plugins.configs.lspconfig")
+      require("custom.plugins.lspconfig")
     end,
   },
 
@@ -37,18 +38,16 @@ return {
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
-      require "custom.plugins.null-ls"
+      require("custom.plugins.null-ls")
     end,
   },
 
   -- Axel's plugins
-  ['f-person/git-blame.nvim'] = {},
+  ["f-person/git-blame.nvim"] = {},
   ["Pocco81/TrueZen.nvim"] = {},
-  ["github/copilot.vim"] = {},
   ["tpope/vim-surround"] = {},
 
 
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
-
 }
