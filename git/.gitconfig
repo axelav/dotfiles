@@ -26,6 +26,9 @@
 [mergetool]
   keepBackup = false
 
+[pull]
+	rebase = true
+
 [push]
   default = current
   followTags = true
@@ -38,7 +41,7 @@
   email = axel@ftml.net
 
 [gpg]
-  program = gpg
+  program = /opt/homebrew/bin/gpg
 
 [commit]
   gpgsign = true
@@ -48,5 +51,6 @@
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
+
 [init]
 	defaultBranch = main
