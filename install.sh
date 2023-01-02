@@ -6,7 +6,18 @@ cd "$(dirname "${(%):-%N}")";
 xcode-select --install
 
 # homebrew
-./brew
+which -s brew
+if [[ $? != 0 ]] ; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # TODO run these two lines to make `brew` available in path
+  # echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/axelav/.profile
+  # eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  brew update
+  brew upgrade
+fi
+
+brew bundle install --file ./Brewfile
 
 # install fzf keybindings
 /opt/homebrew/opt/fzf/install
@@ -33,9 +44,9 @@ stow \
   alacritty \
   git \
   gpg \
+  lunarvim \
   mutt \
   nodejs \
-  nvchad \
   rsync \
   tmux \
   zsh \
