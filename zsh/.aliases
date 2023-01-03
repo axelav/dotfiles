@@ -16,6 +16,7 @@ alias la='ls -lA'
 alias lt='ls --tree'
 
 # utilities
+alias b="bat"
 alias c="code ."
 alias du="du -h -d 1"
 alias fs="stat -c \"%s bytes\""
@@ -41,9 +42,9 @@ alias sudo="sudo "
 # per support.apple.com, this is the new command: http://support.apple.com/kb/ht5343
 alias flush="killall -HUP mDNSResponder" # flush Directory Service cache
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias ip="curl https://ipinfo.io/ip"
 alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
-alias localip="ipconfig getifaddr en0"
+alias localip="ipconfig getifaddr en1"
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 
 # recursively delete `.ds_store` files
