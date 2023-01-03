@@ -1,3 +1,6 @@
+# Start zsh profiling
+# zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -112,3 +115,6 @@ unset file
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# End zsh profiling
+# zprof
