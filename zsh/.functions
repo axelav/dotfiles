@@ -78,10 +78,6 @@ v () {
   fi
 }
 
-function trash {
-  mv $@ ~/.Trash
-}
-
 weather () {
   curl http://wttr\.in/$@ | sed -e "s:226m:202m:g" # for light theme
 }

@@ -104,7 +104,7 @@ unsetopt correct_all
 # source z
 . /opt/homebrew/etc/profile.d/z.sh
 
-for file in ~/.{exports,aliases,functions}; do
+for file in ~/.{exports,aliases,functions,extra}; do
   [ -r "$file" ] && source "$file"
 done
 unset file

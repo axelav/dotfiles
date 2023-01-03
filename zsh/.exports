@@ -18,9 +18,6 @@ export PATH
 MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH
 
-# manually set term for screen
-export TERM="xterm-256color"
-
 # use vim as default editor
 export EDITOR="lvim"
 
