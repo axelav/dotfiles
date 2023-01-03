@@ -11,7 +11,7 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "everblush"
+lvim.colorscheme = "nord"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -154,6 +154,7 @@ linters.setup {
 lvim.plugins = {
   { "Everblush/nvim" },
   { "tpope/vim-surround" },
+  { "gbprod/nord.nvim" },
   -- {"Pocco81/TrueZen.nvim"},
 }
 
