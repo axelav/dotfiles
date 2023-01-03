@@ -152,7 +152,6 @@ linters.setup {
 -- Additional Plugins
 --
 lvim.plugins = {
-  { "Everblush/nvim" },
   { "tpope/vim-surround" },
   { "gbprod/nord.nvim" },
   -- {"Pocco81/TrueZen.nvim"},

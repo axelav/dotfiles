@@ -39,6 +39,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# install lunarvim
+LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+
 # dotfiles
 stow \
   alacritty \
@@ -51,6 +54,9 @@ stow \
   tmux \
   zsh \
   --verbose
+
+# install volta
+curl https://get.volta.sh | bash
 
 # Save screenshots to the ~/Screenshots directory
 defaults write com.apple.screencapture location -string "$HOME/Documents/Screenshots"
