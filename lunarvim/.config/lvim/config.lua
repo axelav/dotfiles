@@ -23,6 +23,7 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["<S-c>"] = ":Copilot suggestion toggle_auto_trigger<cr>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -156,8 +157,28 @@ linters.setup {
 lvim.plugins = {
   { "tpope/vim-surround" },
   { "gbprod/nord.nvim" },
-  -- {"Pocco81/TrueZen.nvim"},
+
+  {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup {
+          -- LunarVim users need to specify path to the plugin manager
+          plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
+        }
+      end, 100)
+    end,
+  },
+
+  { "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua", "nvim-cmp" },
+  },
 }
+
+-- Can not be placed into the config method of the plugins.
+lvim.builtin.cmp.formatting.source_names["copilot"] = "(Copilot)"
+table.insert(lvim.builtin.cmp.sources, 1, { name = "copilot" })
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 vim.api.nvim_create_autocmd("BufEnter", {
