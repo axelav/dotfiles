@@ -32,6 +32,8 @@ alias rm="rm -v"
 alias s="cd ~/s"
 alias t="touch"
 
+alias gan="git add -N"
+
 alias datestamp="date +%Y%m%d"
 alias timestamp="date +%Y%m%d%H%M%S"
 
