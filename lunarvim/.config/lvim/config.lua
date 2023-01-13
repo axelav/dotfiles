@@ -13,7 +13,7 @@ vim.opt.clipboard = "unnamedplus"
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "nord"
+lvim.colorscheme = "tokyonight-moon"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -21,9 +21,10 @@ lvim.colorscheme = "nord"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<cr>"
-lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<S-tab>"] = ":BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["<S-c>"] = ":Copilot suggestion toggle_auto_trigger<cr>"
+lvim.keys.normal_mode["<leader>a"] = ":Telescope grep_string<cr>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
