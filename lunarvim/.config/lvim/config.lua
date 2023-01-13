@@ -157,7 +157,6 @@ linters.setup {
 --
 lvim.plugins = {
   { "tpope/vim-surround" },
-  { "gbprod/nord.nvim" },
 
   {
     "zbirenbaum/copilot.lua",
@@ -174,6 +173,12 @@ lvim.plugins = {
 
   { "zbirenbaum/copilot-cmp",
     after = { "copilot.lua", "nvim-cmp" },
+  },
+
+  {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    ft = "markdown",
   },
 }
 
