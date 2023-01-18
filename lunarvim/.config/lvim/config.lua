@@ -64,6 +64,16 @@ lvim.keys.normal_mode["<leader>a"] = ":Telescope grep_string<cr>"
 --   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Workspace Diagnostics" },
 -- }
 
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Diagnostics",
+  t = { "<cmd>TroubleToggle<cr>", "trouble" },
+  w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "workspace" },
+  d = { "<cmd>TroubleToggle document_diagnostics<cr>", "document" },
+  q = { "<cmd>TroubleToggle quickfix<cr>", "quickfix" },
+  l = { "<cmd>TroubleToggle loclist<cr>", "loclist" },
+  r = { "<cmd>TroubleToggle lsp_references<cr>", "references" },
+}
+
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
@@ -179,6 +189,11 @@ lvim.plugins = {
     "iamcco/markdown-preview.nvim",
     run = "cd app && npm install",
     ft = "markdown",
+  },
+
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
   },
 }
 
