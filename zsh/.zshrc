@@ -74,13 +74,11 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  brew
   colored-man-pages
   colorize
   git
   gpg-agent
   node
-  npm
   pass
   z
   zsh-autosuggestions
