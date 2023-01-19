@@ -82,7 +82,6 @@ plugins=(
   node
   npm
   pass
-  tmux
   z
   zsh-autosuggestions
   zsh-syntax-highlighting
