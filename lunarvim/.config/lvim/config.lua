@@ -176,6 +176,9 @@ lvim.plugins = {
         require("copilot").setup {
           -- LunarVim users need to specify path to the plugin manager
           plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
+          suggestion = {
+            auto_trigger = true
+          }
         }
       end, 100)
     end,
@@ -212,7 +215,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
   -- enable wrap mode for json files only
   command = "setlocal wrap",
 })
-
 
 -- Auto resize panes when resizing nvim window
 vim.api.nvim_create_autocmd("VimResized", {
