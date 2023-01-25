@@ -104,6 +104,7 @@ font:
     style: Bold Italic
 
   # Point size
+  size: 14.0
 
 # Colors - https://github.com/alacritty/alacritty-theme
 import:
