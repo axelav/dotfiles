@@ -6,14 +6,13 @@ filled in as strings with either
 a global executable or a path to
 an executable
 ]]
--- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 vim.opt.clipboard = "unnamedplus"
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "desert"
+lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -49,8 +48,8 @@ lvim.keys.normal_mode["<leader>a"] = ":Telescope grep_string<cr>"
 -- }
 
 -- Change theme settings
--- lvim.builtin.theme.options.dim_inactive = true
--- lvim.builtin.theme.options.style = "storm"
+-- lvim.builtin.theme.lunar.options.dim_inactive = true
+-- lvim.builtin.theme.lunar.options.style = "default"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
@@ -65,7 +64,6 @@ lvim.builtin.which_key.mappings["t"] = {
   w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
 }
 
--- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "startify"
@@ -76,6 +74,7 @@ lvim.builtin.nvimtree.setup.view.side = "right"
 lvim.builtin.nvimtree.setup.view.hide_root_folder = true
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.renderer.highlight_git = true
+lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -201,9 +200,11 @@ vim.o.updatetime = 250
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
+--
+
+-- Enable wrap mode for json files only
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.json", "*.jsonc" },
-  -- enable wrap mode for json files only
   command = "setlocal wrap",
 })
 
