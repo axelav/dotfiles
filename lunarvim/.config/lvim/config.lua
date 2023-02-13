@@ -8,6 +8,8 @@ an executable
 ]]
 
 vim.opt.clipboard = "unnamedplus"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- general
 lvim.log.level = "warn"
