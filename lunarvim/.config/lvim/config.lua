@@ -24,6 +24,8 @@ lvim.keys.normal_mode["<tab>"] = ":BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<S-tab>"] = ":BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["<S-c>"] = ":Copilot suggestion toggle_auto_trigger<cr>"
 lvim.keys.normal_mode["<leader>a"] = ":Telescope grep_string<cr>"
+lvim.keys.normal_mode["<leader>mp"] = ":MarkdownPreviewToggle<cr>"
+lvim.keys.normal_mode["<leader>zm"] = ":ZenMode<cr>"
 -- unmap a default keymapping
 -- vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
@@ -187,6 +189,38 @@ lvim.plugins = {
   {
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
+  },
+
+  {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup {
+        window = {
+          width = 80,
+          options = {
+            signcolumn = "no", -- disable signcolumn
+            number = false, -- disable number column
+            relativenumber = false, -- disable relative numbers
+            foldcolumn = "0", -- disable fold column
+          },
+        },
+        plugins = {
+          options = {
+            enabled = true,
+            ruler = false, -- disables the ruler text in the cmd line area
+            showcmd = false, -- disables the command in the last line of the screen
+          },
+          gitblame = {
+            enabled = false, -- disables git blame
+          },
+          gitsigns = { enabled = false }, -- disables git signs
+          -- alacritty = {
+          --   enabled = true,
+          --   font = "16", -- font size
+          -- },
+        },
+      }
+    end
   },
 }
 
