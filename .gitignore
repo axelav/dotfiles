@@ -1,6 +1,7 @@
 shada
 
 private-keys-v1.d/
+.\#lk*
 pubring*
 tofu.db
 trustdb.gpg
