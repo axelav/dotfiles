@@ -77,6 +77,7 @@ HIST_STAMPS="mm/dd/yyyy"
 plugins=(
   colored-man-pages
   colorize
+  deno
   git
   gpg-agent
   node
@@ -92,7 +93,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
 
 export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # https://github.com/zsh-users/zsh-autosuggestions#disabling-suggestion-for-large-buffers
 
@@ -113,6 +113,10 @@ unset file
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# deno
+export DENO_INSTALL="/Users/axelav/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 # End zsh profiling
 # zprof
