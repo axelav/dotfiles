@@ -11,6 +11,7 @@
 .electron
 .expo
 .fzf
+.gradle
 .helm
 .kube
 .local
