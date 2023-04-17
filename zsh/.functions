@@ -100,4 +100,18 @@ function flac2m4a {
     echo "Success! ${filename%.*}.m4a"
     rm "$filename"
   done
+
+  # TODO?
+  # find $DIRECTORY -type f -name '*.flac' -not -empty -print0 | parallel -0 -j -1 ffmpeg -loglevel fatal -i {} {.}.m4a
+}
+
+function imageoptim {
+  DIRECTORY=$1
+
+  for filename in "$DIRECTORY"/*.jpg
+  do
+    echo "Optimizing $filename"
+    magick "$filename" -strip -interlace Plane -sampling-factor 4:2:0 -define jpeg:dct-method=float -quality 85% "${filename%.*}.85.jpg"
+    echo "Success! ${filename%.*}.85.jpg"
+  done
 }
