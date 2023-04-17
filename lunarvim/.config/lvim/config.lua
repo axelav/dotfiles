@@ -224,6 +224,13 @@ lvim.plugins = {
       }
     end
   },
+
+  {
+    "Pocco81/auto-save.nvim",
+    config = function()
+      require("auto-save").setup()
+    end,
+  },
 }
 
 -- Can not be placed into the config method of the plugins.
