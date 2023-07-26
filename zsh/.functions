@@ -59,13 +59,7 @@ x () {
 }
 
 v () {
-  if hash lvim 2>/dev/null; then
-    if [ $1 ]; then
-      lvim $@;
-    else
-      lvim;
-    fi
-  elif hash nvim 2>/dev/null; then
+  if hash nvim 2>/dev/null; then
     if [ $1 ]; then
       nvim $@;
     elif [ -f Session.vim ]; then
