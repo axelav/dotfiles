@@ -6,6 +6,6 @@ vim.keymap.set("n", "<C-p>", function()
   require("telescope.builtin").find_files()
 end, { desc = "Find files" })
 
-vim.keymap.set("n", "<C-o>", function()
+vim.keymap.set("n", "<C-f>", function()
   require("telescope.builtin").live_grep()
 end, { desc = "Grep files" })
