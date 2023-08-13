@@ -82,7 +82,6 @@ plugins=(
   gpg-agent
   node
   pass
-  z
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -102,9 +101,6 @@ unsetopt correct_all
 # source fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# source z
-. /opt/homebrew/etc/profile.d/z.sh
-
 for file in ~/.{exports,aliases,functions,extra}; do
   [ -r "$file" ] && source "$file"
 done
@@ -118,13 +114,16 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export DENO_INSTALL="/Users/axelav/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-# End zsh profiling
-# zprof
-
 eval "$(atuin init zsh)"
+
+# zoxide
+eval "$(zoxide init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/axelav/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/axelav/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/axelav/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/axelav/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# End zsh profiling
+# zprof
