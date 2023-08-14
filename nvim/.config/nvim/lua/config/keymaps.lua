@@ -9,3 +9,7 @@ end, { desc = "Find files" })
 vim.keymap.set("n", "<C-f>", function()
   require("telescope.builtin").live_grep()
 end, { desc = "Grep files" })
+
+vim.keymap.set("n", "<leader><space>", function()
+  require("telescope.builtin").git_files()
+end, { desc = "Git files" })

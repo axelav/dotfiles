@@ -114,6 +114,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export DENO_INSTALL="/Users/axelav/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
+# atuin
 eval "$(atuin init zsh)"
 
 # zoxide
