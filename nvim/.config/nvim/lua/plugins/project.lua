@@ -6,6 +6,7 @@ return {
       -- Ex: { "~/.cargo/*", ... }
       exclude_dirs = {
         "~/s/super/firebase-functions/*",
+        "~/s/dotfiles/*",
       },
       show_hidden = true,
       silent_chdir = false,
