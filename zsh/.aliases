@@ -37,6 +37,9 @@ alias gan="git add -N"
 alias t="tig"
 alias ta="tig --all"
 
+# lazygit
+alias gg="lazygit"
+
 alias datestamp="date +%Y%m%d"
 alias timestamp="date +%Y%m%d%H%M%S"
 
