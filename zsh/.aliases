@@ -9,11 +9,16 @@ alias ......="cd ../../../../.."
 alias -- -="cd -"
 
 # lsd
-alias ls='lsd --group-dirs first'
-alias l='ls -A'
-alias ll='ls -l'
-alias la='ls -lA'
-alias lt='ls --tree'
+if type lsd >/dev/null 2>&1; then
+  alias l='lsd -A --group-dirs first'
+  alias ll='lsd -l --group-dirs first'
+  alias la='lsd -la --group-dirs first'
+  alias lt='lsd --tree'
+else
+  alias l='ls -ah --group-directories-first'
+  alias ll='ls -l --group-directories-first'
+  alias la='ls -la --group-directories-first'
+fi
 
 # utilities
 alias b="bat"
