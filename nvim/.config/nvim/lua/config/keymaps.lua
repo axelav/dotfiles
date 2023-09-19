@@ -13,3 +13,10 @@
 vim.keymap.set("n", "<leader><space>", function()
   require("telescope.builtin").git_files()
 end, { desc = "Git files" })
+
+vim.keymap.set(
+  "n",
+  "<leader>gb",
+  '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+  { silent = true }
+)
