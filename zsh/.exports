@@ -48,3 +48,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # solana
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+# required to set lazygit config
+export XDG_CONFIG_HOME="$HOME/.config"

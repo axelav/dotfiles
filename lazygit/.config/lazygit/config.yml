@@ -1,0 +1,9 @@
+customCommands:
+  - key: '<c-w>'
+    context: 'files'
+    command: 'git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify --no-gpg-sign --message "--wip-- [skip ci]"'
+    description: 'Commit changes as WIP'
+  - key: '<c-w>'
+    context: 'commits'
+    command: 'git rev-list --max-count=1 --format="%s" HEAD | grep -q "\--wip--" && git reset HEAD~1'
+    description: 'Undo WIP commit'
