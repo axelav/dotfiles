@@ -32,7 +32,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { "catppuccin", "tokyonight" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   ui = {
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
