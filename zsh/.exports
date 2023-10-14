@@ -22,7 +22,9 @@ export MANPATH
 export EDITOR="nvim"
 
 # don't clear the screen after quitting a manual page
-export MANPAGER="less -X"
+# export MANPAGER="less -X"
+# export MANPAGER="batman"
+export MANPAGER="nvim +Man!"
 
 # highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
