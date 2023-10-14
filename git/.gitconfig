@@ -9,7 +9,6 @@
   untrackedCache = true ; https://git-scm.com/docs/git-update-index#_untracked_cache
   editor = /opt/homebrew/bin/nvim
 
-
 [diff]
   algorithm = patience
   context = 5
