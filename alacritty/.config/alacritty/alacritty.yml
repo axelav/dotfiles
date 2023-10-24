@@ -100,7 +100,7 @@ font:
 
 # Colors - https://github.com/alacritty/alacritty-theme
 import:
-  - ~/.alacritty-colorscheme/themes/tomorrow_night.yaml
+  - ~/.alacritty-colorscheme/themes/tokyo-night.yaml
 
 # Live config reload (changes require restart)
 live_config_reload: true
