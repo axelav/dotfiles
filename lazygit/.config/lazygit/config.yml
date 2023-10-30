@@ -7,3 +7,9 @@ customCommands:
     context: 'commits'
     command: 'git rev-list --max-count=1 --format="%s" HEAD | grep -q "\--wip--" && git reset HEAD~1'
     description: 'Undo WIP commit'
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never
+gui:
+  skipStashWarning: true
