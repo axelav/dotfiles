@@ -3,8 +3,12 @@ return {
   cmd = "Copilot",
   build = ":Copilot auth",
   opts = {
-    suggestion = { enabled = true },
-    panel = { enabled = true },
+    suggestion = {
+      enabled = false,
+    },
+    panel = {
+      enabled = false,
+    },
     filetypes = {
       gitcommit = true,
       gitrebase = true,
