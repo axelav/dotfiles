@@ -75,12 +75,12 @@ scrolling:
 
 # Font configuration (changes require restart)
 font:
-  # Normal (roman) font face
+  # Normal font face
   normal:
     family: SF Mono
-    style: Light
+    style: Regular
 
-  # Italic font face
+  # Bold font face
   bold:
     family: SF Mono
     style: Medium
@@ -88,12 +88,12 @@ font:
   # Italic font face
   italic:
     family: SF Mono
-    style: Italic
+    style: Regular Italic
 
   # Bold italic font face
   bold_italic:
     family: SF Mono
-    style: Bold Italic
+    style: Medium Italic
 
   # Point size
   size: 13.0
