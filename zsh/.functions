@@ -109,3 +109,10 @@ function imageoptim {
     echo "Success! ${filename%.*}.85.jpg"
   done
 }
+
+# https://macwright.com/2023/12/13/tt-bash-shortcut
+function tt {
+  RANDOM_DIR=$(date +%Y%m%d%H%M%S)-$RANDOM
+  mkdir -p ~/tmp/"$RANDOM_DIR"
+  cd ~/tmp/"$RANDOM_DIR" || return
+}
