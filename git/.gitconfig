@@ -1,27 +1,34 @@
 [apply]
   whitespace = fix
 
+[branch]
+	sort = -committerdate
+
 [core]
   excludesfile = ~/.gitignore
   whitespace = space-before-tab,trailing-space
   autocrlf = false
-  pager = less --tabs=4 -RFX
+  pager = delta
   untrackedCache = true ; https://git-scm.com/docs/git-update-index#_untracked_cache
   editor = /opt/homebrew/bin/nvim
 
 [diff]
-  algorithm = patience
+  algorithm = patience # `histogram` is also a popular choice
   context = 5
 
 [grep]
   lineNumber = true
 
 [help]
-  autocorrect = -1
+  autocorrect = prompt
+
+[interactive]
+  diffFilter = delta --color-only
 
 [merge]
   log = true
   tool = vimdiff
+  conflictstyle = zdiff3
 
 [mergetool]
   keepBackup = false
@@ -45,6 +52,7 @@
 
 [commit]
   gpgsign = true
+  verbose = true
 
 [filter "lfs"]
   required = true
@@ -54,5 +62,6 @@
 
 [init]
 	defaultBranch = main
+
 [rerere]
 	enabled = true
