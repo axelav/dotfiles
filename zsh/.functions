@@ -91,8 +91,13 @@ function flac2m4a {
   do
     echo "Processing $filename"
     ffmpeg -i "$filename" -y -v 0 -c:a alac -c:v copy "${filename%.*}.m4a"
-    echo "Success! ${filename%.*}.m4a"
-    rm "$filename"
+    RC=$?
+    if [ "${RC}" -ne "0" ]; then
+      echo "Error! ${filename} failed to convert to m4a"
+    else
+      echo "Success! ${filename%.*}.m4a"
+      rm "$filename"
+    fi
   done
 
   # TODO?
