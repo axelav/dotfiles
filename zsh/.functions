@@ -142,7 +142,7 @@ function frg {
 
 function now() {
   # Ensure the "now" directory exists in the home directory
-  local now_dir="$HOME/now"
+  local now_dir="$HOME/Documents/now"
   mkdir -p "$now_dir"
 
   # Get current date and time
