@@ -140,34 +140,43 @@ function frg {
   fi
 }
 
-now() {
-  local name="$1"
-  local date="$(date +%Y-%m-%d)"
-  local time="$(date +%H:%M:%S)"
-  local datetime="$date $time"
+function now() {
+  # Ensure the "now" directory exists in the home directory
+  local now_dir="$HOME/now"
+  mkdir -p "$now_dir"
 
-  if [[ -z "$name" ]]; then
-    name="$time"
-    local filename="$date $time.md"
+  # Get current date and time
+  local current_date=$(date +"%Y-%m-%d")
+  local current_time=$(date +"%H:%M:%S")
+  local current_datetime="$current_date $current_time"
+
+  # If no argument is provided, use the current time
+  if [ $# -eq 0 ]; then
+      local name="$current_time"
   else
-    local filename="$date $name.md"
+      local name="$*"
   fi
 
-  echo "---
+  # Construct filename with full path
+  local filename="$now_dir/${current_date} ${name}.md"
+
+  # Create the file and add metadata and title
+  cat > "$filename" << EOF
+---
 title: $name
-date: $datetime
+date: $current_datetime
 ---
 
 ## $name
 
-" > "$filename"
+EOF
 
   echo "Created file: $filename"
 
   # Open the file in the default editor
-  if [[ -n $EDITOR ]]; then
-    $EDITOR + "$filename"
+  if [ -n "$EDITOR" ]; then
+      $EDITOR + "$filename"
   else
-    echo "No default editor set. Please open $filename manually."
+      echo "No default editor set. Please open $filename manually."
   fi
 }
