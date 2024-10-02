@@ -96,7 +96,7 @@ function flac2m4a {
       echo "Error! ${filename} failed to convert to m4a"
     else
       echo "Success! ${filename%.*}.m4a"
-      rm "$filename"
+      # rm "$filename"
     fi
   done
 
