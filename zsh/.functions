@@ -120,6 +120,7 @@ function tt {
   RANDOM_DIR=$(date +%Y%m%d%H%M%S)-$RANDOM
   mkdir -p ~/tmp/"$RANDOM_DIR"
   cd ~/tmp/"$RANDOM_DIR" || return
+  git init
 }
 
 # https://news.ycombinator.com/item?id=38474106
