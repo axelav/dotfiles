@@ -138,3 +138,35 @@ function frg {
     $EDITOR +"${linenumber}" "$file"
   fi
 }
+
+now() {
+  local name="$1"
+  local date="$(date +%Y-%m-%d)"
+  local time="$(date +%H:%M:%S)"
+  local datetime="$date $time"
+
+  if [[ -z "$name" ]]; then
+    name="$time"
+    local filename="$date $time.md"
+  else
+    local filename="$date $name.md"
+  fi
+
+  echo "---
+title: $name
+date: $datetime
+---
+
+## $name
+
+" > "$filename"
+
+  echo "Created file: $filename"
+
+  # Open the file in the default editor
+  if [[ -n $EDITOR ]]; then
+    $EDITOR + "$filename"
+  else
+    echo "No default editor set. Please open $filename manually."
+  fi
+}
