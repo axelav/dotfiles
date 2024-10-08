@@ -24,6 +24,7 @@
 
 [interactive]
   diffFilter = delta --color-only
+  singleKey = true
 
 [merge]
   log = true
