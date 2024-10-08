@@ -18,3 +18,7 @@ vim.keymap.set(
     desc = "Open link to current line on GitHub",
   }
 )
+
+-- Open definition in a vertical split
+-- https://news.ycombinator.com/item?id=41739452
+vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>")
