@@ -42,19 +42,21 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # install alacritty themes
 git clone https://github.com/alacritty/alacritty-theme.git ~/.alacritty-colorscheme
 
-# install lunarvim
-LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-
 # dotfiles
 stow \
   alacritty \
+  atuin \
+  bat \
+  dig \
   git \
   gpg \
-  lunarvim \
+  lazygit \
   mutt \
   nodejs \
+  nvim \
   rsync \
   tmux \
+  zed \
   zsh \
   --verbose
 
