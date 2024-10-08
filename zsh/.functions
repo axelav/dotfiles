@@ -150,6 +150,9 @@ function now() {
   local current_time=$(date +"%H:%M:%S")
   local current_datetime="$current_date $current_time"
 
+  # Get current date and time in UTC for the metadata
+  local date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
+
   # If no argument is provided, use the current time
   if [ $# -eq 0 ]; then
       local name="$current_time"
@@ -164,7 +167,7 @@ function now() {
   cat > "$filename" << EOF
 ---
 title: $name
-date: $current_datetime
+date: $date
 ---
 
 ## $name
