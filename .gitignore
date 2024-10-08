@@ -6,3 +6,5 @@ pubring*
 tofu.db
 trustdb.gpg
 random_seed
+
+zsh/.extra

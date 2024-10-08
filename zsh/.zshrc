@@ -120,11 +120,5 @@ eval "$(atuin init zsh)"
 # zoxide
 eval "$(zoxide init zsh)"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/axelav/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/axelav/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/axelav/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/axelav/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # End zsh profiling
 # zprof
