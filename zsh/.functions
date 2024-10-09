@@ -142,7 +142,7 @@ function frg {
 
 function now() {
   # Ensure the "now" directory exists in the home directory
-  local now_dir="$HOME/Documents/now"
+  local now_dir="$HOME/Documents/kaizen/now"
   mkdir -p "$now_dir"
 
   # Get current date and time
@@ -151,7 +151,7 @@ function now() {
   local current_datetime="$current_date $current_time"
 
   # Get current date and time in UTC for the metadata
-  local date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
+  local datetime=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
 
   # If no argument is provided, use the current time
   if [ $# -eq 0 ]; then
@@ -167,7 +167,7 @@ function now() {
   cat > "$filename" << EOF
 ---
 title: $name
-date: $date
+date: $datetime
 ---
 
 ## $name
@@ -175,6 +175,43 @@ date: $date
 EOF
 
   echo "Created file: $filename"
+
+  # Open the file in the default editor
+  if [ -n "$EDITOR" ]; then
+      $EDITOR + "$filename"
+  else
+      echo "No default editor set. Please open $filename manually."
+  fi
+}
+
+function today () {
+  local today_dir="$HOME/Documents/kaizen/journal"
+  mkdir -p "$today_dir"
+
+  # Get current date for the filename
+  local current_date=$(date +"%Y-%m-%d")
+  # Get current date and time in UTC for the metadata
+  local datetime=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
+
+  # Construct filename with full path
+  local filename="$today_dir/${current_date}.md"
+
+  # Check if the file already exists
+  if [ -f "$filename" ]; then
+    echo "File already exists: $filename"
+  else
+    # Create the file and add metadata and title
+    cat > "$filename" << EOF
+---
+title: $current_date
+date: $datetime
+---
+
+## $current_date
+
+EOF
+    echo "Created file: $filename"
+  fi
 
   # Open the file in the default editor
   if [ -n "$EDITOR" ]; then
