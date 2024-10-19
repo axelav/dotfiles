@@ -23,14 +23,14 @@ vim.keymap.set(
 -- https://news.ycombinator.com/item?id=41739452
 vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>")
 
--- Insert timestamp and move cursor to end of line
+-- Insert timestamp, newlines, and move cursor
 vim.keymap.set("n", "<leader>T", function()
-  local timestamp = tostring(os.date("%H:%M - "))
+  local timestamp = tostring(os.date("### %H:%M"))
   local row = unpack(vim.api.nvim_win_get_cursor(0))
 
-  -- Insert the timestamp
-  vim.api.nvim_put({ timestamp }, "l", true, true)
+  -- Insert the timestamp and two newlines
+  vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
 
-  -- Move cursor to the end of the inserted line
-  vim.api.nvim_win_set_cursor(0, { row + 1, #timestamp })
-end, { desc = "Insert timestamp and move cursor to end" })
+  -- Move cursor to the second newline after the timestamp
+  vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
+end, { desc = "Insert timestamp, newlines, and move cursor" })
