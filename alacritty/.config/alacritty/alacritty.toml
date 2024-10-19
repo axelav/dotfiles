@@ -10,15 +10,15 @@ family = "SF Mono"
 style = "Medium"
 
 [font.bold_italic]
-family = "SF Mono"
+family = "BlexMono Nerd Font"
 style = "Medium Italic"
 
 [font.italic]
-family = "SF Mono"
+family = "BlexMono Nerd Font"
 style = "Regular Italic"
 
 [font.normal]
-family = "SF Mono"
+family = "BlexMono Nerd Font"
 style = "Regular"
 
 [scrolling]
