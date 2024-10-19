@@ -185,7 +185,7 @@ EOF
 }
 
 function today () {
-  local today_dir="$HOME/Documents/kaizen/journal"
+  local today_dir="$HOME/Documents/kaizen"
   mkdir -p "$today_dir"
 
   # Get current date for the filename
