@@ -28,6 +28,7 @@ alias fs="stat -c \"%s bytes\""
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 alias h="history"
 alias j="jobs -l"
+alias k="cd $HOME/Documents/kaizen/"
 alias m="mutt"
 alias mv="mv -iv"
 alias o="open"
