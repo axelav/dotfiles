@@ -1,4 +1,4 @@
-import = ["/Users/axelav/.config/alacritty/nord.toml"]
+import = ["/Users/axelav/.config/alacritty/catppuchin-macchiato.toml.toml"]
 live_config_reload = true
 working_directory = "None"
 

@@ -1,14 +1,24 @@
--- Nord
+-- Catppuccin
 return {
-  { "arcticicestudio/nord-vim" },
+  { "catppuccin/nvim" },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nord",
+      colorscheme = "catppuccin-macchiato",
     },
   },
 }
+-- Nord
+-- return {
+--   { "arcticicestudio/nord-vim" },
+--   {
+--     "LazyVim/LazyVim",
+--     opts = {
+--       colorscheme = "nord",
+--     },
+--   },
+-- }
 
 -- Tokyo Night
 -- return {
