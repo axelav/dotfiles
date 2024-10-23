@@ -142,7 +142,7 @@ function frg {
 
 function now() {
   # Ensure the "now" directory exists in the home directory
-  local now_dir="$HOME/Documents/kaizen/now"
+  local now_dir="$HOME/kaizen/now"
   mkdir -p "$now_dir"
 
   # Get current date and time
@@ -185,7 +185,7 @@ EOF
 }
 
 function today () {
-  local today_dir="$HOME/Documents/kaizen"
+  local today_dir="$HOME/kaizen"
   mkdir -p "$today_dir"
 
   # Get current date for the filename
@@ -195,6 +195,7 @@ function today () {
 
   # Construct filename with full path
   local filename="$today_dir/${current_date}.md"
+  local inbox="$today_dir/inbox.md"
 
   # Check if the file already exists
   if [ -f "$filename" ]; then
@@ -215,7 +216,7 @@ EOF
 
   # Open the file in the default editor
   if [ -n "$EDITOR" ]; then
-      $EDITOR + "$filename"
+      $EDITOR + "$filename" -O "$inbox" 
   else
       echo "No default editor set. Please open $filename manually."
   fi
