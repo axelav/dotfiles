@@ -34,3 +34,26 @@ vim.keymap.set("n", "<leader>T", function()
   -- Move cursor to the second newline after the timestamp
   vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
 end, { desc = "Insert timestamp, newlines, and move cursor" })
+
+-- Toggle the nvim-tree file explorer with <leader>e
+vim.keymap.set("n", "<leader>e", function()
+  local nvim_tree_api = require("nvim-tree.api")
+  local current_buf = vim.api.nvim_get_current_buf()
+  local tree_wins = {}
+
+  -- Find all NvimTree windows
+  for _, win in pairs(vim.api.nvim_list_wins()) do
+    local buf = vim.api.nvim_win_get_buf(win)
+    if vim.bo[buf].filetype == "NvimTree" then
+      table.insert(tree_wins, win)
+    end
+  end
+
+  if #tree_wins > 0 then
+    -- NvimTree is open, so toggle it closed
+    nvim_tree_api.tree.toggle()
+  else
+    -- NvimTree is closed, so find current file
+    nvim_tree_api.tree.find_file({ open = true, focus = true })
+  end
+end, { desc = "Toggle NvimTree or Find File" })
