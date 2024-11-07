@@ -185,8 +185,8 @@ EOF
 }
 
 function today () {
-  local today_dir="$HOME/kaizen"
-  mkdir -p "$today_dir"
+  local dir="$HOME/kaizen"
+  mkdir -p "$dir"
 
   # Get current date for the filename
   local current_date=$(date +"%Y-%m-%d")
@@ -194,8 +194,8 @@ function today () {
   local datetime=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
 
   # Construct filename with full path
-  local filename="$today_dir/${current_date}.md"
-  local inbox="$today_dir/inbox.md"
+  local filename="$dir/journals/${current_date}.md"
+  local inbox="$dir/pages/inbox.md"
 
   # Check if the file already exists
   if [ -f "$filename" ]; then
