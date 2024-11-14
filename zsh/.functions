@@ -194,8 +194,9 @@ function today () {
   local datetime=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
 
   # Construct filename with full path
-  local filename="$dir/journals/${current_date}.md"
+  local filename="$dir/${current_date}.md"
   local inbox="$dir/pages/inbox.md"
+  local scratchpad="$dir/pages/SCRATCHPAD.md"
 
   # Check if the file already exists
   if [ -f "$filename" ]; then
@@ -216,7 +217,7 @@ EOF
 
   # Open the file in the default editor
   if [ -n "$EDITOR" ]; then
-      $EDITOR + "$filename" -O "$inbox" 
+      $EDITOR + "$filename" -O "$inbox" -O "$scratchpad"
   else
       echo "No default editor set. Please open $filename manually."
   fi
