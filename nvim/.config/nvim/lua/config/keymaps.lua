@@ -57,3 +57,9 @@ vim.keymap.set("n", "<leader>e", function()
     nvim_tree_api.tree.find_file({ open = true, focus = true })
   end
 end, { desc = "Toggle NvimTree or Find File" })
+
+-- Toggle NoNeckPain
+vim.keymap.set("n", "<leader>np", ":NoNeckPain<CR>", {
+  desc = "Toggle NoNeckPain",
+  silent = true,
+})

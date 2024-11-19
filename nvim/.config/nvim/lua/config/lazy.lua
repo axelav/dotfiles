@@ -32,6 +32,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.rust" },
     -- { import = "lazyvim.plugins.extras.util.project" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { "shortcuts/no-neck-pain.nvim", version = "*" },
     -- import/override with your plugins
     { import = "plugins" },
   },
