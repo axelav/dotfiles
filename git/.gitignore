@@ -26,9 +26,6 @@ bower_components/
 # local vimrc overrides
 .local_vimrc
 
-# miscellaneous
-TODO.md
-
 # vim sessions
 Session.vim
 
