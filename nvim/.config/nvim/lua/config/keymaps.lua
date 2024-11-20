@@ -26,9 +26,8 @@ vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>")
 -- Insert timestamp, newlines, and move cursor
 vim.keymap.set("n", "<leader>T", function()
   local timestamp = tostring(os.date("### %H:%M"))
-  local row = unpack(vim.api.nvim_win_get_cursor(0))
-
   -- Insert the timestamp and two newlines
+  local row = unpack(vim.api.nvim_win_get_cursor(0))
   vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
 
   -- Move cursor to the second newline after the timestamp
@@ -38,7 +37,6 @@ end, { desc = "Insert timestamp, newlines, and move cursor" })
 -- Toggle the nvim-tree file explorer with <leader>e
 vim.keymap.set("n", "<leader>e", function()
   local nvim_tree_api = require("nvim-tree.api")
-  local current_buf = vim.api.nvim_get_current_buf()
   local tree_wins = {}
 
   -- Find all NvimTree windows
