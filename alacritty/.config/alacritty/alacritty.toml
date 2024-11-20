@@ -1,4 +1,4 @@
-import = ["/Users/axelav/.config/alacritty/catppuchin-macchiato.toml.toml"]
+import = ["/Users/axelav/.config/alacritty/catppuchin-macchiato.toml"]
 live_config_reload = true
 working_directory = "None"
 
@@ -6,7 +6,7 @@ working_directory = "None"
 size = 13.0
 
 [font.bold]
-family = "SF Mono"
+family = "BlexMono Nerd Font"
 style = "Medium"
 
 [font.bold_italic]
