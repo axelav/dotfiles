@@ -72,9 +72,9 @@ v () {
   fi
 }
 
-weather () {
-  curl http://wttr\.in/$@ | sed -e "s:226m:202m:g" # for light theme
-}
+# weather () {
+#   curl http://wttr\.in/$@ | sed -e "s:226m:202m:g" # for light theme
+# }
 
 function mog () {
   if hash mogrify 2>/dev/null; then
@@ -197,6 +197,7 @@ function today () {
   local filename="$dir/${current_date}.md"
   local inbox="$dir/pages/inbox.md"
   local scratchpad="$dir/pages/SCRATCHPAD.md"
+  local todo="$dir/pages/TODO.md"
 
   # Check if the file already exists
   if [ -f "$filename" ]; then
@@ -217,7 +218,7 @@ EOF
 
   # Open the file in the default editor
   if [ -n "$EDITOR" ]; then
-      $EDITOR + "$filename" -O "$inbox" -O "$scratchpad"
+      $EDITOR + "$filename" -O "$todo" -O "$scratchpad" -c "2wincmd w | split $inbox"
   else
       echo "No default editor set. Please open $filename manually."
   fi
