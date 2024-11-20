@@ -9,8 +9,8 @@
 {
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-latest"
     },
     "version": "2"
   },
@@ -49,7 +49,21 @@
   },
   "vim": {
     "use_smartcase_find": true
+  },
+  "languages": {
+    "Markdown": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": [
+            "--prose-wrap",
+            "always",
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    }
   }
-
-  // "ui_font_size": 16
 }
