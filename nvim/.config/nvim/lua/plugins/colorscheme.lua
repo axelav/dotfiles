@@ -1,37 +1,26 @@
--- Catppuccin
+-- Tokyo Night
 return {
-  { "catppuccin/nvim" },
-
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      -- light
-      -- colorscheme = "catppuccin-latte",
-      -- dark
-      colorscheme = "catppuccin-frappe",
+  "folke/tokyonight.nvim",
+  opts = {
+    transparent = true,
+    styles = {
+      sidebars = "transparent",
+      floats = "transparent",
     },
   },
 }
--- Nord
+-- Catppuccin
 -- return {
---   { "arcticicestudio/nord-vim" },
+--   { "catppuccin/nvim" },
+--
 --   {
 --     "LazyVim/LazyVim",
 --     opts = {
---       colorscheme = "nord",
+--       -- light
+--       -- colorscheme = "catppuccin-latte",
+--       -- dark
+--       colorscheme = "catppuccin-frappe",
+--       transparent = true,
 --     },
 --   },
 -- }
-
--- Tokyo Night
--- return {
---   "folke/tokyonight.nvim",
---   opts = {
---     transparent = true,
---     styles = {
---       sidebars = "transparent",
---       floats = "transparent",
---     },
---   },
--- }
---

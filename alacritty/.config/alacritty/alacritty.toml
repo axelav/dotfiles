@@ -1,7 +1,4 @@
-# light
-# import = ["/Users/axelav/.config/alacritty/catppuccin-latte.toml"]
-# dark
-import = ["/Users/axelav/.config/alacritty/catppuccin-frappe.toml"]
+import = ["/Users/axelav/.config/alacritty/tokyo-night.toml"]
 live_config_reload = true
 working_directory = "None"
 

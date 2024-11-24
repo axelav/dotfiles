@@ -43,9 +43,6 @@ require("lazy").setup({
     version = nil, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  -- install = {
-  --   colorscheme = { "cattppucin" },
-  -- },
   checker = {
     enabled = true,
     notify = false,
