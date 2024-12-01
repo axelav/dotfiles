@@ -151,7 +151,7 @@ function now() {
   local current_datetime="$current_date $current_time"
 
   # Get current date and time in UTC for the metadata
-  local datetime=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
+  local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ") # ISO 8601 format
 
   # If no argument is provided, use the current time
   if [ $# -eq 0 ]; then
@@ -191,7 +191,7 @@ function today () {
   # Get current date for the filename
   local current_date=$(date +"%Y-%m-%d")
   # Get current date and time in UTC for the metadata
-  local datetime=$(date -u +"%Y-%m-%dT%H:%M:%SZ")  # ISO 8601 format
+  local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ") # ISO 8601 format
 
   # Construct filename with full path
   local filename="$dir/${current_date}.md"
