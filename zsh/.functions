@@ -218,7 +218,7 @@ EOF
 
   # Open the file in the default editor
   if [ -n "$EDITOR" ]; then
-      $EDITOR + "$filename" -O "$todo" -O "$scratchpad" -c "2wincmd w | split $inbox"
+      $EDITOR + "$todo" -O "$filename" -O "$scratchpad" -c "1wincmd w | split $inbox | 3wincmd w"
   else
       echo "No default editor set. Please open $filename manually."
   fi
