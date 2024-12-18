@@ -1,6 +1,7 @@
-import = ["/Users/axelav/.config/alacritty/tokyo-night.toml"]
+[general]
 live_config_reload = true
 working_directory = "None"
+import = ["/Users/axelav/.config/alacritty/tokyo-night.toml"]
 
 [font]
 size = 13.0
@@ -25,7 +26,7 @@ style = "Regular"
 history = 100000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 args = ["--login", "-c", "tmux new-session -A -s main"]
 program = "/bin/zsh"
 
@@ -35,11 +36,12 @@ dynamic_padding = true
 dynamic_title = true
 opacity = 0.95
 startup_mode = "Maximized"
+option_as_alt = "OnlyLeft"
 
 [window.dimensions]
 columns = 0
 lines = 0
 
 [window.padding]
-x = 16
-y = 16
+x = 8
+y = 8
