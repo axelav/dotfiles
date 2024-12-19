@@ -4,6 +4,7 @@
 
 vim.keymap.set("n", "<leader><space>", function()
   require("telescope.builtin").git_files()
+  require("fzf-lua").git_files()
 end, { desc = "Git files" })
 
 -- vim.keymap.del("t", "<C-->")
@@ -56,8 +57,37 @@ vim.keymap.set("n", "<leader>e", function()
   end
 end, { desc = "Toggle NvimTree or Find File" })
 
--- Toggle NoNeckPain
-vim.keymap.set("n", "<leader>np", ":NoNeckPain<CR>", {
-  desc = "Toggle NoNeckPain",
+vim.keymap.set("n", "<leader>mot", "<cmd>Today<cr>", {
   silent = true,
+  desc = "Open today's note",
 })
+
+-- Toggle NoNeckPain
+-- vim.keymap.set("n", "<leader>np", ":NoNeckPain<CR>", {
+--   desc = "Toggle NoNeckPain",
+--   silent = true,
+-- })
+
+vim.keymap.set("n", "<leader>fp", function()
+  local contents = require("project_nvim").get_recent_projects()
+  local reverse = {}
+  for i = #contents, 1, -1 do
+    reverse[#reverse + 1] = contents[i]
+  end
+  require("fzf-lua").fzf_exec(reverse, {
+    actions = {
+      ["default"] = function(e)
+        vim.cmd.cd(e[1])
+      end,
+      ["ctrl-d"] = function(x)
+        local choice = vim.fn.confirm("Delete '" .. #x .. "' projects? ", "&Yes\n&No", 2)
+        if choice == 1 then
+          local history = require("project_nvim.utils.history")
+          for _, v in ipairs(x) do
+            history.delete_project(v)
+          end
+        end
+      end,
+    },
+  })
+end, { silent = true, desc = "Switch project" })
