@@ -3,7 +3,6 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader><space>", function()
-  require("telescope.builtin").git_files()
   require("fzf-lua").git_files()
 end, { desc = "Git files" })
 
