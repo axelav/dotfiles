@@ -1,0 +1,25 @@
+font-family = BlexMono Nerd Font Mono
+font-family-bold = BlexMono Nerd Font Mono Medium
+font-family-italic = BlexMono Nerd Font Mono Italic
+font-family-bold-italic = BlexMono Nerd Font Mono Medium Italic
+
+theme = dark:tokyonight,light:tokyonight-day
+
+
+background-opacity = 0.90
+background-blur-radius = 10
+
+macos-titlebar-style = hidden
+
+window-padding-x = 8
+window-padding-y = 8
+
+confirm-close-surface = false
+window-save-state = always
+
+# initial-command = tmux new-session -A -s main
+# command = "tmux new-session -A -s main"
+
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+quick-terminal-position = center
