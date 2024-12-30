@@ -51,21 +51,6 @@ require("lazy").setup({
   ui = {
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
     border = "rounded",
-    icons = {
-      cmd = "⌘",
-      config = "🛠",
-      event = "📅",
-      ft = "📂",
-      init = "⚙",
-      keys = "🗝",
-      plugin = "🔌",
-      runtime = "💻",
-      require = "🌙",
-      source = "📄",
-      start = "🚀",
-      task = "📌",
-      lazy = "💤 ",
-    },
   },
   performance = {
     rtp = {
