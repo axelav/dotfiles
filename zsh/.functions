@@ -236,3 +236,8 @@ EOF
       echo "No default editor set. Please open $filename manually."
   fi
 }
+
+function datetime() {
+  local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+  echo $datetime
+}
