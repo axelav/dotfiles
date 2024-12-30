@@ -188,15 +188,28 @@ function today () {
   local dir="$HOME/kaizen"
   mkdir -p "$dir"
 
-  # Get current date for the filename
-  local current_date=$(date +"%Y-%m-%d")
+  # Check if a date argument was provided
+  if [ -n "$1" ]; then
+    # Validate and convert the input date to the required format
+    if date -d "$1" >/dev/null 2>&1; then
+      local current_date=$(date -d "$1" +"%Y-%m-%d")
+    else
+      echo "Invalid date format. Please use YYYY-MM-DD or a date format that 'date' command can parse."
+      return 1
+    fi
+  else
+    # Use current date if no argument provided
+    local current_date=$(date +"%Y-%m-%d")
+  fi
+
   # Get current date and time in UTC for the metadata
   local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ") # ISO 8601 format
 
   # Construct filename with full path
   local filename="$dir/${current_date}.md"
   local inbox="$dir/pages/inbox.md"
-  local scratchpad="$dir/pages/SCRATCHPAD.md"
+  # local scratchpad="$dir/pages/SCRATCHPAD.md"
+  local contents="$dir/pages/contents.md"
   local todo="$dir/pages/TODO.md"
 
   # Check if the file already exists
@@ -218,7 +231,7 @@ EOF
 
   # Open the file in the default editor
   if [ -n "$EDITOR" ]; then
-      $EDITOR + "$todo" -O "$filename" -O "$scratchpad" -c "1wincmd w | split $inbox | 3wincmd w"
+      $EDITOR + "$todo" -O "$filename" -c "1wincmd w | split $inbox | split $contents | 4wincmd w"
   else
       echo "No default editor set. Please open $filename manually."
   fi
