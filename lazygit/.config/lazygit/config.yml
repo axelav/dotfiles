@@ -14,7 +14,7 @@ customCommands:
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: delta --dark --paging=never --hyperlinks
 gui:
   skipStashWarning: true
 os:

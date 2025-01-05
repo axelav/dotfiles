@@ -2,12 +2,27 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+--
+-- fzf-lua
+--
+
 vim.keymap.set("n", "<leader><space>", function()
   require("fzf-lua").git_files()
 end, { desc = "Git files" })
 
--- vim.keymap.del("t", "<C-->")
--- vim.keymap.del("t", "<C-/>")
+vim.keymap.set("n", "<leader>fd", function()
+  require("fzf-lua").grep({
+    search = "- \\[ \\].*\\@due",
+    no_esc = true,
+    -- rg will be used by default
+    -- cmd = "rg", -- Explicitly specify rg command
+    -- rg_opts = "--column --line-number --no-heading --color=always --smart-case --max-columns=512",
+  })
+end, { desc = "Search for todos with @due" })
+
+--
+-- git
+--
 
 vim.keymap.set(
   "n",
@@ -19,53 +34,42 @@ vim.keymap.set(
   }
 )
 
--- Open definition in a vertical split
--- https://news.ycombinator.com/item?id=41739452
-vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>")
-
--- Insert timestamp, newlines, and move cursor
-vim.keymap.set("n", "<leader>T", function()
-  local timestamp = tostring(os.date("### %H:%M"))
-  -- Insert the timestamp and two newlines
-  local row = unpack(vim.api.nvim_win_get_cursor(0))
-  vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
-
-  -- Move cursor to the second newline after the timestamp
-  vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
-end, { desc = "Insert timestamp, newlines, and move cursor" })
+--
+-- nvim-tree
+--
 
 -- Toggle the nvim-tree file explorer with <leader>e
 vim.keymap.set("n", "<leader>e", function()
   local nvim_tree_api = require("nvim-tree.api")
-  local tree_wins = {}
+  local view = require("nvim-tree.view")
 
-  -- Find all NvimTree windows
-  for _, win in pairs(vim.api.nvim_list_wins()) do
-    local buf = vim.api.nvim_win_get_buf(win)
-    if vim.bo[buf].filetype == "NvimTree" then
-      table.insert(tree_wins, win)
+  if view.is_visible() then
+    local current_buf = vim.api.nvim_get_current_buf()
+    -- Check if current buffer is NvimTree and cursor is on current file
+    if vim.bo[current_buf].filetype == "NvimTree" then
+      nvim_tree_api.tree.toggle()
+    else
+      -- Tree is open but not focused on current file, focus on it
+      nvim_tree_api.tree.find_file({ focus = true })
     end
-  end
-
-  if #tree_wins > 0 then
-    -- NvimTree is open, so toggle it closed
-    nvim_tree_api.tree.toggle()
   else
-    -- NvimTree is closed, so find current file
+    -- Tree is closed, open it and focus on current file
     nvim_tree_api.tree.find_file({ open = true, focus = true })
   end
-end, { desc = "Toggle NvimTree or Find File" })
+end, { desc = "Toggle NvimTree with smart find file" })
+
+--
+-- markdown-oxide
+--
 
 vim.keymap.set("n", "<leader>mot", "<cmd>Today<cr>", {
   silent = true,
   desc = "Open today's note",
 })
 
--- Toggle NoNeckPain
--- vim.keymap.set("n", "<leader>np", ":NoNeckPain<CR>", {
---   desc = "Toggle NoNeckPain",
---   silent = true,
--- })
+--
+-- project.nvim
+--
 
 vim.keymap.set("n", "<leader>fp", function()
   local contents = require("project_nvim").get_recent_projects()
@@ -90,3 +94,18 @@ vim.keymap.set("n", "<leader>fp", function()
     },
   })
 end, { silent = true, desc = "Switch project" })
+
+-- Open definition in a vertical split
+-- https://news.ycombinator.com/item?id=41739452
+vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>")
+
+-- Insert timestamp, newlines, and move cursor
+vim.keymap.set("n", "<leader>T", function()
+  local timestamp = tostring(os.date("### %H:%M"))
+  -- Insert the timestamp and two newlines
+  local row = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
+
+  -- Move cursor to the second newline after the timestamp
+  vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
+end, { desc = "Insert timestamp, newlines, and move cursor" })
