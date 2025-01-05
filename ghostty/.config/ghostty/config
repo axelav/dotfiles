@@ -3,11 +3,10 @@ font-family-bold = BlexMono Nerd Font Mono Medium
 font-family-italic = BlexMono Nerd Font Mono Italic
 font-family-bold-italic = BlexMono Nerd Font Mono Medium Italic
 
-theme = dark:tokyonight,light:tokyonight-day
+theme = tokyonight
 
-
-background-opacity = 0.90
-background-blur-radius = 10
+background-opacity = 0.95
+background-blur-radius = 20
 
 macos-titlebar-style = hidden
 
@@ -16,6 +15,8 @@ window-padding-y = 8
 
 confirm-close-surface = false
 window-save-state = always
+
+link-url = true
 
 # initial-command = tmux new-session -A -s main
 # command = "tmux new-session -A -s main"
