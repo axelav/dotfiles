@@ -67,6 +67,16 @@ vim.keymap.set("n", "<leader>mot", "<cmd>Today<cr>", {
   desc = "Open today's note",
 })
 
+vim.keymap.set("n", "<leader>mon", "<cmd>Tomorrow<cr>", {
+  silent = true,
+  desc = "Open tomorrow's note",
+})
+
+vim.keymap.set("n", "<leader>mop", "<cmd>Yesterday<cr>", {
+  silent = true,
+  desc = "Open yesterday's note",
+})
+
 --
 -- project.nvim
 --
