@@ -45,6 +45,7 @@ return {
         if data.tags then
           formatted_tags = table.concat(
             vim.tbl_map(function(tag)
+              tag = tag:gsub("&", "and"):gsub("%s+", "-")
               return "#" .. tag
             end, data.tags),
             " "
