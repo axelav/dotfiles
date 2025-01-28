@@ -61,6 +61,14 @@ vim.keymap.set("n", "<leader>e", function()
 end, { desc = "Toggle NvimTree with smart find file" })
 
 --
+-- oil.nvim
+--
+vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", {
+  silent = true,
+  desc = "Open oil.nvim",
+})
+
+--
 -- markdown-oxide
 --
 
