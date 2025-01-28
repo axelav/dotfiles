@@ -13,6 +13,11 @@ return {
         statusline = false,
       },
     },
+    zoom = {
+      show = {
+        statusline = true,
+      },
+    },
     dashboard = {
       width = 60,
       row = nil, -- dashboard position. nil for center
