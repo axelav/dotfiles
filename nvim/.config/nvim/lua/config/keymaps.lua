@@ -87,6 +87,17 @@ vim.keymap.set("n", "<leader>mop", "<cmd>Yesterday<cr>", {
   desc = "Open yesterday's note",
 })
 
+-- Insert timestamp, newlines, and move cursor
+vim.keymap.set("n", "<leader>mod", function()
+  local timestamp = tostring(os.date("### %H:%M"))
+  -- Insert the timestamp and two newlines
+  local row = unpack(vim.api.nvim_win_get_cursor(0))
+  vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
+
+  -- Move cursor to the second newline after the timestamp
+  vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
+end, { desc = "Insert timestamp, newlines, and move cursor" })
+
 --
 -- project.nvim
 --
@@ -118,14 +129,3 @@ end, { silent = true, desc = "Switch project" })
 -- Open definition in a vertical split
 -- https://news.ycombinator.com/item?id=41739452
 vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>")
-
--- Insert timestamp, newlines, and move cursor
-vim.keymap.set("n", "<leader>T", function()
-  local timestamp = tostring(os.date("### %H:%M"))
-  -- Insert the timestamp and two newlines
-  local row = unpack(vim.api.nvim_win_get_cursor(0))
-  vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
-
-  -- Move cursor to the second newline after the timestamp
-  vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
-end, { desc = "Insert timestamp, newlines, and move cursor" })
