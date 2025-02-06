@@ -235,6 +235,53 @@ EOF
   fi
 }
 
+function next_week () {
+  local dir="$HOME/kaizen"
+  mkdir -p "$dir"
+
+  # Check if a start date argument was provided
+  if [ -n "$1" ]; then
+    # Validate and convert the input date to the required format
+    if date -d "$1" >/dev/null 2>&1; then
+      local start_date="$1"
+    else
+      echo "Invalid date format. Please use YYYY-MM-DD or a date format that 'date' command can parse."
+      return 1
+    fi
+  else
+    # Use current date if no argument provided
+    local start_date=$(date +"%Y-%m-%d")
+  fi
+
+  # Create files for the next 7 days
+  for i in {0..6}; do
+    # Calculate the date for this iteration
+    local current_date=$(date -d "$start_date + $i days" +"%Y-%m-%d")
+    # Get current date and time in UTC for the metadata
+    local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+
+    # Construct filename with full path
+    local filename="$dir/${current_date}.md"
+
+    # Check if the file already exists
+    if [ -f "$filename" ]; then
+      echo "File already exists: $filename"
+    else
+      # Create the file and add metadata and title
+      cat > "$filename" << EOF
+---
+title: $current_date
+date: $datetime
+---
+
+## $current_date
+
+EOF
+      echo "Created file: $filename"
+    fi
+  done
+}
+
 function datetime() {
   local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
   echo $datetime
