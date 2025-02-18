@@ -6,15 +6,14 @@ return {
     modes = {
       search = {
         enabled = true,
+        highlight = { backdrop = true },
       },
     },
   },
   keys = {
-    -- Disable the 's' key mapping
+    -- Use 'f' for flash
     s = false,
-    -- Use 'f' for flash instead
     f = true,
-    -- { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     {
       "S",
       mode = { "n", "x", "o" },
