@@ -3,7 +3,7 @@ font-family-bold = BlexMono Nerd Font Mono Medium
 font-family-italic = BlexMono Nerd Font Mono Italic
 font-family-bold-italic = BlexMono Nerd Font Mono Medium Italic
 
-theme = tokyonight
+theme = catppuccin-macchiato
 
 background-opacity = 0.95
 background-blur-radius = 20
