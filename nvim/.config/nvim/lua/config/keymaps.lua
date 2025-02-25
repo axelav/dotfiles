@@ -37,30 +37,6 @@ vim.keymap.set(
 )
 
 --
--- nvim-tree
---
-
--- Toggle the nvim-tree file explorer with <leader>e
-vim.keymap.set("n", "<leader>e", function()
-  local nvim_tree_api = require("nvim-tree.api")
-  local view = require("nvim-tree.view")
-
-  if view.is_visible() then
-    local current_buf = vim.api.nvim_get_current_buf()
-    -- Check if current buffer is NvimTree and cursor is on current file
-    if vim.bo[current_buf].filetype == "NvimTree" then
-      nvim_tree_api.tree.toggle()
-    else
-      -- Tree is open but not focused on current file, focus on it
-      nvim_tree_api.tree.find_file({ focus = true })
-    end
-  else
-    -- Tree is closed, open it and focus on current file
-    nvim_tree_api.tree.find_file({ open = true, focus = true })
-  end
-end, { desc = "Toggle NvimTree with smart find file" })
-
---
 -- oil.nvim
 --
 vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", {
