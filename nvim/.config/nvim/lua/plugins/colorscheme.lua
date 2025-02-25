@@ -20,10 +20,14 @@ return {
     opts = {
       dim_inactive = {
         enabled = true,
-        shade = "dark",
         percentage = 0.15,
       },
       transparent_background = true,
+      custom_highlights = function(colors)
+        return {
+          Cursor = { bg = colors.surface2, fg = colors.base },
+        }
+      end,
     },
   },
   {
