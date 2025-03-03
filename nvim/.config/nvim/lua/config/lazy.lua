@@ -33,6 +33,72 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.util.project" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { "shortcuts/no-neck-pain.nvim", version = "*" },
+
+    -- Colorscheme
+    {
+      "catppuccin/nvim",
+      name = "catppuccin",
+      priority = 1000,
+      opts = {
+        dim_inactive = {
+          enabled = true,
+          percentage = 0.15,
+        },
+        transparent_background = true,
+        custom_highlights = function(colors)
+          return {
+            Cursor = { bg = colors.surface2, fg = colors.base },
+          }
+        end,
+      },
+    },
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "catppuccin-macchiato",
+      },
+    },
+
+    -- Plugins
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = {
+        indent = {
+          enable = true,
+        },
+      },
+    },
+    {
+      "ruifm/gitlinker.nvim",
+      lazy = true,
+      init = function()
+        require("gitlinker").setup()
+      end,
+    },
+    {
+      "utilyre/barbecue.nvim",
+      dependencies = {
+        "SmiteshP/nvim-navic",
+      },
+      config = true,
+    },
+    {
+      "stevearc/oil.nvim",
+      opts = {},
+      dependencies = { { "echasnovski/mini.icons", opts = {} } },
+      lazy = false,
+    },
+
+    -- Disabled plugins
+    {
+      "akinsho/bufferline.nvim",
+      enabled = false,
+    },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      enabled = false,
+    },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
