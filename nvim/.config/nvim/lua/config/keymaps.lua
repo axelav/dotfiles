@@ -104,4 +104,4 @@ end, { silent = true, desc = "Switch project" })
 
 -- Open definition in a vertical split
 -- https://news.ycombinator.com/item?id=41739452
-vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>")
+vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Open definition in vsplit" })
