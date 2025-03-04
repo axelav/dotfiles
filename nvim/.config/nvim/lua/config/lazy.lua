@@ -45,11 +45,14 @@ require("lazy").setup({
           percentage = 0.15,
         },
         transparent_background = true,
-        custom_highlights = function(colors)
-          return {
-            Cursor = { bg = colors.surface2, fg = colors.base },
-          }
-        end,
+        -- custom_highlights = function(colors)
+        --   return {
+        --     Cursor = { bg = colors.crust, fg = colors.base },
+        --     Cursor2 = { bg = colors.maroon },
+        --     StatusLine = { bg = colors.mantle },
+        --     StatusLineNC = { bg = colors.mantle },
+        --   }
+        -- end,
       },
     },
     {
