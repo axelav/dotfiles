@@ -282,6 +282,14 @@ EOF
   done
 }
 
+function stopwatch() {
+  local start=$(date +%s)
+  while true; do
+    local time=$(($(date +%s) - start))
+    printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+  done
+}
+
 function datetime() {
   local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
   echo $datetime
