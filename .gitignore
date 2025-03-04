@@ -8,3 +8,15 @@ trustdb.gpg
 random_seed
 
 zsh/.extra
+
+# From nvim
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+lazy-lock.json
+en.utf-8.add.spl
