@@ -6,6 +6,27 @@ vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
 
 vim.api.nvim_create_user_command("Dashboard", "lua Snacks.dashboard()", {})
 
+vim.api.nvim_create_user_command("JumpToPreviousYear", function()
+  local current_file = vim.fn.expand("%:t")
+
+  local year, month, day = current_file:match("(%d%d%d%d)-(%d%d)-(%d%d).md")
+
+  if year and month and day then
+    local prev_year = tostring(tonumber(year) - 1)
+    local target_file = prev_year .. "-" .. month .. "-" .. day .. ".md"
+    local current_dir = vim.fn.expand("%:p:h")
+    local target_path = current_dir .. "/" .. target_file
+
+    if vim.fn.filereadable(target_path) == 1 then
+      vim.cmd("edit " .. target_path)
+    else
+      vim.notify("Previous year's journal entry does not exist: " .. target_file, vim.log.levels.WARN)
+    end
+  else
+    vim.notify("Current file does not match journal format (yyyy-mm-dd.md)", vim.log.levels.ERROR)
+  end
+end, {})
+
 vim.api.nvim_create_user_command("Calendar", function(opts)
   -- Get calendar output
   local cal_cmd = "cal " .. (opts.args or "")
