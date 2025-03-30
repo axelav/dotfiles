@@ -60,9 +60,6 @@ stow \
   zsh \
   --verbose
 
-# install volta
-curl https://get.volta.sh | bash
-
 # Save screenshots to the ~/Screenshots directory
 defaults write com.apple.screencapture location -string "$HOME/Documents/Screenshots"
 
