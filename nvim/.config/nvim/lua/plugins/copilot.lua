@@ -14,7 +14,7 @@ return {
       gitcommit = true,
       gitrebase = true,
       help = true,
-      markdown = false,
+      markdown = true,
       yaml = true,
     },
   },
