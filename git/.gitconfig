@@ -44,9 +44,9 @@
 
 [user]
   useconfigonly = true
-  signingkey = DC554221637310511B748922A1AE98787D25F143
+  signingkey = 05B00242B906EC779DE0FA4F7D14CFDD240CC1F3
   name = Axel Anderson
-  email = axel@ftml.net
+  email = axel.anderson@axionray.com
 
 [gpg]
   program = /opt/homebrew/bin/gpg

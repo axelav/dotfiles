@@ -5,7 +5,7 @@ font-family-bold-italic = BlexMono Nerd Font Mono Medium Italic
 
 theme = catppuccin-macchiato
 
-background-opacity = 0.95
+background-opacity = 0.97
 background-blur-radius = 20
 
 macos-titlebar-style = hidden

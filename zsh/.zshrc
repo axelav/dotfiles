@@ -106,9 +106,8 @@ for file in ~/.{exports,aliases,functions,extra}; do
 done
 unset file
 
-# volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# mise
+# eval "$(~/.local/bin/mise activate zsh)"
 
 # deno
 export DENO_INSTALL="/Users/axelav/.deno"
@@ -122,3 +121,6 @@ eval "$(zoxide init zsh)"
 
 # End zsh profiling
 # zprof
+
+# Added by Windsurf
+export PATH="/Users/axelav/.codeium/windsurf/bin:$PATH"

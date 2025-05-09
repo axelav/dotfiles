@@ -117,7 +117,6 @@ require("lazy").setup({
           virt_text = true,
           virt_text_pos = "eol",
           delay = 500,
-          ignore_whitespace = false,
         },
       },
     },
@@ -142,6 +141,14 @@ require("lazy").setup({
           yaml = true,
         },
       },
+    },
+
+    {
+      "yorickpeterse/nvim-window",
+      keys = {
+        { "<leader>wj", "<cmd>lua require('nvim-window').pick()<cr>", desc = "Jump to window" },
+      },
+      config = true,
     },
 
     -- import/override with your plugins
