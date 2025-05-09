@@ -5,39 +5,27 @@
 //
 // To see the default key bindings run `zed: open default keymap`
 // from the command palette.
-// [
-//   {
-//     "context": "Workspace",
-//     "bindings": {
-//       // "shift shift": "file_finder::Toggle"
-//     }
-//   },
-//   {
-//     "context": "Editor",
-//     "bindings": {
-//       // "j k": ["workspace::SendKeystrokes", "escape"]
-//     }
-//   }
-// ]
+
 [
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space b": "editor::ToggleGitBlame",
+      "space b": "git::Blame",
       "shift-k": "editor::Hover",
       "space l f": "editor::Format",
       "space d": "diagnostics::Deploy",
       "space space": "file_finder::Toggle",
-      // "space f f": "file_finder::Toggle",
-      "space o": "tab_switcher::Toggle",
+      "space ,": "tab_switcher::Toggle",
       "space e": "workspace::ToggleRightDock",
       "space /": "workspace::NewSearch",
       "n": "search::SelectNextMatch",
-      "shift-n": "search::SelectPrevMatch",
+      "shift-n": "search::SelectPreviousMatch",
       "space t": "workspace::NewCenterTerminal",
-      "g b": "editor::ToggleComments",
       "ctrl-s": "workspace::Save",
-      "space c": "pane::CloseActiveItem"
+      "space m p": "markdown::OpenPreviewToTheSide",
+      "space w q": "pane::CloseActiveItem",
+      "space g g": "git_panel::ToggleFocus",
+      "ctrl-/": "terminal_panel::ToggleFocus"
     }
   },
   // {
@@ -50,10 +38,10 @@
   {
     "context": "Dock || Terminal || Editor",
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
     }
   },
   {
