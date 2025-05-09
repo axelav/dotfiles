@@ -6,11 +6,10 @@
 // To see all of Zed's default settings without changing your
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
+
 {
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "assistant": {
+  // LLM
+  "agent": {
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-3-7-sonnet-latest"
@@ -18,56 +17,68 @@
     "dock": "left",
     "version": "2"
   },
-  "base_keymap": "VSCode",
-  "telemetry": {
-    "diagnostics": false,
-    "metrics": false
+  "edit_predictions": {
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
   },
-  "buffer_font_size": 14,
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+
+  // Editor
+  "active_pane_modifiers": {
+    "magnification": 1.0,
+    "border_size": 2.0,
+    "inactive_opacity": 0.75
+  },
+  "buffer_font_size": 13,
   "buffer_line_height": "comfortable",
-  "vim_mode": true,
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "Andromeda"
-  },
   "inlay_hints": {
     "enabled": true
   },
+  "relative_line_numbers": true,
+  "tab_size": 2,
+  "vertical_scroll_margin": 3,
+  "vim": {
+    "use_smartcase_find": true
+  },
+  "vim_mode": true,
+
+  // LSP
+  "languages": {
+    "Markdown": {
+      "format_on_save": "on"
+    }
+  },
+
+  // System
   "project_panel": {
     "dock": "right"
   },
-  "tab_size": 2,
-  "relative_line_numbers": true,
-  "scrollbar": {
-    "show": "never"
-  },
-  "vertical_scroll_margin": 3,
   "tab_bar": {
     "show": true,
     "show_nav_history_buttons": false
   },
-  "toolbar": {
-    "breadcrumbs": true,
-    "quick_actions": false
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
   },
-  "vim": {
-    "use_smartcase_find": true
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "One Dark"
   },
-  "languages": {
-    "Markdown": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "prettier",
-          "arguments": [
-            "--prose-wrap",
-            "always",
-            "--stdin-filepath",
-            "{buffer_path}"
-          ]
-        }
-      }
-    }
+
+  // Terminal
+  "terminal": {
+    "default_height": 500,
+    "blinking": "on",
+    "cursor_shape": "hollow",
+    // "option_as_meta": false,
+    "copy_on_select": true
   }
 }
