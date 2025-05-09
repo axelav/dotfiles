@@ -28,15 +28,8 @@
       "ctrl-/": "terminal_panel::ToggleFocus"
     }
   },
-  // {
-  //   "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
-  //   "bindings": {
-  //     "shift-j": "editor::MoveLineDown",
-  //     "shift-k": "editor::MoveLineUp"
-  //   }
-  // },
   {
-    "context": "Dock || Terminal || Editor",
+    "context": "Dock || Editor || MarkdownPreview",
     "bindings": {
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
