@@ -1,5 +1,4 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
@@ -13,26 +12,12 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
-
 vim.opt.rtp:prepend(lazypath)
 
--- Default configuration
--- https://github.com/folke/lazy.nvim#️-configuration
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.coding.copilot" },
-    { import = "lazyvim.plugins.extras.coding.yanky" },
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.linting.eslint" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-    { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.rust" },
-    -- { import = "lazyvim.plugins.extras.util.project" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    { "shortcuts/no-neck-pain.nvim", version = "*" },
 
     -- Colorscheme
     {
@@ -45,14 +30,6 @@ require("lazy").setup({
           percentage = 0.15,
         },
         transparent_background = true,
-        -- custom_highlights = function(colors)
-        --   return {
-        --     Cursor = { bg = colors.crust, fg = colors.base },
-        --     Cursor2 = { bg = colors.maroon },
-        --     StatusLine = { bg = colors.mantle },
-        --     StatusLineNC = { bg = colors.mantle },
-        --   }
-        -- end,
       },
     },
     {
@@ -64,27 +41,83 @@ require("lazy").setup({
 
     -- Plugins
     {
-      "nvim-treesitter/nvim-treesitter",
+      "neovim/nvim-lspconfig",
       opts = {
-        indent = {
-          enable = true,
+        servers = {
+          marksman = false,
         },
       },
     },
+
     {
-      "ruifm/gitlinker.nvim",
-      lazy = true,
-      init = function()
-        require("gitlinker").setup()
-      end,
-    },
-    {
-      "utilyre/barbecue.nvim",
-      dependencies = {
-        "SmiteshP/nvim-navic",
+      {
+        "williamboman/mason.nvim",
+        opts = {
+          ensure_installed = {
+            "eslint-lsp",
+            "json-lsp",
+            "lua-language-server",
+            "markdown-oxide",
+            "markdown-toc",
+            "markdownlint-cli2",
+            "prettier",
+            "shfmt",
+            "stylua",
+            "vtsls",
+          },
+        },
       },
-      config = true,
     },
+
+    {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      opts = {
+        presets = {
+          lsp_doc_border = true, -- add a border to hover docs and signature help
+        },
+        views = {
+          cmdline_popup = {
+            border = {
+              style = "none",
+              padding = { 2, 3 },
+            },
+            filter_options = {},
+            win_options = {
+              winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+            },
+          },
+        },
+      },
+    },
+
+    {
+      "folke/flash.nvim",
+      event = "VeryLazy",
+      ---@type Flash.Config
+      opts = {
+        modes = {
+          search = {
+            enabled = true,
+            highlight = { backdrop = true },
+          },
+        },
+      },
+      keys = {
+        -- Use 'f' for flash
+        s = false,
+        f = true,
+        {
+          "S",
+          mode = { "n", "x", "o" },
+          function()
+            require("flash").treesitter()
+          end,
+          desc = "Flash Treesitter",
+        },
+      },
+    },
+
     {
       "stevearc/oil.nvim",
       opts = {
@@ -96,14 +129,46 @@ require("lazy").setup({
       lazy = false,
     },
 
-    -- Disabled plugins
     {
-      "akinsho/bufferline.nvim",
-      enabled = false,
+      "lewis6991/gitsigns.nvim",
+      opts = {
+        current_line_blame = true,
+        current_line_blame_opts = {
+          virt_text = true,
+          virt_text_pos = "eol",
+          delay = 500,
+        },
+      },
     },
+
     {
-      "nvim-neo-tree/neo-tree.nvim",
-      enabled = false,
+      "zbirenbaum/copilot.lua",
+      enabled = true,
+      cmd = "Copilot",
+      build = ":Copilot auth",
+      opts = {
+        suggestion = {
+          enabled = false,
+        },
+        panel = {
+          enabled = false,
+        },
+        filetypes = {
+          gitcommit = true,
+          gitrebase = true,
+          help = true,
+          markdown = true,
+          yaml = true,
+        },
+      },
+    },
+
+    {
+      "yorickpeterse/nvim-window",
+      keys = {
+        { "<leader>wj", "<cmd>lua require('nvim-window').pick()<cr>", desc = "Jump to window" },
+      },
+      config = true,
     },
 
     -- import/override with your plugins
@@ -113,16 +178,17 @@ require("lazy").setup({
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
     lazy = false,
-    version = nil, -- always use the latest git commit
+    -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
+    -- have outdated releases, which may break your Neovim install.
+    version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
+  install = { colorscheme = { "tokyonight", "habamax" } },
   checker = {
-    enabled = true,
-    notify = false,
-    frequency = 3600,
-  },
+    enabled = true, -- check for plugin updates periodically
+    notify = false, -- notify on update
+  }, -- automatically check for plugin updates
   ui = {
-    -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
     border = "rounded",
   },
   performance = {
