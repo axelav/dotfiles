@@ -5,6 +5,11 @@
 -- flash.nvim
 vim.keymap.set("n", "s", "s", { noremap = true })
 
+-- fzf-lua
+vim.keymap.set("n", "<leader><space>", function()
+  require("fzf-lua").git_files()
+end, { desc = "Git files" })
+
 -- oil.nvim
 vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", {
   silent = true,
