@@ -107,7 +107,7 @@ done
 unset file
 
 # mise
-# eval "$(~/.local/bin/mise activate zsh)"
+eval "$(~/.local/bin/mise activate zsh)"
 
 # deno
 export DENO_INSTALL="/Users/axelav/.deno"
@@ -121,6 +121,3 @@ eval "$(zoxide init zsh)"
 
 # End zsh profiling
 # zprof
-
-# Added by Windsurf
-export PATH="/Users/axelav/.codeium/windsurf/bin:$PATH"
