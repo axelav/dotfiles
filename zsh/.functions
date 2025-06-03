@@ -235,7 +235,7 @@ EOF
   fi
 }
 
-function next_week () {
+function month () {
   local dir="$HOME/kaizen"
   mkdir -p "$dir"
 
@@ -253,10 +253,19 @@ function next_week () {
     local start_date=$(date +"%Y-%m-%d")
   fi
 
-  # Create files for the next 7 days
-  for i in {0..6}; do
-    # Calculate the date for this iteration
-    local current_date=$(date -d "$start_date + $i days" +"%Y-%m-%d")
+  # Get the year and month from the start date
+  local year=$(date -d "$start_date" +"%Y")
+  local month=$(date -d "$start_date" +"%m")
+  
+  # Calculate the number of days in the month
+  local days_in_month=$(date -d "$year-$month-01 + 1 month - 1 day" +"%d")
+
+  # Create files for each day of the month
+  for ((day=1; day<=days_in_month; day++)); do
+    # Format the day with leading zero if needed
+    local day_padded=$(printf "%02d" $day)
+    local current_date="$year-$month-$day_padded"
+    
     # Get current date and time in UTC for the metadata
     local datetime=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
 

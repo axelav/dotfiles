@@ -2,42 +2,78 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+--
 -- flash.nvim
+--
 vim.keymap.set("n", "s", "s", { noremap = true })
 
+--
 -- fzf-lua
+--
 vim.keymap.set("n", "<leader><space>", function()
   require("fzf-lua").git_files()
 end, { desc = "Git files" })
 
+--
 -- oil.nvim
+--
 vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", {
   silent = true,
   desc = "Open oil.nvim",
 })
 
+--
 -- markdown-oxide
-vim.keymap.set("n", "<leader>mot", "<cmd>Today<cr>", {
+--
+-- Helper function to check markdown-oxide LSP and execute command
+local function with_markdown_oxide(cmd)
+  local clients = vim.lsp.get_clients()
+  local has_markdown_oxide = false
+
+  for _, client in ipairs(clients) do
+    if client.name == "markdown_oxide" then
+      has_markdown_oxide = true
+      break
+    end
+  end
+
+  if has_markdown_oxide then
+    if type(cmd) == "function" then
+      cmd()
+    else
+      vim.cmd(cmd)
+    end
+  else
+    vim.notify("markdown-oxide LSP is not active", vim.log.levels.WARN)
+  end
+end
+
+vim.keymap.set("n", "<leader>mot", function()
+  with_markdown_oxide("Today")
+end, {
   silent = true,
   desc = "Open today's note",
 })
 
-vim.keymap.set("n", "<leader>mon", "<cmd>Tomorrow<cr>", {
+vim.keymap.set("n", "<leader>mon", function()
+  with_markdown_oxide("Tomorrow")
+end, {
   silent = true,
   desc = "Open tomorrow's note",
 })
 
-vim.keymap.set("n", "<leader>mop", "<cmd>Yesterday<cr>", {
+vim.keymap.set("n", "<leader>mop", function()
+  with_markdown_oxide("Yesterday")
+end, {
   silent = true,
   desc = "Open yesterday's note",
 })
 
--- Insert timestamp, newlines, and move cursor
 vim.keymap.set("n", "<leader>mod", function()
-  local timestamp = tostring(os.date("### %H:%M"))
-  -- Insert the timestamp and two newlines
-  local row = unpack(vim.api.nvim_win_get_cursor(0))
-  vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
+  with_markdown_oxide(function()
+    local timestamp = tostring(os.date("### %H:%M"))
+    -- Insert the timestamp and two newlines
+    local row = unpack(vim.api.nvim_win_get_cursor(0))
 
   -- Move cursor to the second newline after the timestamp
   vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
