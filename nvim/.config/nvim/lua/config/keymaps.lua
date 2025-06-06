@@ -75,9 +75,15 @@ vim.keymap.set("n", "<leader>mod", function()
     -- Insert the timestamp and two newlines
     local row = unpack(vim.api.nvim_win_get_cursor(0))
 
-  -- Move cursor to the second newline after the timestamp
-  vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
-end, { desc = "Insert timestamp, newlines, and move cursor" })
+    vim.api.nvim_buf_set_lines(0, row, row, false, { timestamp, "", "" })
+
+    -- Move cursor to the second newline after the timestamp
+    vim.api.nvim_win_set_cursor(0, { row + 3, 0 })
+
+    -- Enter insert mode
+    vim.cmd("startinsert")
+  end)
+end, { desc = "Insert timestamp" })
 
 vim.keymap.set("n", "<leader>moi", function()
   -- Let Neovim handle finding or creating the buffer
