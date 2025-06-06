@@ -188,7 +188,7 @@ require("lazy").setup({
           gitcommit = true,
           gitrebase = true,
           help = true,
-          markdown = true,
+          markdown = false,
           yaml = true,
         },
       },
