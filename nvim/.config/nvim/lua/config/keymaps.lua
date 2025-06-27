@@ -74,6 +74,7 @@ vim.keymap.set("n", "<leader>mod", function()
     local timestamp = tostring(os.date("### %H:%M"))
     -- Insert the timestamp and two newlines
     local row = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
 
     vim.api.nvim_buf_set_lines(0, row, row, false, { timestamp, "", "" })
 
@@ -86,9 +87,7 @@ vim.keymap.set("n", "<leader>mod", function()
 end, { desc = "Insert timestamp" })
 
 vim.keymap.set("n", "<leader>moi", function()
-  -- Let Neovim handle finding or creating the buffer
-  -- :e will switch to the buffer if it exists, or open it if it doesn't
-  vim.cmd("e pages/inbox.md")
+  with_markdown_oxide("e pages/inbox.md")
 end, {
   silent = true,
   desc = "Open inbox",
