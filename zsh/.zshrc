@@ -12,7 +12,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="af-magic"
-ZSH_THEME="crcandy" # set by `omz`
+# ZSH_THEME="crcandy" # set by `omz` - commented out for Starship
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -118,6 +118,9 @@ eval "$(atuin init zsh)"
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# starship
+eval "$(starship init zsh)"
 
 # End zsh profiling
 # zprof

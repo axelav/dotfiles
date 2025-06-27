@@ -55,6 +55,7 @@ stow \
   nodejs \
   nvim \
   rsync \
+  starship \
   tmux \
   zed \
   zsh \
