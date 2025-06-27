@@ -150,6 +150,15 @@ require("lazy").setup({
     },
 
     {
+      "ibhagwan/fzf-lua",
+      opts = {
+        defaults = {
+          formatter = "path.filename_first",
+        },
+      },
+    },
+
+    {
       "stevearc/oil.nvim",
       opts = {
         view_options = {
