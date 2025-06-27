@@ -187,12 +187,6 @@ require("lazy").setup({
       cmd = "Copilot",
       build = ":Copilot auth",
       opts = {
-        suggestion = {
-          enabled = false,
-        },
-        panel = {
-          enabled = false,
-        },
         filetypes = {
           gitcommit = true,
           gitrebase = true,
