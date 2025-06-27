@@ -25,7 +25,12 @@
       "space m p": "markdown::OpenPreviewToTheSide",
       "space w q": "pane::CloseActiveItem",
       "space g g": "git_panel::ToggleFocus",
-      "ctrl-/": "terminal_panel::ToggleFocus"
+      "ctrl-/": "terminal_panel::ToggleFocus",
+      "space u z": "workspace::ToggleZoom",
+      "space u w": "editor::ToggleSoftWrap",
+      "space c a": "editor::ToggleCodeActions",
+      "space c o": "editor::OrganizeImports",
+      "space u t t": "theme_selector::Toggle"
     }
   },
   {

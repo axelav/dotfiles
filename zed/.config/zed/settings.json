@@ -10,9 +10,11 @@
 {
   // LLM
   "agent": {
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "claude-sonnet-4"
     },
     "dock": "left",
     "version": "2"
@@ -33,12 +35,12 @@
   "active_pane_modifiers": {
     "magnification": 1.0,
     "border_size": 2.0,
-    "inactive_opacity": 0.75
+    "inactive_opacity": 0.85
   },
   "buffer_font_size": 13,
   "buffer_line_height": "comfortable",
   "inlay_hints": {
-    "enabled": true
+    "enabled": false
   },
   "relative_line_numbers": true,
   "tab_size": 2,
@@ -68,8 +70,8 @@
     "metrics": false
   },
   "theme": {
-    "mode": "dark",
-    "light": "One Light",
+    "mode": "system",
+    "light": "One Dark",
     "dark": "One Dark"
   },
 
