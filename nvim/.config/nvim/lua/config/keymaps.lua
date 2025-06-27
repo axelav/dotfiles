@@ -97,3 +97,13 @@ end, {
 -- Open definition in a vertical split
 -- https://news.ycombinator.com/item?id=41739452
 vim.keymap.set("n", "gF", "<c-w>v<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "Open definition in vsplit" })
+
+-- Load note template
+vim.keymap.set("n", "<leader>tn", function()
+  local template_path = "templates/note.md"
+  if vim.fn.filereadable(template_path) == 1 then
+    vim.cmd("read " .. template_path)
+  else
+    vim.notify("Template file not found: " .. template_path, vim.log.levels.WARN)
+  end
+end, { desc = "Load note template" })
