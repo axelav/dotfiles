@@ -74,7 +74,6 @@ vim.keymap.set("n", "<leader>mod", function()
     local timestamp = tostring(os.date("### %H:%M"))
     -- Insert the timestamp and two newlines
     local row = unpack(vim.api.nvim_win_get_cursor(0))
-    vim.api.nvim_put({ timestamp, "", "" }, "l", true, true)
 
     vim.api.nvim_buf_set_lines(0, row, row, false, { timestamp, "", "" })
 
