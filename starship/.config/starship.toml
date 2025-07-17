@@ -23,7 +23,7 @@ disabled = false
 # represents the current operating system
 [os]
 format = "[$symbol](bold white) "
-disabled = true # Disabled by default
+disabled = true                   # Disabled by default
 
 [directory]
 style = "blue bold"
@@ -38,12 +38,12 @@ vimcmd_symbol = "[❮](green)"
 
 [git_branch]
 symbol = "🌱 "
-truncation_length = 4
+truncation_length = 30
 truncation_symbol = ""
 ignore_branches = ['master', 'main']
 
 [git_commit]
-commit_hash_length = 4
+commit_hash_length = 8
 tag_symbol = "🔖 "
 
 [git_state]
@@ -81,14 +81,15 @@ format = "via [🐋 $context](blue bold)"
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )(\[$duration\] )]($style)'
-symbol = "☁️  "
+disabled = true
 
 [gcloud]
 format = 'on [$symbol$account(@$domain)(\($region\))]($style) '
+disabled = true
 
 [time]
 disabled = false
-format = '🕙[\[ $time \]]($style) '
+format = '[\[ $time \]]($style) '
 time_format = "%T"
 utc_time_offset = "local"
 
