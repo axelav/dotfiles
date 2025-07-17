@@ -14,10 +14,9 @@
     "default_profile": "write",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4"
+      "model": "claude-opus-4"
     },
-    "dock": "left",
-    "version": "2"
+    "dock": "left"
   },
   "edit_predictions": {
     "mode": "eager",
@@ -33,14 +32,13 @@
 
   // Editor
   "active_pane_modifiers": {
-    "magnification": 1.0,
     "border_size": 2.0,
-    "inactive_opacity": 0.85
+    "inactive_opacity": 0.8
   },
-  "buffer_font_size": 13,
+  "buffer_font_size": 12,
   "buffer_line_height": "comfortable",
   "inlay_hints": {
-    "enabled": false
+    "enabled": true
   },
   "relative_line_numbers": true,
   "tab_size": 2,
@@ -77,7 +75,9 @@
 
   // Terminal
   "terminal": {
-    "default_height": 500,
+    "font_size": 12,
+    "font_family": "BlexMono Nerd Font Mono",
+    "default_height": 700,
     "blinking": "on",
     "cursor_shape": "hollow",
     // "option_as_meta": false,
