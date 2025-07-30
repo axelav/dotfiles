@@ -44,8 +44,8 @@
 
 [user]
   useconfigonly = true
-  signingkey = DC554221637310511B748922A1AE98787D25F143
   name = Axel Anderson
+  signingkey = DC554221637310511B748922A1AE98787D25F143
   email = axel@ftml.net
 
 [gpg]
@@ -71,3 +71,7 @@
   navigate = true
   line-numbers = true
   ; side-by-side = true
+
+# Conditional includes for work repositories
+[includeIf "gitdir:~/s/axionray/"]
+  path = ~/.gitconfig-axionray
