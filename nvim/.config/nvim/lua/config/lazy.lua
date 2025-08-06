@@ -174,6 +174,24 @@ require("lazy").setup({
     },
 
     {
+      "folke/snacks.nvim",
+      opts = {
+        zen = {
+          toggles = {
+            dim = false,
+            git_signs = true,
+            -- mini_diff_signs = false,
+            -- diagnostics = false,
+            -- inlay_hints = false,
+          },
+          show = {
+            statusline = false,
+          },
+        },
+      },
+    },
+
+    {
       "ibhagwan/fzf-lua",
       opts = {
         defaults = {
@@ -215,7 +233,7 @@ require("lazy").setup({
           gitcommit = true,
           gitrebase = true,
           help = true,
-          markdown = false,
+          markdown = true,
           yaml = true,
         },
       },
@@ -245,7 +263,7 @@ require("lazy").setup({
   checker = {
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
-  },                -- automatically check for plugin updates
+  }, -- automatically check for plugin updates
   ui = {
     border = "rounded",
   },
