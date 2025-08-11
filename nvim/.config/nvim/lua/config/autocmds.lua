@@ -8,3 +8,26 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
+
+local bufnr = 0
+
+local function check_codelens_support()
+  local clients = vim.lsp.get_clients({ bufnr = bufnr })
+  for _, c in ipairs(clients) do
+    if c.server_capabilities.codeLensProvider then
+      return true
+    end
+  end
+  return false
+end
+
+vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach", "BufEnter" }, {
+  buffer = bufnr,
+  callback = function()
+    if check_codelens_support() then
+      vim.lsp.codelens.refresh({ bufnr = bufnr })
+    end
+  end,
+})
+-- trigger codelens refresh
+vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
