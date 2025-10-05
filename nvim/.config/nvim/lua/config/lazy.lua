@@ -82,7 +82,7 @@ require("lazy").setup({
 
     {
       {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         opts = {
           ensure_installed = {
             "eslint-lsp",
@@ -207,7 +207,7 @@ require("lazy").setup({
           show_hidden = true,
         },
       },
-      dependencies = { { "echasnovski/mini.icons", opts = {} } },
+      dependencies = { { "nvim-mini/mini.icons", opts = {} } },
       lazy = false,
     },
 
