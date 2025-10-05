@@ -35,7 +35,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "catppuccin-macchiato",
+        colorscheme = "catppuccin-frappe",
       },
     },
 
