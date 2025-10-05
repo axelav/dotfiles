@@ -76,3 +76,5 @@ alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE && killall F
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="http '$method'"
 done
+
+alias lfg="export IS_SANDBOX=1 && claude --dangerously-skip-permissions"
