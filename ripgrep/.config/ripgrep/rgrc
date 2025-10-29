@@ -1,0 +1,5 @@
+--smart-case
+--no-messages
+--hidden
+--ignore-vcs
+--glob=!.git

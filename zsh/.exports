@@ -53,3 +53,6 @@ export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 # required to set lazygit config
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# ripgrep
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/rgrc"
