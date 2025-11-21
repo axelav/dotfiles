@@ -207,6 +207,21 @@ require("lazy").setup({
           show_hidden = true,
         },
       },
+      config = function(_, opts)
+        require("oil").setup(opts)
+
+        local augroup = vim.api.nvim_create_augroup("OilOpenPreview", { clear = true })
+
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "OilEnter",
+          group = augroup,
+          callback = function()
+            vim.schedule(function()
+              require("oil").open_preview()
+            end)
+          end,
+        })
+      end,
       dependencies = { { "nvim-mini/mini.icons", opts = {} } },
       lazy = false,
     },
