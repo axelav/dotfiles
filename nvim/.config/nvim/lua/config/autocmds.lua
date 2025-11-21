@@ -31,3 +31,11 @@ vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAt
 })
 -- trigger codelens refresh
 vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
+
+-- Disable diagnostics in kaizen directory
+vim.api.nvim_create_autocmd({ "BufEnter", "LspAttach" }, {
+  pattern = vim.fn.expand("~") .. "/kaizen/*",
+  callback = function(ev)
+    vim.diagnostic.enable(false, { bufnr = ev.buf })
+  end,
+})
