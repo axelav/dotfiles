@@ -42,14 +42,57 @@ require("lazy").setup({
     -- Plugins
     {
       "hrsh7th/nvim-cmp",
-      opts = {
-        name = "nvim_lsp",
-        option = {
+      opts = function(_, opts)
+        local cmp = require("cmp")
+        local compare = require("cmp.config.compare")
+
+        -- Merge with existing opts
+        opts.name = "nvim_lsp"
+        opts.option = {
           markdown_oxide = {
             keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
           },
-        },
-      },
+        }
+
+        -- Custom sorting to prioritize indexed blocks
+        opts.sorting = {
+          priority_weight = 2,
+          comparators = {
+            -- Deprioritize Copilot
+            function(entry1, entry2)
+              local copilot1 = entry1.source.name == "copilot"
+              local copilot2 = entry2.source.name == "copilot"
+              if copilot1 and not copilot2 then
+                return false
+              elseif not copilot1 and copilot2 then
+                return true
+              end
+            end,
+            -- Prioritize Reference (indexed blocks) kind
+            function(entry1, entry2)
+              local kind1 = entry1:get_kind()
+              local kind2 = entry2:get_kind()
+              local reference_kind = cmp.lsp.CompletionItemKind.Reference
+              if kind1 == reference_kind and kind2 ~= reference_kind then
+                return true
+              elseif kind1 ~= reference_kind and kind2 == reference_kind then
+                return false
+              end
+            end,
+            compare.offset,
+            compare.exact,
+            compare.score,
+            compare.recently_used,
+            compare.locality,
+            compare.kind,
+            compare.sort_text,
+            compare.length,
+            compare.order,
+          },
+        }
+
+        return opts
+      end,
     },
 
     {
@@ -248,7 +291,7 @@ require("lazy").setup({
           gitcommit = true,
           gitrebase = true,
           help = true,
-          markdown = true,
+          markdown = false, -- Disabled for markdown to not interfere with markdown-oxide
           yaml = true,
         },
       },
