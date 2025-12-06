@@ -105,3 +105,19 @@ vim.keymap.set("n", "<leader>tn", function()
     vim.notify("Template file not found: " .. template_path, vim.log.levels.WARN)
   end
 end, { desc = "Load note template" })
+
+--
+-- window layout
+--
+-- Organize windows: left pane 2/3 width, right panes 1/3 width
+vim.keymap.set("n", "<leader>we", function()
+  -- Get total columns available
+  local total_cols = vim.o.columns
+  local main_width = math.floor(total_cols * 2 / 3)
+
+  -- Go to the first (leftmost) window
+  vim.cmd("wincmd h")
+
+  -- Set its width to 2/3
+  vim.cmd("vertical resize " .. main_width)
+end, { desc = "Organize windows (2/3 left, 1/3 right)" })
