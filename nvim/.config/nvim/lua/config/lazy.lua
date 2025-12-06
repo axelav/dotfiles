@@ -219,6 +219,17 @@ require("lazy").setup({
     {
       "folke/snacks.nvim",
       opts = {
+        terminal = {
+          win = {
+            height = 0.5, -- 50% of editor height for terminals
+          },
+        },
+        lazygit = {
+          win = {
+            height = 0.9, -- Restore lazygit to 90% height
+            width = 0.9,
+          },
+        },
         zen = {
           toggles = {
             dim = false,
