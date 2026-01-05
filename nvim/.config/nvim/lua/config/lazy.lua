@@ -234,6 +234,7 @@ require("lazy").setup({
           toggles = {
             dim = false,
             git_signs = true,
+            wrap = true,
             -- mini_diff_signs = false,
             -- diagnostics = false,
             -- inlay_hints = false,
