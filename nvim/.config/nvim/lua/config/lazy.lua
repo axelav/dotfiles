@@ -231,6 +231,9 @@ require("lazy").setup({
           },
         },
         zen = {
+          win = {
+            width = 150,
+          },
           toggles = {
             dim = false,
             git_signs = true,
