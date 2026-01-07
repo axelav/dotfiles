@@ -54,7 +54,6 @@ require("lazy").setup({
           },
         }
 
-        -- Custom sorting to prioritize indexed blocks
         opts.sorting = {
           priority_weight = 2,
           comparators = {
@@ -68,15 +67,25 @@ require("lazy").setup({
                 return true
               end
             end,
-            -- Prioritize Reference (indexed blocks) kind
+            -- Prioritize in order: event, file, keyword, reference
             function(entry1, entry2)
               local kind1 = entry1:get_kind()
               local kind2 = entry2:get_kind()
-              local reference_kind = cmp.lsp.CompletionItemKind.Reference
-              if kind1 == reference_kind and kind2 ~= reference_kind then
-                return true
-              elseif kind1 ~= reference_kind and kind2 == reference_kind then
-                return false
+              local kinds = cmp.lsp.CompletionItemKind
+
+              -- Define priority order (lower number = higher priority)
+              local priority_map = {
+                [kinds.Event] = 1, -- 23
+                [kinds.File] = 2, -- 17
+                [kinds.Keyword] = 3, -- 14
+                [kinds.Reference] = 4, -- 18
+              }
+
+              local priority1 = priority_map[kind1] or 99
+              local priority2 = priority_map[kind2] or 99
+
+              if priority1 ~= priority2 then
+                return priority1 < priority2
               end
             end,
             compare.offset,
