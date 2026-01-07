@@ -22,7 +22,7 @@ fi
 
 # utilities
 alias b="bat"
-alias c="code ."
+alias c="clear"
 alias du="du -h -d 1"
 alias fs="stat -c \"%s bytes\""
 alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
@@ -72,9 +72,12 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 alias show="defaults write com.apple.finder AppleShowAllFiles TRUE && killall Finder"
 alias hide="defaults write com.apple.finder AppleShowAllFiles FALSE && killall Finder"
 
-# one of @janmoesen's protip™s
+# httpie shortcuts
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="http '$method'"
 done
 
-alias lfg="export IS_SANDBOX=1 && claude --dangerously-skip-permissions"
+# simple python http server
+alias serve="python -m http.server 8000"
+
+alias lfg="IS_SANDBOX=1 claude --dangerously-skip-permissions"
