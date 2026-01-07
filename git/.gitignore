@@ -1,6 +1,3 @@
-# compiled python files
-*.pyc
-
 # folder view configuration files
 .DS_Store
 Desktop.ini
@@ -13,22 +10,15 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
-# keep .extra & .ssh/ file out of repo
-.extra
-.ssh/
+# environment variable files
 .env
 
-# vendor files
+# node modules
 node_modules/
-vendor/
-bower_components/
 
-# local vimrc overrides
-.local_vimrc
+# compiled python files
+*.pyc
 
-# vim sessions
-Session.vim
-
-Library
-tags
-tags.temp
+# claude-related files
+CLAUDE.md
+docs/plans
