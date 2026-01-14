@@ -80,5 +80,3 @@ done
 
 # simple python http server
 alias serve="python -m http.server 8000"
-
-alias lfg="IS_SANDBOX=1 claude --dangerously-skip-permissions"
