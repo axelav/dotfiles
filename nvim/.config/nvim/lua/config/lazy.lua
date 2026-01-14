@@ -264,6 +264,9 @@ require("lazy").setup({
         defaults = {
           formatter = "path.filename_first",
         },
+        lsp = {
+          async_or_timeout = 30000, -- 30 seconds timeout for LSP requests (default is 10000)
+        },
       },
     },
 
