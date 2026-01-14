@@ -14,6 +14,7 @@ if type lsd >/dev/null 2>&1; then
   alias ll='lsd -l --group-dirs first'
   alias la='lsd -la --group-dirs first'
   alias lt='lsd --tree'
+  alias ltd="lsd --tree --directory-only --ignore-glob '**/.git'"
 else
   alias l='ls -ah --group-directories-first'
   alias ll='ls -l --group-directories-first'
