@@ -7,7 +7,8 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
-vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
+-- Disable the default LazyVim autocmd that enables wrap and spell for markdown files
+-- vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
 
 local bufnr = 0
 
@@ -37,5 +38,13 @@ vim.api.nvim_create_autocmd({ "BufEnter", "LspAttach" }, {
   pattern = "*.md",
   callback = function(ev)
     vim.diagnostic.enable(false, { bufnr = ev.buf })
+  end,
+})
+
+-- Disable capital spell checking in markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  callback = function()
+    vim.opt_local.spellcapcheck = ""
   end,
 })
