@@ -348,6 +348,43 @@ require("lazy").setup({
       end,
     },
 
+    {
+      "echasnovski/mini.surround",
+      opts = {
+        custom_surroundings = {
+          -- Strikethrough markdown
+          s = {
+            input = { "~~().-()~~" },
+            output = { left = "~~", right = "~~" },
+          },
+          -- Bold markdown
+          b = {
+            input = { "%*%*().-()%*%*" },
+            output = { left = "**", right = "**" },
+          },
+          -- Italic markdown
+          i = {
+            input = { "%_().-()%_" },
+            output = { left = "_", right = "_" },
+          },
+          -- Inline code
+          c = {
+            input = { "`().-()'" },
+            output = { left = "`", right = "`" },
+          },
+
+          -- Markdown link
+          l = {
+            input = { "%[().-()%]%(.-%)%" },
+            output = {
+              left = "[",
+              right = "]()",
+            },
+          },
+        },
+      },
+    },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
