@@ -377,7 +377,7 @@ require("lazy").setup({
     },
 
     {
-      "echasnovski/mini.surround",
+      "nvim-mini/mini.surround",
       opts = {
         custom_surroundings = {
           -- Strikethrough markdown
