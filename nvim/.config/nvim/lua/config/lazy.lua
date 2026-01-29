@@ -111,6 +111,34 @@ require("lazy").setup({
     },
 
     {
+      "nvim-treesitter/nvim-treesitter",
+      opts = {
+        ensure_installed = {
+          "bash",
+          "css",
+          "html",
+          "javascript",
+          "json",
+          "lua",
+          "luadoc",
+          "luap",
+          "markdown",
+          "markdown_inline",
+          "python",
+          "query",
+          "regex",
+          "rust",
+          "toml",
+          "tsx",
+          "typescript",
+          "vim",
+          "vimdoc",
+          "yaml",
+        },
+      },
+    },
+
+    {
       "neovim/nvim-lspconfig",
       opts = {
         servers = {
