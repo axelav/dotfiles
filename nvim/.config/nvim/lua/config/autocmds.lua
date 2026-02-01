@@ -48,3 +48,26 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spellcapcheck = ""
   end,
 })
+
+-- Automatically wrap bare URLs in angle brackets in markdown files before saving
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.md",
+  callback = function()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+    local changed = false
+
+    for i, line in ipairs(lines) do
+      local new_line = line:gsub("([%s^])(https?://[%w%-_%.%?%/%+=&#%%]+)([%s$])", "%1<%2>%3")
+      if new_line ~= line then
+        lines[i] = new_line
+        changed = true
+      end
+    end
+
+    if changed then
+      vim.api.nvim_buf_set_lines(0, 0, -1, false, lines)
+      vim.api.nvim_win_set_cursor(0, cursor)
+    end
+  end,
+})
