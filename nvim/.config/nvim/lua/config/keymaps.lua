@@ -121,3 +121,45 @@ vim.keymap.set("n", "<leader>we", function()
   -- Set its width to 2/3
   vim.cmd("vertical resize " .. main_width)
 end, { desc = "Organize windows (2/3 left, 1/3 right)" })
+
+--
+-- Markdown tasks
+--
+-- Toggle checkbox: [ ] <-> [x]
+vim.keymap.set("n", "<leader>mtt", function()
+  local line = vim.api.nvim_get_current_line()
+  if line:match("%[x%]") then
+    line = line:gsub("%[x%]", "[ ]", 1)
+  elseif line:match("%[ %]") then
+    line = line:gsub("%[ %]", "[x]", 1)
+  end
+  vim.api.nvim_set_current_line(line)
+end, { desc = "Toggle checkbox" })
+
+-- Create task on current line (prepend - [ ])
+vim.keymap.set("n", "<leader>mtc", function()
+  local line = vim.api.nvim_get_current_line()
+  if not line:match("^%s*%- %[.%]") then
+    line = line:gsub("^(%s*)", "%1- [ ] ")
+    vim.api.nvim_set_current_line(line)
+  end
+end, { desc = "Create task" })
+
+-- New task line below
+vim.keymap.set("n", "<leader>mto", function()
+  local row = vim.api.nvim_win_get_cursor(0)[1]
+  local indent = vim.api.nvim_get_current_line():match("^%s*") or ""
+  vim.api.nvim_buf_set_lines(0, row, row, false, { indent .. "- [ ] " })
+  vim.api.nvim_win_set_cursor(0, { row + 1, #indent + 6 })
+  vim.cmd("startinsert!")
+end, { desc = "New task below" })
+
+-- Strikethrough task: - [x] text -> - ~~text~~
+vim.keymap.set("n", "<leader>mts", function()
+  local line = vim.api.nvim_get_current_line()
+  -- Match: optional whitespace, hyphen, space, checkbox, space, then text
+  local indent, text = line:match("^(%s*%- )%[.%] (.+)$")
+  if indent and text then
+    vim.api.nvim_set_current_line(indent .. "~~" .. text .. "~~")
+  end
+end, { desc = "Strikethrough task" })
