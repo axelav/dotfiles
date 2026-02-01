@@ -1,4 +1,12 @@
-# General purpose instructions
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Development Workflow
+
+### Git Worktrees
+
+Use `.worktrees/` directory for isolated feature development workspaces.
 
 ## Package Management
 
