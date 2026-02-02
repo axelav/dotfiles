@@ -10,10 +10,8 @@
 -- Disable the default LazyVim autocmd that enables wrap and spell for markdown files
 -- vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
 
-local bufnr = 0
-
-local function check_codelens_support()
-  local clients = vim.lsp.get_clients({ bufnr = bufnr })
+local function check_codelens_support(buf)
+  local clients = vim.lsp.get_clients({ bufnr = buf })
   for _, c in ipairs(clients) do
     if c.server_capabilities.codeLensProvider then
       return true
@@ -23,15 +21,13 @@ local function check_codelens_support()
 end
 
 vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach", "BufEnter" }, {
-  buffer = bufnr,
-  callback = function()
-    if check_codelens_support() then
-      vim.lsp.codelens.refresh({ bufnr = bufnr })
+  pattern = "*.md",
+  callback = function(ev)
+    if check_codelens_support(ev.buf) then
+      vim.lsp.codelens.refresh({ bufnr = ev.buf })
     end
   end,
 })
--- trigger codelens refresh
-vim.api.nvim_exec_autocmds("User", { pattern = "LspAttached" })
 
 -- Disable diagnostics for all markdown files
 vim.api.nvim_create_autocmd({ "BufEnter", "LspAttach" }, {
