@@ -140,7 +140,12 @@ end, { desc = "Toggle checkbox" })
 vim.keymap.set("n", "<leader>mtc", function()
   local line = vim.api.nvim_get_current_line()
   if not line:match("^%s*%- %[.%]") then
-    line = line:gsub("^(%s*)", "%1- [ ] ")
+    -- If line already starts with "- ", replace it with "- [ ] "
+    if line:match("^%s*%- ") then
+      line = line:gsub("^(%s*)%- ", "%1- [ ] ")
+    else
+      line = line:gsub("^(%s*)", "%1- [ ] ")
+    end
     vim.api.nvim_set_current_line(line)
   end
 end, { desc = "Create task" })
