@@ -284,7 +284,7 @@ require("lazy").setup({
             wrap = true,
             -- mini_diff_signs = false,
             -- diagnostics = false,
-            -- inlay_hints = false,
+            inlay_hints = true,
           },
           show = {
             statusline = false,
