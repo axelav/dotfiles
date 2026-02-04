@@ -15,10 +15,12 @@ Thumbs.db
 
 # node modules
 node_modules/
+.pnpm-store/
 
 # compiled python files
 *.pyc
 
 # claude-related files
 CLAUDE.md
+.claude
 docs/plans
