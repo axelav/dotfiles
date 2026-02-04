@@ -42,9 +42,10 @@ require("lazy").setup({
     -- Plugins
     {
       "hrsh7th/nvim-cmp",
-      dependencies = {
-        "f3fora/cmp-spell",
-      },
+      -- NOTE: this seems useful but ended up being annoying as it overrode other completions
+      -- dependencies = {
+      --   "f3fora/cmp-spell",
+      -- },
       opts = function(_, opts)
         local cmp = require("cmp")
         local compare = require("cmp.config.compare")
@@ -103,8 +104,8 @@ require("lazy").setup({
           },
         }
 
-        -- Add spell completion source
-        table.insert(opts.sources, { name = "spell", keyword_length = 3 })
+        -- Add spell completion source (disabled - was polluting suggestions)
+        -- table.insert(opts.sources, { name = "spell", keyword_length = 3 })
 
         return opts
       end,
