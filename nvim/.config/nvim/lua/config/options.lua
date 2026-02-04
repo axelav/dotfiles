@@ -2,6 +2,9 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- Override the root directory detection to use the current working directory
+vim.g.root_spec = { "cwd" }
+
 -- Set text width for formatting commands (gw, gq, etc.)
 vim.opt.textwidth = 120
 
