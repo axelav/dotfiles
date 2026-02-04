@@ -6,7 +6,7 @@
 vim.g.root_spec = { "cwd" }
 
 -- Set text width for formatting commands (gw, gq, etc.)
-vim.opt.textwidth = 120
+-- vim.opt.textwidth = 80
 
 -- Cursor settings to fix visibility issues
 vim.opt.guicursor =
