@@ -80,3 +80,6 @@ done
 
 # simple python http server
 alias serve="python -m http.server 8000"
+
+# claude code bypass permissions
+alias lfg="claude --dangerously-skip-permissions"
