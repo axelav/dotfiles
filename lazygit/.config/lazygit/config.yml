@@ -14,5 +14,29 @@ git:
 gui:
   skipStashWarning: true
   showCommandLog: false
+  theme:
+    activeBorderColor:
+      - "#a6d189" # green
+      - bold
+    inactiveBorderColor:
+      - "#a5adce" # subtext0
+    optionsTextColor:
+      - "#8caaee" # blue
+    selectedLineBgColor:
+      - "#414559" # surface0
+    cherryPickedCommitFgColor:
+      - "#8caaee" # blue
+    cherryPickedCommitBgColor:
+      - "#303446" # base
+    markedBaseCommitFgColor:
+      - "#a6d189" # green
+    markedBaseCommitBgColor:
+      - "#303446" # base
+    unstagedChangesColor:
+      - "#e78284" # red
+    defaultFgColor:
+      - "#c6d0f5" # text
+    searchingActiveBorderColor:
+      - "#e5c890" # yellow
 os:
   edit: "nvim --server $NVIM --remote-tab {{filename}}"
