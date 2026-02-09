@@ -13,5 +13,6 @@ git:
       pager: delta --paging=never --hyperlinks
 gui:
   skipStashWarning: true
+  showCommandLog: false
 os:
   edit: "nvim --server $NVIM --remote-tab {{filename}}"
