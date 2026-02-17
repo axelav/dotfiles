@@ -148,6 +148,8 @@ vim.keymap.set("n", "<leader>mtc", function()
     end
     vim.api.nvim_set_current_line(line)
   end
+  vim.api.nvim_win_set_cursor(0, { vim.api.nvim_win_get_cursor(0)[1], #line })
+  vim.cmd("startinsert!")
 end, { desc = "Create task" })
 
 -- New task line below
