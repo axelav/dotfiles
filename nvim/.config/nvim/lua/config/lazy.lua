@@ -299,6 +299,15 @@ require("lazy").setup({
         defaults = {
           formatter = "path.filename_first",
         },
+        actions = {
+          files = {
+            ["ctrl-y"] = function(selected)
+              local content = selected[1]:match(":%d+:%d+:(.+)$") or selected[1]
+              vim.fn.setreg("+", content)
+              vim.notify("Yanked: " .. content)
+            end,
+          },
+        },
         lsp = {
           async_or_timeout = 30000, -- 30 seconds timeout for LSP requests (default is 10000)
         },
