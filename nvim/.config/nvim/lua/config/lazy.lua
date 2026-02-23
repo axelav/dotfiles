@@ -298,9 +298,7 @@ require("lazy").setup({
       opts = {
         defaults = {
           formatter = "path.filename_first",
-        },
-        actions = {
-          files = {
+          actions = {
             ["ctrl-y"] = function(selected)
               local content = selected[1]:match(":%d+:%d+:(.+)$") or selected[1]
               vim.fn.setreg("+", content)
