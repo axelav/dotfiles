@@ -126,7 +126,7 @@ end, { desc = "Organize windows (2/3 left, 1/3 right)" })
 -- Markdown tasks
 --
 -- Toggle checkbox: [ ] <-> [x]
-vim.keymap.set("n", "<leader>mtt", function()
+vim.keymap.set("n", "<leader>mx", function()
   local line = vim.api.nvim_get_current_line()
   if line:match("%[x%]") then
     line = line:gsub("%[x%]", "[ ]", 1)
