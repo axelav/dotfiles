@@ -20,7 +20,12 @@ node_modules/
 # compiled python files
 *.pyc
 
-# claude-related files
+# agent files
 CLAUDE.md
+AGENT.md
 .claude
-docs/plans
+# docs/plans
+.cursor
+
+# git worktrees
+.worktrees
