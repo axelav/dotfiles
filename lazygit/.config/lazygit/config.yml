@@ -13,7 +13,7 @@ git:
       pager: delta --paging=never --hyperlinks
 gui:
   skipStashWarning: true
-  showCommandLog: false
+  # showCommandLog: false
   theme:
     activeBorderColor:
       - "#a6d189" # green
