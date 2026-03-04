@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Agent-specific instructions for Claude Code.
 
 ## Development Workflow
 
@@ -54,6 +54,16 @@ When using `/superpowers/writing-plans`, follow this process once the plan is wr
 5. When finishing, always use a fast-forward merge strategy so all commits land on `main` properly sequenced.
 6. After the merge, verify it was clean (lint, tests, etc.).
 7. Clean up the worktree.
+
+### Future Work
+
+When the user defers something during planning or implementation, always record it in a `## Future Work` section at the bottom of the plan document. Use a consistent format:
+
+- `- [ ] <description>` — one line per item, with enough context to act on it in a later session.
+- Group related items under a subheading if needed.
+- Never silently drop deferred items — if the user says "not now" or "later", write it down.
+
+This makes it easy to review all outstanding future work across plan documents in a later session.
 
 ## Package Management
 
