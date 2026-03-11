@@ -9,7 +9,7 @@
 # Color theme for the dashboardnerdfont: true.
 # Options: dark (default), light
 # theme: dark
-# nerdfont: true
+nerdfont: false
 
 #-------------------------------------------------------------------------------
 # Git
@@ -95,7 +95,7 @@ mode: session
 
 # Agent command for '<agent>' placeholder in pane commands.
 # Default: "claude"
-# agent: claude
+agent: lfg
 
 # LLM-based branch name generation (`workmux add -A`).
 # auto_name:
