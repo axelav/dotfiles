@@ -1,5 +1,6 @@
 [tools]
 deno = "latest"
 node = "24"
+"npm:@tobilu/qmd" = "latest"
 pnpm = "latest"
 python = "3.11"
