@@ -42,7 +42,7 @@ worktree_dir: .worktrees
 
 # Prefix for tmux window names.
 # Default: "wm-"
-# window_prefix: "wm-"
+window_prefix: "_wm-"
 
 #-------------------------------------------------------------------------------
 # Tmux
@@ -95,7 +95,7 @@ mode: session
 
 # Agent command for '<agent>' placeholder in pane commands.
 # Default: "claude"
-agent: lfg
+agent: claude
 
 # LLM-based branch name generation (`workmux add -A`).
 # auto_name:
