@@ -47,13 +47,22 @@ Keep messages concise and lowercase after the type prefix.
 
 When using `/superpowers/writing-plans`, follow this process once the plan is written and agreed upon:
 
-1. Commit the plan document on `main`.
-2. Create a new worktree for the feature.
+1. Create a new worktree for the feature.
+2. Commit the plan document on the worktree.
 3. Write the implementation plan (if required).
 4. Implement on the worktree until the user says everything is done.
 5. When finishing, always use a fast-forward merge strategy so all commits land on `main` properly sequenced.
 6. After the merge, verify it was clean (lint, tests, etc.).
 7. Clean up the worktree.
+
+### Pull Requests
+
+When finishing a branch, do NOT create the PR. Instead, push the branch and print:
+
+1. The GitHub PR creation URL
+2. A suggested PR title and brief description
+
+Let the user create the PR themselves.
 
 ### Future Work
 

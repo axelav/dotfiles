@@ -1,61 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "alwaysThinkingEnabled": true,
-  "enabledPlugins": {
-    "elements-of-style@superpowers-marketplace": false,
-    "playwright-skill@playwright-skill": true,
-    "pyright-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "superpowers@superpowers-marketplace": true
-  },
-  "feedbackSurveyState": {
-    "lastShownTime": 1753931485123
-  },
-  "hooks": {
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status waiting",
-            "type": "command"
-          }
-        ],
-        "matcher": "permission_prompt|elicitation_dialog"
-      }
-    ],
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status working",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status done",
-            "type": "command"
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "command": "workmux set-window-status working",
-            "type": "command"
-          }
-        ]
-      }
-    ]
-  },
   "includeCoAuthoredBy": false,
-  "model": "opus",
   "permissions": {
     "allow": [
       "Bash(npm *)",
@@ -67,21 +12,128 @@
       "Write",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:api.github.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(pnpm run backend:lint:*)",
+      "Bash(pnpm run:*)",
+      "Bash(find:*)",
+      "Bash(npm run lint)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(pnpm exec eslint:*)",
+      "Bash(pnpm exec tsc:*)",
+      "Bash(pnpm -w run backend:test)",
+      "Bash(node:*)",
+      "Bash(pnpm --filter @axionray/frontend run lint src/modules/Groups/ChartBuilder/chart/HeatMapChartRenderer.tsx)",
+      "Bash(pnpm --filter @axionray/frontend run lint src/utils/chart/HeatMapChartUtils.ts)",
+      "Bash(pnpm -w run frontend:test)",
+      "Bash(pnpm -w run frontend:test src/modules/Groups/ChartBuilder/side-panel/CategoryAxis.test.tsx)",
+      "Bash(pnpm --filter @axionray/frontend exec tsc --noEmit)",
+      "Bash(pnpm --filter @axionray/frontend run lint src/utils/filter/RefinementFilterUtils.ts src/modules/Groups/components/EventDistributionsGroup.tsx)",
+      "Bash(npx eslint:*)",
+      "Bash(npx vitest run:*)",
+      "Bash(pnpm --filter @axionray/shared exec tsc --noEmit)",
+      "Bash(pnpm --filter @axionray/backend exec tsc --noEmit)",
+      "Bash(pnpm --filter @axionray/backend list)",
+      "Bash(pnpm --filter @axionray/backend run lint)",
+      "Bash(pnpm --filter @axionray/frontend run lint src/modules/Explore/InvestigateLLMChat/InvestigateLLMChatSuggestedActions.tsx)",
+      "Bash(git log d2d0bfa8ec..HEAD --format=\"%H %s%n%b\")",
+      "Bash(pnpm --filter @axionray/backend run build)",
+      "Bash(git log:*)",
+      "mcp__plugin_atlassian_atlassian__getJiraIssue",
+      "Skill(superpowers:brainstorming)",
+      "mcp__github__pull_request_read",
+      "Skill(superpowers:systematic-debugging)",
+      "Skill(systematic-debugging)",
+      "WebFetch(domain:yet-another-react-lightbox.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:docs.nestjs.com)",
+      "WebFetch(domain:trilon.io)",
+      "Skill(superpowers:using-git-worktrees)",
+      "Skill(superpowers:writing-plans)",
+      "Skill(superpowers:subagent-driven-development)",
+      "WebFetch(domain:registry.npmjs.org)",
+      "Bash(npm view:*)",
+      "Bash(pnpm install)",
+      "Skill(superpowers:test-driven-development)",
+      "Bash(git -C /Users/axelav/s/axionray/axion-multisite commit -m \"$\\(cat <<''EOF''\nchore: upgrade cache-manager to v7 with keyv dependencies\nEOF\n\\)\")",
+      "WebFetch(domain:pypi.org)",
+      "Bash(gh pr:*)",
+      "WebFetch(domain:productionresultssa7.blob.core.windows.net)",
+      "mcp__atlassian__getJiraIssue",
+      "mcp__claude_ai_Atlassian__getJiraIssue",
+      "Bash(echo \"EXIT=$?\")"
     ],
-    "defaultMode": "default",
     "deny": [
       "Bash(rm -rf *)"
+    ],
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "permission_prompt|elicitation_dialog",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status waiting"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status working"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status done"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "workmux set-window-status working"
+          }
+        ]
+      }
     ]
   },
-  "sandbox": {
-    "autoAllowBashIfSandboxed": true,
-    "enabled": true
-  },
-  "skipDangerousModePermissionPrompt": true,
   "statusLine": {
+    "type": "command",
     "command": "npx -y ccstatusline@latest",
-    "padding": 0,
-    "type": "command"
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "elements-of-style@superpowers-marketplace": false,
+    "playwright-skill@playwright-skill": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "superpowers@superpowers-marketplace": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  },
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "editorMode": "vim",
+  "preferredNotifChannel": "notifications_disabled",
+  "skipAutoPermissionPrompt": true,
+  "voiceEnabled": true,
+  "feedbackSurveyState": {
+    "lastShownTime": 1753931485123
   }
 }
