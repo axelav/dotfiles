@@ -64,6 +64,10 @@ When finishing a branch, do NOT create the PR. Instead, push the branch and prin
 
 Let the user create the PR themselves.
 
+### GitHub Comments
+
+Never add comments directly to GitHub PRs or issues. Always present the proposed comment to the user and let them post it themselves.
+
 ### Future Work
 
 When the user defers something during planning or implementation, always record it in a `## Future Work` section at the bottom of the plan document. Use a consistent format:
