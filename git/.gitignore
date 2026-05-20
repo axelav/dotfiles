@@ -29,3 +29,6 @@ AGENT.md
 
 # git worktrees
 .worktrees
+
+# workmux
+.workmux.yaml
