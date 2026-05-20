@@ -118,6 +118,8 @@ require("lazy").setup({
         ensure_installed = {
           "bash",
           "css",
+          "gotmpl",
+          "helm",
           "html",
           "javascript",
           "json",
