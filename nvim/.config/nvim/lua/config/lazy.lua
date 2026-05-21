@@ -41,6 +41,7 @@ require("lazy").setup({
 
     -- Plugins
     {
+      -- TODO: should this be using blink.cmp instead?
       "hrsh7th/nvim-cmp",
       -- NOTE: this seems useful but ended up being annoying as it overrode other completions
       -- dependencies = {
@@ -94,11 +95,11 @@ require("lazy").setup({
             end,
             compare.offset,
             compare.exact,
+            compare.sort_text,
             compare.score,
             compare.recently_used,
             compare.locality,
             compare.kind,
-            compare.sort_text,
             compare.length,
             compare.order,
           },
