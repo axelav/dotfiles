@@ -135,5 +135,6 @@
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1753931485123
-  }
+  },
+  "theme": "dark-daltonized"
 }
