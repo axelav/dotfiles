@@ -380,6 +380,29 @@ require("lazy").setup({
       end,
     },
 
+    -- Strikethrough (s):
+    --   - Visual: Select text, then gsas
+    --   - Normal: gsaiws (word), gsas$ (to end of line)
+    --
+    --   Bold (b):
+    --   - Visual: Select text, then gsab
+    --   - Normal: gsaiwb (word), gsab$ (to end of line)
+    --
+    --   Italic (i):
+    --   - Visual: Select text, then gsai
+    --   - Normal: gsaiwi (word), gsai$ (to end of line)
+    --
+    --   Delete/Replace:
+    --   - Delete strikethrough: gsds
+    --   - Delete bold: gsdb
+    --   - Delete italic: gsdi
+    --   - Replace: gsrs<new>, gsrb<new>, gsri<new>
+    --
+    --   Quick reference:
+    --   - gsa{motion}{char} - add surrounding
+    --   - gsd{char} - delete surrounding
+    --   - gsr{old}{new} - replace surrounding
+
     {
       "nvim-mini/mini.surround",
       opts = {
