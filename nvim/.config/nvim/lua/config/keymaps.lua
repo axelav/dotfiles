@@ -25,45 +25,51 @@ vim.keymap.set("n", "<leader>o", "<cmd>Oil<cr>", {
 --
 -- markdown-oxide
 --
--- Helper function to check markdown-oxide LSP and execute command
+local function markdown_oxide_client()
+  return vim.lsp.get_clients({ name = "markdown_oxide" })[1]
+end
+
 local function with_markdown_oxide(cmd)
-  local clients = vim.lsp.get_clients()
-  local has_markdown_oxide = false
-
-  for _, client in ipairs(clients) do
-    if client.name == "markdown_oxide" then
-      has_markdown_oxide = true
-      break
-    end
-  end
-
-  if has_markdown_oxide then
-    if type(cmd) == "function" then
-      cmd()
-    else
-      vim.cmd(cmd)
-    end
-  else
+  if not markdown_oxide_client() then
     vim.notify("markdown-oxide LSP is not active", vim.log.levels.WARN)
+    return
+  end
+  if type(cmd) == "function" then
+    cmd()
+  else
+    vim.cmd(cmd)
   end
 end
 
+local function markdown_oxide_jump(target)
+  local client = markdown_oxide_client()
+  if not client then
+    vim.notify("markdown-oxide LSP is not active", vim.log.levels.WARN)
+    return
+  end
+  client:exec_cmd({
+    title = ("Markdown-Oxide-%s"):format(target),
+    command = "jump",
+    arguments = { target },
+  })
+end
+
 vim.keymap.set("n", "<leader>mot", function()
-  with_markdown_oxide("Today")
+  markdown_oxide_jump("today")
 end, {
   silent = true,
   desc = "Open today's note",
 })
 
 vim.keymap.set("n", "<leader>mon", function()
-  with_markdown_oxide("Tomorrow")
+  markdown_oxide_jump("tomorrow")
 end, {
   silent = true,
   desc = "Open tomorrow's note",
 })
 
 vim.keymap.set("n", "<leader>mop", function()
-  with_markdown_oxide("Yesterday")
+  markdown_oxide_jump("yesterday")
 end, {
   silent = true,
   desc = "Open yesterday's note",
