@@ -27,11 +27,11 @@ local function check_codelens_support(buf)
   return false
 end
 
-vim.api.nvim_create_autocmd({ "TextChanged", "InsertLeave", "CursorHold", "LspAttach", "BufEnter" }, {
+vim.api.nvim_create_autocmd("LspAttach", {
   pattern = "*.md",
   callback = function(ev)
     if check_codelens_support(ev.buf) then
-      vim.lsp.codelens.refresh({ bufnr = ev.buf })
+      vim.lsp.codelens.enable(true, { bufnr = ev.buf })
     end
   end,
 })
