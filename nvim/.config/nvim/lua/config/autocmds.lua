@@ -7,8 +7,15 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
--- Disable the default LazyVim autocmd that enables wrap and spell for markdown files
--- vim.api.nvim_create_augroup("lazyvim_wrap_spell", { clear = true })
+-- Disable spell and wrap by default for filetypes where LazyVim auto-enables them
+-- (toggle spell with <leader>us, wrap with <leader>uw)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "text", "plaintex", "typst", "gitcommit", "markdown" },
+  callback = function()
+    vim.opt_local.spell = false
+    vim.opt_local.wrap = false
+  end,
+})
 
 local function check_codelens_support(buf)
   local clients = vim.lsp.get_clients({ bufnr = buf })
