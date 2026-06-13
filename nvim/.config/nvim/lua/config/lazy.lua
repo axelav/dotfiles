@@ -166,6 +166,23 @@ require("lazy").setup({
     },
 
     {
+      "nvimdev/lspsaga.nvim",
+      event = "LspAttach",
+      dependencies = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-tree/nvim-web-devicons",
+      },
+      opts = {
+        -- LazyVim already provides these via noice/inc-rename
+        lightbulb = { enable = false },
+        symbol_in_winbar = { enable = false },
+      },
+      keys = {
+        { "<leader>k", "<cmd>Lspsaga peek_definition<cr>", desc = "Peek definition (Lspsaga)" },
+      },
+    },
+
+    {
       {
         "mason-org/mason.nvim",
         opts = {
