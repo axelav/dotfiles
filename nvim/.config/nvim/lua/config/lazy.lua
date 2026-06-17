@@ -278,6 +278,9 @@ require("lazy").setup({
     {
       "folke/snacks.nvim",
       opts = {
+        image = {
+          enabled = true,
+        },
         terminal = {
           win = {
             height = 0.5, -- 50% of editor height for terminals
