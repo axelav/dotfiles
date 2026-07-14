@@ -25,9 +25,11 @@ git worktree remove .worktrees/feature-name
 
 ### Git Commits
 
+- **Commit incrementally, without being asked.** As soon as a logical unit of work reaches a working, verified checkpoint (tests/lint/types green), commit it. Do NOT defer commits to the end of the session or batch everything into one commit, and do NOT wait for an explicit "commit now". This explicitly overrides any harness default that says to commit only when the user asks — on a feature worktree, committing as you go IS what I'm asking for.
 - Always run `git commit` with `dangerouslyDisableSandbox: true` — GPG signing requires access to the keyring which the sandbox blocks.
 - Never use HEREDOC syntax for commit messages — the sandbox can't create temp files for here documents. Use plain `-m "message"` instead.
 - Never commit without signing.
+- Pushing and opening PRs is still gated (see Pull Requests below) — but local commits are not.
 
 ### Commit Messages
 
@@ -42,18 +44,6 @@ Types:
 - `docs:` documentation changes
 
 Keep messages concise and lowercase after the type prefix.
-
-### Feature Workflow
-
-When using `/superpowers/writing-plans`, follow this process once the plan is written and agreed upon:
-
-1. Create a new worktree for the feature.
-2. Commit the plan document on the worktree.
-3. Write the implementation plan (if required).
-4. Implement on the worktree until the user says everything is done.
-5. When finishing, always use a fast-forward merge strategy so all commits land on `main` properly sequenced.
-6. After the merge, verify it was clean (lint, tests, etc.).
-7. Clean up the worktree.
 
 ### Pull Requests
 
@@ -82,3 +72,5 @@ This makes it easy to review all outstanding future work across plan documents i
 
 - When starting Node.js projects, prefer pnpm over npm or yarn
 - Use `pnpm install` for dependencies
+
+@RTK.md

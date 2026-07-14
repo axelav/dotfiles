@@ -1,6 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "includeCoAuthoredBy": false,
+  "feedbackSurveyRate": 0,
   "permissions": {
     "allow": [
       "Bash(npm *)",
@@ -55,7 +56,6 @@
       "Bash(npm view:*)",
       "Bash(pnpm install)",
       "Skill(superpowers:test-driven-development)",
-      "Bash(git -C /Users/axelav/s/axionray/axion-multisite commit -m \"$\\(cat <<''EOF''\nchore: upgrade cache-manager to v7 with keyv dependencies\nEOF\n\\)\")",
       "WebFetch(domain:pypi.org)",
       "Bash(gh pr:*)",
       "WebFetch(domain:productionresultssa7.blob.core.windows.net)",
@@ -63,9 +63,7 @@
       "mcp__claude_ai_Atlassian__getJiraIssue",
       "Bash(echo \"EXIT=$?\")"
     ],
-    "deny": [
-      "Bash(rm -rf *)"
-    ],
+    "deny": ["Bash(rm -rf *)"],
     "defaultMode": "auto"
   },
   "hooks": {
@@ -129,12 +127,12 @@
   },
   "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "theme": "dark-daltonized",
   "editorMode": "vim",
   "preferredNotifChannel": "notifications_disabled",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1753931485123
-  },
-  "theme": "dark-daltonized"
+  }
 }
