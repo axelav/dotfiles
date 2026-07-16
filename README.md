@@ -15,6 +15,11 @@ Use `stow` to install symlinks to your dotfiles:
 
 `stow git gpg <...> --verbose`
 
+Codex config should be stowed without directory folding so `~/.codex` stays a
+real local state directory and only `~/.codex/config.toml` is linked:
+
+`stow --no-folding codex --verbose`
+
 [source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
 
 ## `env` vars, credentials, etc

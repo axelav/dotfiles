@@ -1,0 +1,65 @@
+approvals_reviewer = "guardian_subagent"
+model = "gpt-5.5"
+model_reasoning_effort = "medium"
+service_tier = "fast"
+
+[features]
+terminal_resize_reflow = true
+memories = true
+hooks = true
+tool_suggest = false
+
+[projects."/Users/axelav/s/axionray/axion-multisite"]
+trust_level = "trusted"
+
+[projects."/Users/axelav/s"]
+trust_level = "trusted"
+
+[projects."/Users/axelav/s/axionray/axion-infra"]
+trust_level = "trusted"
+
+[projects."/Users/axelav/dotfiles"]
+trust_level = "trusted"
+
+[hooks.state]
+
+[hooks.state."/Users/axelav/.codex/hooks.json:post_tool_use:0:0"]
+trusted_hash = "sha256:5986c7e013f70b9f369ca6e559bee8cb423a5ce91cb2ab0131da53262b18cf88"
+
+[hooks.state."/Users/axelav/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:7ed0c588635367dfa9e7af5d6ea98136e0b7d0a917f9118382371c156083a992"
+
+[hooks.state."/Users/axelav/.codex/hooks.json:stop:0:0"]
+trusted_hash = "sha256:29a9cb962d4f0e1def58ecb64a3b7d277a5451ca57e9f3bd7c51baf7febe68f6"
+
+[hooks.state."/Users/axelav/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:68bae0c904f5fb8a50302647c5d96057363dd062dd734a95469f2fdeafe60a75"
+
+[hooks.state."/Users/axelav/.codex/hooks.json:user_prompt_submit:1:0"]
+trusted_hash = "sha256:c99ea859c36627ab0c79b3ad1c55e0efe5d96134d68721e43697145ab8ed6d58"
+
+[hooks.state."/Users/axelav/.codex/hooks.json:stop:1:0"]
+trusted_hash = "sha256:ff7debca235a3c1f664078daa00880e7306c7fd9cf82309a97741e4f1e62e21b"
+
+[tui]
+vim_mode_default = true
+show_tooltips = false
+session_picker_view = "dense"
+status_line = ["model-with-reasoning", "project-name", "git-branch", "pull-request-number", "context-remaining"]
+status_line_use_colors = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+
+[plugins."superpowers@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."atlassian-rovo@openai-curated"]
+enabled = true
+
+[mcp_servers.atlassian]
+url = "https://mcp.atlassian.com/v1/mcp/authv2"
