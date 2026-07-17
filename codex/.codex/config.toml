@@ -1,4 +1,5 @@
-approvals_reviewer = "guardian_subagent"
+approval_policy = "never"
+approvals_reviewer = "auto_review"
 model = "gpt-5.5"
 model_reasoning_effort = "medium"
 service_tier = "fast"
