@@ -1,4 +1,3 @@
-approval_policy = "never"
 approvals_reviewer = "auto_review"
 model = "gpt-5.5"
 model_reasoning_effort = "medium"
@@ -46,7 +45,13 @@ trusted_hash = "sha256:ff7debca235a3c1f664078daa00880e7306c7fd9cf82309a97741e4f1
 vim_mode_default = true
 show_tooltips = false
 session_picker_view = "dense"
-status_line = ["model-with-reasoning", "project-name", "git-branch", "pull-request-number", "context-remaining"]
+status_line = [
+  "model-with-reasoning",
+  "project-name",
+  "git-branch",
+  "pull-request-number",
+  "context-remaining",
+]
 status_line_use_colors = true
 
 [tui.model_availability_nux]
