@@ -20,6 +20,12 @@ real local state directory and only `~/.codex/config.toml` is linked:
 
 `stow --no-folding codex --verbose`
 
+OMP uses the same layout so `~/.omp` remains a real local state directory.
+Only `~/.omp/agent/config.yml` is linked; MCP settings and generated runtime
+state remain local:
+
+`stow --no-folding omp --verbose`
+
 [source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
 
 ## `env` vars, credentials, etc

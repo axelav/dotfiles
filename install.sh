@@ -57,6 +57,9 @@ stow \
   zsh \
   --verbose
 
+# Keep OMP generated state local by stowing only its managed config without folding.
+stow --no-folding omp --verbose
+
 # Save screenshots to the ~/Screenshots directory
 defaults write com.apple.screencapture location -string "$HOME/Documents/Screenshots"
 
