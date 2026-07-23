@@ -29,9 +29,11 @@ nerdfont: false
 #-------------------------------------------------------------------------------
 
 # Directory where worktrees are created.
-# Can be relative to repo root or absolute.
+# Can be relative to repo root or absolute. Supports ~ and {project}.
 # Default: Sibling directory '<project>__worktrees'.
-worktree_dir: .worktrees
+# Out-of-tree + per-project namespacing keeps pnpm monorepos working
+# (no workspace-glob capture, no node_modules walk-up) and avoids clutter.
+worktree_dir: ~/.workmux/{project}
 
 # Strategy for deriving names from branch names.
 # Options: full (default), basename (part after last '/').
@@ -111,9 +113,10 @@ agent: claude
 # These block window creation - use for short tasks only.
 # Use "<global>" to inherit from global config.
 # Set to empty list to disable: `post_create: []`
-# post_create:
-#   - "<global>"
-#   - mise use
+# pnpm's global store hardlinks installs, so this is fast and gives each
+# worktree its own correct node_modules (don't symlink node_modules for pnpm).
+post_create:
+  - pnpm install
 
 # Commands to run before merging (e.g., linting, tests).
 # Aborts the merge if any command fails.
