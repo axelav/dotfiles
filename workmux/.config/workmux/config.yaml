@@ -113,10 +113,11 @@ agent: claude
 # These block window creation - use for short tasks only.
 # Use "<global>" to inherit from global config.
 # Set to empty list to disable: `post_create: []`
-# pnpm's global store hardlinks installs, so this is fast and gives each
-# worktree its own correct node_modules (don't symlink node_modules for pnpm).
+# Only install when a pnpm lockfile is present, so non-pnpm/non-Node repos
+# are a no-op. pnpm's global store hardlinks installs, so this is fast and
+# gives each worktree its own correct node_modules (don't symlink it).
 post_create:
-  - pnpm install
+  - if [ -f pnpm-lock.yaml ]; then pnpm install; fi
 
 # Commands to run before merging (e.g., linting, tests).
 # Aborts the merge if any command fails.
