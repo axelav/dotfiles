@@ -1,12 +1,13 @@
-providers: 
+providers:
   webSearch: codex
 symbolPreset: unicode
-theme: 
+theme:
   dark: titanium
   light: light
 setupVersion: 1
-modelRoles: 
+modelRoles:
   slow: openai-codex/gpt-5.5
-  default: openai-codex/gpt-5.6-sol:high
-tier: 
-  openai: priority
+  default: openai-codex/gpt-5.5:high
+# tier:
+#   openai: priority
+
