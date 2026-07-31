@@ -1,13 +1,76 @@
 providers:
-  webSearch: codex
-symbolPreset: unicode
+  webSearchOrder:
+    - codex
+    - perplexity
+    - gemini
+    - anthropic
+    - xai
+    - zai
+    - exa
+    - tinyfish
+    - jina
+    - kagi
+    - tavily
+    - firecrawl
+    - brave
+    - kimi
+    - parallel
+    - synthetic
+    - searxng
+    - startpage
+    - duckduckgo
+    - ecosia
+    - google
+    - mojeek
+    - public
+symbolPreset: nerd
 theme:
   dark: titanium
   light: light
 setupVersion: 1
+skills:
+  ignoredSkills:
+    - brainstorming
+    - codebase-design
+    - design-an-interface
+    - diagnosing-bugs
+    - dispatching-parallel-agents
+    - domain-modeling
+    - executing-plans
+    - find-skills
+    - finishing-a-development-branch
+    - git-guardrails-claude-code
+    - grilling
+    - interview
+    - migrate-to-shoehorn
+    - obsidian-vault
+    - prototype
+    - qa
+    - receiving-code-review
+    - request-refactor-plan
+    - requesting-code-review
+    - research
+    - resolving-merge-conflicts
+    - review
+    - scaffold-exercises
+    - setup-pre-commit
+    - subagent-driven-development
+    - systematic-debugging
+    - tdd
+    - test-driven-development
+    - testing
+    - testing-helix
+    - testing-neovim
+    - testing-zed
+    - using-git-worktrees
+    - using-superpowers
+    - verification-before-completion
+    - writing-clearly-and-concisely
+    - writing-plans
+    - writing-skills
 modelRoles:
-  slow: openai-codex/gpt-5.5
-  default: openai-codex/gpt-5.5:high
-# tier:
-#   openai: priority
+  advisor: openai-codex/gpt-5.6-luna
+  default: openai-codex/gpt-5.6-terra
+dev:
+  autoqaConsent: denied
 
