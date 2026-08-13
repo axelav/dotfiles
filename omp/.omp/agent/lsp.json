@@ -1,7 +1,7 @@
 {
   "servers": {
-    "typescript-language-server": {
-      "command": "typescript-language-server",
+    "vtsls": {
+      "command": "vtsls",
       "args": ["--stdio"],
       "fileTypes": [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"],
       "rootMarkers": ["package.json", "tsconfig.json", "jsconfig.json"]
