@@ -1,3 +1,18 @@
+defaultThinkingLevel: medium
+modelRoles:
+  default: openai-codex/gpt-5.6-terra:medium
+  slow: openai-codex/gpt-5.6-sol:xhigh
+  smol: openai-codex/gpt-5.6-luna:low
+  tiny: openai-codex/gpt-5.4-mini:minimal
+  advisor: openai-codex/gpt-5.6-luna:medium
+dev:
+  autoqa: false
+  autoqaConsent: denied
+symbolPreset: nerd
+theme:
+  dark: dark-catppuccin
+  light: light
+setupVersion: 1
 providers:
   webSearchOrder:
     - codex
@@ -23,11 +38,6 @@ providers:
     - google
     - mojeek
     - public
-symbolPreset: nerd
-theme:
-  dark: titanium
-  light: light
-setupVersion: 1
 skills:
   ignoredSkills:
     - brainstorming
@@ -68,9 +78,10 @@ skills:
     - writing-clearly-and-concisely
     - writing-plans
     - writing-skills
-modelRoles:
-  advisor: openai-codex/gpt-5.6-luna
-  default: openai-codex/gpt-5.6-terra
-dev:
-  autoqaConsent: denied
+statusLine:
+  preset: full
+memory:
+  backend: local
+autolearn:
+  enabled: false
 
