@@ -14,70 +14,7 @@ theme:
   light: light
 setupVersion: 1
 providers:
-  webSearchOrder:
-    - codex
-    - perplexity
-    - gemini
-    - anthropic
-    - xai
-    - zai
-    - exa
-    - tinyfish
-    - jina
-    - kagi
-    - tavily
-    - firecrawl
-    - brave
-    - kimi
-    - parallel
-    - synthetic
-    - searxng
-    - startpage
-    - duckduckgo
-    - ecosia
-    - google
-    - mojeek
-    - public
-skills:
-  ignoredSkills:
-    - brainstorming
-    - codebase-design
-    - design-an-interface
-    - diagnosing-bugs
-    - dispatching-parallel-agents
-    - domain-modeling
-    - executing-plans
-    - find-skills
-    - finishing-a-development-branch
-    - git-guardrails-claude-code
-    - grilling
-    - interview
-    - migrate-to-shoehorn
-    - obsidian-vault
-    - prototype
-    - qa
-    - receiving-code-review
-    - request-refactor-plan
-    - requesting-code-review
-    - research
-    - resolving-merge-conflicts
-    - review
-    - scaffold-exercises
-    - setup-pre-commit
-    - subagent-driven-development
-    - systematic-debugging
-    - tdd
-    - test-driven-development
-    - testing
-    - testing-helix
-    - testing-neovim
-    - testing-zed
-    - using-git-worktrees
-    - using-superpowers
-    - verification-before-completion
-    - writing-clearly-and-concisely
-    - writing-plans
-    - writing-skills
+  webSearch: codex
 statusLine:
   preset: full
 memory:
@@ -85,3 +22,6 @@ memory:
 autolearn:
   enabled: false
 
+tui:
+  tight: true
+  scrollbackRebuild: true
