@@ -85,6 +85,8 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+# Make Docker completions available to Oh My Zsh's single compinit call.
+fpath=(/Users/axelav/.docker/completions $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -97,8 +99,9 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20 # https://github.com/zsh-users/zsh-aut
 setopt nobanghist
 unsetopt correct_all
 
-# source fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf integrations reuse Oh My Zsh's completion setup.
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+source /opt/homebrew/opt/fzf/shell/completion.zsh
 
 for file in ~/.{exports,aliases,functions,extra}; do
   [ -r "$file" ] && source "$file"
