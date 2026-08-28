@@ -79,7 +79,6 @@ plugins=(
   colorize
   deno
   git
-  gpg-agent
   node
   pass
   zsh-autosuggestions
