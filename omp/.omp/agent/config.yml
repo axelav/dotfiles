@@ -1,7 +1,7 @@
 defaultThinkingLevel: medium
 modelRoles:
   default: openai-codex/gpt-5.6-terra:medium
-  slow: openai-codex/gpt-5.6-sol:xhigh
+  slow: openai-codex/gpt-5.6-sol:high
   smol: openai-codex/gpt-5.6-luna:low
   tiny: openai-codex/gpt-5.4-mini:minimal
   advisor: openai-codex/gpt-5.6-luna:medium
@@ -12,7 +12,7 @@ symbolPreset: nerd
 theme:
   dark: dark-catppuccin
   light: light
-setupVersion: 1
+setupVersion: 2
 providers:
   webSearch: codex
 statusLine:
@@ -21,7 +21,8 @@ memory:
   backend: local
 autolearn:
   enabled: false
-
 tui:
   tight: true
   scrollbackRebuild: true
+composer:
+  shape: box
