@@ -14,9 +14,36 @@ theme:
   light: light
 setupVersion: 2
 providers:
-  webSearch: codex
+  webSearchOrder:
+    - codex
+    - perplexity
+    - gemini
+    - anthropic
+    - xai
+    - zai
+    - exa
+    - tinyfish
+    - jina
+    - kagi
+    - tavily
+    - firecrawl
+    - brave
+    - kimi
+    - parallel
+    - synthetic
+    - searxng
+    - startpage
+    - duckduckgo
+    - ecosia
+    - google
+    - mojeek
+    - public
 statusLine:
   preset: full
+  contextLine: annotated
+  compactThinkingLevel: false
+  transparent: false
+  sessionAccent: true
 memory:
   backend: local
 autolearn:
@@ -26,3 +53,4 @@ tui:
   scrollbackRebuild: true
 composer:
   shape: box
+  shape: band
