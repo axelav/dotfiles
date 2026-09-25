@@ -21,8 +21,13 @@ export MANPATH
 # use vim as default editor
 export EDITOR="nvim"
 
-# GnuPG's pinentry needs the terminal for each interactive shell.
-export GPG_TTY="$(tty)"
+# Pinentry needs this shell's terminal; do not retain tmux's server value
+# when a shell has no controlling terminal.
+if [[ -n $TTY ]]; then
+  export GPG_TTY=$TTY
+else
+  unset GPG_TTY
+fi
 
 # don't clear the screen after quitting a manual page
 # export MANPAGER="less -X"
