@@ -1,10 +1,11 @@
 defaultThinkingLevel: medium
 modelRoles:
-  default: openai-codex/gpt-5.6-terra:medium
-  slow: openai-codex/gpt-5.6-sol:high
-  smol: openai-codex/gpt-5.6-luna:low
+  slow: openai-codex/gpt-6-sol:high
   tiny: openai-codex/gpt-5.4-mini:minimal
-  advisor: openai-codex/gpt-5.6-luna:medium
+  advisor: openai-codex/gpt-6-luna:medium
+  smol: openai-codex/gpt-6-luna:off
+  default: openai-codex/gpt-5.6-terra:medium
+  web: openai-codex/gpt-6-luna:medium
 dev:
   autoqa: false
   autoqaConsent: denied
@@ -13,31 +14,6 @@ theme:
   dark: dark-catppuccin
   light: light
 setupVersion: 2
-providers:
-  webSearchOrder:
-    - codex
-    - perplexity
-    - gemini
-    - anthropic
-    - xai
-    - zai
-    - exa
-    - tinyfish
-    - jina
-    - kagi
-    - tavily
-    - firecrawl
-    - brave
-    - kimi
-    - parallel
-    - synthetic
-    - searxng
-    - startpage
-    - duckduckgo
-    - ecosia
-    - google
-    - mojeek
-    - public
 statusLine:
   preset: full
   contextLine: annotated
@@ -52,5 +28,37 @@ tui:
   tight: true
   scrollbackRebuild: true
 composer:
-  shape: box
   shape: band
+retry:
+  fallbackChains:
+    web:
+      - web/perplexity
+      - google/gemini-2.5-flash
+      - anthropic/claude-haiku-4-5
+      - xai/grok-4.5
+      - web/zai
+      - web/exa
+      - web/tinyfish
+      - web/jina
+      - web/kagi
+      - web/tavily
+      - web/firecrawl
+      - web/brave
+      - web/kimi
+      - web/parallel
+      - web/synthetic
+      - web/searxng
+      - web/startpage
+      - web/duckduckgo
+      - web/ecosia
+      - web/google
+      - web/mojeek
+      - web/public
+      - google-antigravity/gemini-2.5-flash
+      - openai-codex/gpt-5.6
+      - openai-codex/gpt-5.5
+      - xai-oauth/grok-4.5
+      - web/ollama
+advisor:
+  enabled: true
+  maxNotesPerUpdate: 2
