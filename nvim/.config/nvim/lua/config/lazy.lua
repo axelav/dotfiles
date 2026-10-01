@@ -161,6 +161,9 @@ require("lazy").setup({
               },
             },
           },
+          tsc = {
+            mason = false,
+          },
         },
       },
     },
@@ -196,7 +199,6 @@ require("lazy").setup({
             "prettier",
             "shfmt",
             "stylua",
-            "vtsls",
           },
         },
       },
