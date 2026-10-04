@@ -1,11 +1,11 @@
 defaultThinkingLevel: medium
 modelRoles:
-  slow: openai-codex/gpt-6.1-sol:xhigh
+  slow: openai-codex/gpt-6-astra:xhigh
   tiny: openai-codex/gpt-5.4-mini:minimal
   advisor: openai-codex/gpt-6-luna:medium
   smol: openai-codex/gpt-6-luna:off
-  default: openai-codex/gpt-5.6-terra:medium
   web: openai-codex/gpt-6-luna:medium
+  default: openai-codex/gpt-6.1-sol:high
 dev:
   autoqa: false
   autoqaConsent: denied
