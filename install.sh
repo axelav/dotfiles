@@ -60,6 +60,9 @@ stow \
 # Keep OMP generated state local by stowing only its managed config without folding.
 stow --no-folding omp --verbose
 
+# Keep Herdr logs, sockets, and session state local.
+stow --no-folding herdr --verbose
+
 # Save screenshots to the ~/Screenshots directory
 defaults write com.apple.screencapture location -string "$HOME/Documents/Screenshots"
 

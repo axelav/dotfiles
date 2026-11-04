@@ -26,7 +26,62 @@ state remain local:
 
 `stow --no-folding omp --verbose`
 
+Herdr also needs no-folding so logs, sockets, and session state stay local.
+Its main config and the resurrect plugin's settings/allowlist are linked:
+
+`stow --no-folding herdr --verbose`
+
+Herdr uses `Ctrl+Space` as its prefix, matching the tmux configuration.
+
 [source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
+
+## Herdr recovery
+
+[herdr-resurrect](https://github.com/ntindle/herdr-resurrect) supplements Herdr's
+built-in layout and native agent conversation restore with command relaunch.
+Install it separately after stowing the Herdr package:
+
+```sh
+herdr plugin install ntindle/herdr-resurrect
+herdr config check
+herdr server reload-config
+```
+
+The plugin settings and allowlist live under
+`herdr/.config/herdr/plugins/config/ntindle.herdr-resurrect/`.
+OMP and Pi have explicit native-session resume command overrides.
+Automatic restore is disabled; inspect the restore preview before replaying work.
+The executable-name allowlist includes Neovim, pagers, monitors, and lazygit.
+General runtimes, task runners, and infrastructure commands are excluded because
+replaying them can repeat destructive work.
+
+| Keys (release the prefix first) | Action |
+| --- | --- |
+| `Ctrl+Space`, `Ctrl+S` | Save snapshot |
+| `Ctrl+Space`, `Ctrl+P` | Preview latest snapshot restore |
+| `Ctrl+Space`, `Ctrl+R` | Restore latest snapshot |
+
+Action output, including previews, is available through
+`herdr plugin log list --plugin ntindle.herdr-resurrect`.
+Event-driven snapshots are automatic. For 15-minute snapshots even when the
+layout does not change, open the plugin's timer pane and leave it running:
+
+```sh
+herdr plugin pane open --plugin ntindle.herdr-resurrect --entrypoint autosave --no-focus
+```
+
+Reopen the timer pane after a reboot; it is not on the command-relaunch allowlist.
+Do not override its working directory: the plugin uses relative script paths.
+Snapshots remain local under
+`~/.local/state/herdr/plugins/ntindle.herdr-resurrect/sessions/<session>/`.
+The latest 20 are retained. Autosave can replace the latest snapshot with
+post-restart state; use the plugin's versioned snapshots when recovering an older
+pre-shutdown session rather than blindly restoring the latest one.
+
+Neovim configuration is unchanged: resurrect restarts the captured `nvim`
+command, not its in-memory editor layout. LazyVim's existing persistence plugin
+saves editor sessions on normal exit; `<leader>qs` restores the current directory's
+saved session. There is no new periodic buffer writing or buffer autosave.
 
 ## Tmux recovery
 
@@ -62,12 +117,8 @@ in the current repository. `workmux resurrect` recreates those windows using
 was restored by Continuum. It is not an exact per-pane conversation restore.
 See [workmux recovery](https://github.com/raine/workmux#workmux-resurrect).
 
-[Herdr](https://herdr.dev/docs/session-state/) is a separate multiplexer whose
-current Claude and OMP integrations can capture native session references for
-conversation resumption. Its core restore recreates layouts, not arbitrary
-processes; generic command relaunch requires additional tooling such as
-[herdr-resurrect](https://github.com/ntindle/herdr-resurrect).
-Evaluate it separately rather than treating it as a tmux plugin upgrade.
+Herdr has its own [recovery setup](#herdr-recovery); it is a separate multiplexer,
+not a tmux plugin.
 
 ## `env` vars, credentials, etc
 

@@ -1,0 +1,13 @@
+{
+  "autoRestore": false,
+  "agentResume": true,
+  "agentResumeCommands": {
+    "omp": { "resume": "--resume={value}" },
+    "pi": { "resume": "--session {value}" }
+  },
+  "notify": {
+    "onSave": true,
+    "onAutoSave": false,
+    "onRestore": true
+  }
+}

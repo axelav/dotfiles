@@ -1,0 +1,10 @@
+# Matching is by executable name, not arguments. Never use a wildcard here.
+# Agents use native session references and do not belong in this list.
+# General runtimes/task runners can replay destructive work; keep them excluded.
+nvim
+less
+tail
+top
+htop
+btop
+lazygit
