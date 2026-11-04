@@ -39,7 +39,7 @@ command = "ntindle.herdr-resurrect.restore"
 description = "resurrect: restore snapshot"
 
 [[keys.command]]
-key = "prefix+alt+g"
+key = "prefix+ctrl+g"
 type = "popup"
 command = "lazygit"
 description = "open lazygit"
