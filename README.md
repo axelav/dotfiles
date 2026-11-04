@@ -32,6 +32,8 @@ Its main config and the resurrect plugin's settings/allowlist are linked:
 `stow --no-folding herdr --verbose`
 
 Herdr uses `Ctrl+Space` as its prefix, matching the tmux configuration.
+`Ctrl+Space`, then `;` or `L`, toggles to the last focused pane across workspaces
+and tabs. Both tmux back-navigation shortcuts share this global Herdr action.
 
 [source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
 
