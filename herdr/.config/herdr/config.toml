@@ -11,7 +11,7 @@ enabled = false
 
 [keys]
 prefix = "ctrl+space"
-last_pane = ["prefix+;", "prefix+shift+l"]
+last_pane = "prefix+;"
 
 [[keys.command]]
 key = "prefix+ctrl+s"
