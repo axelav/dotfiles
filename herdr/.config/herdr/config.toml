@@ -37,3 +37,11 @@ key = "prefix+ctrl+r"
 type = "plugin_action"
 command = "ntindle.herdr-resurrect.restore"
 description = "resurrect: restore snapshot"
+
+[[keys.command]]
+key = "prefix+alt+g"
+type = "popup"
+command = "lazygit"
+description = "open lazygit"
+width = "80%"
+height = "80%"
