@@ -3,6 +3,14 @@ onboarding = false
 [ui]
 status_indicators = "symbols"
 
+# Show each agent's task title alongside its location and lifecycle state.
+[ui.sidebar.agents]
+rows = [
+  ["state_icon", "machine", "workspace", "tab"],
+  ["agent", "state_text"],
+  ["terminal_title_stripped"],
+]
+
 [ui.toast]
 delivery = "herdr"
 
