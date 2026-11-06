@@ -34,3 +34,5 @@ advisor:
   maxNotesPerUpdate: 2
 codexResets:
   autoRedeem: "yes"
+update:
+  auto: true
