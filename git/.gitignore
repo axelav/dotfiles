@@ -32,3 +32,6 @@ AGENT.md
 
 # workmux
 .workmux.yaml
+
+# scratch dirs
+.scratch
