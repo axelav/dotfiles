@@ -237,8 +237,13 @@
     "autoAllowBashIfSandboxed": true,
     "enableWeakerNetworkIsolation": true
   },
+  "feedbackSurveyRate": 0,
   "alwaysThinkingEnabled": true,
   "tui": "fullscreen",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "skipDangerousModePermissionPrompt": true,
   "theme": "dark-daltonized",
   "editorMode": "vim",

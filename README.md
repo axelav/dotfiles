@@ -39,6 +39,10 @@ real local state directory and only `~/.codex/config.toml` is linked:
 
 `stow --no-folding codex --verbose`
 
+Claude's global instructions import `~/.codex/AGENTS.md` as the shared workflow
+policy source and retain a separate `@RTK.md` import in `~/.claude/CLAUDE.md`.
+Keep the shared file available when installing the Claude configuration.
+
 OMP uses the same layout so `~/.omp` remains a real local state directory.
 Only `~/.omp/agent/config.yml` is linked; MCP settings and generated runtime
 state remain local:
