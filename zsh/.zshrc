@@ -126,3 +126,5 @@ eval "$(starship init zsh)"
 
 # End zsh profiling
 # zprof
+
+eval "$(omp completions zsh)"
