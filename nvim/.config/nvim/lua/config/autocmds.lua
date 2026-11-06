@@ -17,6 +17,16 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Detect Helm chart templates and set filetype to helm
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*/templates/*.yaml",
+  callback = function()
+    if vim.fn.findfile("Chart.yaml", vim.fn.expand("%:p:h") .. ";") ~= "" then
+      vim.bo.filetype = "helm"
+    end
+  end,
+})
+
 local function check_codelens_support(buf)
   local clients = vim.lsp.get_clients({ bufnr = buf })
   for _, c in ipairs(clients) do
