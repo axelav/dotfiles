@@ -57,7 +57,7 @@ versioned config after reconciling any existing regular file. Generated runtime
 state remains local.
 
 Herdr also needs no-folding so logs, sockets, and session state stay local.
-Its main config and the resurrect plugin's settings/allowlist are linked:
+Its main config and plugin settings/allowlists are linked:
 
 `stow --no-folding herdr --verbose`
 
@@ -68,6 +68,37 @@ tabs. This is pane history, not a strict last-used-workspace or session toggle.
 to close it. `Ctrl+Space`, then `Ctrl+G`, opens lazygit in the same style.
 
 [source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
+
+## Herdr PR status
+
+[Spaces PR Status](https://github.com/jmarbutt/herdr-spaces-pr-status) adds PR
+state, CI counts, review status, and resolvable review-thread counts to space
+rows. Agent rows are unchanged. Requires Node.js 20+ and authenticated `gh`.
+Install the inspected revision separately after stowing:
+
+```sh
+herdr plugin install jmarbutt/herdr-spaces-pr-status --ref 23d26455f9d77863771fee75f287a75e52409e92
+herdr config check
+herdr server reload-config
+herdr plugin action invoke jmarbutt.spaces-pr-status.refresh
+```
+
+The refresh action is one-shot; the startup hook starts automatic polling on
+the next normal Herdr server start. Polling defaults to every 90 seconds.
+Default branches and spaces without PRs have no extra status rows.
+
+Settings live in
+`herdr/.config/herdr/plugins/config/jmarbutt.spaces-pr-status/config.json`.
+Notifications are disabled for a quiet sidebar. `openPrLimit` is 20 because
+the default 100-PR query returned GitHub HTTP 502 during setup; branches outside
+the batch still receive targeted lookups.
+
+The inspected code uses read-only GitHub queries and has no npm dependencies or
+build hooks. It is unsandboxed, not a security guarantee. Avoid the optional
+checks pane: PR titles/check names are not sanitized for terminal controls.
+Poller startup is not locked against concurrent launches, and non-GitHub origins
+can be queried against the wrong host. Reinspect before updating the pinned
+revision.
 
 ## Herdr recovery
 

@@ -5,6 +5,14 @@ status_indicators = "symbols"
 sidebar_max_width = 60
 prompt_new_tab_name = false
 
+[ui.sidebar.spaces]
+rows = [
+  ["state_icon", "workspace"],
+  ["branch", "git_status"],
+  ["$pr", "$pr_checks", "$pr_review"],
+  # [ "$pr_threads", ],
+]
+
 # Show each agent's task title alongside its location and lifecycle state.
 [ui.sidebar.agents]
 rows = [["state_icon", "workspace", "state_text"], ["terminal_title_stripped"]]
