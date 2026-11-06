@@ -39,6 +39,7 @@ alias rm="rm -v"
 alias s="cd ~/s"
 
 alias gan="git add -N"
+alias kb="kubectl"
 
 # tig
 alias t="tig"

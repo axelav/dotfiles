@@ -76,8 +76,6 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   colored-man-pages
-  colorize
-  deno
   git
   node
   pass
@@ -109,7 +107,8 @@ done
 unset file
 
 # mise
-eval "$(~/.local/bin/mise activate zsh)"
+eval "$(mise activate zsh)"
+eval "$(direnv hook zsh)"
 
 # deno
 export DENO_INSTALL="/Users/axelav/.deno"
