@@ -1,3 +1,3 @@
-@~/.codex/AGENTS.md
+@~/.omp/agent/AGENTS.md
 
 @RTK.md

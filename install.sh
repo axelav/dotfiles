@@ -60,8 +60,10 @@ stow \
 # Keep third-party skills local; link only the versioned personal skill files.
 stow --no-folding --target="$HOME" agent-skills --verbose
 
-# Keep OMP generated state local by stowing only its managed config without folding.
+# Keep OMP runtime state local while linking configs and shared policies.
 stow --no-folding omp --verbose
+# Install Codex's shared policy link without replacing its local configuration.
+stow --no-folding --ignore='(^|/)config\.toml$' codex --verbose
 
 # Keep Herdr logs, sockets, and session state local.
 stow --no-folding herdr --verbose

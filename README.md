@@ -34,20 +34,27 @@ at the destination must be reconciled before stowing.
 
 ### Agent and terminal configuration
 
-Codex config should be stowed without directory folding so `~/.codex` stays a
-real local state directory and only `~/.codex/config.toml` is linked:
+OMP and Codex should be stowed without directory folding so their state
+directories remain local:
 
-`stow --no-folding codex --verbose`
+```sh
+stow --no-folding omp --verbose
+stow --no-folding --ignore='(^|/)config\.toml$' codex --verbose
+```
 
-Claude's global instructions import `~/.codex/AGENTS.md` as the shared workflow
-policy source and retain a separate `@RTK.md` import in `~/.claude/CLAUDE.md`.
-Keep the shared file available when installing the Claude configuration.
+Shared global workflow policies live in `omp/.omp/agent/AGENTS.md`, installed as
+`~/.omp/agent/AGENTS.md`. Codex's package contains a relative symlink to that
+same file, installed as `~/.codex/AGENTS.md`. Migrate any existing regular
+`~/.codex/AGENTS.md` before stowing; Stow will not overwrite it.
 
-OMP uses the same layout so `~/.omp` remains a real local state directory.
-Only `~/.omp/agent/config.yml` is linked; MCP settings and generated runtime
-state remain local:
+Claude's `~/.claude/CLAUDE.md` imports `~/.omp/agent/AGENTS.md` and keeps a
+separate `@RTK.md` import. RTK instructions belong only in Claude, not in the
+shared policies.
 
-`stow --no-folding omp --verbose`
+OMP configuration files are also linked. The Codex install skips `config.toml`
+to preserve existing local configuration; omit the ignore flag to install the
+versioned config after reconciling any existing regular file. Generated runtime
+state remains local.
 
 Herdr also needs no-folding so logs, sockets, and session state stay local.
 Its main config and the resurrect plugin's settings/allowlist are linked:
