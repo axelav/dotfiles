@@ -22,12 +22,13 @@ semantic_tokens = true
 # Resolve tags in code blocks
 tags_in_codeblocks = true
 # Resolve references in code blocks
-references_in_codeblocks = true
+references_in_codeblocks = false
 
 # The folder for new files to be created in; this is relevant for the code action that creates
 # from an unresolved link. If not specified, it will import from your obsidian config option titled
 # "Default Location for new notes" -- which is "" by default too. 
-new_file_folder_path = ""
+# Keep this relative to the vault root: "pages", not "/pages".
+new_file_folder_path = "pages"
 
 
 # The folder for new daily notes: this is applied for the create file for unresolved link code action
