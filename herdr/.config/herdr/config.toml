@@ -3,6 +3,7 @@ onboarding = false
 [ui]
 status_indicators = "symbols"
 sidebar_max_width = 60
+prompt_new_tab_name = false
 
 # Show each agent's task title alongside its location and lifecycle state.
 [ui.sidebar.agents]
