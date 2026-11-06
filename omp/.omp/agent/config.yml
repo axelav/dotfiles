@@ -13,7 +13,7 @@ symbolPreset: nerd
 theme:
   dark: dark-catppuccin
   light: light
-setupVersion: 2
+setupVersion: 3
 statusLine:
   preset: full
   contextLine: annotated
