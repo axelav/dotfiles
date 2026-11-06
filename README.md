@@ -34,6 +34,8 @@ Its main config and the resurrect plugin's settings/allowlist are linked:
 Herdr uses `Ctrl+Space` as its prefix, matching the tmux configuration.
 `Ctrl+Space`, then `;`, toggles to the last focused pane across workspaces and
 tabs. This is pane history, not a strict last-used-workspace or session toggle.
+`Ctrl+Space`, then `Ctrl+A`, opens Aven's task UI in a 95% popup; exit Aven
+to close it. `Ctrl+Space`, then `Ctrl+G`, opens lazygit in the same style.
 
 [source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
 
