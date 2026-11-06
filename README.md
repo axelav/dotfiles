@@ -15,6 +15,25 @@ Use `stow` to install symlinks to your dotfiles:
 
 `stow git gpg <...> --verbose`
 
+### Personal agent skills
+
+`agent-skills` tracks only `personal-software-workflow`, including its agent
+metadata. Third-party and agent-managed skills remain externally installed.
+Install the package from this checkout with an explicit home target:
+
+```sh
+stow --no-folding --target="$HOME" agent-skills --verbose
+```
+
+OMP discovers the skill through `~/.agents/skills/`. No additional agent-specific
+links are installed. No-folding keeps the destination directories real so
+third-party skills can coexist. Edit and add files under
+`agent-skills/.agents/skills/` in this repository; new files created directly in
+the installed directories are not automatically tracked. Existing regular files
+at the destination must be reconciled before stowing.
+
+### Agent and terminal configuration
+
 Codex config should be stowed without directory folding so `~/.codex` stays a
 real local state directory and only `~/.codex/config.toml` is linked:
 

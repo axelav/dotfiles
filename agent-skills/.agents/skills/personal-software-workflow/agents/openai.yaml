@@ -1,0 +1,3 @@
+interface:
+  display_name: "Personal software workflow"
+  short_description: "Project-aware Aven tickets and implementation handoffs"
