@@ -16,6 +16,17 @@ One entry point for project-aware ticket planning, implementation tracking, and 
 
 The configured tracker owns implementation status and handoffs. Specifications and PRs stay where repository guidance places them. Keep one implementation backlog; link to existing specifications and PRs instead of duplicating mutable tickets. Apply the remaining Aven-specific steps only within the configured Aven scope. For another tracker, follow its repository workflow without switching it.
 
+## Repository labels in Aven
+
+The shared `software` project contains work from multiple repositories. Every repository-scoped task and epic must carry a `repo-<repository-name>` label, such as `repo-kaizen-web`, `repo-honkytonk-infra`, `repo-interne`, or `repo-dotfiles`.
+
+- Establish the repository from explicit task context, specification links, or verified checkout/remote identity. Do not infer it from the shared project, a product mention, or the current directory alone.
+- Reuse the existing repository label. If absent, create it explicitly with `aven label create --workspace <workspace> repo-<repository-name>` before passing `--label` to `aven add` or `aven edit`.
+- Label each task for the repositories its own scope affects. Cross-repository tasks and epics receive every applicable repository label; a child does not automatically inherit all of its epic's labels.
+- Preserve triage and other existing labels. Repository labels supplement them; they do not change project routing, lifecycle status, ownership, or dependencies.
+- On creation, include the repository labels and self-contained affected-repository context. When selecting or resuming work, filter by the repository label and verify the full task scope.
+- When asked to backfill existing tasks, include clearly scoped tasks and epics regardless of status; leave ambiguous or non-repository work unchanged. Preview broad mutations, target only verified tasks, and read back the labels afterward.
+
 ## Plan tickets
 
 1. Read the full specification and relevant existing tasks, relationships, and handoffs. Check the intended project for duplicates. For a shared project spanning repositories, inspect affected-repository context rather than treating every ready task as this repo's work.
