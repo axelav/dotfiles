@@ -10,6 +10,9 @@ random_seed
 
 zsh/.extra
 
+# OMP runtime state
+/omp/.omp/agent/config.yml.lock
+
 # From nvim
 tt.*
 .tests
