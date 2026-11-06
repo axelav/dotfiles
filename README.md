@@ -148,6 +148,14 @@ command, not its in-memory editor layout. LazyVim's existing persistence plugin
 saves editor sessions on normal exit; `<leader>qs` restores the current directory's
 saved session. There is no new periodic buffer writing or buffer autosave.
 
+
+## Tmux window labels
+
+The status bar abbreviates workmux ticket names such as
+`_wm-agc-490-workflows-in-issues-chat` to `_wm-agc-490` and limits displayed
+names to 20 characters. Actual window names remain unchanged for workmux;
+`Ctrl-Space w` lists full names. Both active and inactive labels use this format.
+
 ## Tmux recovery
 
 `tmux/.tmux.conf` uses
