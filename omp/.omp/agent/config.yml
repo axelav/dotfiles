@@ -32,3 +32,5 @@ composer:
 advisor:
   enabled: true
   maxNotesPerUpdate: 2
+codexResets:
+  autoRedeem: "yes"
