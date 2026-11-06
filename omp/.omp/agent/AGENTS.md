@@ -4,10 +4,6 @@ Shared workflow instructions for OMP, Codex, and Claude Code.
 
 ## Development Workflow
 
-### Skills
-
-Always use the `/superpowers` skills available to you when working on features.
-
 ### Git Worktrees
 
 Use `.worktrees/` directory for isolated feature development workspaces. Always use worktrees for changes unless it's a single-line or very simple change.
