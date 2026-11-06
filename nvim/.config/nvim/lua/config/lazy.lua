@@ -62,16 +62,6 @@ require("lazy").setup({
         opts.sorting = {
           priority_weight = 2,
           comparators = {
-            -- Deprioritize Copilot
-            function(entry1, entry2)
-              local copilot1 = entry1.source.name == "copilot"
-              local copilot2 = entry2.source.name == "copilot"
-              if copilot1 and not copilot2 then
-                return false
-              elseif not copilot1 and copilot2 then
-                return true
-              end
-            end,
             -- Prioritize in order: event, file, keyword, reference
             function(entry1, entry2)
               local kind1 = entry1:get_kind()
@@ -108,6 +98,23 @@ require("lazy").setup({
         -- Add spell completion source (disabled - was polluting suggestions)
         -- table.insert(opts.sources, { name = "spell", keyword_length = 3 })
 
+        return opts
+      end,
+    },
+
+    {
+      -- friendly-snippets ships GFM alert snippets (Note/Tip/Important/Warning/Caution)
+      -- under single-letter prefixes like "n"/"t"/"w"/"c", which fire constantly while typing.
+      "hrsh7th/nvim-cmp",
+      opts = function(_, opts)
+        for _, source in ipairs(opts.sources) do
+          if source.name == "snippets" then
+            source.entry_filter = function(entry)
+              local body = vim.tbl_get(entry.completion_item, "data", "body")
+              return not (body and body:match("^> %[!%u+%]"))
+            end
+          end
+        end
         return opts
       end,
     },
@@ -216,20 +223,6 @@ require("lazy").setup({
             filter = {
               event = "notify",
               find = "Conversion failed at step `identify`",
-            },
-            opts = { skip = true },
-          },
-          {
-            filter = {
-              event = "notify",
-              find = "copilot.*workspace/executeCommand.*Unknown command",
-            },
-            opts = { skip = true },
-          },
-          {
-            filter = {
-              event = "notify",
-              find = "copilot.*-32603.*Request workspace/executeCommand failed",
             },
             opts = { skip = true },
           },
@@ -366,22 +359,6 @@ require("lazy").setup({
           virt_text = true,
           virt_text_pos = "eol",
           delay = 500,
-        },
-      },
-    },
-
-    {
-      "zbirenbaum/copilot.lua",
-      enabled = true,
-      cmd = "Copilot",
-      build = ":Copilot auth",
-      opts = {
-        filetypes = {
-          gitcommit = true,
-          gitrebase = true,
-          help = true,
-          markdown = false, -- Disabled for markdown to not interfere with markdown-oxide
-          yaml = true,
         },
       },
     },
