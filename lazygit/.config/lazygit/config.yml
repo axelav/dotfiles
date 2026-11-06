@@ -8,9 +8,9 @@ customCommands:
     command: 'git rev-list --max-count=1 --format="%s" HEAD | grep -q "\--wip--" && git reset HEAD~1'
     description: "Undo WIP commit"
 git:
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --paging=never --hyperlinks
+      command: delta --paging=never --hyperlinks
 gui:
   skipStashWarning: true
   # showCommandLog: false
