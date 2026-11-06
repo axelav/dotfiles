@@ -35,7 +35,6 @@ alias mv="mv -iv"
 alias o="open"
 alias oo="open ."
 alias ps="ps -ax"
-alias rm="rm -v"
 alias s="cd ~/s"
 
 alias gan="git add -N"
