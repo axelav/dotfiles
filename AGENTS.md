@@ -90,7 +90,7 @@ brew bundle install --file ./Brewfile
 - Use conventional commits: `type(scope): description`, with a concise lowercase description. Valid types: `feat`, `fix`, `chore`, `test`, and `docs`.
 
 ### Pull Requests
-- Once a branch is ready, push it and create the pull request.
+- Once implementation, verification, and code review are complete, push the branch and create a draft PR. Share its URL. Only create a ready-for-review PR or mark a draft ready for review when explicitly requested by the user.
 - Do not post comments directly to GitHub issues or pull requests; present proposed comments for the user to post.
 
 ### Deferred Work

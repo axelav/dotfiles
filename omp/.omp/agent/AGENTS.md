@@ -42,12 +42,9 @@ Keep messages concise and lowercase after the type prefix.
 
 ### Pull Requests
 
-When finishing a branch, do NOT create the PR. Instead, push the branch and print:
+When wrapping up a branch, after implementation, verification, and code review are complete, push the branch and create a draft PR. Include a concise title and description, and share the PR URL.
 
-1. The GitHub PR creation URL
-2. A suggested PR title and brief description
-
-Let the user create the PR themselves.
+Only create a ready-for-review PR or mark an existing draft ready for review when explicitly requested by the user.
 
 ### GitHub Comments
 
