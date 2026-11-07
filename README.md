@@ -52,7 +52,7 @@ stow --no-folding omp --verbose
 stow --no-folding --ignore='(^|/)config\.toml$' codex --verbose
 ```
 
-Shared cross-project preferences live in `omp/.omp/agent/AGENTS.md`, installed as
+Shared global workflow policies live in `omp/.omp/agent/AGENTS.md`, installed as
 `~/.omp/agent/AGENTS.md`. Codex's package contains a relative symlink to that
 same file, installed as `~/.codex/AGENTS.md`. Migrate any existing regular
 `~/.codex/AGENTS.md` before stowing; Stow will not overwrite it.
