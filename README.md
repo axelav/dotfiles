@@ -15,6 +15,16 @@ Use `stow` to install symlinks to your dotfiles:
 
 `stow git gpg <...> --verbose`
 
+### mise trust for Herdr worktrees
+
+Install the managed mise config with `stow mise --verbose` after reconciling
+any existing regular config file.
+
+`mise/.config/mise/config.toml` trusts configs under `~/.herdr/worktrees`,
+including newly created worktrees. Only place repositories you trust there:
+mise configs can execute code. Configs elsewhere still require `mise trust`.
+See [mise's trust-by-path documentation](https://mise.jdx.dev/security.html#trust-by-path).
+
 ### Personal agent skills
 
 `agent-skills` tracks only `personal-software-workflow`, including its agent
