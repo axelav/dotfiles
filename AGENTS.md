@@ -82,9 +82,6 @@ brew bundle install --file ./Brewfile
 
 ## Agent Workflow
 
-### Worktrees
-- Use `.worktrees/` for feature workspaces unless the change is a single line or otherwise very simple.
-
 ### Commits
 - Commit each verified logical unit of work incrementally; commits must be GPG-signed.
 - Use conventional commits: `type(scope): description`, with a concise lowercase description. Valid types: `feat`, `fix`, `chore`, `test`, and `docs`.

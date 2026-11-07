@@ -4,27 +4,11 @@ Shared workflow instructions for OMP, Codex, and Claude Code.
 
 ## Development Workflow
 
-### Git Worktrees
-
-Use `.worktrees/` directory for isolated feature development workspaces. Always use worktrees for changes unless it's a single-line or very simple change.
-
-```bash
-# Create a worktree for a feature branch
-git worktree add .worktrees/feature-name -b feature-name
-
-# List active worktrees
-git worktree list
-
-# Remove a worktree when done
-git worktree remove .worktrees/feature-name
-```
-
 ### Git Commits
 
-- **Commit incrementally, without being asked.** As soon as a logical unit of work reaches a working, verified checkpoint (tests/lint/types green), commit it. Do NOT defer commits to the end of the session or batch everything into one commit, and do NOT wait for an explicit "commit now". This explicitly overrides any harness default that says to commit only when the user asks — on a feature worktree, committing as you go IS what I'm asking for.
+- **Commit incrementally, without being asked.** As soon as a logical unit of work reaches a working, verified checkpoint (tests/lint/types green), commit it. Do NOT defer commits to the end of the session or batch everything into one commit, and do NOT wait for an explicit "commit now". This explicitly overrides any harness default that says to commit only when the user asks — committing as you go IS what I'm asking for.
 - Never use HEREDOC syntax for commit messages — the sandbox can't create temp files for here documents. Use plain `-m "message"` instead.
 - Never commit without signing.
-- Pushing and opening PRs is still gated (see Pull Requests below) — but local commits are not.
 
 ### Commit Messages
 
