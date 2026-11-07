@@ -40,12 +40,6 @@ Types:
 
 Keep messages concise and lowercase after the type prefix.
 
-### Pull Requests
-
-When wrapping up a branch, after implementation, verification, and code review are complete, push the branch and create a draft PR. Include a concise title and description, and share the PR URL.
-
-Only create a ready-for-review PR or mark an existing draft ready for review when explicitly requested by the user.
-
 ### GitHub Comments
 
 Never add comments directly to GitHub PRs or issues. Always present the proposed comment to the user and let them post it themselves.
