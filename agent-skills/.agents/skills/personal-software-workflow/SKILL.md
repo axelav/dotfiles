@@ -16,20 +16,21 @@ One entry point for project-aware ticket planning, implementation tracking, and 
 
 The configured tracker owns implementation status and handoffs. Specifications and PRs stay where repository guidance places them. Keep one implementation backlog; link to existing specifications and PRs instead of duplicating mutable tickets. Apply the remaining Aven-specific steps only within the configured Aven scope. For another tracker, follow its repository workflow without switching it.
 
-## Repository labels in Aven
+## Repository projects and labels in Aven
 
-The shared `software` project contains work from multiple repositories. Every repository-scoped task and epic must carry a `repo-<repository-name>` label, such as `repo-kaizen-web`, `repo-honkytonk-infra`, `repo-interne`, or `repo-dotfiles`.
+Route repository-owned work to its repository project, conventionally named after the checkout, such as `kaizen-web` or `interne`. Keep `software` for general software work, unresolved repository ownership, and genuinely shared cross-repository work. Project organization does not change the repository's authoritative tracker or opt additional implementation work into Aven.
 
-- Establish the repository from explicit task context, specification links, or verified checkout/remote identity. Do not infer it from the shared project, a product mention, or the current directory alone.
-- Reuse the existing repository label. If absent, create it explicitly with `aven label create --workspace <workspace> repo-<repository-name>` before passing `--label` to `aven add` or `aven edit`.
-- Label each task for the repositories its own scope affects. Cross-repository tasks and epics receive every applicable repository label; a child does not automatically inherit all of its epic's labels.
-- Preserve triage and other existing labels. Repository labels supplement them; they do not change project routing, lifecycle status, ownership, or dependencies.
-- On creation, include the repository labels and self-contained affected-repository context. When selecting or resuming work, filter by the repository label and verify the full task scope.
-- When asked to backfill existing tasks, include clearly scoped tasks and epics regardless of status; leave ambiguous or non-repository work unchanged. Preview broad mutations, target only verified tasks, and read back the labels afterward.
+- Establish repository ownership from explicit task context, specification links, or verified checkout/remote identity. A product mention, data source, or current directory alone is not ownership evidence. Keep distinct repositories, such as the `kaizen` vault and `kaizen-web` application, in distinct projects.
+- A cross-repository task with a clear owning project belongs there; retain labels for every affected repository. Keep genuinely shared epics and their children together in `software`, including existing completed migration history, unless a regrouping is explicitly approved.
+- Match project names to checkout names for convenient directory inference. Use explicit project-path mappings for verified checkout paths where needed; account for worktrees when establishing routing. Create projects or change mappings only when authorized, and use explicit workspace/project arguments when inference would be wrong.
+- Every repository-scoped task and epic must retain a `repo-<repository-name>` label, such as `repo-kaizen-web`, `repo-honkytonk-infra`, `repo-interne`, or `repo-dotfiles`. Reuse existing labels; if absent, create them explicitly with `aven label create --workspace <workspace> repo-<repository-name>` before passing `--label` to `aven add` or `aven edit`.
+- Label each task for the repositories its own scope affects. Cross-repository tasks and epics receive every applicable repository label; a child does not automatically inherit all of its epic's labels. Preserve triage and other existing labels.
+- On creation, include repository labels and self-contained affected-repository context. When selecting or resuming work, inspect the owning project and use repository labels to find relevant shared work in `software`; verify the full task scope rather than treating the project as an exhaustive affected-repository filter.
+- Preview broad migrations and target only approved, verified tasks, including completed history when approved. Do not bulk-move everything with a repository label: it may also match shared epics or their children. Preserve task IDs, descriptions, notes, lifecycle status, labels, and relationships; read back project membership and relationships afterward. Leave ambiguous and unrelated work unchanged.
 
 ## Plan tickets
 
-1. Read the full specification and relevant existing tasks, relationships, and handoffs. Check the intended project for duplicates. For a shared project spanning repositories, inspect affected-repository context rather than treating every ready task as this repo's work.
+1. Read the full specification and relevant existing tasks, relationships, and handoffs. Check the intended project for duplicates, and use `--all-projects` to find related or duplicate work in shared and other repository projects. Inspect affected-repository context rather than treating every ready task in `software` as this repo's work.
 2. Propose complete, independently verifiable vertical slices. Give each a title, delivered behavior, and only the blockers that genuinely gate it. Keep code deliverables distinct from live deployment or other operational acceptance gates.
 3. Present the numbered breakdown and ask for approval of granularity and blocking edges. Ticket creation requires the user's request or an approved breakdown; a request to inspect or recommend work is read-only.
 4. Publish approved tickets in blocker-first order with self-contained scope, acceptance criteria, affected repositories, specification links, and blocker references. Use the repository's triage-label mapping and the CLI's actual lifecycle statuses; a readiness label is not a status or proof that blockers are resolved.
