@@ -2,7 +2,7 @@ import { stripVTControlCharacters } from "node:util";
 import { completeSimple } from "@oh-my-pi/pi-ai";
 import { z, type ExtensionAPI, type ExtensionContext } from "@oh-my-pi/pi-coding-agent";
 import { wrapTextWithAnsi } from "@oh-my-pi/pi-tui";
-import { inputHash } from "./input.ts";
+import { inputHash, inputHashes } from "./input.ts";
 
 const summaryEntry = "dotfiles.tool-summaries:summary";
 const enabledEntry = "dotfiles.tool-summaries:enabled";
@@ -15,7 +15,7 @@ const savedSummary = z.object({
   version: z.literal(1),
   toolCallId: z.string().min(1),
   toolName: z.enum(["bash", "eval"]),
-  inputHash: z.string().regex(/^[a-f0-9]{64}$/),
+  inputHashes: z.array(z.string().regex(/^[a-f0-9]{64}$/)).min(1).max(2),
   summary: z.string().min(1).max(600),
 });
 const savedEnabled = z.object({ enabled: z.boolean() });
@@ -31,11 +31,31 @@ function plainSummary(text: string): string {
     .slice(0, 600);
 }
 
+function hashesForCall(ctx: ExtensionContext, id: string, name: string, args: unknown): string[] {
+  const branch = ctx.sessionManager.getBranch();
+  for (let i = branch.length - 1; i >= 0; i--) {
+    const entry = branch[i];
+    if (entry.type !== "message" || entry.message.role !== "assistant") continue;
+    const call = entry.message.content.find((part) => part.type === "toolCall" && part.id === id);
+    if (call?.type === "toolCall") return inputHashes(name, args, call.arguments);
+  }
+  return [inputHash(name, args)];
+}
+
 export default function toolSummaries(pi: ExtensionAPI): void {
   const summaries = new Map<string, Summary>();
   const pending = new Map<string, AbortController>();
   let enabled = true;
   let lastIssue: string | undefined;
+  let resizeContext: ExtensionContext | undefined;
+
+  function resize(): void {
+    const ctx = resizeContext;
+    if (!ctx) return;
+    ctx.setTimeout(() => {
+      if (resizeContext === ctx) ctx.ui.refreshTranscript([...summaries.keys()]);
+    }, 0);
+  }
 
   function cancel(): void {
     for (const controller of pending.values()) controller.abort();
@@ -44,6 +64,8 @@ export default function toolSummaries(pi: ExtensionAPI): void {
 
   function restore(ctx: ExtensionContext): void {
     cancel();
+    process.stdout.off("resize", resize);
+    resizeContext = undefined;
     summaries.clear();
     enabled = true;
     lastIssue = undefined;
@@ -67,6 +89,8 @@ export default function toolSummaries(pi: ExtensionAPI): void {
       }
     }
     if (ctx.mode === "tui" && ctx.agent.kind === "main") {
+      resizeContext = ctx;
+      process.stdout.on("resize", resize);
       ctx.ui.refreshTranscript([...summaries.keys()]);
     }
   }
@@ -75,12 +99,16 @@ export default function toolSummaries(pi: ExtensionAPI): void {
   pi.on("session_switch", (_event, ctx) => restore(ctx));
   pi.on("session_branch", (_event, ctx) => restore(ctx));
   pi.on("session_tree", (_event, ctx) => restore(ctx));
-  pi.on("session_shutdown", cancel);
+  pi.on("session_shutdown", () => {
+    cancel();
+    process.stdout.off("resize", resize);
+    resizeContext = undefined;
+  });
 
   pi.registerTranscriptPresenter((block) => {
     if (block.type !== "toolCall") return undefined;
     const saved = summaries.get(block.id);
-    if (!saved || saved.toolName !== block.toolName || saved.inputHash !== inputHash(block.toolName, block.args)) {
+    if (!saved || saved.toolName !== block.toolName || !saved.inputHashes.includes(inputHash(block.toolName, block.args))) {
       return undefined;
     }
     const label = block.toolName === "bash" ? "Bash" : "Eval";
@@ -103,7 +131,7 @@ export default function toolSummaries(pi: ExtensionAPI): void {
     }
     const controller = new AbortController();
     const sessionId = ctx.sessionManager.getSessionId();
-    const hash = inputHash(toolName, args);
+    const hashes = hashesForCall(ctx, toolCallId, toolName, args);
     pending.set(toolCallId, controller);
     const timer = ctx.setTimeout(() => controller.abort(), timeoutMs);
     try {
@@ -128,7 +156,7 @@ export default function toolSummaries(pi: ExtensionAPI): void {
         lastIssue = "Summary model returned no text; original tool display retained.";
         return;
       }
-      const saved: Summary = { version: 1, toolCallId, toolName, inputHash: hash, summary };
+      const saved: Summary = { version: 1, toolCallId, toolName, inputHashes: hashes, summary };
       pi.appendEntry(summaryEntry, saved);
       summaries.set(toolCallId, saved);
       lastIssue = undefined;

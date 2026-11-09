@@ -90,9 +90,11 @@ authenticated `tiny` role (`openai-codex/gpt-6-luna:low`).
 Descriptions run asynchronously; they never delay or replace tool execution.
 Collapsed cards show intended actions, not verified outcomes or safety judgments.
 Press `Ctrl+O` to see the original commands and results. Errors remain marked
-as failed. Saved descriptions are custom session entries, not model context;
-resume restores them without generating them again. OMP runtime state remains
-outside this repository; the package's Stow ignore rule excludes `config.yml.lock`.
+as failed. Descriptions reflow when the terminal is resized. Saved descriptions
+are custom session entries, not model context; resume restores them without
+regenerating them, including calls whose arguments OMP coerced during execution.
+OMP runtime state remains outside this repository; the package's Stow ignore
+rule excludes `config.yml.lock`.
 
 - `/tool-summaries`: status, selected model, pending/saved counts, and last issue.
 - `/tool-summaries off`: cancel requests; saved descriptions remain visible.

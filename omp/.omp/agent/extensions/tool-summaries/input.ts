@@ -18,3 +18,10 @@ export function inputHash(toolName: string, args: unknown): string {
     .update(`${toolName}\0${JSON.stringify(canonical(executableArgs)) ?? "null"}`)
     .digest("hex");
 }
+
+/** Keep both host-provided representations rather than duplicating its coercion rules. */
+export function inputHashes(toolName: string, executionArgs: unknown, transcriptArgs: unknown): string[] {
+  const execution = inputHash(toolName, executionArgs);
+  const transcript = inputHash(toolName, transcriptArgs);
+  return execution === transcript ? [execution] : [execution, transcript];
+}
