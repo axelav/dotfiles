@@ -92,7 +92,7 @@ Collapsed cards show intended actions, not verified outcomes or safety judgments
 Press `Ctrl+O` to see the original commands and results. Errors remain marked
 as failed. Saved descriptions are custom session entries, not model context;
 resume restores them without generating them again. OMP runtime state remains
-outside this repository.
+outside this repository; the package's Stow ignore rule excludes `config.yml.lock`.
 
 - `/tool-summaries`: status, selected model, pending/saved counts, and last issue.
 - `/tool-summaries off`: cancel requests; saved descriptions remain visible.
