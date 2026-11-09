@@ -69,6 +69,44 @@ to close it. `Ctrl+Space`, then `Ctrl+G`, opens lazygit in the same style.
 
 [source](https://stevenrbaker.com/tech/managing-dotfiles-with-gnu-stow.html)
 
+## OMP tool summaries
+
+The native extension in `omp/.omp/agent/extensions/tool-summaries/` describes
+long built-in Bash and Eval calls in the main interactive transcript. Install
+with `stow --no-folding --target="$HOME" omp --verbose`, then restart OMP.
+`config.yml` enables `extensionRenderers.transcriptPresenters` and selects the
+authenticated `tiny` role (`openai-codex/gpt-6-luna:low`).
+
+Descriptions run asynchronously; they never delay or replace tool execution.
+Collapsed cards show intended actions, not verified outcomes or safety judgments.
+Press `Ctrl+O` to see the original commands and results. Errors remain marked
+as failed. Saved descriptions are custom session entries, not model context;
+resume restores them without generating them again. OMP runtime state remains
+outside this repository.
+
+- `/tool-summaries`: status, selected model, pending/saved counts, and last issue.
+- `/tool-summaries off`: cancel requests; saved descriptions remain visible.
+- `/tool-summaries on`: enable requests for subsequent eligible calls.
+
+Requests are on for new interactive sessions; the on/off choice is saved on the
+current session branch. Only scripts of at least 150 characters are eligible.
+The extension sends up to 24,000 serialized input characters, runs at most two
+requests concurrently, and aborts requests after eight seconds. Short,
+oversized, busy, failed, or unavailable-model calls keep native rendering.
+There is no backfill or model/provider fallback. Subagents and non-interactive
+sessions do not generate descriptions.
+
+**Privacy and quota:** full execution arguments, including inline credentials
+or private code, go to the `tiny` model and consume its provider quota or incur
+API charges. Tool results and conversation history are not sent. Turn requests
+off before sensitive work; cancellation cannot retract data already sent.
+
+Fingerprint regression checks (Node.js 24+):
+
+```sh
+node --experimental-strip-types --test tests/omp/tool-summary-input.test.ts
+```
+
 ## Herdr PR status
 
 [Spaces PR Status](https://github.com/jmarbutt/herdr-spaces-pr-status) adds PR
