@@ -21,7 +21,7 @@ rows = [["state_icon", "workspace", "state_text"], ["terminal_title_stripped"]]
 delivery = "herdr"
 
 [ui.sound]
-enabled = false
+enabled = true
 
 [keys]
 prefix = "ctrl+space"
