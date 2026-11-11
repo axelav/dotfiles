@@ -38,3 +38,8 @@ codexResets:
   autoRedeem: "yes"
 update:
   auto: true
+retry:
+  fallbackOn: usage-limit
+  fallbackChains:
+    openai-codex/*:
+      - openai/*
