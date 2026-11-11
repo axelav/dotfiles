@@ -27,15 +27,17 @@ See [mise's trust-by-path documentation](https://mise.jdx.dev/security.html#trus
 
 ### Personal agent skills
 
-`agent-skills` tracks only `personal-software-workflow`, including its agent
-metadata. Third-party and agent-managed skills remain externally installed.
+`agent-skills` tracks `personal-software-workflow`, `pr-review`,
+`pr-review-comments`, `branch-review`, and `branch-closeout`, including their
+supporting files and agent metadata. Third-party and other agent-managed skills
+remain externally installed.
 Install the package from this checkout with an explicit home target:
 
 ```sh
 stow --no-folding --target="$HOME" agent-skills --verbose
 ```
 
-OMP discovers the skill through `~/.agents/skills/`. No additional agent-specific
+OMP discovers these skills through `~/.agents/skills/`. No additional agent-specific
 links are installed. No-folding keeps the destination directories real so
 third-party skills can coexist. Edit and add files under
 `agent-skills/.agents/skills/` in this repository; new files created directly in

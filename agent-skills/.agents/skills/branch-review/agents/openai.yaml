@@ -1,0 +1,3 @@
+interface:
+  display_name: "Branch Review"
+  short_description: "Independent exact-head pre-PR review"
