@@ -139,6 +139,12 @@ The refresh action is one-shot; the startup hook starts automatic polling on
 the next normal Herdr server start. Polling defaults to every 90 seconds.
 Default branches and spaces without PRs have no extra status rows.
 
+The sidebar keeps compact PR symbols and applies Catppuccin colors through
+Herdr's native token rules in `herdr/.config/herdr/config.toml`: green for
+passing checks/approval, yellow for pending checks/review, red for failures or
+requested changes, purple for merged PRs, and gray for draft/closed PRs.
+Failures are bold. Thread counts retain their default styling.
+
 Settings live in
 `herdr/.config/herdr/plugins/config/jmarbutt.spaces-pr-status/config.json`.
 Notifications are disabled for a quiet sidebar. `openPrLimit` is 20 because
