@@ -45,7 +45,7 @@ function hashesForCall(ctx: ExtensionContext, id: string, name: string, args: un
 export default function toolSummaries(pi: ExtensionAPI): void {
   const summaries = new Map<string, Summary>();
   const pending = new Map<string, AbortController>();
-  let enabled = true;
+  let enabled = false;
   let lastIssue: string | undefined;
   let resizeContext: ExtensionContext | undefined;
 
@@ -67,7 +67,7 @@ export default function toolSummaries(pi: ExtensionAPI): void {
     process.stdout.off("resize", resize);
     resizeContext = undefined;
     summaries.clear();
-    enabled = true;
+    enabled = false;
     lastIssue = undefined;
     for (const entry of ctx.sessionManager.getEntries()) {
       if (entry.type !== "custom") continue;

@@ -102,8 +102,9 @@ rule excludes `config.yml.lock`.
 - `/tool-summaries off`: cancel requests; saved descriptions remain visible.
 - `/tool-summaries on`: enable requests for subsequent eligible calls.
 
-Requests are on for new interactive sessions; the on/off choice is saved on the
-current session branch. Only scripts of at least 150 characters are eligible.
+Requests are off for new interactive sessions; enable them with
+`/tool-summaries on`. The on/off choice is saved on the current session branch
+and restored when resuming it. Only scripts of at least 150 characters are eligible.
 The extension sends up to 24,000 serialized input characters, runs at most two
 requests concurrently, and aborts requests after eight seconds. Short,
 oversized, busy, failed, or unavailable-model calls keep native rendering.
