@@ -41,11 +41,11 @@ If the line cannot be confirmed, say so; never guess a number.
 
 ## 3. Draft the comments
 
-Write as a peer reviewer, in the user's voice, without mentioning AI or the review tooling.
+Write as a peer reviewer, in the user's voice, without mentioning AI or the review tooling. These are inline PR comments, not mini review reports: default to 1–2 short sentences. Add detail only when necessary to make the risk or fix clear. Skip preambles, repetition of the code or finding title, and background the diff already makes obvious.
 
-**Findings:** one comment per finding. Lead with the concrete problem in one sentence, then the reachable scenario and its impact, then the fix. Use a GitHub `suggestion` block only when the fix is a small, exact replacement of the anchored lines; otherwise describe the change or show a short snippet. Keep severity labels out unless it is blocking — then start with `**Blocking:**`.
+**Findings:** one comment per finding. State the concrete problem and consequence concisely; include the triggering condition only when it is not obvious from the anchor. Add a brief fix or question when useful, not a mandatory problem/scenario/impact/fix breakdown. Use a GitHub `suggestion` block only for a small, exact replacement of the anchored lines; do not repeat the suggestion in prose. Keep severity labels out unless it is blocking — then start with `**Blocking:**`.
 
-**Human decisions:** phrase as a question or a choice that needs an owner, with the trade-off in one line. Anchor inline when it is about specific code; otherwise put it in the review summary. For an existing unresolved human thread, draft a reply for that thread (name the thread author and location) instead of a new comment, and only if there is something to add.
+**Human decisions:** ask one short question or present a choice that needs an owner; include the trade-off only if needed to decide. Anchor inline when it is about specific code; otherwise put it in the review summary. For an existing unresolved human thread, draft a reply for that thread (name the thread author and location) instead of a new comment, and only if there is something to add.
 
 **Review summary:** a short optional top-level body naming the blocking findings and open decisions, and a suggested review state (`Request changes` when any finding is blocking, otherwise `Comment`).
 
