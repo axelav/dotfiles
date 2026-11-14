@@ -28,9 +28,9 @@ See [mise's trust-by-path documentation](https://mise.jdx.dev/security.html#trus
 ### Personal agent skills
 
 `agent-skills` tracks `personal-software-workflow`, `pr-review`,
-`pr-review-comments`, `branch-review`, and `branch-closeout`, including their
-supporting files and agent metadata. Third-party and other agent-managed skills
-remain externally installed.
+`pr-review-comments`, `branch-review`, `branch-closeout`, and `music-picker`,
+including their supporting files and agent metadata. Third-party and other
+agent-managed skills remain externally installed.
 Install the package from this checkout with an explicit home target:
 
 ```sh
@@ -43,6 +43,14 @@ third-party skills can coexist. Edit and add files under
 `agent-skills/.agents/skills/` in this repository; new files created directly in
 the installed directories are not automatically tracked. Existing regular files
 at the destination must be reconciled before stowing.
+
+`music-picker` chooses an album from `~/kaizen`'s dated listening entries, with
+a source link. Ask for a mood or genre (`pick some chill rock`), refine the
+last pick (`more chill`), or filter by a recorded rating
+(`a 5 rating ambient techno record`). It reads the journal blocks and linked
+original entries, not just the album indexes; it never logs listens or changes
+ratings. It searches across the listening history and keeps refinements in the
+conversation, with no extra service or generated index.
 
 ### Agent and terminal configuration
 

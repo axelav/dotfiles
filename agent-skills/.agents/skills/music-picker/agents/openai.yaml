@@ -1,0 +1,3 @@
+interface:
+  display_name: "Music picker"
+  short_description: "Pick logged albums by mood, energy, genre, or rating"
