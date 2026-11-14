@@ -13,6 +13,9 @@ contains local constraints; task-specific skills contain workflow procedures.
 
 ## Code and tools
 
+- Use a dedicated Git worktree for repository changes by default. Create or reuse
+  one before editing; do not work in the primary checkout unless I explicitly
+  instruct otherwise.
 - Commit verified logical units incrementally without waiting for a separate
   request. Sign every commit.
 - Use concise, lowercase Conventional Commit messages: `type(scope): description`.
