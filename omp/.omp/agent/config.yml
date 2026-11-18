@@ -1,11 +1,11 @@
 defaultThinkingLevel: medium
 modelRoles:
-  slow: openai-codex/gpt-6-astra:xhigh
+  slow: openai-codex/gpt-6.2-astra:xhigh
   tiny: openai-codex/gpt-6-luna:low
   advisor: openai-codex/gpt-6-luna:medium
   smol: openai-codex/gpt-6-luna:off
   web: openai-codex/gpt-6-luna:medium
-  default: openai-codex/gpt-6.1-sol:high
+  default: openai-codex/gpt-6.2-sol:high
 extensionRenderers:
   transcriptPresenters: true
 dev:
