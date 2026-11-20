@@ -44,13 +44,15 @@ third-party skills can coexist. Edit and add files under
 the installed directories are not automatically tracked. Existing regular files
 at the destination must be reconciled before stowing.
 
-`music-picker` chooses an album from `~/kaizen`'s dated listening entries, with
-a source link. Ask for a mood or genre (`pick some chill rock`), refine the
+`music-picker` defaults to albums from `~/kaizen`'s dated listening entries,
+with a source link. Ask for a mood or genre (`pick some chill rock`), refine the
 last pick (`more chill`), or filter by a recorded rating
 (`a 5 rating ambient techno record`). It reads the journal blocks and linked
 original entries, not just the album indexes; it never logs listens or changes
-ratings. It searches across the listening history and keeps refinements in the
-conversation, with no extra service or generated index.
+ratings. It keeps refinements in the conversation without a generated index.
+It can also search the web when asked (`search the web for chill rock`) or
+when it finds no suitable logged match. Web picks cite public sources and never
+stand in for a recorded rating or listen. Say `from my history only` to opt out.
 
 ### Agent and terminal configuration
 

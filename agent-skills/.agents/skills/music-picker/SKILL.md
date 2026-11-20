@@ -1,12 +1,12 @@
 ---
 name: music-picker
-description: Pick an album from Axel's Kaizen listening history by mood, genre, energy, atmosphere, or recorded numerical rating. Use for requests like "pick some chill rock", "more chill", "something I've loved", or "a 5 rating ambient techno record". Ground picks in dated listening entries, not generic recommendations.
+description: Pick an album by mood, genre, energy, atmosphere, or recorded numerical rating. Default to Axel's dated Kaizen listening history; search the web for suggestions when asked or when no suitable logged match is found.
 argument-hint: "[mood, genre, energy, and/or rating]"
 ---
 
 # Music picker
 
-Choose one album the user has actually logged listening to. Read-only: do not edit the vault, log a listen, change ratings, start playback, or update tasks. A recommendation is not a listen or a confirmed preference.
+Choose one album, favoring verified listening history unless the user asks for web suggestions. Read-only: do not edit the vault, log a listen, change ratings, start playback, or update tasks. A recommendation is not a listen or a confirmed preference.
 
 ## 1. Interpret the request
 
@@ -16,10 +16,11 @@ Extract mood/atmosphere, genre, intensity, vocals/instrumental preference, and a
 - Treat mood and intensity as distinct from genre and quality. A highly rated rock album can still be too lively for "chill rock".
 - For refinements such as "more chill", retain the previous constraints, exclusions, evidence, and shortlist. Compare against the last pick and user feedback; change the requested dimension rather than restarting a broad search. New explicit instructions override earlier constraints.
 - A rejected pick remains excluded for that request. Feedback about one mood is not a global dislike of the album.
+- Honor source constraints: "from my history" and "no web" rule out external suggestions. An explicit web request can go straight to web search unless verifying a personal condition requires checking the log.
 
 ## 2. Search the actual listening history
 
-Default vault: `/Users/axelav/kaizen`. Use a different location only when supplied or verified. Check that it is accessible; if unavailable, say so rather than substituting generic recommendations.
+Default vault: `/Users/axelav/kaizen`. Use a different location only when supplied or verified. If the vault is unavailable, say that the history could not be checked. Unavailable history is not a no-match result; browse in that case only if explicitly requested.
 
 The history is in root-level `YYYY-MM-DD.md` journals, primarily under `### listening`. `pages/listening.md` and `pages/albums.md` are navigation indexes, not evidence that an album was heard. Artist pages, lists, articles, and mentions elsewhere in a journal are only discovery leads.
 
@@ -53,14 +54,21 @@ First satisfy explicit filters and exclusions. Among eligible albums, prioritize
 
 Separate what the log proves from your recommendation judgment. Tags establish recorded categorization, not necessarily the sound of every track. Album-specific musical knowledge may inform "I’d pick this for its quieter, spacious feel"; do not present that as the user's own description unless the entry says it. If unfamiliar with the album and the notes do not establish fit, acknowledge that uncertainty or choose a better-supported candidate.
 
-If no verified album satisfies a hard filter, say so without claiming an exhaustive search unless you performed one. Offer one specific relaxation as a question; do not quietly recommend an ineligible album. Do not browse external recommendation services or send journal excerpts to them. Only use external sources if the user explicitly requests them, and never substitute their ratings for the user's.
+## 4. Search the web when requested or when history has no suitable match
 
-## 4. Answer concisely
+Use web search when explicitly requested or when a targeted search across the accessible listening history, including related terms, finds no suitable logged match. Do not browse on a default request with a suitable logged pick. A history-only request never gets an external substitute.
+
+Keep all hard filters and exclusions. Public sources cannot establish a personal rating, a past listen, or a favorite; verify such conditions in the journal even for a web-sourced candidate. If no verified album satisfies a hard filter and a web suggestion cannot satisfy it either, report that without claiming an exhaustive search and offer one specific relaxation as a question.
+
+Build queries from the requested musical criteria and public artist or album names supplied by the user. Do not send private journal text, ratings, dates, or vault paths. Use a source that supports the pick, such as an artist or label release page or a review that describes its sound. If search is unavailable or yields no supported fit, say so rather than passing off a guess as a sourced pick.
+
+## 5. Answer concisely
 
 Default: one pick, roughly 2–4 short lines. Give alternatives only when asked.
 
 - **Artist — *Album* (year, if verified).** One concrete sentence explaining the mood/intensity fit, phrased as recommendation judgment.
-- **Logged evidence:** verified rating when relevant and a clickable Markdown link to the supporting dated journal, using its absolute local `file://` URL. Include the exact `#^block-id` fragment when one exists; never invent an anchor. Cite a second dated entry only when making a repeat-listen claim.
+- **Logged pick:** give the verified rating when relevant and a clickable Markdown link to the supporting dated journal, using its absolute local `file://` URL. Include the exact `#^block-id` fragment when one exists; never invent an anchor. Cite a second dated entry only when making a repeat-listen claim.
+- **Web suggestion:** label it as such and link to the supporting public source. For a fallback, briefly say no suitable logged match was found. Do not claim the user has or hasn't heard it, or give it a personal rating, without journal evidence. If the pick also meets a verified personal condition, cite the journal separately.
 - For a refinement, explain the relevant difference from the previous pick in that same short rationale. Avoid search narration and a generic artist biography.
 
 Do not say "you loved it", "you rated it 5", "you listened again", or "you said exactly right" without the corresponding evidence. Label an unrecorded rating as unknown rather than filling it in. Current conversational feedback can guide the next pick, but is not automatically written to the listening history.
