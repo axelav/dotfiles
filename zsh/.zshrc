@@ -83,8 +83,8 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-# Make Docker completions available to Oh My Zsh's single compinit call.
-fpath=(/Users/axelav/.docker/completions $fpath)
+# OrbStack CLI tools; its completions must join fpath before Oh My Zsh's single compinit call.
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
