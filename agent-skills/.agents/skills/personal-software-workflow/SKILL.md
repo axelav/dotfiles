@@ -44,7 +44,8 @@ Route repository-owned work to its repository project, conventionally named afte
 3. Once authorized to implement, mark your selected task active and follow the repository's normal engineering process. Do not start coding when the user only requested planning, inspection, or a recommendation.
 4. Exercise every acceptance criterion at the appropriate boundary. Run the changed behavior and observe its result; tests or compilation alone do not prove browser behavior, native runtime integration, private ingress, publication, or deployment. Preserve execution-time approval gates for disruptive operations.
 5. Leave a durable note with implementation decisions, observed verification, PR URLs, and any remaining blockers or next action. Distinguish what ran from what remains unverified. Keep secrets and transient scratch work out of tracker notes.
-6. Mark the task done only when its acceptance criteria pass. If incomplete, record the exact outstanding work without claiming completion. Complete an epic only when its whole outcome is verified, not merely because planning or one child finished.
+6. Mark the task done only after its acceptance criteria pass and every required PR is confirmed merged in the code-review system. A PR that is open, approved, or closed without merging does not satisfy this gate. Until both conditions hold, leave the task open and record what remains in the handoff. The merge requirement does not authorize the agent to merge a PR.
+7. Complete an epic only when its whole outcome is verified, not merely because planning or one child finished.
 
 ## Resume or recommend work
 
